@@ -4,5 +4,13 @@
 }
 
 :root {
-  
+  --amarelo: #edaa25;
+  --azul-marinho: #010221;
+  --cinza: #b7bf99;
+  --teal: #0a7373;
+  --terracota: #c43302;
+
+  --fonte-nome: 'Yeseva One', cursive;
+  --fonte-corpo: 'Crimson Pro', serif;
+  --fonte-detalhes: 'Josefin Sans', sans-serif;
 }
