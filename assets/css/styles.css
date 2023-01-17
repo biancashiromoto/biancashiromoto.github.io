@@ -10,7 +10,8 @@
   --teal: #0a7373;
   --terracota: #c43302;
 
-  --fonte-nome: 'Yeseva One', cursive;
+  --fonte-titulo: 'Yeseva One', cursive;
+  --fonte-subtitulo: 'Bebas Neue', cursive;
   --fonte-corpo: 'Crimson Pro', serif;
   --fonte-detalhes: 'Josefin Sans', sans-serif;
 }
