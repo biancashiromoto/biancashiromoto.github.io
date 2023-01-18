@@ -43,13 +43,18 @@
         }
 
         li {
-            list-style-type: disc;
             margin-left: 2rem;
+        }
+
+        .container__links {
+            text-align: center;
         }
 
         .lista-links > li {
             list-style-type: none;
             margin: 0;
+            display: inline-block;
+            margin: 2rem;
         }
 
         #foto-perfil {
@@ -62,22 +67,38 @@
             margin-bottom: 2rem;
         }
 
-       .container__foto, .container__sobre-mim {
-            display: inline-block;
-            width: 45%;
+     .container__sobre-mim {
+        display: inline-block;
+        width: 50%;
+    }
+    
+    .container__foto {
+        background-color: #c38370;
+        padding: 2rem 0;
+        margin: 0 2rem 1rem 2rem;
+        text-align: center;
+        display: inline-block;
+        width: 40%;
        }
 
-       .container__foto {
-            background-color: lightsalmon;
-            padding: 2rem 0;
-            margin: 0 2rem 1rem 2rem;
+       .container__blog {
+            font-size: 2rem;
             text-align: center;
+            margin: 2rem 0;
+       }
+
+       .container__lista-habilidades {
+        margin-left: 2rem;
+       }
+
+       ol > li:nth-child(odd) {
+        font-weight: 800;
        }
 
     </style>
 </head>
 <body>
-    <nav>
+    <nav class="container__links">
         <ul class="lista-links">
             <li><a href="#foto-perfil">Foto de perfil</a></li>
             <li><a href="#sobre-mim">Sobre mim</a></li>
@@ -106,20 +127,20 @@
     <div class="container__lista-habilidades">
         <h3 id="lista-habilidades">Lista de habilidades:</h3>
         <h4>Soft-skills:</h4>
-        <ul>
+        <ol>
             <li class="lista__item">Criatividade</li>
             <li class="lista__item">Cooperatividade</li>
             <li class="lista__item">Empatia</li>
             <li class="lista__item"><em>Organização</em></li>
             <li class="lista__item">Pontualidade</li>
-        </ul>
+        </ol>
         <h4>Hard-skills:</h4>
-        <ul>
+        <ol>
             <li class="lista__item">Git & GitHub</li>
             <li class="lista__item">HTML5</li>
             <li class="lista__item">CSS3</li>
             <li class="lista__item">Inglês</li>
-        </ul>
+        </ol>
     </div>
 </body>
 </html>
