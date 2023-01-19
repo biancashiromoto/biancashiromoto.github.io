@@ -15,3 +15,87 @@
   --fonte-corpo: 'Josefin Sans', sans-serif;
   --fonte-detalhes: 'Crimson Pro', serif;
 }
+
+body {
+  background-color: #b7bf99;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+h1 {
+  font: 2.5rem 'Bebas Neue', cursive;
+  letter-spacing: .25rem;
+}
+
+h2 {
+  font: 300 1.5rem 'Josefin Sans', sans-serif;
+  letter-spacing: .125rem;
+}
+
+h3 {
+  font: 1.5rem 'Yeseva One', cursive;
+}
+
+h4 {
+  font: 1.5rem 'Crimson Pro', serif;
+}
+
+.lista__item, p, nav {
+  font: 200 1.25rem 'Josefin Sans', sans-serif;
+}
+
+li {
+  margin-left: 2rem;
+}
+
+.container__links {
+  text-align: center;
+}
+
+.lista-links > li {
+  list-style-type: none;
+  margin: 0;
+  display: inline-block;
+  margin: 2rem;
+}
+
+#foto-perfil {
+  border-radius: 100%;
+  width: 30%;
+}
+
+.container__nome-nacionalidade {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.container__sobre-mim {
+display: inline-block;
+width: 50%;
+}
+
+.container__foto {
+background-color: #c38370;
+padding: 2rem 0;
+margin: 0 2rem 1rem 2rem;
+text-align: center;
+display: inline-block;
+width: 40%;
+}
+
+.container__blog {
+  font-size: 2rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.container__lista-habilidades {
+margin-left: 2rem;
+}
+
+ol > li:nth-child(odd) {
+font-weight: 800;
+}
