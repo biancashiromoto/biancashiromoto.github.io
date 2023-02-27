@@ -62,7 +62,7 @@ h2 {
   content: url(/assets/img/icons8-menu-32.svg);
 }
 
-.nav-menu-container {
+.nav-menu-container, .nav-menu, .menu-list {
   display: none;
   position: absolute;
   top: 55px;
