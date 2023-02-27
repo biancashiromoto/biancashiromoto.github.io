@@ -120,8 +120,7 @@ li {
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
-  padding-top: 2rem;
+  margin-top: 5%;
   width: 90%;
 }
 
@@ -140,7 +139,7 @@ h3 {
 }
 
 p {
-  font: 1.25rem var(--text-font);
+  font: 1.125rem var(--text-font);
   line-height: 50px;
   padding-bottom: 0.75rem;
 }
