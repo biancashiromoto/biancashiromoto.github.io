@@ -9,7 +9,7 @@
   --dark-blue: #283649;
   --blue: #436573;
   --medium-blue: #436573;
-  --light-green: #AEB8B4;
+  --lightest-gray: #c1c1c1;
   --coral: #CC6868;
   --pink: #EBC0D5;
   --white: #f8f8f2;
@@ -25,11 +25,14 @@
 
 body {
   background-color: var(--black);
-  color: var(--light-green);
+  color: var(--lightest-gray);
 }
 
 header {
+  align-items: center;
   background-color: var(--light-gray);
+  display: flex;
+  height: 55px;
   position: fixed;
   width: 100%;
   z-index: 1;
@@ -37,6 +40,7 @@ header {
 
 h2 {
   font: 400 1.25rem var(--title-font);
+  line-height: 40px;
   width: 85%;
 }
 
@@ -52,8 +56,10 @@ h2 {
   width: 25%;
 }
 
-nav {
+.nav-menu-container {
   display: none;
+  position: absolute;
+  top: 55px;
 }
 
 ul {
@@ -98,8 +104,13 @@ li {
 
 #profile-pic {
   border-radius: 50%;
-  margin-top: 10px;
-  width: 75%;
+  margin-top: 3rem;
+  width: 65%;
+}
+
+.intro-text {
+  display: flex;
+  flex-direction: column;
 }
 
 .about-me-container {

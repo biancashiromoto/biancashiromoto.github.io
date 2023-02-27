@@ -1,9 +1,9 @@
 const menuBtn = document.querySelector('#menu-btn');
-const navMenu = document.getElementsByTagName('nav')[0];
+const navMenu = document.querySelector('.nav-menu-container');
 const listItem = document.querySelectorAll('.list-item');
 
 const showNavMenu = () => {
-  navMenu.style.display = 'flex';
+  navMenu.style.display = 'block';
 }
 
 const hideNavMenu = () => {
