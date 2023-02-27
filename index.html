@@ -1,60 +1,52 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,800;0,900;1,600&family=Josefin+Sans:wght@300;400;600&family=Yeseva+One&display=swap&family=Bebas+Neue" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <title>Portfolio Web</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bianca Shiromoto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Calistoga&family=Roboto+Slab:wght@300;400;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <header class="container__links">
-        <ul class="lista-links">
-            <li><a href="#foto-perfil">Foto de perfil</a></li>
-            <li><a href="#sobre-mim">Sobre mim</a></li>
-            <li><a href="#lista-habilidades">Lista de habilidades</a></li> 
-        </ul>
-    </header>
-
-    <div class="container__nome-nacionalidade">
-        <h1>Bianca P. Shiromoto</h1>
-        <h2>Brasileira | São Paulo/SP</h2>
-    </div>
-    <div class="container__foto--sobre-mim">
-        <div class="container__foto">
-            <img src="assets/img/foto-perfil_.png" alt="Foto de perfil atualizada de Bianca P. Shiromoto" id="foto-perfil">
-        </div>
-        <div class="container__sobre-mim">
-            <h3 id="sobre-mim">Sobre mim:</h3>
-            <p>Sou formada em Medicina Veterinária pela Faculdade de Medicina Veterinária e Zootecnia da Unesp, <i>campus</i> de Botucatu (2015), e fiz residência em Anestesiologia Veterinária pela mesma instituição (2016). Tenho pós-graduação em Medicina Veterinária Intensiva pelo Programa de Aprimoramento Veterinário - PAV (2020).</p>
-            <p>Em setembro de 2022 optei por realizar uma minha transição de carreira e em janeiro de 2023 iniciei o curso de Desenvolvimento <i>Web</i> na Trybe!</p>
-        </div>
-    </div>
-        <div class="container__blog">
-            <p>Um dos blogs que gosto de seguir é o <a href="https://georgerrmartin.com/notablog/" target="_blank"><i><b>Not a blog</b></i></a>, do escritor, roteirista e produtor George R. R. Martin.</p>
-        </div>
-
-    <div class="container__lista-habilidades">
-        <h3 id="lista-habilidades">Lista de habilidades:</h3>
-        <h4>Soft-skills:</h4>
-        <ol>
-            <li class="lista__item">Criatividade</li>
-            <li class="lista__item">Cooperatividade</li>
-            <li class="lista__item">Empatia</li>
-            <li class="lista__item"><em>Organização</em></li>
-            <li class="lista__item">Pontualidade</li>
-        </ol>
-        <h4>Hard-skills:</h4>
-        <ol>
-            <li class="lista__item">Git & GitHub</li>
-            <li class="lista__item">HTML5</li>
-            <li class="lista__item">CSS3</li>
-            <li class="lista__item">Inglês</li>
-        </ol>
-    </div>
+  <header>
+    <button id="menu-btn">
+      <!-- <img src="assets/img/menu-icon.svg" alt="Ícone de menu" id="menu-icon"> -->
+    </button>
+    <h1>Bianca P. Shiromoto</h1>
+  </header>
+  <article class="nav-menu-container">
+    <nav class="nav-menu">
+      <ul class="menu-list">
+        <li class="list-item github"><a target="_blank" href="https://github.com/biancashiromoto">GitHub</a></li>
+        <li class="list-item linkedin"><a target="_blank" href="https://www.linkedin.com/in/bshiromoto/">LinkedIn</a></li>
+        <li class="list-item projects"><a target="_blank" href="#">Projetos</a></li>
+      </ul>
+    </nav>
+  </article>
+  <main>
+    <article class="intro-container">
+      <section class="intro-text">
+        <h2>Olá!</h2>
+        <h2>Meu nome é Bianca, moro em São Paulo/SP e atualmente estou em transição de carreira para a área de Desenvolvimento Web.</h2>
+      </section>
+      <img src="assets/img/foto-perfil_.png" alt="Foto de Bianca Shiromoto" id="profile-pic">
+    </article>
+    <article class="about-me-container">
+      <h3>Sobre mim:</h3>
+      <p>Nasci em São Paulo/SP e aos 17 anos me mudei para Botucatu, no interior de São Paulo, para cursar Medicina Veterinária na Unesp.</p>
+      <p>Lá me formei e fiz residência em Anestesiologia Veterinária. Voltei para São Paulo em 2019, e em 2020 concluí minha pós-graduação em Medicina Veterinária Intensiva.</p>
+      <p>Estas experiências me permitiram desenvolver pontos como organização, trabalho em equipe e sob pressão, comunicação assertiva, empatia e resiliência.</p>
+      <p>Atualmente moro em São Paulo e sou tutora de três gatos: Francisco, Diego e Joaquim (ou Quinzinho).</p>
+      <p>Busco na programação uma forma de trabalhar que me traga estabilidade emocional e financeira e a oportunidade de crescer profissionalmente respeitando os meus valores e trabalhando com algo que faça sentido para mim.</p>
+      <p>No meu tempo livre gosto de ler, ouvir podcasts, assistir séries e filmes e me aventurar em artesanatos, como marcenaria.</p>
+    </article>
+  </main>
+  <footer>
+    <img id="cat-gif" src="/assets/img/rolling-cat-cat-rolling.gif" alt="Gif de um gato girando">
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>

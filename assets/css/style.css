@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+
+  --light-blue: #C7E6EB;
+  --dark-blue: #283649;
+  --blue: #436573;
+  --medium-blue: #436573;
+  --lightest-gray: #c1c1c1;
+  --coral: #CC6868;
+  --pink: #EBC0D5;
+  --white: #f8f8f2;
+  --black: #000;
+  --gray: #272729;
+  --light-gray: #414141;
+
+  --title-font: 'Calistoga', cursive;
+  --text-font: 'Roboto', sans-serif;
+  --subtitle-font: 'Roboto Condensed', sans-serif;
+
+}
+
+body {
+  background-color: var(--black);
+  color: var(--lightest-gray);
+}
+
+header {
+  align-items: center;
+  background-color: var(--light-gray);
+  display: flex;
+  height: 55px;
+  margin: 0 0.25rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+h1 {
+  font: 400 1rem 'Arial';
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+h2 {
+  font: 400 1.125rem var(--title-font);
+  line-height: 40px;
+  width: 85%;
+}
+
+#menu-btn {
+  background-color: unset;
+  border: none;
+  display: flex;
+  padding: 0 2rem 0 1rem;
+}
+
+#menu-btn::before {
+  content: url(/assets/img/icons8-menu-32.svg);
+}
+
+.nav-menu-container {
+  display: none;
+  position: absolute;
+  top: 55px;
+}
+
+ul {
+  background-color: var(--light-gray);
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  padding-left: .5rem;
+}
+
+li {
+  align-items: center;
+  display: flex;
+  padding: 0.25rem 0.5rem;
+}
+
+.github::before {
+  content: url(/assets/img/icons8-github-24.svg);
+}
+
+.linkedin::before {
+  content: url(/assets/img/icons8-linkedin-circled-24.svg);
+}
+
+.projects::before {
+  content: url(/assets/img/icons8-bookmark-24.svg);
+}
+
+.intro-container {
+  align-items: center;
+  background-image: url(/assets/img/sl_0210121_40570_53.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  text-align: center;
+}
+
+#profile-pic {
+  border-radius: 50%;
+  margin-top: 2rem;
+  width: 65%;
+}
+
+.intro-text {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  width: 90%;
+}
+
+.about-me-container {
+  display: block;
+  margin: 0 auto;
+  padding: 2rem 0 1rem 0;
+  width: 80%;
+}
+
+h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+  font: 400 1.75rem var(--title-font);
+}
+
+p {
+  font: 1.25rem var(--text-font);
+  line-height: 50px;
+  padding-bottom: 0.75rem;
+}
+
+footer {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0 2rem 0;
+}
+
+#cat-gif {
+  width: 10%;
+} 
+
+
+
+
+
