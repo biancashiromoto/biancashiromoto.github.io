@@ -31,6 +31,7 @@
 body {
   background-color: var(--black);
   color: var(--lightest-gray);
+  user-select: none;
 }
 
 header {
@@ -78,18 +79,21 @@ h2 {
 ul {
   background-color: var(--light-gray);
   list-style: none;
+  width: 35%;
 }
 
 a {
   text-decoration: none;
   color: inherit;
-  padding-left: .5rem;
+  padding-left: .75rem;
 }
 
 li {
   align-items: center;
   display: flex;
-  padding: 0.25rem 0.5rem;
+  font: 600 1.25rem var(--subtitle-font);
+  padding: .5rem 0;
+  padding-left: .75rem;
 }
 
 .github::before {
