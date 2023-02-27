@@ -81,10 +81,6 @@ li {
   content: url(/assets/img/icons8-bookmark-24.svg);
 }
 
-.resume::before {
-  content: url(/assets/img/icons8-document-24.svg);
-}
-
 .intro-container {
   align-items: center;
   background-image: url(/assets/img/sl_0210121_40570_53.jpg);
