@@ -33,7 +33,6 @@ header {
   background-color: var(--light-gray);
   display: flex;
   height: 55px;
-  margin: 0 0.25rem;
   position: fixed;
   width: 100%;
   z-index: 1;
