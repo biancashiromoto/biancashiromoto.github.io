@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+
+  --light-blue: #C7E6EB;
+  --dark-blue: #283649;
+  --blue: #436573;
+  --medium-blue: #436573;
+  --light-green: #AEB8B4;
+  --coral: #CC6868;
+  --pink: #EBC0D5;
+  --white: #f8f8f2;
+  --black: #000;
+  --gray: #353537;
+  --light-gray: #646464;
+
+}
+
+body {
+  background-color: var(--black);
+  color: var(--light-green);
+}
+
+header {
+  background-color: var(--gray);
+}
+
+#menu-btn {
+  background-color: unset;
+  border: none;
+  display: flex;
+  width: fit-content;
+}
+
+#menu-icon {
+  width: 10%;
+}
+
+nav {
+  background-color: var(--light-gray);
+  width: 30%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.intro-container {
+  background-image: url(/assets/img/sl_0210121_40570_53.jpg);
+  background-size: cover;
+}
+
+#profile-pic {
+  border-radius: 50%;
+  width: 30%;
+}
+
+
+
+
+
+
+
+
