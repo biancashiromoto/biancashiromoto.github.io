@@ -32,6 +32,6 @@ for (const item of listItem) {
     item.style.backgroundColor = '#646464';
   });
   item.addEventListener('mouseout', () => {
-    item.style.backgroundColor = '#353537';
+    item.style.backgroundColor = '#272729';
   })
 }
