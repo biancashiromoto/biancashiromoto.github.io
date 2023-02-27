@@ -1,31 +1,29 @@
 const menuBtn = document.querySelector('#menu-btn');
-const navMenu = document.querySelector('.nav-menu-container');
+const navMenu = document.querySelector('.nav-menu');
+const list = document.querySelector('.menu-list');
 const listItem = document.querySelectorAll('.list-item');
 
+
+console.log(navMenu, list)
 const showNavMenu = () => {
-  navMenu.style.display = 'block';
+  list.style.display = 'block';
 }
 
 const hideNavMenu = () => {
-  navMenu.style.display = 'none';
+  list.style.display = 'none';
 }
 
-navMenu.addEventListener('mouseover', () => {
+list.addEventListener('mouseover', () => {
   showNavMenu();
 });
-
-navMenu.addEventListener('mouseout', () => {
-  hideNavMenu();
-})
 
 menuBtn.addEventListener('mouseover', () => {
   showNavMenu();
 });
 
-menuBtn.addEventListener('mouseout', 
-() => {
+list.addEventListener('mouseout', () => {
   hideNavMenu();
-});
+})
 
 for (const item of listItem) {
   item.addEventListener('mouseover', () => {
