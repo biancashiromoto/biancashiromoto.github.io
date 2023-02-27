@@ -109,14 +109,16 @@ li {
 }
 
 .intro-text {
+  align-items: center;
   display: flex;
   flex-direction: column;
+  margin-top: 2rem;
 }
 
 .about-me-container {
   display: block;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2rem 0 1rem 0;
   width: 80%;
 }
 
@@ -132,6 +134,17 @@ p {
   line-height: 30px;
   padding-bottom: 0.75rem;
 }
+
+footer {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0 2rem 0;
+}
+
+#cat-gif {
+  width: 10%;
+} 
 
 
 
