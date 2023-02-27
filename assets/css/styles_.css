@@ -26,21 +26,30 @@ body {
 
 header {
   background-color: var(--gray);
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+h2 {
+  width: 85%;
 }
 
 #menu-btn {
   background-color: unset;
   border: none;
   display: flex;
-  width: fit-content;
+  padding: 0.75rem;
+  width: 35%;
 }
 
 #menu-icon {
-  width: 10%;
+  width: 25%;
 }
 
 nav {
-  background-color: var(--light-gray);
+  background-color: var(--gray);
+  display: none;
   width: 30%;
 }
 
@@ -51,20 +60,66 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+  padding-left: .5rem;
+}
+
+li {
+  align-items: center;
+  display: flex;
+  padding: 0.25rem 0.5rem;
+}
+
+.github::before {
+  content: url(/assets/img/icons8-github-24.svg);
+}
+
+.linkedin::before {
+  content: url(/assets/img/icons8-linkedin-circled-24.svg);
+}
+
+.projects::before {
+  content: url(/assets/img/icons8-bookmark-24.svg);
+}
+
+.resume::before {
+  content: url(/assets/img/icons8-document-24.svg);
 }
 
 .intro-container {
+  align-items: center;
   background-image: url(/assets/img/sl_0210121_40570_53.jpg);
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  text-align: center;
 }
 
 #profile-pic {
   border-radius: 50%;
-  width: 30%;
+  margin-top: 10px;
+  width: 75%;
 }
 
+.about-me-container {
+  display: block;
+  line-height: 30px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  width: 80%;
+}
 
+h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+}
 
+p {
+  font-size: 1.25rem;
+  padding-bottom: 0.75rem;
+}
 
 
 
