@@ -1,39 +1,41 @@
-const menuBtn = document.querySelector('#menu-btn');
-const navMenu = document.querySelector('.nav-menu');
-const list = document.querySelector('.menu-list');
-const listItem = document.querySelectorAll('.list-item');
+window.onload = () => {
 
-const showNavMenu = () => {
-  list.style.left = '0%';
-}
+  const menuBtn = document.querySelector('#menu-btn');
+  // const navMenu = document.querySelector('.nav-menu');
+  const list = document.querySelector('.menu-list');
+  const listItem = document.querySelectorAll('.list-item');
 
-const hideNavMenu = () => {
-  list.style.left = '-100%';
-}
+  const showNavMenu = () => {
+    list.style.top = '55px';
+  }
 
-list.addEventListener('mouseover', () => {
-  showNavMenu();
-});
+  const hideNavMenu = () => {
+    list.style.top = '-100%';
+  }
 
-menuBtn.addEventListener('mouseover', () => {
-  showNavMenu();
-});
-
-list.addEventListener('mouseleave', () => {
-  hideNavMenu();
-});
-
-menuBtn.addEventListener('mouseleave', () => {
-  hideNavMenu();
-});
-
-for (const item of listItem) {
-  item.addEventListener('mouseover', () => {
-    item.classList.add('selected-item');
+  list.addEventListener('mouseover', () => {
+    showNavMenu();
   });
-  item.addEventListener('mouseout', () => {
-    item.classList.remove('selected-item');
-  })
+
+  menuBtn.addEventListener('mouseover', () => {
+    showNavMenu();
+  });
+
+  list.addEventListener('mouseleave', () => {
+    hideNavMenu();
+  });
+
+  menuBtn.addEventListener('mouseleave', () => {
+    hideNavMenu();
+  });
+
+  for (const item of listItem) {
+    item.addEventListener('mouseover', () => {
+      item.classList.add('selected-item');
+    });
+    item.addEventListener('mouseout', () => {
+      item.classList.remove('selected-item');
+    })
+  }
+
 }
-
-

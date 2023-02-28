@@ -72,8 +72,8 @@ h2 {
 
 .menu-list {
   position: absolute;
-  left: -100%;
-  top: 55px;
+  top: -100%;
+  transition: 250ms;
 }
 
 ul {
@@ -94,6 +94,7 @@ li {
   font: 600 1.25rem var(--subtitle-font);
   padding: .5rem 0;
   padding-left: .75rem;
+  transition: 250ms;
 }
 
 .github::before {
