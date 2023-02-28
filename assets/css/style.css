@@ -67,7 +67,7 @@ h2 {
 }
 
 #menu-btn::before {
-  content: url(/assets/img/icons8-menu-32.svg);
+  content: url(../img/icons8-menu-32.svg);
 }
 
 .menu-list {
@@ -97,20 +97,20 @@ li {
 }
 
 .github::before {
-  content: url(/assets/img/icons8-github-24.svg);
+  content: url(../img/icons8-github-24.svg);
 }
 
 .linkedin::before {
-  content: url(/assets/img/icons8-linkedin-circled-24.svg);
+  content: url(../img/icons8-linkedin-circled-24.svg);
 }
 
 .projects::before {
-  content: url(/assets/img/icons8-bookmark-24.svg);
+  content: url(../img/icons8-bookmark-24.svg);
 }
 
 .intro-container {
   align-items: center;
-  background-image: url(/assets/img/sl_0210121_40570_53.jpg);
+  background-image: url(../img/sl_0210121_40570_53.jpg);
   background-size: cover;
   display: flex;
   flex-direction: column;
