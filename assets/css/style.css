@@ -17,15 +17,21 @@
   --gray: #272729;
   --light-gray: #414141;
 
-  --title-font: 'Calistoga', cursive;
+  --title-font: 'Anton', sans-serif;
+  --subtitle-font: 'Playfair Display', serif;
   --text-font: 'Roboto', sans-serif;
-  --subtitle-font: 'Roboto Condensed', sans-serif;
+  /* --subtitle-font: 'Roboto Condensed', sans-serif; */
+  /* font-family: 'Anton', sans-serif; */
+  /* font-family: 'Abril Fatface', cursive;
+  font-family: 'Bebas Neue', cursive;
+  font-family: 'Playfair Display', serif; */
 
 }
 
 body {
   background-color: var(--black);
   color: var(--lightest-gray);
+  user-select: none;
 }
 
 header {
@@ -39,14 +45,14 @@ header {
 }
 
 h1 {
-  font: 400 1rem 'Arial';
+  font: 300 1.5rem var(--title-font);
   left: 50%;
   position: absolute;
   transform: translateX(-50%);
 }
 
 h2 {
-  font: 400 1.125rem var(--title-font);
+  font: 400 1.125rem var( --subtitle-font);
   line-height: 40px;
   width: 85%;
 }
@@ -61,7 +67,7 @@ h2 {
 }
 
 #menu-btn::before {
-  content: url(/assets/img/icons8-menu-32.svg);
+  content: url(../img/icons8-menu-32.svg);
 }
 
 .menu-list {
@@ -73,35 +79,38 @@ h2 {
 ul {
   background-color: var(--light-gray);
   list-style: none;
+  width: 35%;
 }
 
 a {
   text-decoration: none;
   color: inherit;
-  padding-left: .5rem;
+  padding-left: .75rem;
 }
 
 li {
   align-items: center;
   display: flex;
-  padding: 0.25rem 0.5rem;
+  font: 600 1.25rem var(--subtitle-font);
+  padding: .5rem 0;
+  padding-left: .75rem;
 }
 
 .github::before {
-  content: url(/assets/img/icons8-github-24.svg);
+  content: url(../img/icons8-github-24.svg);
 }
 
 .linkedin::before {
-  content: url(/assets/img/icons8-linkedin-circled-24.svg);
+  content: url(../img/icons8-linkedin-circled-24.svg);
 }
 
 .projects::before {
-  content: url(/assets/img/icons8-bookmark-24.svg);
+  content: url(../img/icons8-bookmark-24.svg);
 }
 
 .intro-container {
   align-items: center;
-  background-image: url(/assets/img/sl_0210121_40570_53.jpg);
+  background-image: url(../img/sl_0210121_40570_53.jpg);
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -120,8 +129,7 @@ li {
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
-  padding-top: 2rem;
+  margin-top: 5%;
   width: 90%;
 }
 
@@ -136,11 +144,11 @@ h3 {
   text-align: center;
   font-size: 1.5rem;
   padding-bottom: 1rem;
-  font: 400 1.75rem var(--title-font);
+  font: 1.75rem var(--subtitle-font);
 }
 
 p {
-  font: 1.25rem var(--text-font);
+  font: 300 1.125rem var(--text-font);
   line-height: 50px;
   padding-bottom: 0.75rem;
 }
@@ -155,6 +163,11 @@ footer {
 #cat-gif {
   width: 10%;
 } 
+
+.selected-item {
+  color: var(--gray);
+  background-color: var(--lightest-gray);
+}
 
 
 

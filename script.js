@@ -29,11 +29,10 @@ menuBtn.addEventListener('mouseleave', () => {
 
 for (const item of listItem) {
   item.addEventListener('mouseover', () => {
-    showNavMenu();
-    item.style.backgroundColor = '#646464';
+    item.classList.add('selected-item');
   });
   item.addEventListener('mouseout', () => {
-    item.style.backgroundColor = '#414141';
+    item.classList.remove('selected-item');
   })
 }
 
