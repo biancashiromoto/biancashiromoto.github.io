@@ -71,7 +71,7 @@ h2 {
 }
 
 .menu-list {
-  position: absolute;
+  position: fixed;
   top: -100%;
   transition: 250ms;
 }
