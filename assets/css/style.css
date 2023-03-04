@@ -110,15 +110,24 @@ li {
   content: url(../img/icons8-bookmark-24.svg);
 }
 
-.intro-container , .project-container{
+.home::before {
+  content: url(../img/icons8-home-24.svg)
+}
+
+.intro-container, .project-container {
   align-items: center;
   background-image: url(../img/sl_0210121_40570_53.jpg);
   background-size: cover;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
+  position: absolute;
+  top: 55px;
+}
+
+.intro-container {
+  height: 100vh;
 }
 
 #profile-pic {
@@ -171,12 +180,15 @@ footer {
   background-color: var(--lightest-gray);
 }
 
+.project-item-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 #project-img {
   padding: 1rem;
   width: 50%;
-}
-
-.project-container {
 }
 
 .project {
@@ -184,10 +196,12 @@ footer {
   display: flex;
   backdrop-filter: blur(15px);
   flex-direction: column;
+  height: auto;
   justify-content: space-between;
   margin: 1rem;
   padding: 1.5rem;
   position: relative;
+  width: 80%;
 }
 
 h4 {
@@ -199,9 +213,6 @@ h4 {
   line-height: 30px;
 }
 
-.project-text-container {
-  /* width: 70%; */
-}
 
 
 

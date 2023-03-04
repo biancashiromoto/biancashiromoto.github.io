@@ -1,32 +1,43 @@
 const projectContainer = document.querySelector('.project-container');
 
-const createNewProject = (object) => {
-  const newProject = document.createElement('section');
-  projectContainer.appendChild(newProject);
-  newProject.classList.add('project');
-  const textContainer = document.createElement('div');
-  newProject.appendChild(textContainer);
-  textContainer.classList.add('project-text-container');
-  const projectTitle = document.createElement('h4');
-  textContainer.appendChild(projectTitle);
-  projectTitle.innerHTML = object.title;
-  const projectDescription = document.createElement('p');
-  textContainer.appendChild(projectDescription);
-  projectDescription.innerHTML = object.description;
-  const projectLink = document.createElement('a');
-  textContainer.appendChild(projectLink);
-  projectLink.innerHTML = 'Link do projeto';
-  projectLink.setAttribute('href', object.link);
-  const projectImg = document.createElement('img');
-  newProject.appendChild(projectImg);
-  projectImg.src = object.img;
-  projectImg.setAttribute('id', 'project-img');
+
+const createSection = (projectName) => {
+  const section = document.createElement('section');
+  projectContainer.appendChild(section);
+  section.classList.add('project');
+  return section;
+};
+
+const createContainer = () =>{
+  const container = document.createElement('div');
+  container.classList.add('project-item-container');
+  createSection().appendChild(container);
+  return container;
 }
 
-for (const project of projects) {
-createNewProject(project);
+const createContent = (project) => {
+  const title = document.createElement('h4');
+  const description = document.createElement('p');
+  const link = document.createElement('a');
+  const img = document.createElement('img');
+  title.innerHTML = project.title;
+  description.innerHTML = project.description;
+  link.href = project.link
+  link.innerHTML = 'Link do projeto'
+  link.target = '_blank'
+  img.src = project.img;
+  img.setAttribute('id', 'project-img')
+  createContainer().append(title, description, img, link);
+};
 
-}
+// const createImg = (project) => {
+//   const img = document.createElement('img');
+//   createContainer().appendChild(img);
+// }
+
+projects.forEach((project) => {
+  createContent(project);
+})
 
 
 
