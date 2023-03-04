@@ -1,17 +1,12 @@
 window.onload = () => {
 
   const menuBtn = document.querySelector('#menu-btn');
-  // const navMenu = document.querySelector('.nav-menu');
   const list = document.querySelector('.menu-list');
   const listItem = document.querySelectorAll('.list-item');
 
-  const showNavMenu = () => {
-    list.style.top = '55px';
-  }
+  const showNavMenu = () => { list.style.top = '55px'; };
 
-  const hideNavMenu = () => {
-    list.style.top = '-100%';
-  }
+  const hideNavMenu = () => { list.style.top = '-100%'; };
 
   list.addEventListener('mouseover', () => {
     showNavMenu();
