@@ -38,6 +38,7 @@ header {
   align-items: center;
   background-color: var(--light-gray);
   display: flex;
+  flex-wrap: nowrap;
   height: 55px;
   position: fixed;
   width: 100%;
