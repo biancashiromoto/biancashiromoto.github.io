@@ -57,6 +57,7 @@ header {
   display: flex;
   flex-wrap: nowrap;
   height: 55px;
+  justify-content: space-around;
   position: fixed;
   width: 100%;
   z-index: 2;
@@ -64,9 +65,6 @@ header {
 
 h1 {
   font: 300 1.5rem var(--title-font);
-  left: 50%;
-  position: absolute;
-  transform: translateX(-50%);
 }
 
 h2 {
