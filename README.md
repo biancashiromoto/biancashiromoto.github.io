@@ -1,6 +1,5 @@
   <h1>Olá! Bem vindo(a) ao meu repositório!</h1>
-  <p style="font-size: 1.125rem">Este é o repositório do meu portfólio, que estou desenvolvendo aos poucos, à medida que vou aprendendo novas tecnologias.
-  </p>
+  <p style="font-size: 1.125rem">Este é o repositório do meu portfólio, que estou desenvolvendo aos poucos, à medida que vou aprendendo novas tecnologias.</p>
   <hr>
   <article>
     <ul>
