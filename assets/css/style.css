@@ -13,7 +13,7 @@
   --coral: #CC6868;
   --pink: #EBC0D5;
   --white: #f8f8f2;
-  --black: #000;
+  --black: #0c0c0c;
   --gray: #272729;
   --light-gray: #414141;
 
@@ -26,6 +26,23 @@
   font-family: 'Bebas Neue', cursive;
   font-family: 'Playfair Display', serif; */
 
+}
+
+#loader {
+  transform: translateY(25%);
+  width: 25%;
+  z-index: 2;
+}
+
+.loader-container {
+  align-items: center;
+  background-color: var(--black);
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
 }
 
 body {

@@ -1,6 +1,11 @@
+const loader = document.querySelector('.loader-container');
 const menuBtn = document.querySelector('#menu-btn');
 const list = document.querySelector('.menu-list');
 const listItem = document.querySelectorAll('.list-item');
+
+window.addEventListener('load', () => {
+  loader.style.display = 'none';
+})
 
 const showNavMenu = () => { list.style.top = '55px'; };
 
