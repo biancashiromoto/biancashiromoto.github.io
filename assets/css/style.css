@@ -80,7 +80,7 @@ h2 {
 }
 
 #menu-btn::before {
-  content: url(../img/icons8-menu-32.svg);
+  content: url(../img/menu-icon-36px.svg);
 }
 
 .menu-list {
@@ -112,24 +112,24 @@ li {
 }
 
 .github::before {
-  content: url(../img/icons8-github-24.svg);
+  content: url(../img/github-icon-24px.svg);
 }
 
 .linkedin::before {
-  content: url(../img/icons8-linkedin-circled-24.svg);
+  content: url(../img/linkedin-icon-24px.svg);
 }
 
 .projects::before {
-  content: url(../img/icons8-bookmark-24.svg);
+  content: url(../img/projects-icon-24px.svg);
 }
 
 .home::before {
-  content: url(../img/icons8-home-24.svg)
+  content: url(../img/home-icon-24px.svg)
 }
 
 .intro-container, .project-container {
   align-items: center;
-  background-image: url(../img/sl_0210121_40570_53.jpg);
+  background-image: url(../img/background-img.jpg);
   background-size: cover;
   display: flex;
   flex-direction: column;
