@@ -1,5 +1,8 @@
 const projectContainer = document.querySelector('.project-container');
 
+window.addEventListener('load', () => {
+  loader.style.display = 'none';
+})
 
 const createSection = (projectName) => {
   const section = document.createElement('section');
