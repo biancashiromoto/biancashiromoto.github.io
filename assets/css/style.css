@@ -195,7 +195,9 @@ footer {
 .project {
   align-items: center;
   display: flex;
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(10px);
+  border-top: solid 2px var(--light-gray);
+  border-right: solid 2px var(--light-gray);
   flex-direction: column;
   height: auto;
   justify-content: space-between;
