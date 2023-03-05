@@ -78,16 +78,13 @@ h1 {
 }
 
 .menu-list {
+  background-color: var(--light-gray);
+  list-style: none;
   position: fixed;
   top: -100%;
   transition: 250ms;
-  z-index: 1;
-}
-
-ul {
-  background-color: var(--light-gray);
-  list-style: none;
   width: 35%;
+  z-index: 1;
 }
 
 a {
@@ -100,8 +97,7 @@ li {
   align-items: center;
   display: flex;
   font: 600 1.25rem var(--subtitle-font);
-  padding: .5rem 0;
-  padding-left: .75rem;
+  padding: .5rem 1rem .5rem .75rem;
   transition: 250ms;
 }
 
