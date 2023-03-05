@@ -22,6 +22,7 @@
   --text-font: 'Roboto', sans-serif;
 }
 
+/* LOADER */
 #loader {
   transform: translateY(25%);
   width: 25%;
@@ -39,12 +40,14 @@
   z-index: 3;
 }
 
+/* BODY */
 body {
   background-color: var(--black);
   color: var(--lightest-gray);
   user-select: none;
 }
 
+/* HEADER */
 header {
   align-items: center;
   background-color: var(--light-gray);
@@ -64,12 +67,7 @@ h1 {
   transform: translateX(-25%);
 }
 
-h2 {
-  font: 400 1.125rem var( --subtitle-font);
-  line-height: 40px;
-  width: 85%;
-}
-
+/* MENU AND MENU LIST */
 #menu-btn {
   align-items: center;
   background-color: unset;
@@ -79,17 +77,13 @@ h2 {
   padding: 0 2rem 0 1rem;
 }
 
-#menu-btn::before {
-  content: url(../img/menu-icon-36px.svg);
-}
-
 .menu-list {
+  background-color: var(--light-gray);
+  list-style: none;
   position: fixed;
   top: -100%;
   transition: 250ms;
-  z-index: 1;
-  background-color: var(--light-gray);
-  list-style: none;
+  width: 35%;
   z-index: 3;
 }
 
@@ -103,9 +97,18 @@ li {
   align-items: center;
   display: flex;
   font: 600 1.25rem var(--subtitle-font);
-  justify-content: flex-start;
-  padding: .5rem 1.25rem .5rem .75rem;
+  padding: .5rem 1rem .5rem .75rem;
   transition: 250ms;
+}
+
+.selected-item {
+  color: var(--gray);
+  background-color: var(--lightest-gray);
+}
+
+/* MENU ICONS */
+#menu-btn::before {
+  content: url(../img/menu-icon-36px.svg);
 }
 
 .github::before {
@@ -124,9 +127,18 @@ li {
   content: url(../img/home-icon-24px.svg)
 }
 
+/* CONTAINERS */
+
+/* INTRO CONTAINER */
+h2 {
+  font: 400 1.125rem var( --subtitle-font);
+  line-height: 40px;
+  width: 85%;
+}
+
 .intro-container, .project-container {
   align-items: center;
-  background-image: url(../img/background-img.jpg);
+  background: url(../img/background-img.jpg);
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -163,6 +175,7 @@ li {
   top: calc(100% - 30%);
 }
 
+/* ABOUT ME CONTAINER */
 .about-me-container {
   display: block;
   left: 50%;
@@ -188,11 +201,7 @@ p {
   padding-bottom: 0.75rem;
 }
 
-.selected-item {
-  color: var(--gray);
-  background-color: var(--lightest-gray);
-}
-
+/* PROJECTS PAGE */
 .project-item-container {
   align-items: center;
   display: flex;
