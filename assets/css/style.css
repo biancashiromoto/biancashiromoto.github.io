@@ -83,7 +83,7 @@ h1 {
   position: fixed;
   top: -100%;
   transition: 250ms;
-  width: 35%;
+  /* width: 35%; */
   z-index: 1;
 }
 
