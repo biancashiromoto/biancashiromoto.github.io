@@ -1,1 +1,0 @@
-# biancashiromoto.github.io
