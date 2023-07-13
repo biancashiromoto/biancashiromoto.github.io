@@ -1,0 +1,6 @@
+.background-image--container {
+  background: url('./assets/background-image.jpg') no-repeat center;
+  background-size: 75%;
+  height: 200px;
+  width: 100%;
+}
