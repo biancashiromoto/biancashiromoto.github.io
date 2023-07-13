@@ -4,7 +4,7 @@ import Section from './components/Section/Section';
 import LinkItems from './components/LinkItems/LinkItems';
 
 function App() {
-  const { intro } = info;
+  const { intro, aboutMe } = info;
 
   return (
     <div>
@@ -14,6 +14,9 @@ function App() {
         <div className="background-image--container" />
         <LinkItems />
       </Section>
+      <Section
+        props={ aboutMe }
+      />
     </div>
   )
 }
