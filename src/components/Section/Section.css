@@ -16,8 +16,3 @@ section {
   max-width: 175px;
   margin: 50px 0 35px 0;
 }
-
-.intro-container div {
-  position: absolute;
-  top: 425px;
-}
