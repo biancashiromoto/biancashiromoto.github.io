@@ -12,6 +12,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --black: #020200;
+  --blue: #00A7C7;
+  --gray: #6C798C;
+  --light-blue: #6896B7;
+  --orange: #E6634F;
+  --red: #CE0317;
+  
 }
 
 * {
@@ -20,7 +28,9 @@
 }
 
 body {
+  background-color: var(--black);
   display: flex;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
 }
