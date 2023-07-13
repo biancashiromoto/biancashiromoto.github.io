@@ -2,7 +2,7 @@ import { github_URL, linkedin_URL } from "../../info";
 
 function LinkItems() {
   return (
-    <>
+    <div className="links--container">
       <a
         className="linkedin-link"
         href={ linkedin_URL }
@@ -15,7 +15,7 @@ function LinkItems() {
         target="_blank"
         rel="noreferrer"
       />
-    </>
+    </div>
   )
 }
 
