@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 import './Section.css';
 
 function Section({ props, children }) {
@@ -15,6 +16,26 @@ function Section({ props, children }) {
       { children }
     </section>
   )
+}
+
+Section.propTypes = {
+  children: PropTypes.element.isRequired,
+  props: PropTypes.shape({
+    className: PropTypes.string,
+    content: PropTypes.shape({
+      map: PropTypes.func
+    }),
+    imgAlt: PropTypes.string,
+    imgSrc: PropTypes.string,
+    title: PropTypes.string
+  }).isRequired,
+  className: PropTypes.string,
+  content: PropTypes.shape({
+    map: PropTypes.func
+  }),
+  imgAlt: PropTypes.string,
+  imgSrc: PropTypes.string,
+  title: PropTypes.string
 }
 
 export default Section;
