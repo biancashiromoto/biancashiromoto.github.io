@@ -1,6 +1,7 @@
 import './App.css';
 import { info } from './info';
 import Section from './components/Section/Section';
+import LinkItems from './components/LinkItems/LinkItems';
 
 function App() {
   const { intro } = info;
@@ -10,7 +11,8 @@ function App() {
       <Section
         props={ intro }
       >
-        <div className="background-image--container"/>
+        <div className="background-image--container" />
+        <LinkItems />
       </Section>
     </div>
   )
