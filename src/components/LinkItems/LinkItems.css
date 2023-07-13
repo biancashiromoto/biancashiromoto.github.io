@@ -1,0 +1,25 @@
+.links--container {
+  align-items: center;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  padding: 50px;
+  max-width: 300px;
+}
+
+a {
+  position: relative;
+  transition: 250ms;
+}
+
+a:hover {
+  transform: scale(1.25, 1.25);
+}
+
+.linkedin-link::before {
+  content: url('../../assets/linkedin.svg')
+}
+
+.github-link::before {
+  content: url('../../assets/github.svg')
+}
