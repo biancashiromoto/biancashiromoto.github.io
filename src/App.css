@@ -27,3 +27,14 @@
     opacity: 100%;
   }
 }
+
+@media screen and (min-width: 768px) {
+  .background-image--container {
+    background: url('./assets/background-image.jpg') no-repeat center;
+    background-size: 25%;
+    height: 200px;
+    position: absolute;
+    top: 425px;
+    width: 100%;
+  }
+}
