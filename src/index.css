@@ -28,6 +28,7 @@
 }
 
 body {
+  animation: fadeIn 1.75s ease-in-out;
   background-color: var(--black);
   display: flex;
   justify-content: center;

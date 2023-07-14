@@ -1,4 +1,5 @@
 .links-container {
+  animation: slideFromTop 2s ease;
   align-items: center;
   display: flex;
   gap: 50px;
