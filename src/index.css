@@ -34,6 +34,7 @@ body {
   justify-content: center;
   min-width: 320px;
   min-height: 100vh;
+  user-select: none;
 }
 
 h1 {
