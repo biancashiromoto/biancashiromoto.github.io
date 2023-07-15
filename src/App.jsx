@@ -1,23 +1,15 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { info } from './info';
-import Section from './components/Section/Section';
-import LinkItems from './components/LinkItems/LinkItems';
+import Home from './pages/Home/Home';
 
 function App() {
-  const { intro, aboutMe } = info;
-
   return (
-    <div>
-      <Section
-        props={ intro }
-      >
-        <div className="background-image--container" />
-        <LinkItems />
-      </Section>
-      <Section
-        props={ aboutMe }
-      />
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={ <Home /> } />
+      </Routes>
+    </Router>
   )
 }
 
