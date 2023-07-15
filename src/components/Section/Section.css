@@ -8,7 +8,7 @@ section {
 }
 
 .intro-container {
-  animation: slideFromTop 1.5s ease;
+  animation: slideFromTop 1.5s ease, fadeIn 1.75s ease-in-out;
   position: relative;
 }
 
