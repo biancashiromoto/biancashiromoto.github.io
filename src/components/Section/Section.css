@@ -2,8 +2,10 @@ section {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 100vh;
   margin: 0 auto;
+  min-height: 100vh;
+  padding: 0 10px;
+  position: relative;
   text-align: center;
 }
 
