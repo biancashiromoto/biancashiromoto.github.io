@@ -1,5 +1,5 @@
 .links-container {
-  animation: slideFromTop 2s ease;
+  /* animation: slideFromTop 2s ease; */
   align-items: center;
   display: flex;
   gap: 50px;
@@ -9,6 +9,7 @@
 }
 
 a {
+  animation: zoomIn 1.125s linear;
   position: relative;
   transition: 250ms;
 }
