@@ -7,6 +7,18 @@
   width: 100%;
 }
 
+@media screen and (min-width: 768px) {
+  .background-image--container {
+    background: url('./assets/background-image.jpg') no-repeat center;
+    background-size: 25%;
+    height: 200px;
+    position: absolute;
+    top: 425px;
+    width: 100%;
+  }
+}
+
+
 @keyframes slideFromTop {
   from {
     transform: translateY(-100%);
@@ -28,13 +40,14 @@
   }
 }
 
-@media screen and (min-width: 768px) {
-  .background-image--container {
-    background: url('./assets/background-image.jpg') no-repeat center;
-    background-size: 25%;
-    height: 200px;
-    position: absolute;
-    top: 425px;
-    width: 100%;
+@keyframes zoomIn {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(50%);
+  }
+  100% {
+    transform: scale(100%);
   }
 }
