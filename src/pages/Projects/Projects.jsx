@@ -3,6 +3,7 @@ import { fetchAPI } from "../../helpers/fetchAPI";
 import { repos_URL } from "../../info";
 import './Projects.css';
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import ReturnButton from "../../components/ReturnButton/ReturnButton";
 
 function Projects() {
   const [projects, setProjects] = useState([]);
@@ -22,7 +23,9 @@ function Projects() {
   }
 
   return (
-    <div className="projects--container">
+    <>
+      <ReturnButton />
+      <div className="projects--container">
       <h2>Projects</h2>
       {projects && projects.map((project) => (
           <ProjectCard
@@ -31,6 +34,7 @@ function Projects() {
           />
       ))}
     </div>
+    </>
   )
 }
 
