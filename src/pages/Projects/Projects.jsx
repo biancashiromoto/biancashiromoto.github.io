@@ -23,18 +23,18 @@ function Projects() {
   }
 
   return (
-    <>
+    <div className="projects-page">
       <ReturnButton />
       <div className="projects--container">
-      <h2>Projects</h2>
-      {projects && projects.map((project) => (
-          <ProjectCard
-            props={ project }
-            key={ project.id }
-          />
-      ))}
+        <h2>Projects</h2>
+        {projects && projects.map((project) => (
+            <ProjectCard
+              props={ project }
+              key={ project.id }
+            />
+        ))}
+      </div>
     </div>
-    </>
   )
 }
 
