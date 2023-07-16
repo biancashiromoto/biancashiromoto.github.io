@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { github_URL, linkedin_URL } from "../../info";
 import './LinkItems.css';
 
@@ -15,6 +16,10 @@ function LinkItems() {
         href={ github_URL }
         target="_blank"
         rel="noreferrer"
+      />
+      <Link
+        className="portfolio-link"
+        to="/projects"
       />
     </div>
   )
