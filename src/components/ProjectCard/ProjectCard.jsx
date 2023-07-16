@@ -4,16 +4,16 @@ import './ProjectCard.css';
 function ProjectCard({ props }) {
   const { id, html_url, name, homepage, description, topics } = props;
   return (
-    <div
-      className={ `project-card ${id}-card`}
-    >
-      <a
-        href={ html_url }
-        target="_blank"
-        rel="noreferrer"
-      >
-        { name }
-      </a>
+    <div className={ `project-card ${id}-card`}>
+      <h3>
+        <a
+          href={ html_url }
+          target="_blank"
+          rel="noreferrer"
+        >
+          { name }
+        </a>
+      </h3>
       {homepage &&
         <a
           href={ homepage }
@@ -25,7 +25,7 @@ function ProjectCard({ props }) {
         {description && (
           <p>{ description }</p>
         )}
-        <ul>
+        <ul className="project-tags">
           {topics && topics.map((topic, index) => (
             <li key={ index }>{ topic }</li>
           ))}
