@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchAPI } from "../../helpers/fetchAPI";
 import { repos_URL } from "../../info";
+import './Projects.css';
 
 function Projects() {
   const [projects, setProjects] = useState([]);
@@ -18,11 +19,13 @@ function Projects() {
   }, [projects]);
 
   return (
-    <div>
+    <div className="projects--container">
       <h2>Projects</h2>
-      <ul>
       {projects && projects.map((project) => (
-        <li key={ project.id }>
+        <div
+          key={ project.id }
+          className={ `project-card ${project.id}-card`}
+        >
           <a
             href={ project.html_url }
             target="_blank"
@@ -30,9 +33,16 @@ function Projects() {
           >
             { project.name }
           </a>
-        </li>
+          {project.homepage &&
+            <a
+              href={ project.homepage }
+              target="_blank"
+              rel="noreferrer"
+            >
+              Deploy
+            </a>}
+        </div>
       ))}
-      </ul>
     </div>
   )
 }
