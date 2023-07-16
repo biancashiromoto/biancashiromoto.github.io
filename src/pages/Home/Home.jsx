@@ -1,7 +1,7 @@
 import { useState } from "react";
 import LinkItems from "../../components/LinkItems/LinkItems";
 import Section from "../../components/Section/Section";
-import { info_en, info_pt } from "../../info";
+import { info_en, info_pt } from "../../helpers/info";
 import './Home.css';
 
 function Home() {

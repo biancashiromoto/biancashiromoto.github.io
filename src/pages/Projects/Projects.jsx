@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchAPI } from "../../helpers/fetchAPI";
-import { repos_URL } from "../../info";
+import { repos_URL } from "../../helpers/info";
 import './Projects.css';
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import ReturnButton from "../../components/ReturnButton/ReturnButton";

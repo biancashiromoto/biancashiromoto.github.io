@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { github_URL, linkedin_URL } from "../../info";
+import { github_URL, linkedin_URL } from "../../helpers/info";
 import './LinkItems.css';
 
 function LinkItems() {
