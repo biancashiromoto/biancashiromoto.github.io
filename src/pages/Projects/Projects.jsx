@@ -13,9 +13,26 @@ function Projects() {
     fetchProjects();
   }, []);
 
+  useEffect(() => {
+   console.log(projects);
+  }, [projects]);
+
   return (
     <div>
       <h2>Projects</h2>
+      <ul>
+      {projects && projects.map((project) => (
+        <li key={ project.id }>
+          <a
+            href={ project.html_url }
+            target="_blank"
+            rel="noreferrer"
+          >
+            { project.name }
+          </a>
+        </li>
+      ))}
+      </ul>
     </div>
   )
 }
