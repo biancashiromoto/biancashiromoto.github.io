@@ -7,16 +7,22 @@ function Projects() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    const fetchProjects = async () =>{
-      const newProjects = await fetchAPI(repos_URL);
-      setProjects(newProjects);
+    const fetchProjects = async () => {
+      const data = await fetchData(repos_URL);
+      setProjects(data);
     }
     fetchProjects();
   }, []);
 
   useEffect(() => {
    console.log(projects);
+
   }, [projects]);
+
+  const fetchData = async (URL) =>{
+    const newProjects = await fetchAPI(URL);
+    return newProjects;
+  }
 
   return (
     <div className="projects--container">
@@ -41,6 +47,14 @@ function Projects() {
             >
               Deploy
             </a>}
+            {project.description && (
+              <p>{ project.description }</p>
+            )}
+            <ul>
+              {project.topics && project.topics.map((topic, index) => (
+                <li key={ index }>{ topic }</li>
+              ))}
+            </ul>
         </div>
       ))}
     </div>
