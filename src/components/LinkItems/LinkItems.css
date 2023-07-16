@@ -25,3 +25,7 @@ a:hover {
 .github-link::before {
   content: url('../../assets/github.svg')
 }
+
+.portfolio-link::before {
+  content: url('../../assets/coding.svg')
+}
