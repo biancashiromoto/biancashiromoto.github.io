@@ -11,6 +11,10 @@
   width: calc(100vw - 35px);
 }
 
+.project-deploy::before {
+  content: url('../../assets/rocket.svg');
+}
+
 .project-tags {
   align-items: center;
   display: flex;
@@ -20,7 +24,22 @@
 }
 
 .project-tags li {
-  background-color: darkgray;
+  background-color: rgb(107, 107, 107);
   border-radius: 25px;
+  font-size: 14px;
   padding: 5px;
+}
+
+.project-name, .project-deploy {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.project-name::before {
+  content: url('../../assets/github-24.svg');
+}
+
+.project-name::before, .project-deploy::before {
+  padding-right: 10px;
 }
