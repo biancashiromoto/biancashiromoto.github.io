@@ -1,19 +1,29 @@
+import { useState } from "react";
 import LinkItems from "../../components/LinkItems/LinkItems";
 import Section from "../../components/Section/Section";
-import { info } from "../../info";
+import { info_en, info_pt } from "../../info";
+import './Home.css';
 
 function Home() {
-  const { intro, aboutMe } = info;
+  const [isChecked, setIsChecked] = useState(false);
+
   return (
     <div>
+     <label>
+      { isChecked ? '🇧🇷' : '🇺🇸' }
+      <input
+        type="checkbox"
+        onChange={ () => setIsChecked((prevState) => !prevState) }
+      />
+     </label>
       <Section
-        props={ intro }
+        props={ isChecked ? info_pt.intro : info_en.intro }
       >
         <div className="background-image--container" />
         <LinkItems />
       </Section>
       <Section
-        props={ aboutMe }
+        props={ isChecked ? info_pt.aboutMe : info_en.aboutMe }
       />
     </div>
   )
