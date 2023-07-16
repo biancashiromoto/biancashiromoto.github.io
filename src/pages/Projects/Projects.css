@@ -15,3 +15,7 @@ li {
   gap: 25px;
   width: 100%;
 }
+
+.projects-page {
+  animation:fadeIn 1.75s ease-in-out;
+}
