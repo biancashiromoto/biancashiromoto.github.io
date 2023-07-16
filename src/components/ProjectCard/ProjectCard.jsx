@@ -5,7 +5,7 @@ function ProjectCard({ props }) {
   const { id, html_url, name, homepage, description, topics } = props;
   return (
     <div className={ `project-card ${id}-card`}>
-      <h3>
+      <h3 className="project-name">
         <a
           href={ html_url }
           target="_blank"
@@ -16,6 +16,7 @@ function ProjectCard({ props }) {
       </h3>
       {homepage &&
         <a
+          className="project-deploy"
           href={ homepage }
           target="_blank"
           rel="noreferrer"
@@ -23,7 +24,7 @@ function ProjectCard({ props }) {
           Deploy
         </a>}
         {description && (
-          <p>{ description }</p>
+          <p className="project-description">{ description }</p>
         )}
         <ul className="project-tags">
           {topics && topics.map((topic, index) => (
