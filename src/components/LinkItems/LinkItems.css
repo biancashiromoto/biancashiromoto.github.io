@@ -8,13 +8,13 @@
   max-width: 300px;
 }
 
-a {
+.links-container a {
   animation: zoomIn 1.125s linear;
   position: relative;
   transition: 250ms;
 }
 
-a:hover {
+.links-container a:hover {
   transform: scale(1.25, 1.25);
 }
 
