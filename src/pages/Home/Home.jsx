@@ -9,8 +9,8 @@ function Home() {
 
   return (
     <div>
-     <label>
-      { isChecked ? '🇧🇷' : '🇺🇸' }
+     <label className="lang-toggle">
+      { isChecked ? 'Translate to 🇺🇸' : 'Traduzir para 🇧🇷' }
       <input
         type="checkbox"
         onChange={ () => setIsChecked((prevState) => !prevState) }
