@@ -1,0 +1,27 @@
+.project-card {
+  align-items: center;
+  border: solid 1px var(--white);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 80%;
+  padding: 15px;
+  width: calc(100vw - 20px);
+}
+
+.project-tags {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+
+.project-tags li {
+  background-color: darkgray;
+  border-radius: 25px;
+  padding: 5px;
+}
