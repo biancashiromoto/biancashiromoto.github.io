@@ -9,30 +9,26 @@ function Projects() {
 
   useEffect(() => {
     const fetchProjects = async () => {
-      const data = await fetchData(repos_URL);
-      setProjects(data);
+      const projects = await fetchData(repos_URL);
+      const filteredProjects = projects.filter((project) => !project.name.includes('biancashiromoto'));
+      setProjects(filteredProjects);
     }
     fetchProjects();
   }, []);
 
-  useEffect(() => {
-   console.log(projects);
-
-  }, [projects]);
-
   const fetchData = async (URL) =>{
-    const newProjects = await fetchAPI(URL);
-    return newProjects;
+    const data = await fetchAPI(URL);
+    return data;
   }
 
   return (
     <div className="projects--container">
       <h2>Projects</h2>
       {projects && projects.map((project) => (
-        <ProjectCard
-          props={ project }
-          key={ project.id }
-        />
+          <ProjectCard
+            props={ project }
+            key={ project.id }
+          />
       ))}
     </div>
   )
