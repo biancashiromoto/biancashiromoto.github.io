@@ -8,7 +8,7 @@ function Home() {
   const [isChecked, setIsChecked] = useState(false);
 
   return (
-    <div>
+    <div className="home--container">
      <label className="lang-toggle">
       { isChecked ? 'Translate to English 🇺🇸' : 'Traduzir para Português 🇧🇷' }
       <input

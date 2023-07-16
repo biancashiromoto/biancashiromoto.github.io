@@ -1,3 +1,13 @@
+.home--container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .lang-toggle input {
   display: none;
+}
+
+.lang-toggle {
+  padding-top: 20px;
 }
