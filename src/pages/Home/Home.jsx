@@ -10,7 +10,7 @@ function Home() {
   return (
     <div>
      <label className="lang-toggle">
-      { isChecked ? 'Translate to 🇺🇸' : 'Traduzir para 🇧🇷' }
+      { isChecked ? 'Translate to English 🇺🇸' : 'Traduzir para Português 🇧🇷' }
       <input
         type="checkbox"
         onChange={ () => setIsChecked((prevState) => !prevState) }
