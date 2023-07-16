@@ -1,0 +1,7 @@
+.return-button::before {
+  content: url('../../assets/return.svg');
+}
+
+.return-button:hover {
+  transform: scale(1.25, 1.25);
+}
