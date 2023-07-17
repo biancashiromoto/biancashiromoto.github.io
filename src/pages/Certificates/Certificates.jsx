@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchAPI } from "../../helpers/fetchAPI";
 import { certificates_URL } from "../../helpers/info";
+import ReturnButton from "../../components/ReturnButton/ReturnButton";
 
 
 function Certificates() {
@@ -27,6 +28,7 @@ function Certificates() {
 
   return (
     <div>
+      <ReturnButton />
       <h2>Certificates</h2>
       {certificates.map((certificate) => (
         <>
