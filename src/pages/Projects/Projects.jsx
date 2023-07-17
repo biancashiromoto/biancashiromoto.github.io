@@ -10,8 +10,8 @@ function Projects() {
 
   useEffect(() => {
     const fetchProjects = async () => {
-      const projects = await fetchData(repos_URL);
-      const filteredProjects = projects.filter((project) => !project.name.includes('biancashiromoto'));
+      const fetchedProjects = await fetchData(repos_URL);
+      const filteredProjects = fetchedProjects.filter((project) => !project.name.includes('biancashiromoto'));
       setProjects(filteredProjects);
     }
     fetchProjects();
