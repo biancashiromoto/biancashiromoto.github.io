@@ -21,6 +21,10 @@ function LinkItems() {
         className="portfolio-link"
         to="/projects"
       />
+      <Link
+        className="certificates-link"
+        to="/certificates"
+      />
     </div>
   )
 }
