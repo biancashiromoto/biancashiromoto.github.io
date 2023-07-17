@@ -1,5 +1,4 @@
 .links-container {
-  /* animation: slideFromTop 2s ease; */
   align-items: center;
   display: flex;
   gap: 50px;
@@ -28,4 +27,8 @@
 
 .portfolio-link::before {
   content: url('../../assets/coding.svg')
+}
+
+.certificates-link::before {
+  content: url('../../assets/certificate.svg')
 }
