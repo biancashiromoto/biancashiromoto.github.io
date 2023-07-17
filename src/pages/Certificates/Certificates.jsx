@@ -30,7 +30,14 @@ function Certificates() {
       <h2>Certificates</h2>
       {certificates.map((certificate) => (
         <>
-          <li>{ certificate.url }</li>
+          <a
+            href={ certificate.url }
+          >
+            { certificate.title }
+          </a>
+          <br/>
+          <span>{ certificate.school }</span>
+          <br/>
         </>
       ))}
     </div>
