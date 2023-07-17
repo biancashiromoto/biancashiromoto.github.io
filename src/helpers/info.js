@@ -32,4 +32,6 @@ export const github_URL = 'https://github.com/biancashiromoto';
 
 export const linkedin_URL = 'https://www.linkedin.com/in/bshiromoto/';
 
-export const repos_URL = 'https://api.github.com/users/biancashiromoto/repos'
+export const repos_URL = 'https://api.github.com/users/biancashiromoto/repos';
+
+export const certificates_URL = 'https://raw.githubusercontent.com/biancashiromoto/certificates-api/main/certificates.json';
