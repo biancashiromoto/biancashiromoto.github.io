@@ -2,7 +2,14 @@ import PropTypes from "prop-types";
 import './ProjectCard.css';
 
 function ProjectCard({ props }) {
-  const { id, html_url, name, homepage, description, topics } = props;
+  const { id, html_url, name, homepage, description, topics, created_at } = props;
+
+  const formattedDate = new Date(created_at).toLocaleDateString(('en-US'), {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  });
+
   return (
     <div className={ `project-card ${id}-card`}>
       <h3 className="project-name">
@@ -26,6 +33,7 @@ function ProjectCard({ props }) {
         {description && (
           <p className="project-description">{ description }</p>
         )}
+        {`Created at: ${formattedDate}`}
         <ul className="project-tags">
           {topics && topics.map((topic, index) => (
             <li key={ index }>{ topic }</li>
@@ -36,24 +44,26 @@ function ProjectCard({ props }) {
 }
 
 ProjectCard.propTypes = {
+  description: PropTypes.string.isRequired,
+  homepage: PropTypes.string.isRequired,
+  html_url: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   props: PropTypes.shape({
-    description: PropTypes.any,
-    homepage: PropTypes.any,
-    html_url: PropTypes.any,
-    id: PropTypes.any,
-    name: PropTypes.any,
+    created_at: PropTypes.string,
+    description: PropTypes.string,
+    homepage: PropTypes.string,
+    html_url: PropTypes.string,
+    id: PropTypes.string,
+    name: PropTypes.string,
     topics: PropTypes.shape({
       map: PropTypes.func
     })
   }).isRequired,
-  description: PropTypes.any,
-  homepage: PropTypes.any,
-  html_url: PropTypes.any,
-  id: PropTypes.any,
-  name: PropTypes.any,
   topics: PropTypes.shape({
     map: PropTypes.func
-  })
+  }).isRequired,
+  created_at: PropTypes.string,
 }
 
 export default ProjectCard
