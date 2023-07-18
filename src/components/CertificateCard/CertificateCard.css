@@ -1,0 +1,30 @@
+.certificate-card {
+  border: solid 1px white;
+  border-radius: 25px;
+  margin: 0 auto;
+  padding: 10px;
+  width: 70%;
+}
+
+.certificate-card span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+}
+
+.certificate-info {
+  display: flex;
+}
+
+.certificate-card span::after {
+  padding-left: 15px;
+}
+
+.trybe::after {
+  content: url('../../assets/trybe.svg');
+}
+
+.alura::after {
+  content: url('../../assets/alura.svg');
+}

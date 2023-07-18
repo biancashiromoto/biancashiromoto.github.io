@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { fetchAPI } from "../../helpers/fetchAPI";
 import { certificates_URL } from "../../helpers/info";
 import ReturnButton from "../../components/ReturnButton/ReturnButton";
+import CertificateCard from "../../components/CertificateCard/CertificateCard";
+import './Certificates.css';
 
 
 function Certificates() {
@@ -30,18 +32,14 @@ function Certificates() {
     <div>
       <ReturnButton />
       <h2>Certificates</h2>
-      {certificates.map((certificate) => (
-        <>
-          <a
-            href={ certificate.url }
-          >
-            { certificate.title }
-          </a>
-          <br/>
-          <span>{ certificate.school }</span>
-          <br/>
-        </>
-      ))}
+      <div className="certificates-container">
+        {certificates.map((certificate) => (
+          <CertificateCard
+            key={ certificate.id }
+            props={ certificate }
+          />
+        ))}
+      </div>
     </div>
   )
 }
