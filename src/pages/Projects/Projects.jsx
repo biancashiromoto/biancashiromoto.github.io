@@ -11,8 +11,10 @@ function Projects() {
   useEffect(() => {
     const fetchProjects = async () => {
       const fetchedProjects = await fetchData(repos_URL);
-      const filteredProjects = fetchedProjects.filter((project) => !project.name.includes('biancashiromoto'));
-      setProjects(filteredProjects);
+      const filteredProjects = fetchedProjects
+        .filter((project) => !project.name.includes('biancashiromoto'));
+      const sortedProjects = filteredProjects.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      setProjects(sortedProjects);
     }
     fetchProjects();
   }, []);
