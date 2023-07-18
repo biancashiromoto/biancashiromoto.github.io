@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 import './CertificateCard.css';
 
 function CertificateCard({ props }) {
@@ -21,6 +22,17 @@ function CertificateCard({ props }) {
       </div>
     </div>
   )
+}
+
+CertificateCard.propTypes = {
+  props: PropTypes.shape({
+    school: PropTypes.string,
+    title: PropTypes.string,
+    url: PropTypes.string
+  }).isRequired,
+  school: PropTypes.string,
+    title: PropTypes.string,
+    url: PropTypes.string
 }
 
 export default CertificateCard;
