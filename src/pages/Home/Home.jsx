@@ -44,10 +44,10 @@ const Home = () => {
           >
             <span className='visually-hidden'>Linkedin</span>
           </a>
-          <Link
+          {/* <Link
             className='projects-link'
             to='/projects'
-          />
+          /> */}
           <Link
             className='certificates-link'
             to='/certificates'
