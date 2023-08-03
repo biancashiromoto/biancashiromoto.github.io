@@ -1,21 +1,3 @@
-li {
-  list-style: none;
-}
-
-.projects--container a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.projects--container {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 25px;
-  width: 100%;
-}
-
-.projects-page {
-  animation: fadeIn 1.75s ease-in-out;
+.home-link::before {
+  content: url('../../assets/previous.svg');
 }

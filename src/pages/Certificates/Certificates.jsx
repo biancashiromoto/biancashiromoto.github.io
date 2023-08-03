@@ -1,46 +1,48 @@
-import { useEffect, useState } from "react";
-import { fetchAPI } from "../../helpers/fetchAPI";
-import { certificates_URL } from "../../helpers/info";
-import ReturnButton from "../../components/ReturnButton/ReturnButton";
-import CertificateCard from "../../components/CertificateCard/CertificateCard";
+import { useEffect, useState } from 'react';
+import { fetchAPI } from '../../helpers/fetchAPI';
+import { certificates_URL } from '../../helpers/info';
 import './Certificates.css';
+import { Link } from 'react-router-dom';
 
-
-function Certificates() {
+const Certificates = () => {
   const [certificates, setCertificates] = useState([]);
 
   useEffect(() => {
     const fetchCertificates = async () => {
-      const fetchedCertificates = await fetchData(certificates_URL);
-      console.log(fetchedCertificates)
-      setCertificates(fetchedCertificates);
+      const response = await fetchAPI(certificates_URL);
+      setCertificates(response);
     }
     fetchCertificates();
   }, []);
 
-  useEffect(() => {
-    console.log(certificates);
-  }, [certificates]);
-
-  const fetchData = async (URL) =>{
-    const data = await fetchAPI(URL);
-    console.log(data);
-    return data;
-  }
-
   return (
-    <div>
-      <ReturnButton />
+    <article className='certificates-container text-center p-3 h-100 mx-auto'>
+      <Link
+        className='home-link'
+        to='/'
+      />
       <h2>Certificates</h2>
-      <div className="certificates-container">
-        {certificates.map((certificate) => (
-          <CertificateCard
-            key={ certificate.id }
-            props={ certificate }
-          />
+      <section className='d-sm-flex flex-column d-md-grid'>
+        <div className='certificates-container row g-md-1 justify-content-center' style={{ gap: '1rem' }}>
+          {certificates.map((certificate) => (
+            <div
+              key={ certificate.id }
+              className={ `card col-md-4 col-lg-3 d-flex bg-light`}
+            >
+              <a
+                href={certificate.url}
+                target='_blank'
+                rel="noreferrer"
+                className='text-decoration-none fs-5 py-2'
+              >
+                {certificate.title}
+              </a>
+              <p className='fs-5'>{certificate.school}</p>
+            </div>
         ))}
-      </div>
-    </div>
+        </div>
+      </section>
+    </article>
   )
 }
 

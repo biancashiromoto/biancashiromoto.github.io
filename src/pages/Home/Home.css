@@ -1,22 +1,43 @@
-.home--container {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+.links-container {
+  z-index: 1;
 }
 
-.lang-toggle input {
-  display: none;
+.image-container {
+  background: url('../../assets/background-image.jpg') no-repeat center;
+  background-size: 300px;
+  background-position: 50% 95%;
+  height: 250px;
+  position: sticky;
+  top: 60%;
+  width: 450px;
 }
 
-.lang-toggle {
-  border-radius: 25px;
-  box-sizing: border-box;
-  margin-top: 20px;
-  padding: 7.5px 10px;
-  transition: 500ms;
+.aboutme-container {
+  position: relative;
 }
 
-.lang-toggle:hover {
-  transform: scale(1.125, 1.125);
-  background-color: rgb(77, 77, 77);
+.aboutme-container p {
+  line-height: 2.25;
+}
+
+.github-link::before {
+  content: url('../../assets/github.svg');
+}
+
+.linkedin-link::before {
+  content: url('../../assets/linkedin.svg');
+}
+
+.projects-link::before {
+  content: url('../../assets/coding.svg');
+}
+
+.certificates-link::before {
+  content: url('../../assets/certificate.svg');
+}
+
+@media screen and (max-width: 768px) {
+  .profile-pic {
+    width: 25%;
+  }
 }

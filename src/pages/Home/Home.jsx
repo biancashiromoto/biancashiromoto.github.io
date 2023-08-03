@@ -1,30 +1,71 @@
-import { useState } from "react";
-import LinkItems from "../../components/LinkItems/LinkItems";
-import Section from "../../components/Section/Section";
+import { useState } from 'react';
 import { info_en, info_pt } from "../../helpers/info";
+import { Link } from 'react-router-dom';
 import './Home.css';
 
-function Home() {
-  const [isChecked, setIsChecked] = useState(false);
+const Home = () => {
+  const [isInEnglish, setIsInEnglish] = useState(false);
 
   return (
-    <div className="home--container">
-     <label className="lang-toggle">
-      { isChecked ? 'Translate to English 🇺🇸' : 'Traduzir para Português 🇧🇷' }
-      <input
-        type="checkbox"
-        onChange={ () => setIsChecked((prevState) => !prevState) }
-      />
-     </label>
-      <Section
-        props={ isChecked ? info_pt.intro : info_en.intro }
-      >
-        <div className="background-image--container" />
-        <LinkItems />
-      </Section>
-      <Section
-        props={ isChecked ? info_pt.aboutMe : info_en.aboutMe }
-      />
+    <div className='text-center p-3'>
+      <main className='vh-100'>
+      <label className='language-toggle'>
+        {isInEnglish ? 'Traduzir para Português 🇧🇷' : 'Translate to English 🇺🇸'}
+        <input
+          className='d-none'
+          type='checkbox'
+          onChange={ () => setIsInEnglish((prevState) => !prevState) }
+        />
+      </label>
+      <article className='intro-container d-flex flex-column align-items-center h-100'>
+        <div className='col-md-6'>
+          <img
+            className='img-fluid w-50 w-md-50 my-5 rounded-circle profile-pic'
+            src={ info_pt.intro.imgSrc }
+            alt={ isInEnglish ? info_en.intro.imgAlt : info_pt.intro.imgAlt }
+          />
+        </div>
+        <h2>{ isInEnglish ? info_en.intro.title : info_pt.intro.title }</h2>
+        <span>{ isInEnglish ? info_en.intro.content : info_pt.intro.content }</span>
+        <div className='links-container d-flex gap-4 pt-4'>
+          <a
+            href='https://github.com/biancashiromoto'
+            target='_blank'
+            rel="noreferrer"
+            className='github-link'
+          >
+            <span className='visually-hidden'>GitHub</span>
+          </a>
+          <a
+            href='https://www.linkedin.com/in/bshiromoto/'
+            target='_blank'
+            rel="noreferrer"
+            className='linkedin-link'
+          >
+            <span className='visually-hidden'>Linkedin</span>
+          </a>
+          {/* <Link
+            className='projects-link'
+            to='/projects'
+          /> */}
+          <Link
+            className='certificates-link'
+            to='/certificates'
+          />
+        </div>
+        <div className='image-container d-lg-none'></div>
+      </article>
+      </main>
+      <article className='aboutme-container d-flex flex-column justify-content-center vh-100'>
+        <h2 className='pb-3'>{ isInEnglish ? info_en.aboutMe.title : info_pt.aboutMe.title }</h2>
+        {info_en.aboutMe.content.map((paragraph, index) => (
+          <p
+            key={ index }
+          >
+            { paragraph }
+          </p>
+        ))}
+      </article>
     </div>
   )
 }
