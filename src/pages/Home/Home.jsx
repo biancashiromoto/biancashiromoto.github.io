@@ -16,15 +16,17 @@ function Home() {
         onChange={ () => setIsChecked((prevState) => !prevState) }
       />
      </label>
+    <div className="d-lg-flex">
       <Section
-        props={ isChecked ? info_pt.intro : info_en.intro }
-      >
-        <div className="background-image--container" />
-        <LinkItems />
-      </Section>
-      <Section
-        props={ isChecked ? info_pt.aboutMe : info_en.aboutMe }
-      />
+          props={ isChecked ? info_pt.intro : info_en.intro }
+        >
+          <div className="background-image--container d-lg-none" />
+          <LinkItems />
+        </Section>
+        <Section
+          props={ isChecked ? info_pt.aboutMe : info_en.aboutMe }
+        />
+    </div>
     </div>
   )
 }
