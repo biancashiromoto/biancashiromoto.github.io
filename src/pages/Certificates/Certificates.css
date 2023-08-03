@@ -1,5 +1,20 @@
-.certificates-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+.card a {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card {
+  width: 400px;
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    align-items: center;
+    box-sizing: border-box;
+    height: 125px;
+    justify-content: center;
+  }
 }
