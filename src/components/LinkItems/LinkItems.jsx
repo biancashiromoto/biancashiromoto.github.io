@@ -4,7 +4,7 @@ import './LinkItems.css';
 
 function LinkItems() {
   return (
-    <div className="links-container">
+    <div className="links-container d-flex gap-4 mt-3">
       <a
         className="linkedin-link"
         href={ linkedin_URL }
