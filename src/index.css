@@ -24,11 +24,14 @@
 }
 
 * {
-  background-color: var(--black);
-  color: var(--white);
   margin: 0;
   padding: 0;
   user-select: none;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
 }
 
 ::-webkit-scrollbar {
