@@ -8,7 +8,7 @@ const Home = () => {
 
   return (
     <div className='text-center p-3'>
-      <main className='text-center py-3 px-2  vh-100'>
+      <main className='vh-100'>
       <label className='language-toggle'>
         {isInEnglish ? 'Traduzir para Português 🇧🇷' : 'Translate to English 🇺🇸'}
         <input
