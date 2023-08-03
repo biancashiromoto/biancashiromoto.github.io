@@ -5,8 +5,9 @@ function Section({ props, children }) {
   const { title, content, imgSrc, imgAlt, className } = props;
   
   return (
-    <section className={ `${className}-container` }>
+    <section className={ `${className}-container d-flex flex-column align-items-center text-center gap-2 px-4 min-vh-100 h-md-50` }>
       <img
+        className="img-fluid w-50 my-5"
         src={ imgSrc }
         alt={ imgAlt }
       />
