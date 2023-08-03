@@ -33,11 +33,11 @@ const Certificates = () => {
                 href={certificate.url}
                 target='_blank'
                 rel="noreferrer"
-                className='text-decoration-none fs-5'
+                className='text-decoration-none fs-5 py-2'
               >
                 {certificate.title}
               </a>
-              <p>{certificate.school}</p>
+              <p className='fs-5'>{certificate.school}</p>
             </div>
         ))}
         </div>
