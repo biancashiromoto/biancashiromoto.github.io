@@ -15,7 +15,6 @@ const ProjectsCarousel = () => {
       const filteredProjects = response.filter((project) => !project.name.includes('biancashiromoto'));
       const sortedProjects = filteredProjects.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
       setProjects(sortedProjects);
-      console.log(sortedProjects);
     }
     fetchProjects();
   }, []);
@@ -23,7 +22,7 @@ const ProjectsCarousel = () => {
   return (
     <Carousel>
       {projects.map((project) => (
-        <CarouselItem key={project.id} className='text-center vh-100'>
+        <CarouselItem key={project.id} className='text-center vh-60'>
           <h4>{project.name}</h4>
           <img
             className='d-block mx-auto project-image'
