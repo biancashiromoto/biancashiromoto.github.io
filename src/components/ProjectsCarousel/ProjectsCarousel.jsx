@@ -32,25 +32,25 @@ const ProjectsCarousel = () => {
   }, []);
 
   return (
-    <Carousel>
+    <Carousel className='carousel'>
       {projects.map((project) => (
-        <CarouselItem key={project.id} className='text-center'>
-          <h4>{project.name}</h4>
+        <CarouselItem key={project.id} className='text-center vh-auto py-4'>
+          <h4>
+            <a
+              href={project.homepage}
+              target='_blank'
+              rel="noreferrer"
+              className='text-decoration-none'
+            >
+              {project.name}
+            </a>
+          </h4>
           <img
             className='d-block mx-auto project-image'
             src={ `https://raw.githubusercontent.com/biancashiromoto/${project.name}/main/screenshots/screenshot-01.png` }
             alt={ `Imagem do projeto ${project.name}` }
           />
           <p className='project-description small'>{project.description}</p>
-          {project.homepage && (
-            <a
-              href={project.homepage}
-              target='_blank'
-              rel="noreferrer"
-            >
-              Deploy
-            </a>
-          )}
         </CarouselItem>
       ))}
     </Carousel>
