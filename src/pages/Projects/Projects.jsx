@@ -6,6 +6,7 @@ const Projects = () => {
   return (
     <div className='projects-container text-center p-3 mx-auto vh-100'>
       <ReturnButton />
+      <h2>Projects</h2>
       <ProjectsCarousel />
     </div>
   )
