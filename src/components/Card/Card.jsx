@@ -1,26 +1,17 @@
 import { useEffect, useState } from 'react';
 
 const Card = ({ props }) => {
-  // const [images, setImages] = useState('');
-  const { html_url, name, description, homepage } = props;
-  // const imgPath = `https://api.github.com/repos/biancashiromoto/${name}/contents/screenshots/screenshot-01.png?ref=main`;
-
-
-  // useEffect(() => {
-  //   const fetchImages = async () => {
-  //     const response = await fetchAPI(imgPath);
-  //     console.log(response); // ver o que retorna
-  //   }
-  //   fetchImages();
-  // }, []);
+  const { name, description, homepage } = props;
+  const imgPath = `https://raw.githubusercontent.com/biancashiromoto/${name}/main/screenshots/screenshot-01.png`;
   
   return (
     <div className='card'>
-        {/* <img
-          className='card-img-top'
-          src={ images }
+      {imgPath && (
+        <img
+          src={ imgPath }
           alt={ `Imagem do projeto ${name}` }
-        /> */}
+        />
+      )}
       <div className='card-body'>
         <h5 className='card-title'>{ name }</h5>
         <p>{ description }</p>

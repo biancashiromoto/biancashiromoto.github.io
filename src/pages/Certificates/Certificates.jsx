@@ -10,7 +10,9 @@ const Certificates = () => {
   useEffect(() => {
     const fetchCertificates = async () => {
       const response = await fetchAPI(certificates_URL);
-      setCertificates(response);
+      const sortedCertificates = response.sort((a, b) => a.title.localeCompare(b.title));
+      console.log(sortedCertificates);
+      setCertificates(sortedCertificates);
     }
     fetchCertificates();
   }, []);
