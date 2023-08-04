@@ -27,6 +27,18 @@
   margin-left: 25%;
 }
 
+.Alura::before {
+  content: url('../../assets/alura.svg');
+}
+
+.Trybe::before {
+  content: url('../../assets/trybe.svg');
+}
+
+.Alura::before, .Trybe::before {
+  padding-right: 5px;
+}
+
 /* tablet screens */
 @media screen and (min-width: 768px) {
   .certificate-card {
