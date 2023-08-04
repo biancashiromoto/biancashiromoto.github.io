@@ -40,7 +40,7 @@ const ProjectsCarousel = () => {
               href={project.homepage}
               target='_blank'
               rel="noreferrer"
-              className='text-decoration-none'
+              className='text-decoration-none text-light'
             >
               {project.name}
             </a>
