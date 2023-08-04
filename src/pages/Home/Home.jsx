@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import { info_en, info_pt } from "../../helpers/info";
 import { Link } from 'react-router-dom';
 import './Home.css';
+import { context } from '../../context/context';
 
 const Home = () => {
-  const [isInEnglish, setIsInEnglish] = useState(false);
+  const { isInEnglish, setIsInEnglish } = useContext(context);
 
   return (
     <div className='text-center p-3'>
