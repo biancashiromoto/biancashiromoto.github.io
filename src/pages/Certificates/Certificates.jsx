@@ -46,7 +46,7 @@ const Certificates = () => {
               >
                 {certificate.title}
               </a>
-              <p className='certificate-school small text-muted'>
+              <p className={ `certificate-school small text-muted d-flex align-items-center ${certificate.school}` }>
                 {certificate.school}
               </p>
             </div>
