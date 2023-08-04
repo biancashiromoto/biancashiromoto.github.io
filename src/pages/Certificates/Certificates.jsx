@@ -24,11 +24,11 @@ const Certificates = () => {
       <h2>{isInEnglish ? 'Certificates' : 'Certificados'}</h2>
       {isInEnglish ? (
         info_en.certificates.content.map((paragraph, index) => (
-          <p key={index}>{paragraph}</p>
+          <p className='fs-6' key={index}>{paragraph}</p>
         ))
       ) : (
         info_pt.certificates.content.map((paragraph, index) => (
-          <p key={index}>{paragraph}</p>
+          <p className='fs-6' key={index}>{paragraph}</p>
         ))
       )}
       <section className='d-sm-flex flex-column d-md-grid'>
@@ -42,11 +42,11 @@ const Certificates = () => {
                 href={certificate.url}
                 target='_blank'
                 rel="noreferrer"
-                className='text-decoration-none fs-5 py-2'
+                className='text-decoration-none fs-6 py-2'
               >
                 {certificate.title}
               </a>
-              <p className='fs-5'>{certificate.school}</p>
+              <p className='small'>{certificate.school}</p>
             </div>
         ))}
         </div>
