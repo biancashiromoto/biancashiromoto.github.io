@@ -9,3 +9,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.carousel-indicators {
+  margin-bottom: 0;
+}
