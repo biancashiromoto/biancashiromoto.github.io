@@ -7,7 +7,6 @@ import { context } from '../../context/context';
 
 const Projects = () => {
   const { isInEnglish } = useContext(context);
-  console.log(isInEnglish);
   return (
     <div className='projects-container text-center p-3 mx-auto vh-100'>
       <ReturnButton />
