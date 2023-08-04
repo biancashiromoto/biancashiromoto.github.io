@@ -4,6 +4,7 @@ import { repos_URL } from '../../helpers/info';
 import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { CarouselItem } from 'react-bootstrap';
+import './ProjectsCarousel.css';
 
 const ProjectsCarousel = () => {
   const [projects, setProjects] = useState([]);
@@ -25,7 +26,7 @@ const ProjectsCarousel = () => {
         <CarouselItem key={project.id} className='text-center vh-100'>
           <h4>{project.name}</h4>
           <img
-            className='d-block w-50 mx-auto'
+            className='d-block mx-auto project-image'
             src={ `https://raw.githubusercontent.com/biancashiromoto/${project.name}/main/screenshots/screenshot-01.png` }
             alt={ `Imagem do projeto ${project.name}` }
           />
@@ -40,7 +41,9 @@ const ProjectsCarousel = () => {
               </li>
             ))}
           </ul>
-          <a href={project.homepage} target='_blank' rel="noreferrer">Deploy</a>
+          {project.homepage && (
+            <a href={project.homepage} target='_blank' rel="noreferrer">Deploy</a>
+          )}
         </CarouselItem>
       ))}
     </Carousel>
