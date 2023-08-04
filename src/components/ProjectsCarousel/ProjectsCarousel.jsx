@@ -30,16 +30,6 @@ const ProjectsCarousel = () => {
             alt={ `Imagem do projeto ${project.name}` }
           />
           <p>{project.description}</p>
-          <ul className='d-flex flex-wrap'>
-            {project.topics.map((topic, index) => (
-              <li
-                key={index}
-                className='list-unstyled m-1 bg-white px-3 py-2 rounded-pill text-dark'
-              >
-                {topic}
-              </li>
-            ))}
-          </ul>
           {project.homepage && (
             <a href={project.homepage} target='_blank' rel="noreferrer">Deploy</a>
           )}
