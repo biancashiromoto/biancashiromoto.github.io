@@ -36,17 +36,19 @@ const Certificates = () => {
           {certificates.map((certificate) => (
             <div
               key={ certificate.id }
-              className={ `certificate-card col-md-4 col-lg-3 d-flex bg-light`}
+              className={ `certificate-card flex-column align-items-center justify-content-center col-md-4 col-lg-3 d-flex bg-light`}
             >
               <a
                 href={certificate.url}
                 target='_blank'
                 rel="noreferrer"
-                className='text-decoration-none fs-6 py-2'
+                className='certificate-title text-decoration-none'
               >
                 {certificate.title}
               </a>
-              <p className='small'>{certificate.school}</p>
+              <p className='certificate-school small text-muted'>
+                {certificate.school}
+              </p>
             </div>
         ))}
         </div>
