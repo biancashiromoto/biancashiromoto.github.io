@@ -36,7 +36,7 @@ const Certificates = () => {
           {certificates.map((certificate) => (
             <div
               key={ certificate.id }
-              className={ `card col-md-4 col-lg-3 d-flex bg-light`}
+              className={ `certificate-card col-md-4 col-lg-3 d-flex bg-light`}
             >
               <a
                 href={certificate.url}
