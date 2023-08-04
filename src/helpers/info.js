@@ -13,6 +13,9 @@ export const info_pt = {
   },
   projects: {
     content: ['Aqui estão alguns dos meus projetos que têm interfaces visuais, mas no meu GitHub você pode conferir outros projetos que não têm!', 'As descrições dos projetos ficam em inglês pois elas vêm direto do GitHub, mas você pode ler mais sobre cada projeto no README de cada um deles.']
+  },
+  certificates: {
+    content: ['Estes são certificados de cursos relacionados à área de tecnologia que eu já fiz. Você pode abrir a página do certificado clicando no nome dele.']
   }
 }
 
@@ -31,6 +34,9 @@ export const info_en = {
   },
   projects: {
     content: ['Here are some of my projects that have visual interfaces, but you can check my GitHub for other projects that don\'t!']
+  },
+  certificates: {
+    content: ['These are certificates from technology-related courses I\'ve taken. You can open the certificate page by clicking on its name.']
   }
 }
 
