@@ -1,4 +1,3 @@
-import './Projects.css';
 import { info_en, info_pt } from '../../helpers/info';
 import ProjectsCarousel from '../../components/ProjectsCarousel/ProjectsCarousel';
 import ReturnButton from '../../components/ReturnButton/ReturnButton';
