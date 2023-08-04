@@ -12,8 +12,20 @@ const ProjectsCarousel = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       const response = await fetchAPI(repos_URL);
-      const filteredProjects = response.filter((project) => !project.name.includes('biancashiromoto'));
-      const sortedProjects = filteredProjects.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      const projectsWithScreenshots = [];
+
+      for (const project of response) {
+        try {
+          const screenshotResponse = await fetch(`https://raw.githubusercontent.com/biancashiromoto/${project.name}/main/screenshots/screenshot-01.png`);
+
+          if (screenshotResponse.status === 200) {
+            projectsWithScreenshots.push(project);
+          }
+        } catch (error) {
+          console.error(`${project.name} does not provide screenshot images`);
+        }
+      }
+      const sortedProjects = projectsWithScreenshots.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
       setProjects(sortedProjects);
     }
     fetchProjects();
