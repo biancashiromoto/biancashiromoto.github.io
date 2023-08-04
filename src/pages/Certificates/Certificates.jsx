@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { fetchAPI } from '../../helpers/fetchAPI';
 import { certificates_URL } from '../../helpers/info';
 import './Certificates.css';
-import { Link } from 'react-router-dom';
 import ReturnButton from '../../components/ReturnButton/ReturnButton';
 
 const Certificates = () => {
