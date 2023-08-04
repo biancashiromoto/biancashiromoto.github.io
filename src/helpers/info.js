@@ -12,7 +12,7 @@ export const info_pt = {
     className: 'about-me'
   },
   projects: {
-    content: ['Aqui estão alguns dos meus projetos que têm interfaces visuais, mas no meu GitHub você pode conferir outros projetos que não têm!']
+    content: ['Aqui estão alguns dos meus projetos que têm interfaces visuais, mas no meu GitHub você pode conferir outros projetos que não têm!', 'As descrições dos projetos ficam em inglês pois elas vêm direto do GitHub, mas você pode ler mais sobre cada projeto no README de cada um deles.']
   }
 }
 
