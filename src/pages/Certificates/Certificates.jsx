@@ -11,7 +11,6 @@ const Certificates = () => {
     const fetchCertificates = async () => {
       const response = await fetchAPI(certificates_URL);
       const sortedCertificates = response.sort((a, b) => a.title.localeCompare(b.title));
-      console.log(sortedCertificates);
       setCertificates(sortedCertificates);
     }
     fetchCertificates();
