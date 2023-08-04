@@ -5,6 +5,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { CarouselItem } from 'react-bootstrap';
 import './ProjectsCarousel.css';
+import { formatTitle } from '../../helpers/formatTitle';
 
 const ProjectsCarousel = () => {
   const [projects, setProjects] = useState([]);
@@ -42,7 +43,7 @@ const ProjectsCarousel = () => {
               rel="noreferrer"
               className='text-decoration-none text-light'
             >
-              {project.name}
+              {formatTitle(project.name)}
             </a>
           </h4>
           <img
