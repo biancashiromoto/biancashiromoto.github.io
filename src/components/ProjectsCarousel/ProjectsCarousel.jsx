@@ -22,13 +22,25 @@ const ProjectsCarousel = () => {
   return (
     <Carousel>
       {projects.map((project) => (
-        <CarouselItem key={project.id} className='text-center'>
+        <CarouselItem key={project.id} className='text-center vh-100'>
           <h4>{project.name}</h4>
           <img
             className='d-block w-50 mx-auto'
             src={ `https://raw.githubusercontent.com/biancashiromoto/${project.name}/main/screenshots/screenshot-01.png` }
             alt={ `Imagem do projeto ${project.name}` }
           />
+          <p>{project.description}</p>
+          <ul className='d-flex flex-wrap'>
+            {project.topics.map((topic, index) => (
+              <li
+                key={index}
+                className='list-unstyled m-1 bg-white px-3 py-2 rounded-pill text-dark'
+              >
+                {topic}
+              </li>
+            ))}
+          </ul>
+          <a href={project.homepage} target='_blank' rel="noreferrer">Deploy</a>
         </CarouselItem>
       ))}
     </Carousel>
