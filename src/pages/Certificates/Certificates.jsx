@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { fetchAPI } from '../../helpers/fetchAPI';
 import { certificates_URL } from '../../helpers/info';
 import './Certificates.css';
-import { Link } from 'react-router-dom';
+import ReturnButton from '../../components/ReturnButton/ReturnButton';
 
 const Certificates = () => {
   const [certificates, setCertificates] = useState([]);
@@ -18,11 +18,8 @@ const Certificates = () => {
   }, []);
 
   return (
-    <article className='certificates-container text-center p-3 h-100 mx-auto'>
-      <Link
-        className='home-link'
-        to='/'
-      />
+    <div className='certificates-container text-center p-3 h-100 mx-auto'>
+      <ReturnButton />
       <h2>Certificates</h2>
       <section className='d-sm-flex flex-column d-md-grid'>
         <div className='certificates-container row g-md-1 justify-content-center' style={{ gap: '1rem' }}>
@@ -44,7 +41,7 @@ const Certificates = () => {
         ))}
         </div>
       </section>
-    </article>
+    </div>
   )
 }
 
