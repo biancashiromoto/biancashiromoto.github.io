@@ -4,7 +4,7 @@ import ReturnButton from '../../components/ReturnButton/ReturnButton';
 
 const Projects = () => {
   return (
-    <div className='projects-container text-center p-3 mx-auto vh-sm-100'>
+    <div className='projects-container text-center p-3 mx-auto'>
       <ReturnButton />
       <ProjectsCarousel />
     </div>
