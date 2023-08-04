@@ -8,7 +8,7 @@
 
 .certificate-card a {
   display: -webkit-box;
-  margin: 35% auto 0 50%;
+  margin: 37.5% auto 0 50%;
   overflow: hidden;
   text-overflow: ellipsis;
   transform: translate(-32.5%, -50%);
@@ -18,7 +18,9 @@
 }
 
 .certificate-title {
+  color: var(--dark-blue);
   font-size: 1rem;
+  font-weight: 600;
 }
 
 .certificate-school {
