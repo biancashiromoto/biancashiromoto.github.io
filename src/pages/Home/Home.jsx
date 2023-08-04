@@ -58,13 +58,15 @@ const Home = () => {
       </main>
       <article className='aboutme-container d-flex flex-column justify-content-center vh-100'>
         <h2 className='pb-3'>{ isInEnglish ? info_en.aboutMe.title : info_pt.aboutMe.title }</h2>
-        {info_en.aboutMe.content.map((paragraph, index) => (
-          <p
-            key={ index }
-          >
-            { paragraph }
-          </p>
-        ))}
+        {isInEnglish ? (
+          info_en.aboutMe.content.map((paragraph, index) => (
+            <p key={ index }>{ paragraph }</p>
+          ))
+        ) : (
+          info_pt.aboutMe.content.map((paragraph, index) => (
+            <p key={ index }>{ paragraph }</p>
+          ))
+        )}
       </article>
     </div>
   )
