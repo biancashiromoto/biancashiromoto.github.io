@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
+import './ReturnButton.css';
 
 const ReturnButton = () => {
   return (
-    <div>
+    <div className='button-container position-absolute'>
       <Link
-        className='home-link'
+        className='return-button'
         to='/'
       />
     </div>
