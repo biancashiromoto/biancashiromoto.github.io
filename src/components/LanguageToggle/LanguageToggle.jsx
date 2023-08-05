@@ -9,7 +9,7 @@ const LanguageToggle = ({ props }) => {
   const location = useLocation();
 
   return (
-    <label className={`${isInEnglish ? 'pt' : 'en'} ${location.pathname !== '/' && 'position-absolute'} language-toggle pb-3 small rounded-pill`} style={{ right: location.pathname !== '/' ? '25px' : 'auto' }}>
+    <label className={`${isInEnglish ? 'pt' : 'en'} ${location.pathname !== '/' && 'position-absolute'} language-toggle pb-3 small mt-4 rounded-pill`} style={{ right: location.pathname !== '/' ? '25px' : 'auto' }}>
         {props}
         <input
           className='d-none'
