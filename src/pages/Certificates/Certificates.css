@@ -39,22 +39,29 @@
   padding-right: 5px;
 }
 
-/* tablet screens */
+@media screen and (min-width: 525px) {
+  .certificate-card a {
+    margin-top: 25%;
+  }
+}
+
+/* desktop/tablet screens */
 @media screen and (min-width: 768px) {
   .certificate-card {
     align-items: center;
     box-sizing: border-box;
     display: block;
-    height: 200px;
+    height: 300px;
     justify-content: center;
-    width: 40%;
+    width: 500px;
   }
+  
   .certificate-card a {
-    margin: 20% auto 0 50%;
-    transform: translateX(-32.5%);
+    font-size: 1.25rem;
+    margin: 25% auto 0 50%;
   }
 
   .certificate-school {
-    padding-top: 20px;
+    margin-top: 20px;
   }
 }
