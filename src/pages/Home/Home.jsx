@@ -12,7 +12,7 @@ const Home = () => {
   useEffect(() => setIsLoading(false), []);
 
   return (
-    <div className='text-center p-3'>
+    <div className='home-container text-center py-3 d-lg-flex'>
       {isLoading ? <Loading /> : (
         <>
           <main className='vh-100'>
