@@ -1,6 +1,7 @@
 import PropTypes from "prop-types"
 import { useContext } from 'react'
 import { context } from '../../context/context';
+import './LanguageToggle.css';
 
 const LanguageToggle = ({ props }) => {
   const { isInEnglish, setIsInEnglish } = useContext(context);
