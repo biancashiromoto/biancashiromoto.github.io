@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <div className='text-center'>
       <LanguageToggle props={isInEnglish ? info_pt.languageButton.content[0] : info_en.languageButton.content[0]}/>
-      <div className='home-container d-lg-flex px-3 px-lg-5 mx-auto'>
+      <div className='home-container d-lg-flex px-3 mx-auto'>
         {isLoading ? <Loading /> : (
           <>
             <main className='vh-100 w-100 w-lg-50 py-lg-5 d-lg-flex flex-column gap-2'>
