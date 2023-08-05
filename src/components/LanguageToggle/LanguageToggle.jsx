@@ -7,9 +7,8 @@ const LanguageToggle = ({ props }) => {
   const { isInEnglish, setIsInEnglish } = useContext(context);
 
   return (
-    <label className='language-toggle pb-3 small'>
+    <label className={`${isInEnglish ? 'pt' : 'en'} language-toggle pb-3 small rounded-pill`}>
         {props}
-        {isInEnglish ? ' 🇧🇷' : ' 🇺🇸'}
         <input
           className='d-none'
           type='checkbox'
