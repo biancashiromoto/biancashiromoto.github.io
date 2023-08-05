@@ -8,7 +8,7 @@ import Loading from '../../components/Loading/Loading';
 
 const Projects = () => {
   const { isInEnglish, isLoading, setIsLoading } = useContext(context);
-  const [content, obs] = info_pt.projects.content;
+  const [content, obs1, obs2] = info_pt.projects.content;
 
   useEffect(() => setIsLoading(false), []);
 
@@ -26,7 +26,9 @@ const Projects = () => {
           ) : (
             <>
               <p className='fs-6'>{content}</p>
-              <span className='observation small'>{obs}</span>
+              <span className='observation small'>{obs1}</span>
+              <br/>
+              <span className='observation small'>{obs2}</span>
             </>
           )}
           <ProjectsCarousel />
