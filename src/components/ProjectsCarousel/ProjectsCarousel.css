@@ -1,5 +1,6 @@
 .project-image {
-  width: 45%;
+  max-width: 350px;
+  width: 40%;
 }
 
 .project-description {
@@ -12,4 +13,19 @@
 
 .carousel-indicators {
   margin-bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .carousel {
+    margin: 20px auto 0 auto;
+    max-width: 500px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .carousel {
+    margin: 20px auto 0 auto;
+    max-width: 600px;
+    width: 50%;
+  }
 }
