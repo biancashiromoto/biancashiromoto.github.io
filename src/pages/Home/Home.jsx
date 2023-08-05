@@ -1,16 +1,21 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { info_en, info_pt } from "../../helpers/info";
 import { Link } from 'react-router-dom';
 import './Home.css';
 import { context } from '../../context/context';
 import LanguageToggle from '../../components/LanguageToggle/LanguageToggle';
+import Loading from '../../components/Loading/Loading';
 
 const Home = () => {
-  const { isInEnglish } = useContext(context);
+  const { isInEnglish, isLoading, setIsLoading } = useContext(context);
+
+  useEffect(() => setIsLoading(false), []);
 
   return (
     <div className='text-center p-3'>
-      <main className='vh-100'>
+      {isLoading ? <Loading /> : (
+        <>
+          <main className='vh-100'>
       <LanguageToggle props={isInEnglish ? info_pt.languageButton.content[0] : info_en.languageButton.content[0]}/>
       <article className='intro-container d-flex flex-column align-items-center h-100'>
         <div className='col-md-6'>
@@ -63,6 +68,8 @@ const Home = () => {
           ))
         )}
       </article>
+        </>
+      )}
     </div>
   )
 }
