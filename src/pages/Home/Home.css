@@ -1,3 +1,7 @@
+.home-container {
+  overflow-x: hidden;
+}
+
 .links-container {
   z-index: 1;
 }
