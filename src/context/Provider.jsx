@@ -4,10 +4,13 @@ import { context } from './context';
 
 const Provider = ({ children }) => {
   const [isInEnglish, setIsInEnglish] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const value = {
     isInEnglish,
     setIsInEnglish,
+    isLoading,
+    setIsLoading,
   };
 
   return (
