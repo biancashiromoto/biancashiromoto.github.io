@@ -2,6 +2,11 @@
   z-index: 1;
 }
 
+.links-container a:hover {
+  transform: scale(1.25, 1.25);
+  transition: 400ms;
+}
+
 .image-container {
   background: url('../../assets/background-image.jpg') no-repeat center;
   background-size: 300px;
