@@ -2,7 +2,7 @@
   z-index: 1;
 }
 
-.links-container a:hover {
+.links-container a:hover, .links-container a:focus {
   transform: scale(1.25, 1.25);
   transition: 400ms;
 }
