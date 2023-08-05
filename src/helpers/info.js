@@ -1,4 +1,7 @@
 export const info_pt = {
+  languageButton: {
+    content: ['Traduzir para Português']
+  },
   intro: {
     title: 'Olá!',
     content: ['Meu nome é Bianca e este é meu portfolio.'],
@@ -20,6 +23,9 @@ export const info_pt = {
 }
 
 export const info_en = {
+  languageButton: {
+    content: ['Translate to English']
+  },
   intro: {
     title: 'Hello!',
     content: ['My name is Bianca and this is my portfolio.'],
