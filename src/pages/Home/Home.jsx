@@ -3,21 +3,15 @@ import { info_en, info_pt } from "../../helpers/info";
 import { Link } from 'react-router-dom';
 import './Home.css';
 import { context } from '../../context/context';
+import LanguageToggle from '../../components/LanguageToggle/LanguageToggle';
 
 const Home = () => {
-  const { isInEnglish, setIsInEnglish } = useContext(context);
+  const { isInEnglish } = useContext(context);
 
   return (
     <div className='text-center p-3'>
       <main className='vh-100'>
-      <label className='language-toggle'>
-        {isInEnglish ? 'Traduzir para Português 🇧🇷' : 'Translate to English 🇺🇸'}
-        <input
-          className='d-none'
-          type='checkbox'
-          onChange={ () => setIsInEnglish((prevState) => !prevState) }
-        />
-      </label>
+      <LanguageToggle props={isInEnglish ? info_pt.languageButton.content[0] : info_en.languageButton.content[0]}/>
       <article className='intro-container d-flex flex-column align-items-center h-100'>
         <div className='col-md-6'>
           <img
