@@ -6,7 +6,7 @@ const LanguageToggle = ({ props }) => {
   const { isInEnglish, setIsInEnglish } = useContext(context);
 
   return (
-    <label className='language-toggle pb-3'>
+    <label className='language-toggle pb-3 small'>
         {props}
         {isInEnglish ? ' 🇧🇷' : ' 🇺🇸'}
         <input
