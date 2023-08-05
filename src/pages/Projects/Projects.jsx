@@ -1,29 +1,37 @@
 import { info_en, info_pt } from '../../helpers/info';
 import ProjectsCarousel from '../../components/ProjectsCarousel/ProjectsCarousel';
 import ReturnButton from '../../components/ReturnButton/ReturnButton';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { context } from '../../context/context';
 import LanguageToggle from '../../components/LanguageToggle/LanguageToggle';
+import Loading from '../../components/Loading/Loading';
 
 const Projects = () => {
-  const { isInEnglish } = useContext(context);
+  const { isInEnglish, isLoading, setIsLoading } = useContext(context);
   const [content, obs] = info_pt.projects.content;
+
+  useEffect(() => setIsLoading(false), []);
+
   return (
     <div className='projects-container text-center p-3 mx-auto vh-100'>
-      <ReturnButton />
-      <LanguageToggle />
-      <h2>{isInEnglish ? 'Projects' : 'Projetos'}</h2>
-      {isInEnglish ? (
-        info_en.projects.content.map((paragraph, index) => (
-          <p className='fs-6' key={ index }>{paragraph}</p>
-        ))
-      ) : (
+      {isLoading ? <Loading /> : (
         <>
-          <p className='fs-6'>{content}</p>
-          <span className='observation small'>{obs}</span>
+          <ReturnButton />
+          <LanguageToggle />
+          <h2>{isInEnglish ? 'Projects' : 'Projetos'}</h2>
+          {isInEnglish ? (
+            info_en.projects.content.map((paragraph, index) => (
+              <p className='fs-6' key={ index }>{paragraph}</p>
+            ))
+          ) : (
+            <>
+              <p className='fs-6'>{content}</p>
+              <span className='observation small'>{obs}</span>
+            </>
+          )}
+          <ProjectsCarousel />
         </>
       )}
-      <ProjectsCarousel />
     </div>
   )
 }
