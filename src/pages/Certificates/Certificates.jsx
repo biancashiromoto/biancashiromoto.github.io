@@ -4,6 +4,7 @@ import { certificates_URL, info_en, info_pt } from '../../helpers/info';
 import './Certificates.css';
 import ReturnButton from '../../components/ReturnButton/ReturnButton';
 import { context } from '../../context/context';
+import LanguageToggle from '../../components/LanguageToggle/LanguageToggle';
 
 const Certificates = () => {
   const { isInEnglish } = useContext(context);
@@ -21,6 +22,7 @@ const Certificates = () => {
   return (
     <div className='certificates-container text-center p-3 h-100 mx-auto'>
       <ReturnButton />
+      <LanguageToggle />
       <h2>{isInEnglish ? 'Certificates' : 'Certificados'}</h2>
       {isInEnglish ? (
         info_en.certificates.content.map((paragraph, index) => (
