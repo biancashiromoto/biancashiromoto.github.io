@@ -15,7 +15,10 @@ export const info_pt = {
     className: 'about-me'
   },
   projects: {
-    content: ['Aqui estão alguns dos meus projetos que têm interfaces visuais. No meu GitHub você pode conferir outros projetos que não têm!', 'As descrições dos projetos vêm em inglês do GitHub, mas você pode ler mais sobre cada projeto nos README!', 'Clique no título do projeto para ver o deploy.']
+    content: [
+      'Aqui estão alguns dos meus projetos que têm interfaces visuais. No meu GitHub você pode conferir outros projetos que não têm!',
+      // 'As descrições dos projetos vêm em inglês do GitHub, mas você pode ler mais sobre cada projeto nos README!',
+      'Clique no título do projeto para ver o deploy, ou no ícone do GitHub para ver o repositório.']
   },
   certificates: {
     content: ['Estes são certificados de cursos relacionados à área de tecnologia que eu já fiz.', 'Você pode abrir a página do certificado clicando no nome dele.']
@@ -42,7 +45,7 @@ export const info_en = {
     content: ['Here are some of my projects that have visual interfaces, but you can check my GitHub for other projects that don\'t!', 'Click on the project title to view the deploy.']
   },
   certificates: {
-    content: ['These are certificates from technology-related courses I\'ve taken.', 'You can open the certificate page by clicking on its name.']
+    content: ['These are certificates from technology-related courses I\'ve taken.', 'You can open the certificate page by clicking on its name, or see the GitHub repository by clicking the GitHub icon.']
   }
 }
 
