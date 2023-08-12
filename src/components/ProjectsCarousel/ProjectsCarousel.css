@@ -15,6 +15,22 @@
   margin-bottom: 0;
 }
 
+.project-title {
+  display: flex;
+  justify-content: center;
+}
+
+.repo-link {
+  background-color: white;
+  border-radius: 50%;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.repo-link::before {
+  content: url('../../assets/github-icon.svg');
+}
+
 @media screen and (min-width: 768px) {
   .carousel {
     margin: 20px auto 0 auto;
