@@ -7,6 +7,18 @@
   width: 100%;
 }
 
+.hidden {
+  display: none;
+}
+
+.button-text {
+  position: relative;
+}
+
+.button-text:hover .hidden {
+  display: block;
+}
+
 @keyframes slideFromTop {
   from {
     transform: translateY(-100%);
