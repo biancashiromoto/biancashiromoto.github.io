@@ -22,6 +22,9 @@ export const info_pt = {
   },
   certificates: {
     content: ['Estes são certificados de cursos relacionados à área de tecnologia que eu já fiz.', 'Você pode abrir a página do certificado clicando no nome dele.']
+  },
+  returnButton: {
+    content: ['Voltar']
   }
 }
 
@@ -46,6 +49,9 @@ export const info_en = {
   },
   certificates: {
     content: ['These are certificates from technology-related courses I\'ve taken.', 'You can open the certificate page by clicking on its name, or see the GitHub repository by clicking the GitHub icon.']
+  },
+    returnButton: {
+    content: ['Return']
   }
 }
 
