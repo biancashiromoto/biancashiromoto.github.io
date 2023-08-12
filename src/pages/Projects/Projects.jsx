@@ -13,7 +13,7 @@ const Projects = () => {
   useEffect(() => setIsLoading(false), []);
 
   return (
-    <div className='projects-container text-center p-3 mx-auto vh-100'>
+    <div className='projects-container text-center p-3 mx-auto'>
       {isLoading ? <Loading /> : (
         <>
           <ReturnButton />
