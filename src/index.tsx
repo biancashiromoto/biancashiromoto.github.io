@@ -5,7 +5,7 @@ import { App } from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename='biancashiromoto.github.io'>
       <App />
     </BrowserRouter>
   </React.StrictMode>,

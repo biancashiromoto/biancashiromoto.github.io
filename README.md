@@ -125,7 +125,7 @@ When I first created this solution in 2016 Google treated the redirect in `404.h
 [demoapp]: https://spa-github-pages.rafgraph.dev
 [sitemaplinkgenerator]: https://spa-github-pages.rafgraph.dev/sitemap-link-generator
 [react]: https://github.com/facebook/react
-[reactrouter]: https://github.com/ReactTraining/react-router
+[]: https://github.com/ReactTraining/react-router
 [webpackproduction]: https://webpack.js.org/guides/production-build/#the-automatic-way
 [stitches]: https://stitches.dev/
 [reactinteractive]: https://github.com/rafgraph/react-interactive
