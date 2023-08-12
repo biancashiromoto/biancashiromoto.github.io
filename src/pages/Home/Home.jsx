@@ -12,12 +12,12 @@ const Home = () => {
   useEffect(() => setIsLoading(false), []);
 
   return (
-    <div className='text-center'>
+    <div className='home text-center'>
       <LanguageToggle props={isInEnglish ? info_pt.languageButton.content[0] : info_en.languageButton.content[0]}/>
       <div className='home-container d-lg-flex px-3 mx-auto'>
         {isLoading ? <Loading /> : (
           <>
-            <main className='vh-100 w-100 w-lg-50 py-lg-5 d-lg-flex flex-column gap-2'>
+            <main className='vh-sm-100 vh-lg-50 w-100 w-lg-50 py-lg-5 d-lg-flex flex-column gap-2'>
               <article className='intro-container d-flex flex-column align-items-center h-100 gap-lg-3 pt-0 pt-lg-5'>
                 <div className='col-md-6'>
                   <img
