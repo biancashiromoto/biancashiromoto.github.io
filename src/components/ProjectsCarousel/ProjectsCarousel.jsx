@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { fetchAPI } from '../../helpers/fetchAPI';
 import { repos_URL } from '../../helpers/info';
 import Carousel from 'react-bootstrap/Carousel';
@@ -6,9 +6,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { CarouselItem } from 'react-bootstrap';
 import './ProjectsCarousel.css';
 import { formatTitle } from '../../helpers/formatTitle';
+import { context } from '../../context/context';
 
 const ProjectsCarousel = () => {
   const [projects, setProjects] = useState([]);
+  const { isInEnglish } = useContext(context);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -36,7 +38,14 @@ const ProjectsCarousel = () => {
     <Carousel className='carousel'>
       {projects.map((project) => (
         <CarouselItem key={project.id} className='text-center vh-auto py-4'>
-          <h4>
+          <div className='project-title'>
+            <a
+              className='repo-link'
+              href={project.html_url}
+              target='_blank' rel="noreferrer"
+            >
+            </a>
+            <h4>
             <a
               href={project.homepage}
               target='_blank'
@@ -45,7 +54,8 @@ const ProjectsCarousel = () => {
             >
               {formatTitle(project.name)}
             </a>
-          </h4>
+            </h4>
+          </div>
           <img
             className='d-block mx-auto project-image'
             src={ `https://raw.githubusercontent.com/biancashiromoto/${project.name}/main/screenshots/screenshot-01.png` }
