@@ -1,3 +1,12 @@
+.background-image--container {
+  background: url('./assets/background-image.jpg') no-repeat center;
+  background-size: 75%;
+  height: 200px;
+  position: absolute;
+  top: 60%;
+  width: 100%;
+}
+
 .home-container {
   overflow-x: hidden;
 }
