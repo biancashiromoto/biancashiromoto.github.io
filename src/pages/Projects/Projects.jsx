@@ -5,6 +5,7 @@ import { useContext, useEffect } from 'react';
 import { context } from '../../context/context';
 import LanguageToggle from '../../components/LanguageToggle/LanguageToggle';
 import Loading from '../../components/Loading/Loading';
+import './Projects.css';
 
 const Projects = () => {
   const { isInEnglish, isLoading, setIsLoading } = useContext(context);
@@ -13,7 +14,7 @@ const Projects = () => {
   useEffect(() => setIsLoading(false), []);
 
   return (
-    <div className='projects-container text-center p-3 mx-auto vh-100'>
+    <div className='projects-container text-center p-3 mx-auto'>
       {isLoading ? <Loading /> : (
         <>
           <ReturnButton />
