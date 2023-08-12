@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchAPI } from '../../helpers/fetchAPI';
 import { repos_URL } from '../../helpers/info';
 import Carousel from 'react-bootstrap/Carousel';
@@ -6,11 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { CarouselItem } from 'react-bootstrap';
 import './ProjectsCarousel.css';
 import { formatTitle } from '../../helpers/formatTitle';
-import { context } from '../../context/context';
 
 const ProjectsCarousel = () => {
   const [projects, setProjects] = useState([]);
-  const { isInEnglish } = useContext(context);
 
   useEffect(() => {
     const fetchProjects = async () => {
