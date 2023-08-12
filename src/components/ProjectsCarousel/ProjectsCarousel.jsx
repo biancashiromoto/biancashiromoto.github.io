@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { CarouselItem } from 'react-bootstrap';
 import './ProjectsCarousel.css';
 import { formatTitle } from '../../helpers/formatTitle';
-import { getScreenWidth } from '../../helpers/getScreenWidth';
+import { resizeImage } from '../../helpers/resizeImage';
 
 const ProjectsCarousel = () => {
   const [projects, setProjects] = useState([]);
@@ -35,10 +35,8 @@ const ProjectsCarousel = () => {
   }, []);
 
   useEffect(() => {
-    const width = getScreenWidth();
-    const newImageWidth = (width - (width * 0.8)) / 1.5;
-
-    setImageWidth(newImageWidth)
+    const imgWidth = resizeImage()
+    setImageWidth(imgWidth);
   }, []);
 
   return (
