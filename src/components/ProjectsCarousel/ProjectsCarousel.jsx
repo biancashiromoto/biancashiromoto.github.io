@@ -6,9 +6,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { CarouselItem } from 'react-bootstrap';
 import './ProjectsCarousel.css';
 import { formatTitle } from '../../helpers/formatTitle';
+import { getScreenWidth } from '../../helpers/getScreenWidth';
 
 const ProjectsCarousel = () => {
   const [projects, setProjects] = useState([]);
+  const [imageWidth, setImageWidth] = useState(null);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -30,6 +32,13 @@ const ProjectsCarousel = () => {
       setProjects(sortedProjects);
     }
     fetchProjects();
+  }, []);
+
+  useEffect(() => {
+    const width = getScreenWidth();
+    const newImageWidth = (width - (width * 0.8)) / 1.5;
+
+    setImageWidth(newImageWidth)
   }, []);
 
   return (
@@ -56,6 +65,7 @@ const ProjectsCarousel = () => {
           </div>
           <img
             className='d-block mx-auto project-image'
+            style={{width: imageWidth}}
             src={ `https://raw.githubusercontent.com/biancashiromoto/${project.name}/main/screenshots/screenshot-01.png` }
             alt={ `Imagem do projeto ${project.name}` }
           />
