@@ -35,6 +35,11 @@ function App() {
           alt={isLanguagePortuguese ? ptInformation._profilePictureAltText : enInformation._profilePictureAltText}
         />
       </main>
+      <article>
+        {ptInformation._aboutMeText.map((paragraph, index) => (
+          <p key={index}>{isLanguagePortuguese ? paragraph : enInformation._aboutMeText[index]}</p>
+        ))}
+      </article>
     </>
   )
 }
