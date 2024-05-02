@@ -7,10 +7,11 @@ describe("Home page", () => {
     render(<App />);
   });
 
+  
   test("Should contain an 'img' tag with the correct alt text", async () => {
-    const information = new Information();
+    const enInformation = new Information("en");
     const img = await screen.findByRole("img");
-    expect(img.getAttribute("alt")).toBe(information._profilePictureAltText);
+    expect(img.getAttribute("alt")).toBe(enInformation._profilePictureAltText);
   });
 
   test("Should contain a title with the text 'Bianca'", () => {
