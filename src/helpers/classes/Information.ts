@@ -1,5 +1,7 @@
 export default class Information {
   public _profilePictureURL: string = "https://avatars.githubusercontent.com/u/108292121?v=4";
+  public _linkedinLink: string = "https://www.linkedin.com/in/bshiromoto/";
+  public _githubLink: string = "https://github.com/biancashiromoto";
   public _profilePictureAltText: string;
   public _greetingMessage: string[];
   public _aboutMeText: string[];
