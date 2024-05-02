@@ -34,6 +34,24 @@ function App() {
           src={ptInformation._profilePictureURL}
           alt={isLanguagePortuguese ? ptInformation._profilePictureAltText : enInformation._profilePictureAltText}
         />
+        <div>
+          <a
+            data-testid="linkedin-link"
+            href="https://www.linkedin.com/in/bshiromoto/"
+            rel="noopener"
+            target="_blank"
+          >
+            LinkedIn
+          </a>
+          <a
+            data-testid="github-link"
+            href="https://github.com/biancashiromoto"
+            rel="noopener"
+            target="_blank"
+          >
+            GitHub
+          </a>
+        </div>
       </main>
       <article>
         {ptInformation._aboutMeText.map((paragraph, index) => (
