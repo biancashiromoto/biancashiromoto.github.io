@@ -7,6 +7,15 @@ function App() {
   
   return (
     <>
+      <header>
+        <button
+          data-testid="toggle-language-button"
+          type="button"
+          onClick={() => {}}
+        >
+          Traduzir para o Português
+        </button>
+      </header>
       <main>
         {information._greetingMessage.map((paragraph, index) => {
           if (paragraph === "Bianca") {
