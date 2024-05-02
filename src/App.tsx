@@ -4,7 +4,8 @@ import Information from "./helpers/classes/Information";
 import Utils from "./helpers/classes/Utils";
 
 function App() {
-  const information = new Information();
+  const ptInformation = new Information("pt");
+  const enInformation = new Information("en");
   const utils = new Utils();
 
   const [isLanguagePortuguese, setIsLanguagePortuguese] = useState<boolean>(utils.isLanguagePortuguese());
@@ -21,17 +22,17 @@ function App() {
         </button>
       </header>
       <main>
-        {information._greetingMessage.map((paragraph, index) => {
+        {ptInformation._greetingMessage.map((paragraph, index) => {
           if (paragraph === "Bianca") {
             return (<h1 key={index}>{paragraph}</h1>);
           }
           return (
-            <p key={index}>{paragraph}</p>
+            <p key={index}>{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
           );
         })}
         <img
-          src={information._profilePictureURL}
-          alt={information._profilePictureAltText}
+          src={ptInformation._profilePictureURL}
+          alt={isLanguagePortuguese ? ptInformation._profilePictureAltText : enInformation._profilePictureAltText}
         />
       </main>
     </>
