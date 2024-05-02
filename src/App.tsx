@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Information from "./helpers/classes/Information";
+import Utils from "./helpers/classes/Utils";
 
 function App() {
   const information = new Information();
+  const utils = new Utils();
+
+  const [isLanguagePortuguese, setIsLanguagePortuguese] = useState<boolean>(utils.isLanguagePortuguese());
   
   return (
     <>
@@ -11,9 +15,9 @@ function App() {
         <button
           data-testid="toggle-language-button"
           type="button"
-          onClick={() => {}}
+          onClick={() => setIsLanguagePortuguese(prevState => !prevState)}
         >
-          Traduzir para o Português
+          {isLanguagePortuguese ? "Translate to English" : "Translate to Portuguese"}
         </button>
       </header>
       <main>
