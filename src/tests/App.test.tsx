@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import App from "../App";
 import Information from "../helpers/classes/Information";
 
-describe("Home page | English", () => {
+describe("Home page", () => {
   beforeEach(() => {
     render(<App />);
   });
@@ -11,5 +11,10 @@ describe("Home page | English", () => {
     const information = new Information();
     const img = await screen.findByRole("img");
     expect(img.getAttribute("alt")).toBe(information._profilePictureAltText);
+  });
+
+  test("Should contain a title with the text 'Bianca'", () => {
+    const title = screen.getByRole("heading");
+    expect(title.innerHTML).toContain("Bianca");
   });
 });
