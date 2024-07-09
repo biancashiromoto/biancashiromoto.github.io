@@ -19,7 +19,7 @@ function App() {
     return (<header>
       <Button.Root
         onClick={() => setIsLanguagePortuguese(prevState => !prevState)}
-        testId={dataTestIds.buttons.toggleModeButton}
+        testId={dataTestIds.buttons.toggleLanguageButton}
       >
         {isLanguagePortuguese ? ptInformation._translateButtonLabel : enInformation._translateButtonLabel}
       </Button.Root>

@@ -1,6 +1,6 @@
 export const dataTestIds = {
   buttons: {
-    toggleModeButton: "button__toggle-mode",
+    toggleLanguageButton: "button__toggle-language",
   },
   links: {
     linkedin: "link__linkedin",
