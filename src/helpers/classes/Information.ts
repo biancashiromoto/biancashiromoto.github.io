@@ -2,6 +2,8 @@ export default class Information {
   public _profilePictureURL: string = "https://avatars.githubusercontent.com/u/108292121?v=4";
   public _linkedinLink: string = "https://www.linkedin.com/in/bshiromoto/";
   public _githubLink: string = "https://github.com/biancashiromoto";
+  public _name: string = "Bianca";
+  public _translateButtonLabel: string;
   public _profilePictureAltText: string;
   public _greetingMessage: string[];
   public _aboutMeText: string[];
@@ -28,5 +30,6 @@ export default class Information {
       "De volta a São Paulo, concluí pós-graduação em terapia intensiva e, após sete anos de atuação na área, tomei a decisão de realizar uma transição de carreira.",
       "Hoje sou desenvolvedora full-stack e procuro combinar minha paixão por soluções de problemas com a criação de algo que impacte positivamente na vida das pessoas de uma forma universal e acessível."
     ];
+    this._translateButtonLabel = language === "en" ? "Traduzir para o português" : "Translate to English";
   }
 }
