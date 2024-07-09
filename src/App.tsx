@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import "./index.css";
 import Information from "./helpers/classes/Information";
 import Utils from "./helpers/classes/Utils";
 
@@ -24,7 +24,7 @@ function App() {
       <main>
         {ptInformation._greetingMessage.map((paragraph, index) => {
           if (paragraph === "Bianca") {
-            return (<h1 key={index}>{paragraph}</h1>);
+            return (<h1>{paragraph}</h1>);
           }
           return (
             <p key={index}>{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
