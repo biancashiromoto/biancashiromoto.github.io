@@ -2,7 +2,10 @@ import { useState } from "react";
 import "./index.css";
 import Information from "./helpers/classes/Information";
 import Utils from "./helpers/classes/Utils";
-import { dataTestIds } from "./tests/dataTestIds";
+import { dataTestIds } from "./helpers/dataTestIds";
+import { Link } from "./components/Link";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { ariaLabel } from "./helpers/ariaLabel";
 
 function App() {
   const ptInformation = new Information("pt");
@@ -36,22 +39,20 @@ function App() {
           alt={isLanguagePortuguese ? ptInformation._profilePictureAltText : enInformation._profilePictureAltText}
         />
         <div>
-          <a
-            data-testid={dataTestIds.links.linkedin}
-            href={ptInformation._linkedinLink}
-            rel="noopener"
-            target="_blank"
-          >
-            LinkedIn
-          </a>
-          <a
-            data-testid={dataTestIds.links.github}
+          <Link.Root
+            ariaLabel={ariaLabel.links.github}
             href={ptInformation._githubLink}
-            rel="noopener"
-            target="_blank"
+            testid={dataTestIds.links.github}
           >
-            GitHub
-          </a>
+            <FaGithub />
+          </Link.Root>
+          <Link.Root
+            ariaLabel={ariaLabel.links.linkedin}
+            href={ptInformation._linkedinLink}
+            testid={dataTestIds.links.linkedin}
+          >
+            <FaLinkedin />
+          </Link.Root>
         </div>
       </main>
       <article>
