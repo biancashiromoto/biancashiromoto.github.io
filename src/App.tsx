@@ -6,6 +6,7 @@ import { dataTestIds } from "./helpers/dataTestIds";
 import { Link } from "./components/Link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { ariaLabel } from "./helpers/ariaLabel";
+import { Button } from "./components/Button";
 
 function App() {
   const ptInformation = new Information("pt");
@@ -17,13 +18,12 @@ function App() {
   return (
     <>
       <header>
-        <button
-          data-testid={dataTestIds.buttons.toggleModeButton}
-          type="button"
+        <Button.Root
           onClick={() => setIsLanguagePortuguese(prevState => !prevState)}
+          testId={dataTestIds.buttons.toggleModeButton}
         >
           {isLanguagePortuguese ? ptInformation._translateButtonLabel : enInformation._translateButtonLabel}
-        </button>
+        </Button.Root>
       </header>
       <main>
         {ptInformation._greetingMessage.map((paragraph, index) => {
