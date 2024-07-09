@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./index.css";
 import Information from "./helpers/classes/Information";
 import Utils from "./helpers/classes/Utils";
+import { dataTestIds } from "./tests/dataTestIds";
 
 function App() {
   const ptInformation = new Information("pt");
@@ -14,17 +15,17 @@ function App() {
     <>
       <header>
         <button
-          data-testid="toggle-language-button"
+          data-testid={dataTestIds.buttons.toggleModeButton}
           type="button"
           onClick={() => setIsLanguagePortuguese(prevState => !prevState)}
         >
-          {isLanguagePortuguese ? "Translate to English" : "Translate to Portuguese"}
+          {isLanguagePortuguese ? ptInformation._translateButtonLabel : enInformation._translateButtonLabel}
         </button>
       </header>
       <main>
         {ptInformation._greetingMessage.map((paragraph, index) => {
-          if (paragraph === "Bianca") {
-            return (<h1>{paragraph}</h1>);
+          if (paragraph === ptInformation._name) {
+            return (<h1 key={index}>{paragraph}</h1>);
           }
           return (
             <p key={index}>{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
@@ -36,16 +37,16 @@ function App() {
         />
         <div>
           <a
-            data-testid="linkedin-link"
-            href="https://www.linkedin.com/in/bshiromoto/"
+            data-testid={dataTestIds.links.linkedin}
+            href={ptInformation._linkedinLink}
             rel="noopener"
             target="_blank"
           >
             LinkedIn
           </a>
           <a
-            data-testid="github-link"
-            href="https://github.com/biancashiromoto"
+            data-testid={dataTestIds.links.github}
+            href={ptInformation._githubLink}
             rel="noopener"
             target="_blank"
           >
