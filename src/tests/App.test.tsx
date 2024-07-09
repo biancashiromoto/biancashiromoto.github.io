@@ -19,18 +19,18 @@ describe("Home page", () => {
     expect(title.innerHTML).toContain("Bianca");
   });
 
-  test("Should contain a button with data-testid 'toggle-language-button'", () => {
-    const toggleLanguageButton = screen.getByTestId("toggle-language-button");
+  test("Should contain a button with data-testid 'button__toggle-language'", () => {
+    const toggleLanguageButton = screen.getByTestId("button__toggle-language");
     expect(toggleLanguageButton).toBeInTheDocument();
   });
 
   test("Should contain an a tag that leads to LinkedIn", () => {
-    const linkedinTag = screen.getByTestId("linkedin-link");
+    const linkedinTag = screen.getByTestId("link__linkedin");
     expect(linkedinTag.getAttribute("href")).toBe(enInformation._linkedinLink);
   });
 
   test("Should contain an a tag that leads to GitHub", () => {
-    const github = screen.getByTestId("github-link");
+    const github = screen.getByTestId("link__github");
     expect(github.getAttribute("href")).toBe(enInformation._githubLink);
   });
 });
