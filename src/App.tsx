@@ -1,5 +1,6 @@
 import { ReactNode, useState } from "react";
-import "./index.css";
+import "./index.scss";
+import "./App.scss";
 import Information from "./helpers/classes/Information";
 import Utils from "./helpers/classes/Utils";
 import { dataTestIds } from "./helpers/dataTestIds";
@@ -16,56 +17,67 @@ function App() {
   const [isLanguagePortuguese, setIsLanguagePortuguese] = useState<boolean>(utils.isLanguagePortuguese());
   
   const renderHeader = (): ReactNode => {
-    return (<header>
-      <Button.Root
-        onClick={() => setIsLanguagePortuguese(prevState => !prevState)}
-        testId={dataTestIds.buttons.toggleLanguageButton}
-      >
-        {isLanguagePortuguese ? ptInformation._translateButtonLabel : enInformation._translateButtonLabel}
-      </Button.Root>
-    </header>);
+    return (
+      <header className="mt-5">
+        <Button.Root
+          onClick={() => setIsLanguagePortuguese(prevState => !prevState)}
+          testId={dataTestIds.buttons.toggleLanguageButton}
+        >
+          {isLanguagePortuguese ? ptInformation._translateButtonLabel : enInformation._translateButtonLabel}
+        </Button.Root>
+      </header>
+    );
   }
 
   const renderGreetingMessage = (): ReactNode => {
-    return ptInformation._greetingMessage.map((paragraph, index) => {
-      if (paragraph === ptInformation._name) {
-        return (<h1 key={index}>{paragraph}</h1>);
-      }
-      return (
-        <p key={index}>{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
-      );
-    })
+    return (
+      <div className="flex gap-1 mt-5">
+        {ptInformation._greetingMessage.map((paragraph, index) => {
+          if (paragraph === ptInformation._name) {
+            return (<h1 key={index}>{paragraph}</h1>);
+          }
+          return (
+            <p key={index}>{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
+          );
+        })}
+      </div>
+    )
   }
 
   const renderProfilePicture = (): ReactNode => {
-    return (<img
-      src={ptInformation._profilePictureURL}
-      alt={isLanguagePortuguese ? ptInformation._profilePictureAltText : enInformation._profilePictureAltText}
-    />);
+    return (
+      <img
+        alt={isLanguagePortuguese ? ptInformation._profilePictureAltText : enInformation._profilePictureAltText}
+        className="rounded-full w-56 mt-5"
+        src={ptInformation._profilePictureURL}
+      />
+    );
   }
 
   const renderLinksContainer = (): ReactNode => {
-    return (<div>
-      <Link.Root
-        ariaLabel={ariaLabel.links.github}
-        href={ptInformation._githubLink}
-        testid={dataTestIds.links.github}
-      >
-        <FaGithub />
-      </Link.Root>
-      <Link.Root
-        ariaLabel={ariaLabel.links.linkedin}
-        href={ptInformation._linkedinLink}
-        testid={dataTestIds.links.linkedin}
-      >
-        <FaLinkedin />
-      </Link.Root>
-    </div>);
+    return (
+      <div className="flex gap-6 text-5xl">
+        <Link.Root
+          ariaLabel={ariaLabel.links.github}
+          href={ptInformation._githubLink}
+          testid={dataTestIds.links.github}
+        >
+          <FaGithub />
+        </Link.Root>
+        <Link.Root
+          ariaLabel={ariaLabel.links.linkedin}
+          href={ptInformation._linkedinLink}
+          testid={dataTestIds.links.linkedin}
+        >
+          <FaLinkedin />
+        </Link.Root>
+      </div>
+    );
   }
 
   const renderAboutMe = (): ReactNode => {
     return (
-      <article>
+      <article className="h-screen flex flex-col items-center justify-center gap-5 leading-10">
         {ptInformation._aboutMeText.map((paragraph, index) => (
           <p key={index}>{isLanguagePortuguese ? paragraph : enInformation._aboutMeText[index]}</p>
         ))}
@@ -74,15 +86,15 @@ function App() {
   }
 
   return (
-    <>
-      {renderHeader()}
-      <main>
+    <div className="bg-[#040504] text-white h-screen text-center mx-10">
+      <main className="h-screen flex flex-col gap-10 items-center">
+        {renderHeader()}
         {renderGreetingMessage()}
         {renderProfilePicture()}
+        {renderLinksContainer()}
       </main>
-      {renderLinksContainer()}
       {renderAboutMe()}
-    </>
+    </div>
   )
 }
 
