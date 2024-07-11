@@ -1,0 +1,18 @@
+@import "./styles/variables.scss";
+
+main {
+  background-image: url("../public/image__laptop.jpg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+* {
+  background-color: $bg-color;
+  margin: 0;
+  padding: 0;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
