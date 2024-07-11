@@ -1,6 +1,5 @@
 import { ReactNode, useState } from "react";
 import "./index.scss";
-import "./App.scss";
 import Information from "./helpers/classes/Information";
 import Utils from "./helpers/classes/Utils";
 import { dataTestIds } from "./helpers/dataTestIds";
