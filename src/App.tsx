@@ -35,13 +35,22 @@ function App() {
 
   const renderGreetingMessage = (): ReactNode => {
     return (
-      <div className="flex gap-1 mt-5">
+      <div className="grid gap-1 mt-5 grid-cols-2 grid-rows-3 items-center">
         {ptInformation._greetingMessage.map((paragraph, index) => {
+          if (index === 0) {
+            return (
+                <div className="flex justify-center col-span-2">
+                  <p key={index} className="">{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
+                </div>
+            );
+          }
           if (paragraph === ptInformation._name) {
-            return (<h1 key={index}>{paragraph}</h1>);
+            return (
+              <h1 key={index} className="text-3xl text-left ml-1">{paragraph}</h1>
+            );
           }
           return (
-            <p key={index}>{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
+            <p className={index === 3 ? "col-span-2" : ""} key={index}>{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
           );
         })}
       </div>
