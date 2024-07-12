@@ -33,6 +33,22 @@ h1 {
   font-family: "Nothing You Could Do", cursive;
 }
 
+@media screen and (min-width: 768px) {
+  main {
+    background-image: none;
+  }
+
+  .body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .about-me__container {
+    width: 50%
+  }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

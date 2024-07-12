@@ -91,7 +91,7 @@ function App() {
 
   const renderAboutMe = (): ReactNode => {
     return (
-      <article className="h-screen flex flex-col items-center justify-center gap-5 leading-10">
+      <article className="about-me__container h-screen flex flex-col items-center justify-center gap-5 leading-10">
         {ptInformation._aboutMeText.map((paragraph, index) => (
           <p key={index}>{isLanguagePortuguese ? paragraph : enInformation._aboutMeText[index]}</p>
         ))}
@@ -100,7 +100,7 @@ function App() {
   }
 
   return (
-    <div className={`bg-[#040504] text-white h-screen text-center mx-10 ${fadeIn ? "fade-in" : ""}`}>
+    <div className={`body bg-[#040504] text-white h-screen text-center mx-10 ${fadeIn ? "fade-in" : ""}`}>
       <main className="h-screen flex flex-col gap-10 items-center">
         {renderHeader()}
         {renderGreetingMessage()}
