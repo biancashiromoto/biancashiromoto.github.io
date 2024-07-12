@@ -17,4 +17,13 @@ export default defineConfig({
       provider: 'v8'
     }
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @import "./src/styles/variables.scss";
+        `
+      }
+    }
+  }
 })
