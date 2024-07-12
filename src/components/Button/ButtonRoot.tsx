@@ -1,11 +1,4 @@
-import { ReactNode } from 'react';
-
-interface ButtonRootProps {
-  className?: string,
-  children?: ReactNode,
-  onClick: () => void,
-  testId: string,
-}
+import { ButtonRootProps } from "./ButtonRoot.types"
 
 export const ButtonRoot = ({ children, onClick, testId, className }: ButtonRootProps) => {
   return (
