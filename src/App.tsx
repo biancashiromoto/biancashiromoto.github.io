@@ -22,9 +22,9 @@ function App() {
   
   const renderHeader = (): ReactNode => {
     return (
-      <header className="mt-5">
+      <header className="mt-2">
         <Button.Root
-          className="text-sm"
+          className="text-sm hover:bg-slate-800 p-3 rounded-full"
           onClick={() => setIsLanguagePortuguese(prevState => !prevState)}
           testId={dataTestIds.buttons.toggleLanguageButton}
         >
@@ -36,7 +36,7 @@ function App() {
 
   const renderGreetingMessage = (): ReactNode => {
     return (
-      <div className="grid gap-1 mt-5 grid-cols-2 grid-rows-3 items-center">
+      <div className="grid gap-1 mt-2 grid-cols-2 grid-rows-3 items-center">
         {ptInformation._greetingMessage.map((paragraph, index) => {
           if (index === 0) {
             return (
