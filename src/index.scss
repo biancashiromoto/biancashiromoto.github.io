@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 @import "./styles/variables.scss";
 
 @keyframes fadeIn {
@@ -16,6 +17,7 @@
 
 * {
   background-color: $bg-color;
+  font-family: "Roboto Mono", monospace;
   margin: 0;
   padding: 0;
 }
