@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import "./index.scss";
 import Information from "./helpers/classes/Information";
 import Utils from "./helpers/classes/Utils";
@@ -14,6 +14,11 @@ function App() {
   const utils = new Utils();
 
   const [isLanguagePortuguese, setIsLanguagePortuguese] = useState<boolean>(utils.isLanguagePortuguese());
+  const [fadeIn, setFadeIn] = useState<boolean>(false);
+
+  useEffect(() => {
+    setFadeIn(true);
+  }, []);
   
   const renderHeader = (): ReactNode => {
     return (
@@ -55,7 +60,7 @@ function App() {
 
   const renderLinksContainer = (): ReactNode => {
     return (
-      <div className="flex gap-6 text-5xl">
+      <div className="flex gap-10 text-5xl">
         <Link.Root
           ariaLabel={ariaLabel.links.github}
           href={ptInformation._githubLink}
@@ -85,7 +90,7 @@ function App() {
   }
 
   return (
-    <div className="bg-[#040504] text-white h-screen text-center mx-10">
+    <div className={`bg-[#040504] text-white h-screen text-center mx-10 ${fadeIn ? "fade-in" : ""}`}>
       <main className="h-screen flex flex-col gap-10 items-center">
         {renderHeader()}
         {renderGreetingMessage()}
