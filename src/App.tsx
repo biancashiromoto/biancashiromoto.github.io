@@ -24,6 +24,7 @@ function App() {
     return (
       <header className="mt-5">
         <Button.Root
+          className="text-sm"
           onClick={() => setIsLanguagePortuguese(prevState => !prevState)}
           testId={dataTestIds.buttons.toggleLanguageButton}
         >
@@ -61,7 +62,7 @@ function App() {
     return (
       <img
         alt={isLanguagePortuguese ? ptInformation._profilePictureAltText : enInformation._profilePictureAltText}
-        className="rounded-full w-56 mt-5"
+        className="rounded-full w-48 mt-5"
         src={ptInformation._profilePictureURL}
       />
     );
