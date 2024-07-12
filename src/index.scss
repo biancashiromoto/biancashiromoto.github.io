@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
 @import "./styles/variables.scss";
 
 @keyframes fadeIn {
@@ -13,6 +14,12 @@
   animation: fadeIn 1s ease-in-out;
 }
 
+* {
+  background-color: $bg-color;
+  margin: 0;
+  padding: 0;
+}
+
 main {
   background-image: url("../public/image__laptop.jpg");
   background-position: bottom;
@@ -20,10 +27,8 @@ main {
   background-size: contain;
 }
 
-* {
-  background-color: $bg-color;
-  margin: 0;
-  padding: 0;
+h1 {
+  font-family: "Nothing You Could Do", cursive;
 }
 
 @tailwind base;
