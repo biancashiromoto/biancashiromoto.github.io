@@ -1,12 +1,4 @@
-import { ReactNode } from "react"
-
-interface LinkRootProps {
-  ariaLabel: string,
-  children?: ReactNode
-  className?: string,
-  href: string,
-  testid: string,
-}
+import { LinkRootProps } from "./LinkRoot.types"
 
 export const LinkRoot = ({ ariaLabel, children, className, href, testid }: LinkRootProps) => {
   return (
