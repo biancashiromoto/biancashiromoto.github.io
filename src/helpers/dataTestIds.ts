@@ -6,6 +6,8 @@ export const dataTestIds = {
   links: {
     linkedin: "link__linkedin",
     github: "link__github",
-    email: "link__email"
+    email: "link__email",
+    pageDown: "link__page-down",
+    pageUp: "link__page-up",
   }
 }
