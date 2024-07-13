@@ -14,12 +14,23 @@ function App() {
 
   const [isLanguagePortuguese, setIsLanguagePortuguese] = useState<boolean>(utils.isLanguagePortuguese());
   const [fadeIn, setFadeIn] = useState<boolean>(false);
+  const [width, setWidth ] = useState(window.innerWidth);
 
   useEffect(() => {
     window.onload = () => {
       setFadeIn(true);
     };
   }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);      
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [width]);
   
   const renderHeader = (): ReactNode => {
     return (
@@ -38,7 +49,10 @@ function App() {
   return (
     <div className={`body bg-[#040504] text-white h-screen text-center mx-10 ${fadeIn ? "fade-in" : ""}`}>
       {renderHeader()}
-      <Home isLanguagePortuguese={isLanguagePortuguese} />
+      <Home
+        isLanguagePortuguese={isLanguagePortuguese}
+        screenWidth={width}
+      />
     </div>
   )
 }
