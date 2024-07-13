@@ -49,17 +49,17 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
 
   const renderLinksContainer = (): ReactNode => {
     return (
-      <div className="flex gap-10 text-4xl mb-72">
+      <div className="flex gap-10 text-4xl items-center">
         <ReactLink
           aria-label={ariaLabel.pages.projects}
-          className="hover:scale-150 transition-all"
+          className="hover:scale-125"
           to="/projects"
           >
           <FaLaptopCode />
         </ReactLink>
         <Link.Root
           ariaLabel={ariaLabel.links.github}
-          className="hover:scale-150"
+          className="hover:scale-125"
           href={ptInformation._githubLink}
           testid={dataTestIds.links.github}
           >
@@ -67,7 +67,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
         </Link.Root>
         <Link.Root
           ariaLabel={ariaLabel.links.linkedin}
-          className="hover:scale-150"
+          className="hover:scale-125"
           href={ptInformation._linkedinLink}
           testid={dataTestIds.links.linkedin}
         >
@@ -75,6 +75,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
         </Link.Root>
         <Link.Root
           ariaLabel={ariaLabel.links.email}
+          className="hover:scale-125"
           href={`mailto:${ptInformation._email}`}
           testid={dataTestIds.links.email}
         >
@@ -103,7 +104,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
         <Link.Root
           ariaLabel={ariaLabel.links.pageDown}
           href="#about-me__container"
-          className="relative bottom-32 text-3xl"
+          className="absolute bottom-48 text-3xl"
           target="_self"
           testid={dataTestIds.links.pageDown}
         >
@@ -115,7 +116,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
       <Link.Root
         ariaLabel={ariaLabel.links.pageUp}
         href="#home-start"
-        className="relative text-3xl"
+        className="absolute text-3xl top-36"
         target="_self"
         testid={dataTestIds.links.pageUp}
       >
@@ -126,13 +127,13 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
   
   return (
     <div className={`home flex justify-evenly ${screenWidth < 768 ? "flex-col" : ""}`} id="home-start">
-      <main className="h-screen flex flex-col gap-10 items-center mt-14">
+      <main className="h-screen flex flex-col gap-10 items-center mt-14 relative">
         {renderGreetingMessage()}
         {renderProfilePicture()}
         {renderLinksContainer()}
         {renderScrollButton("down")}
       </main>
-      <article className="about-me__container text-xs h-screen flex flex-col items-center justify-center gap-20 leading-10" id="about-me__container">
+      <article className="about-me__container text-xs h-screen flex flex-col items-center justify-center gap-20 leading-10 relative" id="about-me__container">
         {renderScrollButton("up")}
         {renderAboutMe()}
       </article>
