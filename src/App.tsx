@@ -23,7 +23,7 @@ function App() {
   
   const renderHeader = (): ReactNode => {
     return (
-      <header className="mt-2">
+      <header className="mt-2 fixed top-0 right-1/2 translate-x-2/4">
         <Button.Root
           className="text-xs hover:bg-slate-800 p-3 rounded-full"
           onClick={() => setIsLanguagePortuguese(prevState => !prevState)}
