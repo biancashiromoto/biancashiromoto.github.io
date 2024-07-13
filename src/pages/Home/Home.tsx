@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import Information from "../../helpers/classes/Information";
 import { Link } from "../../components/Link";
-import { FaGithub, FaLaptopCode, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLaptopCode, FaLinkedin, FaRegArrowAltCircleDown, FaRegArrowAltCircleUp } from "react-icons/fa";
 import { ariaLabel } from "../../helpers/ariaLabel";
 import { HomeProps } from "./Home.types";
 import { Link as ReactLink } from 'react-router-dom';
@@ -59,6 +59,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
         </ReactLink>
         <Link.Root
           ariaLabel={ariaLabel.links.github}
+          className="hover:scale-150"
           href={ptInformation._githubLink}
           testid={dataTestIds.links.github}
           >
@@ -66,6 +67,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
         </Link.Root>
         <Link.Root
           ariaLabel={ariaLabel.links.linkedin}
+          className="hover:scale-150"
           href={ptInformation._linkedinLink}
           testid={dataTestIds.links.linkedin}
         >
@@ -84,22 +86,54 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
 
   const renderAboutMe = (): ReactNode => {
     return (
-      <article className="about-me__container text-sm h-screen flex flex-col items-center justify-center gap-5 leading-10">
+      <div>
         {ptInformation._aboutMeText.map((paragraph, index) => (
           <p key={index}>{isLanguagePortuguese ? paragraph : enInformation._aboutMeText[index]}</p>
         ))}
-      </article>
+      </div>
     )
+  }
+
+  const renderScrollButton = (direction: string): ReactNode => {
+    if (direction === "down") {
+      return(
+        <Link.Root
+          ariaLabel={ariaLabel.links.pageDown}
+          href="#about-me__container"
+          className="absolute bottom-20 text-3xl"
+          target="_self"
+          testid={dataTestIds.links.pageDown}
+        >
+          <FaRegArrowAltCircleDown />
+        </Link.Root>
+      );
+    }
+    return(
+      <Link.Root
+        ariaLabel={ariaLabel.links.pageUp}
+        href="#home-start"
+        className="relative text-3xl"
+        target="_self"
+        testid={dataTestIds.links.pageUp}
+      >
+        <FaRegArrowAltCircleUp />
+      </Link.Root>
+    );
+
   }
   
   return (
-    <div className={`home flex justify-evenly ${screenWidth < 768 ? "flex-col" : ""}`}>
+    <div className={`home flex justify-evenly ${screenWidth < 768 ? "flex-col" : ""}`} id="home-start">
       <main className="h-screen flex flex-col gap-10 items-center mt-14">
         {renderGreetingMessage()}
         {renderProfilePicture()}
         {renderLinksContainer()}
+        {renderScrollButton("down")}
       </main>
-      {renderAboutMe()}
+      <article className="about-me__container text-sm h-screen flex flex-col items-center justify-center gap-20 leading-10" id="about-me__container">
+        {renderScrollButton("up")}
+        {renderAboutMe()}
+      </article>
     </div>
   )
 }
