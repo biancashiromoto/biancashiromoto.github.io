@@ -8,6 +8,7 @@ export default class Information {
   public _profilePictureAltText: string;
   public _greetingMessage: string[];
   public _aboutMeText: string[];
+  public _inProgress: string;
 
   constructor(language: string) {
     this._profilePictureAltText = language === "en" ? "I am a woman with dark brown eyes and hair and I am wearing a black and gray T-shirt." : "Sou uma mulher de cabelos e olhos cabelos escuros e estou usando uma camiseta cinza e preta.";
@@ -32,5 +33,6 @@ export default class Information {
       "Hoje sou desenvolvedora full-stack e procuro combinar minha paixão por soluções de problemas com a criação de algo que impacte positivamente na vida das pessoas de uma forma universal e acessível."
     ];
     this._translateButtonLabel = language === "en" ? "Traduzir para o português" : "Translate to English";
+    this._inProgress = language === "en" ? "In progress..." : "Em construção...";
   }
 }
