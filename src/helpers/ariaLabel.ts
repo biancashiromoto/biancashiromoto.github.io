@@ -7,6 +7,7 @@ export const ariaLabel = {
     pageUp: "Page up",
   },
   pages: {
-    projects: "Go to page Projects"
+    projects: "Go to page Projects",
+    return: "Return to previous page"
   }
 }
