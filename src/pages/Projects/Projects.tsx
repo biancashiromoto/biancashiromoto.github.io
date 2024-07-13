@@ -10,13 +10,11 @@ interface ProjectsProps {
 }
 
 export const Projects = ({ isLanguagePortuguese }: ProjectsProps) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [fadeIn, setFadeIn] = useState<boolean>(false);
   const ptInformation = new Information("pt");
   const enInformation = new Information("en");
 
   return (
-    <div className={`mt-20 ${fadeIn ? "fade-in" : ""}`}>
+    <div>
       <ReactLink
         aria-label={ariaLabel.pages.return}
         to="/"
