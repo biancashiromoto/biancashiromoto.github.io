@@ -9,7 +9,8 @@ interface ProjectsProps {
   screenWidth: number;
 }
 
-export const Projects = ({ isLanguagePortuguese, screenWidth }: ProjectsProps) => {
+export const Projects = ({ isLanguagePortuguese }: ProjectsProps) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [fadeIn, setFadeIn] = useState<boolean>(false);
   const ptInformation = new Information("pt");
   const enInformation = new Information("en");
