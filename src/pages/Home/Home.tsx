@@ -95,6 +95,9 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
   }
 
   const renderScrollButton = (direction: string): ReactNode => {
+    if (screenWidth > 768) {
+      return;
+    }
     if (direction === "down") {
       return(
         <Link.Root
@@ -119,7 +122,6 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
         <FaRegArrowAltCircleUp />
       </Link.Root>
     );
-
   }
   
   return (
