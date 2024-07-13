@@ -1,11 +1,12 @@
 import { ReactNode } from "react";
-import Information from "../helpers/classes/Information";
-import { Link } from "../components/Link";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { ariaLabel } from "../helpers/ariaLabel";
-import { dataTestIds } from "../helpers/dataTestIds";
+import Information from "../../helpers/classes/Information";
+import { Link } from "../../components/Link";
+import { FaGithub, FaLaptopCode, FaLinkedin } from "react-icons/fa";
+import { ariaLabel } from "../../helpers/ariaLabel";
 import { HomeProps } from "./Home.types";
-import "../index.scss";
+import { Link as ReactLink } from 'react-router-dom';
+import "../../index.scss";
+import { dataTestIds } from "../../helpers/dataTestIds";
 
 export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
   const ptInformation = new Information("pt");
@@ -48,11 +49,17 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
   const renderLinksContainer = (): ReactNode => {
     return (
       <div className="flex gap-10 text-4xl">
+        <ReactLink
+          aria-label={ariaLabel.pages.projects}
+          to="/projects"
+          >
+          <FaLaptopCode />
+        </ReactLink>
         <Link.Root
           ariaLabel={ariaLabel.links.github}
           href={ptInformation._githubLink}
           testid={dataTestIds.links.github}
-        >
+          >
           <FaGithub />
         </Link.Root>
         <Link.Root
