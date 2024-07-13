@@ -49,7 +49,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
 
   const renderLinksContainer = (): ReactNode => {
     return (
-      <div className="flex gap-10 text-4xl">
+      <div className="flex gap-10 text-4xl mb-72">
         <ReactLink
           aria-label={ariaLabel.pages.projects}
           className="hover:scale-150 transition-all"
@@ -103,7 +103,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
         <Link.Root
           ariaLabel={ariaLabel.links.pageDown}
           href="#about-me__container"
-          className="absolute bottom-20 text-3xl"
+          className="relative text-3xl"
           target="_self"
           testid={dataTestIds.links.pageDown}
         >
