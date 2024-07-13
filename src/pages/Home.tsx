@@ -5,8 +5,9 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { ariaLabel } from "../helpers/ariaLabel";
 import { dataTestIds } from "../helpers/dataTestIds";
 import { HomeProps } from "./Home.types";
+import "../index.scss";
 
-export const Home = ({ isLanguagePortuguese }: HomeProps) => {
+export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
   const ptInformation = new Information("pt");
   const enInformation = new Information("en");
   
@@ -76,7 +77,7 @@ export const Home = ({ isLanguagePortuguese }: HomeProps) => {
   }
   
   return (
-    <div className="flex justify-evenly">
+    <div className={`home flex justify-evenly ${screenWidth < 768 ? "flex-col" : ""}`}>
       <main className="h-screen flex flex-col gap-10 items-center mt-14">
         {renderGreetingMessage()}
         {renderProfilePicture()}
