@@ -36,7 +36,7 @@ h1 {
 @media screen and (min-width: 768px) {
   header {
     position: fixed;
-    top: 20px;
+    top: 0px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -46,7 +46,8 @@ h1 {
     background-image: none;
     display: flex;
     justify-content: center;
-    margin: auto 100px
+    margin: auto 100px 25vh 50px;
+    text-wrap: nowrap;
   }
 
   .body {
