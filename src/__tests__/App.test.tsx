@@ -1,11 +1,15 @@
 import { render, screen } from "@testing-library/react";
 import App from "../App";
 import Information from "../helpers/classes/Information";
-import { vi } from "vitest";
+import { BrowserRouter as Router } from "react-router-dom";
 
 describe("Home page", () => {
   beforeEach(() => {
-    render(<App />);
+    render(
+      <Router>
+        <App />
+      </Router>
+    );
   });
 
   const enInformation = new Information("en");
