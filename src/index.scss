@@ -22,9 +22,13 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 main {
   background-image: url("../public/image__laptop.jpg");
-  background-position: 0 55dvh;
+  background-position: 0 50dvh;
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -34,19 +38,10 @@ h1 {
 }
 
 @media screen and (min-width: 768px) {
-  header {
-    position: fixed;
-    top: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
   main {
-    align-items: center;
     background-image: none;
-    display: flex;
     justify-content: center;
-    margin: auto 100px 25vh 50px;
+    padding-bottom: 125px;
     text-wrap: nowrap;
   }
 
@@ -58,7 +53,6 @@ h1 {
 
   .about-me__container {
     width: 50%;
-    margin-right: 50px;
   }
 }
 
