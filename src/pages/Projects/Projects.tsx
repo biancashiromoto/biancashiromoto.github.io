@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link as ReactLink } from "react-router-dom";
 import { ariaLabel } from "../../helpers/ariaLabel";
 import { FiArrowLeftCircle } from "react-icons/fi";
