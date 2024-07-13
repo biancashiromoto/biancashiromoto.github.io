@@ -17,7 +17,9 @@ function App() {
   const [fadeIn, setFadeIn] = useState<boolean>(false);
 
   useEffect(() => {
-    setFadeIn(true);
+    window.onload = () => {
+      setFadeIn(true);
+    };
   }, []);
   
   const renderHeader = (): ReactNode => {
@@ -101,8 +103,8 @@ function App() {
 
   return (
     <div className={`body bg-[#040504] text-white h-screen text-center mx-10 ${fadeIn ? "fade-in" : ""}`}>
+      {renderHeader()}
       <main className="h-screen flex flex-col gap-10 items-center">
-        {renderHeader()}
         {renderGreetingMessage()}
         {renderProfilePicture()}
         {renderLinksContainer()}
