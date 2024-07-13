@@ -22,6 +22,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 main {
   background-image: url("../public/image__laptop.jpg");
   background-position: 0 50dvh;
