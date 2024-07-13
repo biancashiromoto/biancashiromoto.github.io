@@ -1,15 +1,24 @@
 import { useState } from "react";
+import { Link as ReactLink } from "react-router-dom";
+import { ariaLabel } from "../../helpers/ariaLabel";
+import { FiArrowLeftCircle } from "react-icons/fi";
 
 interface ProjectsProps {
   isLanguagePortuguese: boolean;
   screenWidth: number;
 }
 
-export const Projects = ({ _isLanguagePortuguese, screenWidth }: ProjectsProps) => {
+export const Projects = ({ isLanguagePortuguese, screenWidth }: ProjectsProps) => {
   const [fadeIn, setFadeIn] = useState<boolean>(false);
 
   return (
     <div className={`mt-20 ${fadeIn ? "fade-in" : ""}`}>
+      <ReactLink
+        aria-label={ariaLabel.pages.return}
+        to="/"
+        >
+        <FiArrowLeftCircle />
+      </ReactLink>
       <h2 className="mb-5">In progress...</h2>
       <img 
         alt="Gif of a cat typing on a laptop"
