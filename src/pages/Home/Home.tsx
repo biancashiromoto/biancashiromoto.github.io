@@ -7,6 +7,7 @@ import { HomeProps } from "./Home.types";
 import { Link as ReactLink } from 'react-router-dom';
 import "../../index.scss";
 import { dataTestIds } from "../../helpers/dataTestIds";
+import { MdOutlineAlternateEmail } from "react-icons/md";
 
 export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
   const ptInformation = new Information("pt");
@@ -69,6 +70,13 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
           testid={dataTestIds.links.linkedin}
         >
           <FaLinkedin />
+        </Link.Root>
+        <Link.Root
+          ariaLabel={ariaLabel.links.email}
+          href={`mailto:${ptInformation._email}`}
+          testid={dataTestIds.links.email}
+        >
+          <MdOutlineAlternateEmail />
         </Link.Root>
       </div>
     );
