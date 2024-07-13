@@ -17,7 +17,9 @@ function App() {
   const [fadeIn, setFadeIn] = useState<boolean>(false);
 
   useEffect(() => {
-    setFadeIn(true);
+    window.onload = () => {
+      setFadeIn(true);
+    };
   }, []);
   
   const renderHeader = (): ReactNode => {
