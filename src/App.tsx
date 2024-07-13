@@ -26,7 +26,7 @@ function App() {
     return (
       <header className="mt-2">
         <Button.Root
-          className="text-sm hover:bg-slate-800 p-3 rounded-full"
+          className="text-xs hover:bg-slate-800 p-3 rounded-full"
           onClick={() => setIsLanguagePortuguese(prevState => !prevState)}
           testId={dataTestIds.buttons.toggleLanguageButton}
         >
@@ -38,7 +38,7 @@ function App() {
 
   const renderGreetingMessage = (): ReactNode => {
     return (
-      <div className="grid gap-1 mt-2 grid-cols-2 grid-rows-3 items-center">
+      <div className="text-sm grid gap-1 mt-2 grid-cols-2 grid-rows-3 items-center">
         {ptInformation._greetingMessage.map((paragraph, index) => {
           if (index === 0) {
             return (
@@ -49,7 +49,7 @@ function App() {
           }
           if (paragraph === ptInformation._name) {
             return (
-              <h1 key={index} className="text-3xl text-left ml-1">{paragraph}</h1>
+              <h1 key={index} className="text-xl text-left ml-1">{paragraph}</h1>
             );
           }
           return (
@@ -64,7 +64,7 @@ function App() {
     return (
       <img
         alt={isLanguagePortuguese ? ptInformation._profilePictureAltText : enInformation._profilePictureAltText}
-        className="rounded-full w-48 mt-5"
+        className="rounded-full w-36 mt-5"
         src={ptInformation._profilePictureURL}
       />
     );
@@ -72,7 +72,7 @@ function App() {
 
   const renderLinksContainer = (): ReactNode => {
     return (
-      <div className="flex gap-10 text-5xl">
+      <div className="flex gap-10 text-4xl">
         <Link.Root
           ariaLabel={ariaLabel.links.github}
           href={ptInformation._githubLink}
@@ -93,7 +93,7 @@ function App() {
 
   const renderAboutMe = (): ReactNode => {
     return (
-      <article className="about-me__container h-screen flex flex-col items-center justify-center gap-5 leading-10">
+      <article className="about-me__container text-sm h-screen flex flex-col items-center justify-center gap-5 leading-10">
         {ptInformation._aboutMeText.map((paragraph, index) => (
           <p key={index}>{isLanguagePortuguese ? paragraph : enInformation._aboutMeText[index]}</p>
         ))}
