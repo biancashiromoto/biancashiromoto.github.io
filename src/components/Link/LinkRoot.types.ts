@@ -5,5 +5,6 @@ export interface LinkRootProps {
   children?: ReactNode
   className?: string,
   href: string,
+  target?: string,
   testid: string,
 }
