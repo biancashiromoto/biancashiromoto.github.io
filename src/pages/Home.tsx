@@ -76,8 +76,8 @@ export const Home = ({ isLanguagePortuguese }: HomeProps) => {
   }
   
   return (
-    <div>
-      <main className="h-screen flex flex-col gap-10 items-center">
+    <div className="flex justify-evenly">
+      <main className="h-screen flex flex-col gap-10 items-center mt-14">
         {renderGreetingMessage()}
         {renderProfilePicture()}
         {renderLinksContainer()}
