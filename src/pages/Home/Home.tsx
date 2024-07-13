@@ -51,6 +51,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
       <div className="flex gap-10 text-4xl">
         <ReactLink
           aria-label={ariaLabel.pages.projects}
+          className="hover:scale-150 transition-all"
           to="/projects"
           >
           <FaLaptopCode />
