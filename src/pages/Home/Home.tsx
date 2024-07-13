@@ -115,7 +115,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
       <Link.Root
         ariaLabel={ariaLabel.links.pageUp}
         href="#home-start"
-        className="relative top-2 text-3xl"
+        className="relative text-3xl"
         target="_self"
         testid={dataTestIds.links.pageUp}
       >
@@ -132,7 +132,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
         {renderLinksContainer()}
         {renderScrollButton("down")}
       </main>
-      <article className="about-me__container text-xs h-screen flex flex-col items-center justify-center gap-10 leading-10" id="about-me__container">
+      <article className="about-me__container text-xs h-screen flex flex-col items-center justify-center gap-20 leading-10" id="about-me__container">
         {renderScrollButton("up")}
         {renderAboutMe()}
       </article>
