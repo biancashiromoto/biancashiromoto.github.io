@@ -1,14 +1,12 @@
 import { ReactNode } from "react";
 import Information from "../../helpers/classes/Information";
 import { Link } from "../../components/Link";
-import { FaGithub, FaLaptopCode, FaLinkedin, FaRegArrowAltCircleDown, FaRegArrowAltCircleUp } from "react-icons/fa";
+import { LinksContainer } from "../../components/LinksContainer/LinksContainer";
+import { FaRegArrowAltCircleDown, FaRegArrowAltCircleUp } from "react-icons/fa";
 import { ariaLabel } from "../../helpers/ariaLabel";
 import { HomeProps } from "./Home.types";
-import { Link as ReactLink } from 'react-router-dom';
 import "../../index.scss";
 import { dataTestIds } from "../../helpers/dataTestIds";
-import { MdOutlineContactPage } from "react-icons/md";
-import { Tooltip } from "../../components/Tooltip/Tooltip";
 import ReactTypingEffect from 'react-typing-effect';
 
 export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
@@ -72,57 +70,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
   }
 
   const renderLinksContainer = (): ReactNode => {
-    return (
-      <div className="flex gap-10 text-3xl items-center justify-center flex-wrap">
-        <Tooltip
-          text={isLanguagePortuguese ? ptInformation._projectsTooltip : enInformation._projectsTooltip}
-        >
-          <ReactLink
-            aria-label={ariaLabel.pages.projects}
-            className="hover:scale-125"
-            to="/projects"
-          >
-            <FaLaptopCode />
-          </ReactLink>
-        </Tooltip>
-        <Tooltip
-          text={ptInformation._gitHubTooltip}
-        >
-          <Link.Root
-            ariaLabel={ariaLabel.links.github}
-            className="hover:scale-125"
-            href={ptInformation._githubLink}
-            testid={dataTestIds.links.github}
-          >
-            <FaGithub />
-          </Link.Root>
-        </Tooltip>
-        <Tooltip
-          text={ptInformation._linkedinTooltip}
-        >
-          <Link.Root
-            ariaLabel={ariaLabel.links.linkedin}
-            className="hover:scale-125"
-            href={ptInformation._linkedinLink}
-            testid={dataTestIds.links.linkedin}
-          >
-            <FaLinkedin />
-          </Link.Root>
-        </Tooltip>
-        <Tooltip
-          text={isLanguagePortuguese ? ptInformation._resumeTooltip : enInformation._resumeTooltip}
-        >
-          <Link.Root
-            ariaLabel={ariaLabel.links.email}
-            className="hover:scale-125"
-            href={ptInformation._resumeLink}
-            testid={dataTestIds.links.email}
-          >
-            <MdOutlineContactPage />
-          </Link.Root>
-        </Tooltip>
-      </div>
-    );
+    return <LinksContainer isLanguagePortuguese={isLanguagePortuguese} />
   }
 
   const renderAboutMe = (): ReactNode => {
