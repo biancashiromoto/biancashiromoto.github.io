@@ -2,6 +2,7 @@ export default class Information {
   public _profilePictureURL: string = "https://avatars.githubusercontent.com/u/108292121?v=4";
   public _linkedinLink: string = "https://www.linkedin.com/in/bshiromoto/";
   public _githubLink: string = "https://github.com/biancashiromoto";
+  public _resumeLink: string = "https://bshiromoto.notion.site/Bianca-P-Shiromoto-6b6bc1d50e854d3693cecf184eeba155#b53745dd7d434ea0ba1554e326b107ff";
   public _email: string = "b.shiromoto.bs@gmail.com";
   public _name: string = "Bianca";
   public _gitHubTooltip: string = "GitHub";
@@ -13,6 +14,9 @@ export default class Information {
   public _inProgress: string;
   public _emailTooltip: string;
   public _projectsTooltip: string;
+  public _returnToPreviousPageTooltip: string;
+  public _resumeTooltip: string;
+  public _catGifAltText: string;
 
   constructor(language: string) {
     this._profilePictureAltText = language === "en" ? "I am a woman with dark brown eyes and hair and I am wearing a black and gray T-shirt." : "Sou uma mulher de cabelos e olhos cabelos escuros e estou usando uma camiseta cinza e preta.";
@@ -38,5 +42,8 @@ export default class Information {
     this._inProgress = language === "en" ? "In progress..." : "Em construção";
     this._emailTooltip = language === "en" ? "Email me!" : "Me envie um email!";
     this._projectsTooltip = language === "en" ? "Projects" : "Projetos";
+    this._returnToPreviousPageTooltip = language == "en" ? "Back" : "Voltar";
+    this._catGifAltText = language === "en" ? "Gif of a cat typing on a laptop" : "Gif de um gato digitando em um laptop";
+    this._resumeTooltip = language === "en" ? "Download my resume" : "Baixe meu currículo";
   }
 }
