@@ -1,5 +1,6 @@
 import { TooltipProvider, Tooltip as ReactTooltip, TooltipTrigger, TooltipContent,  } from '@radix-ui/react-tooltip'
 import { ReactNode } from 'react'
+import { dataTestIds } from '../../helpers/dataTestIds';
 
 interface TooltipProps {
   children?: ReactNode;
@@ -8,8 +9,8 @@ interface TooltipProps {
 
 export const Tooltip = ({ children, text }: TooltipProps) => {
   return (
-    <div>
-      <TooltipProvider>
+    <div data-testid={dataTestIds.tooltip}>
+      <TooltipProvider delayDuration={100}>
           <ReactTooltip>
             <TooltipTrigger>
               { children }
