@@ -8,6 +8,7 @@ import { Link as ReactLink } from 'react-router-dom';
 import "../../index.scss";
 import { dataTestIds } from "../../helpers/dataTestIds";
 import { MdOutlineAlternateEmail } from "react-icons/md";
+import { Tooltip } from "../../components/Tooltip/Tooltip";
 
 export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
   const ptInformation = new Information("pt");
@@ -50,37 +51,54 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
   const renderLinksContainer = (): ReactNode => {
     return (
       <div className="flex gap-10 text-4xl items-center">
-        <ReactLink
-          aria-label={ariaLabel.pages.projects}
-          className="hover:scale-125"
-          to="/projects"
-          >
-          <FaLaptopCode />
-        </ReactLink>
-        <Link.Root
-          ariaLabel={ariaLabel.links.github}
-          className="hover:scale-125"
-          href={ptInformation._githubLink}
-          testid={dataTestIds.links.github}
-          >
-          <FaGithub />
-        </Link.Root>
-        <Link.Root
-          ariaLabel={ariaLabel.links.linkedin}
-          className="hover:scale-125"
-          href={ptInformation._linkedinLink}
-          testid={dataTestIds.links.linkedin}
+        
+        <Tooltip
+          text={isLanguagePortuguese ? ptInformation._projectsTooltip : enInformation._projectsTooltip}
         >
-          <FaLinkedin />
-        </Link.Root>
-        <Link.Root
-          ariaLabel={ariaLabel.links.email}
-          className="hover:scale-125"
-          href={`mailto:${ptInformation._email}`}
-          testid={dataTestIds.links.email}
+          <ReactLink
+            aria-label={ariaLabel.pages.projects}
+            className="hover:scale-125"
+            to="/projects"
+          >
+            <FaLaptopCode />
+          </ReactLink>
+        </Tooltip>
+        <Tooltip
+          text={ptInformation._gitHubTooltip}
         >
-          <MdOutlineAlternateEmail />
-        </Link.Root>
+          <Link.Root
+            ariaLabel={ariaLabel.links.github}
+            className="hover:scale-125"
+            href={ptInformation._githubLink}
+            testid={dataTestIds.links.github}
+          >
+            <FaGithub />
+          </Link.Root>
+        </Tooltip>
+        <Tooltip
+          text={ptInformation._linkedinTooltip}
+        >
+          <Link.Root
+            ariaLabel={ariaLabel.links.linkedin}
+            className="hover:scale-125"
+            href={ptInformation._linkedinLink}
+            testid={dataTestIds.links.linkedin}
+          >
+            <FaLinkedin />
+          </Link.Root>
+        </Tooltip>
+        <Tooltip
+          text={isLanguagePortuguese ? ptInformation._emailTooltip : enInformation._emailTooltip}
+        >
+          <Link.Root
+            ariaLabel={ariaLabel.links.email}
+            className="hover:scale-125"
+            href={ptInformation._email}
+            testid={dataTestIds.links.email}
+          >
+            <MdOutlineAlternateEmail />
+          </Link.Root>
+        </Tooltip>
       </div>
     );
   }
