@@ -7,7 +7,7 @@ import { HomeProps } from "./Home.types";
 import { Link as ReactLink } from 'react-router-dom';
 import "../../index.scss";
 import { dataTestIds } from "../../helpers/dataTestIds";
-import { MdOutlineAlternateEmail } from "react-icons/md";
+import { MdOutlineContactPage } from "react-icons/md";
 import { Tooltip } from "../../components/Tooltip/Tooltip";
 import ReactTypingEffect from 'react-typing-effect';
 
@@ -57,8 +57,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
 
   const renderLinksContainer = (): ReactNode => {
     return (
-      <div className="flex gap-10 text-4xl items-center">
-        
+      <div className="flex gap-10 text-3xl items-center justify-center flex-wrap">
         <Tooltip
           text={isLanguagePortuguese ? ptInformation._projectsTooltip : enInformation._projectsTooltip}
         >
@@ -95,15 +94,15 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
           </Link.Root>
         </Tooltip>
         <Tooltip
-          text={isLanguagePortuguese ? ptInformation._emailTooltip : enInformation._emailTooltip}
+          text={isLanguagePortuguese ? ptInformation._resumeTooltip : enInformation._resumeTooltip}
         >
           <Link.Root
             ariaLabel={ariaLabel.links.email}
             className="hover:scale-125"
-            href={ptInformation._email}
+            href={ptInformation._resumeLink}
             testid={dataTestIds.links.email}
           >
-            <MdOutlineAlternateEmail />
+            <MdOutlineContactPage />
           </Link.Root>
         </Tooltip>
       </div>
