@@ -29,7 +29,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
           if (paragraph === ptInformation._name) {
             return (
               <ReactTypingEffect
-                className=" text-xl text-left ml-1"
+                className="text-slate-400 text-xl text-left ml-1"
                 eraseSpeed={50}
                 speed={100}
                 text={[paragraph]}
