@@ -2,8 +2,6 @@ import { Tooltip } from "../Tooltip/Tooltip";
 import { ariaLabel } from "../../helpers/ariaLabel";
 import { Link as ReactLink } from 'react-router-dom';
 import { Link } from "../Link";
-import { FaGithub, FaLaptopCode, FaLinkedin } from 'react-icons/fa';
-import { MdOutlineContactPage } from 'react-icons/md';
 import { dataTestIds } from "../../helpers/dataTestIds";
 import { LinksContainerProps } from './LinksContainer.types';
 import Information from '../../helpers/classes/Information';
@@ -18,47 +16,29 @@ export const LinksContainer = ({ isLanguagePortuguese }: LinksContainerProps) =>
       >
         <ReactLink
           aria-label={ariaLabel.pages.projects}
-          className="hover:scale-125"
+          className="hover:scale-125 icon__projects"
           to="/projects"
-        >
-          <FaLaptopCode />
-        </ReactLink>
+        />
       </Tooltip>
       <Tooltip
         text={ptInformation._gitHubTooltip}
       >
         <Link.Root
           ariaLabel={ariaLabel.links.github}
-          className="hover:scale-125"
+          className="hover:scale-125 icon__github"
           href={ptInformation._githubLink}
           testid={dataTestIds.links.github}
-        >
-          <FaGithub />
-        </Link.Root>
+        />
       </Tooltip>
       <Tooltip
         text={ptInformation._linkedinTooltip}
       >
         <Link.Root
           ariaLabel={ariaLabel.links.linkedin}
-          className="hover:scale-125"
+          className="hover:scale-125 icon__linkedin"
           href={ptInformation._linkedinLink}
           testid={dataTestIds.links.linkedin}
-        >
-          <FaLinkedin />
-        </Link.Root>
-      </Tooltip>
-      <Tooltip
-        text={isLanguagePortuguese ? ptInformation._resumeTooltip : enInformation._resumeTooltip}
-      >
-        <Link.Root
-          ariaLabel={ariaLabel.links.email}
-          className="hover:scale-125"
-          href={ptInformation._resumeLink}
-          testid={dataTestIds.links.email}
-        >
-          <MdOutlineContactPage />
-        </Link.Root>
+        />
       </Tooltip>
     </div>
   );
