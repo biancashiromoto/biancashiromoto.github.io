@@ -14,11 +14,11 @@ export const Header = ({ setIsLanguagePortuguese, isLanguagePortuguese }: Header
 
   return (
     <header
-        className="mt-2 fixed top-0 right-1/2 translate-x-1/2 z-10 whitespace-nowrap p-3 hover:bg-slate-800 rounded-full"
+        className="mt-2 fixed top-0 right-1/2 translate-x-1/2 z-10 whitespace-nowrap"
         data-testid="header"
       >
         <Button.Root
-          className="text-xs"
+          className="text-xs  p-3 hover:bg-slate-800 rounded-full"
           onClick={() => setIsLanguagePortuguese(prevState => !prevState)}
           testId={dataTestIds.buttons.toggleLanguageButton}
         >
