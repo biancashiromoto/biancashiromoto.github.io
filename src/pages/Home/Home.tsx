@@ -21,7 +21,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
         {ptInformation._greetingMessage.map((paragraph, index) => {
           if (index === 0) {
             return (
-                <div className="flex justify-center col-span-2">
+                <div className="flex justify-center items-center col-span-2">
                   <p key={index} className="">{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
                 </div>
             );
@@ -29,16 +29,31 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
           if (paragraph === ptInformation._name) {
             return (
               <ReactTypingEffect
-                className="text-slate-400 text-xl text-left ml-1"
+                className="typer flex items-center text-xl h-8 text-nowrap w-8 leading-6 ml-1"
+                displayTextRenderer={(paragraph) => {
+                  return (
+                    <h1>
+                      {paragraph.split('').map((char, i) => {
+                        const key = `${i}`;
+                        return (
+                          <span
+                            className="bg-transparent text-lg ml-1 font-bold"
+                            key={key}
+                          >{char}</span>
+                        );
+                      })}
+                    </h1>
+                  )
+                }}
                 eraseSpeed={50}
                 speed={100}
-                text={[paragraph]}
+                text={[ptInformation._name]}
                 typingDelay={100}
               />
             );
           }
           return (
-            <p className={index === 3 ? "col-span-2" : ""} key={index}>{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
+            <p className={`${index === 3 ? "col-span-2" : ""} flex justify-end`} key={index}>{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
           );
         })}
       </div>
