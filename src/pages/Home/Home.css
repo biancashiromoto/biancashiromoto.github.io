@@ -1,0 +1,67 @@
+.background-image--container {
+  background: url('./assets/background-image.jpg') no-repeat center;
+  background-size: 75%;
+  height: 200px;
+  position: absolute;
+  top: 60%;
+  width: 100%;
+}
+
+.home-container {
+  overflow-x: hidden;
+}
+
+.links-container {
+  z-index: 1;
+}
+
+.links-container a:hover, .links-container a:focus {
+  transform: scale(1.25, 1.25);
+  transition: 400ms;
+}
+
+.image-container {
+  background: url('../../assets/background-image.jpg') no-repeat center;
+  background-size: 300px;
+  background-position: 50% 0;
+  height: 250px;
+  position: sticky;
+  top: 50%;
+  width: 450px;
+}
+
+.aboutme-container {
+  position: relative;
+}
+
+.aboutme-container p {
+  line-height: 2.25;
+}
+
+.github-link::before {
+  content: url('../../assets/github.svg');
+}
+
+.linkedin-link::before {
+  content: url('../../assets/linkedin.svg');
+}
+
+.projects-link::before {
+  content: url('../../assets/coding.svg');
+}
+
+.certificates-link::before {
+  content: url('../../assets/certificate.svg');
+}
+
+@media screen and (max-width: 768px) {
+  .profile-pic {
+    width: 25%;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .home-container {
+    max-width: 75vw;
+  }
+}
