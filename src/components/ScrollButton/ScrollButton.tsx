@@ -4,32 +4,19 @@ import { dataTestIds } from '../../helpers/dataTestIds';
 import { FaRegArrowAltCircleDown, FaRegArrowAltCircleUp } from 'react-icons/fa';
 import { Link } from '../Link';
 
-export const ScrollButton = ({ direction, screenWidth }: ScrollButtonProps) => {
+export const ScrollButton = ({ direction, screenWidth, className, href }: ScrollButtonProps) => {
   if (screenWidth > 768) {
     return;
   }
-  if (direction === "down") {
-    return(
-      <Link.Root
-        ariaLabel={ariaLabel.links.pageDown}
-        href="#about-me__container"
-        className="absolute bottom-48 text-3xl"
-        target="_self"
-        testid={dataTestIds.links.pageDown}
-      >
-        <FaRegArrowAltCircleDown />
-      </Link.Root>
-    );
-  }
   return(
     <Link.Root
-      ariaLabel={ariaLabel.links.pageUp}
-      href="#home-start"
-      className="absolute text-3xl top-36"
+      ariaLabel={direction === "down" ? ariaLabel.links.pageDown : ariaLabel.links.pageUp}
+      href={href}
+      className={`absolute bottom-48 text-3xl button__scroll-${direction} ${className}`}
       target="_self"
-      testid={dataTestIds.links.pageUp}
+      testid={direction === "down" ? dataTestIds.links.pageDown : dataTestIds.links.pageUp}
     >
-      <FaRegArrowAltCircleUp />
+      {direction === "down" ? <FaRegArrowAltCircleDown /> : <FaRegArrowAltCircleUp />}
     </Link.Root>
   );
 }
