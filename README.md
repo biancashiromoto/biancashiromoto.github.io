@@ -1,6 +1,6 @@
 <h1>Portfolio | Bianca Shiromoto</h1>
 
-<p>🇺🇸 Hello and welcome to my <a href="http://biancashiromoto.github.io/">portfolio!</a></p>
+<p>[EN] Hello and welcome to my <a href="http://biancashiromoto.github.io/">portfolio!</a></p>
 <p>My name is Bianca, I'm a full-stack developer who transitioned from a career in veterinary medicine.</p>
 <p>This project was developed to provide contact links and display some of my projects.</p>
 <p>Feel free to explore my <a href="https://github.com/biancashiromoto">GitHub</a> and if you have any suggestions or feedbacks, I would be happy to recieve them through <a href="https://www.linkedin.com/in/bshiromoto/" target="_blank">LinkedIn</a>!</p>
@@ -9,7 +9,7 @@
 
 <hr>
 
-<p>🇧🇷 Olá e seja bem-vindo(a) ao meu <a href="http://biancashiromoto.github.io/"><i>portfolio</i></a>!</p>
+<p>[PT-BR] Olá e seja bem-vindo(a) ao meu <a href="http://biancashiromoto.github.io/"><i>portfolio</i></a>!</p>
 <p>Meu nome é Bianca, sou desenvolvedora full-stack e fiz uma transição de carreira da medicina veterinária.</p>
 <p>Esse projeto foi desenvolvido para disponibilizar links de contato, além de mostrar alguns dos meus projetos.</p>
 <p>Sinta-se à vontade para explorar meu <a href="https://github.com/biancashiromoto">GitHub</a> e, caso tenha alguma sugestão ou feedback, ficarei feliz em receber através do meu <a href="https://www.linkedin.com/in/bshiromoto/" target="_blank">LinkedIn</a>!</p>
