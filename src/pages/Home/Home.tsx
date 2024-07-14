@@ -1,15 +1,10 @@
 import { ReactNode } from "react";
 import Information from "../../helpers/classes/Information";
-import { Link } from "../../components/Link";
-import { FaGithub, FaLaptopCode, FaLinkedin, FaRegArrowAltCircleDown, FaRegArrowAltCircleUp } from "react-icons/fa";
-import { ariaLabel } from "../../helpers/ariaLabel";
+import { LinksContainer } from "../../components/LinksContainer/LinksContainer";
 import { HomeProps } from "./Home.types";
-import { Link as ReactLink } from 'react-router-dom';
 import "../../index.scss";
-import { dataTestIds } from "../../helpers/dataTestIds";
-import { MdOutlineContactPage } from "react-icons/md";
-import { Tooltip } from "../../components/Tooltip/Tooltip";
 import ReactTypingEffect from 'react-typing-effect';
+import { ScrollButton } from "../../components/ScrollButton/ScrollButton";
 
 export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
   const ptInformation = new Information("pt");
@@ -21,7 +16,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
         {ptInformation._greetingMessage.map((paragraph, index) => {
           if (index === 0) {
             return (
-                <div className="flex justify-center col-span-2">
+                <div className="flex justify-center items-center col-span-2">
                   <p key={index} className="">{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
                 </div>
             );
@@ -29,16 +24,32 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
           if (paragraph === ptInformation._name) {
             return (
               <ReactTypingEffect
-                className="text-slate-400 text-xl text-left ml-1"
+                className="typer flex items-center text-xl h-8 text-nowrap w-8 leading-6 ml-1"
+                data-testid="typer"
+                displayTextRenderer={(paragraph) => {
+                  return (
+                    <h1>
+                      {paragraph.split('').map((char, i) => {
+                        const key = `${i}`;
+                        return (
+                          <span
+                            className="bg-transparent text-lg ml-1 font-bold"
+                            key={key}
+                          >{char}</span>
+                        );
+                      })}
+                    </h1>
+                  )
+                }}
                 eraseSpeed={50}
                 speed={100}
-                text={[paragraph]}
+                text={[ptInformation._name]}
                 typingDelay={100}
               />
             );
           }
           return (
-            <p className={index === 3 ? "col-span-2" : ""} key={index}>{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
+            <p className={`${index === 3 ? "col-span-2" : ""} flex justify-end`} key={index}>{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
           );
         })}
       </div>
@@ -56,57 +67,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
   }
 
   const renderLinksContainer = (): ReactNode => {
-    return (
-      <div className="flex gap-10 text-3xl items-center justify-center flex-wrap">
-        <Tooltip
-          text={isLanguagePortuguese ? ptInformation._projectsTooltip : enInformation._projectsTooltip}
-        >
-          <ReactLink
-            aria-label={ariaLabel.pages.projects}
-            className="hover:scale-125"
-            to="/projects"
-          >
-            <FaLaptopCode />
-          </ReactLink>
-        </Tooltip>
-        <Tooltip
-          text={ptInformation._gitHubTooltip}
-        >
-          <Link.Root
-            ariaLabel={ariaLabel.links.github}
-            className="hover:scale-125"
-            href={ptInformation._githubLink}
-            testid={dataTestIds.links.github}
-          >
-            <FaGithub />
-          </Link.Root>
-        </Tooltip>
-        <Tooltip
-          text={ptInformation._linkedinTooltip}
-        >
-          <Link.Root
-            ariaLabel={ariaLabel.links.linkedin}
-            className="hover:scale-125"
-            href={ptInformation._linkedinLink}
-            testid={dataTestIds.links.linkedin}
-          >
-            <FaLinkedin />
-          </Link.Root>
-        </Tooltip>
-        <Tooltip
-          text={isLanguagePortuguese ? ptInformation._resumeTooltip : enInformation._resumeTooltip}
-        >
-          <Link.Root
-            ariaLabel={ariaLabel.links.email}
-            className="hover:scale-125"
-            href={ptInformation._resumeLink}
-            testid={dataTestIds.links.email}
-          >
-            <MdOutlineContactPage />
-          </Link.Root>
-        </Tooltip>
-      </div>
-    );
+    return <LinksContainer isLanguagePortuguese={isLanguagePortuguese} />
   }
 
   const renderAboutMe = (): ReactNode => {
@@ -119,34 +80,13 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
     )
   }
 
-  const renderScrollButton = (direction: string): ReactNode => {
-    if (screenWidth > 768) {
-      return;
-    }
-    if (direction === "down") {
-      return(
-        <Link.Root
-          ariaLabel={ariaLabel.links.pageDown}
-          href="#about-me__container"
-          className="absolute bottom-48 text-3xl"
-          target="_self"
-          testid={dataTestIds.links.pageDown}
-        >
-          <FaRegArrowAltCircleDown />
-        </Link.Root>
-      );
-    }
-    return(
-      <Link.Root
-        ariaLabel={ariaLabel.links.pageUp}
-        href="#home-start"
-        className="absolute text-3xl top-36"
-        target="_self"
-        testid={dataTestIds.links.pageUp}
-      >
-        <FaRegArrowAltCircleUp />
-      </Link.Root>
-    );
+  const renderScrollButton = (direction: string, screenWidth: number, href: string): ReactNode => {
+    return <ScrollButton
+      className={`button__scroll-${direction}`}
+      direction={direction}
+      href={href}
+      screenWidth={screenWidth}
+    />
   }
   
   return (
@@ -155,10 +95,10 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
         {renderGreetingMessage()}
         {renderProfilePicture()}
         {renderLinksContainer()}
-        {renderScrollButton("down")}
+        {renderScrollButton("down", screenWidth, "#about-me__container")}
       </main>
       <article className="about-me__container text-xs h-screen flex flex-col items-center justify-center gap-20 leading-10 relative" id="about-me__container">
-        {renderScrollButton("up")}
+        {renderScrollButton("up", screenWidth, "#home-start")}
         {renderAboutMe()}
       </article>
     </div>
