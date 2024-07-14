@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./index.scss";
 import Utils from "./helpers/classes/Utils";
 import { Home } from "./pages/Home/Home";
-import { Header } from "./components/Header/Header";
+import { Header } from "./components/Header/index";
 import { Route, Routes } from "react-router-dom";
 import { Projects } from "./pages/Projects/Projects";
 

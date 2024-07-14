@@ -18,11 +18,11 @@ export const Header = ({ setIsLanguagePortuguese, isLanguagePortuguese }: Header
         data-testid="header"
       >
         <Button.Root
-          className="text-xs  p-3 hover:bg-slate-800 rounded-full"
+          className="text-xs font-oswald p-3 hover:bg-slate-800 rounded-full"
           onClick={() => setIsLanguagePortuguese(prevState => !prevState)}
           testId={dataTestIds.buttons.toggleLanguageButton}
         >
-          {isLanguagePortuguese ? ptInformation._translateButtonLabel : enInformation._translateButtonLabel}
+          {(isLanguagePortuguese ? ptInformation._translateButtonLabel : enInformation._translateButtonLabel).toUpperCase()}
         </Button.Root>
       </header>
   )
