@@ -9,6 +9,7 @@ import "../../index.scss";
 import { dataTestIds } from "../../helpers/dataTestIds";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { Tooltip } from "../../components/Tooltip/Tooltip";
+import ReactTypingEffect from 'react-typing-effect';
 
 export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
   const ptInformation = new Information("pt");
@@ -27,7 +28,13 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
           }
           if (paragraph === ptInformation._name) {
             return (
-              <h1 key={index} className="text-xl text-left ml-1">{paragraph}</h1>
+              <ReactTypingEffect
+                className=" text-xl text-left ml-1"
+                eraseSpeed={50}
+                speed={100}
+                text={[paragraph]}
+                typingDelay={100}
+              />
             );
           }
           return (
