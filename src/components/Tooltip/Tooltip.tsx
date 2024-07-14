@@ -4,12 +4,13 @@ import { dataTestIds } from '../../helpers/dataTestIds';
 
 interface TooltipProps {
   children?: ReactNode;
+  className?: string;
   text: string;
 }
 
-export const Tooltip = ({ children, text }: TooltipProps) => {
+export const Tooltip = ({ children, className, text }: TooltipProps) => {
   return (
-    <div data-testid={dataTestIds.tooltip}>
+    <div data-testid={dataTestIds.tooltip} className={className}>
       <TooltipProvider delayDuration={100}>
           <ReactTooltip>
             <TooltipTrigger>
