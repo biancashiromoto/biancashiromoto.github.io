@@ -30,6 +30,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
             return (
               <ReactTypingEffect
                 className="typer flex items-center text-xl h-8 text-nowrap w-8 leading-6 ml-1"
+                data-testid="typer"
                 displayTextRenderer={(paragraph) => {
                   return (
                     <h1>
