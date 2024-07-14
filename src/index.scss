@@ -37,10 +37,12 @@
 
 .button__scroll-down {
   animation: oscillate-up 2s infinite;
+  bottom: 20%;
 }
 
 .button__scroll-up {
   animation: oscillate-down 2s infinite;
+  top: 20%;
 }
 
 * {

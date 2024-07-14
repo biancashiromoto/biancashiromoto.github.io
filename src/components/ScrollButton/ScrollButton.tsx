@@ -12,7 +12,7 @@ export const ScrollButton = ({ direction, screenWidth, className, href }: Scroll
     <Link.Root
       ariaLabel={direction === "down" ? ariaLabel.links.pageDown : ariaLabel.links.pageUp}
       href={href}
-      className={`absolute bottom-48 text-3xl button__scroll-${direction} ${className}`}
+      className={`absolute text-3xl button__scroll-${direction} ${className}`}
       target="_self"
       testid={direction === "down" ? dataTestIds.links.pageDown : dataTestIds.links.pageUp}
     >
