@@ -1,13 +1,10 @@
 import { ReactNode } from "react";
 import Information from "../../helpers/classes/Information";
-import { Link } from "../../components/Link";
 import { LinksContainer } from "../../components/LinksContainer/LinksContainer";
-import { FaRegArrowAltCircleDown, FaRegArrowAltCircleUp } from "react-icons/fa";
-import { ariaLabel } from "../../helpers/ariaLabel";
 import { HomeProps } from "./Home.types";
 import "../../index.scss";
-import { dataTestIds } from "../../helpers/dataTestIds";
 import ReactTypingEffect from 'react-typing-effect';
+import { ScrollButton } from "../../components/ScrollButton/ScrollButton";
 
 export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
   const ptInformation = new Information("pt");
@@ -83,34 +80,8 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
     )
   }
 
-  const renderScrollButton = (direction: string): ReactNode => {
-    if (screenWidth > 768) {
-      return;
-    }
-    if (direction === "down") {
-      return(
-        <Link.Root
-          ariaLabel={ariaLabel.links.pageDown}
-          href="#about-me__container"
-          className="absolute bottom-48 text-3xl"
-          target="_self"
-          testid={dataTestIds.links.pageDown}
-        >
-          <FaRegArrowAltCircleDown />
-        </Link.Root>
-      );
-    }
-    return(
-      <Link.Root
-        ariaLabel={ariaLabel.links.pageUp}
-        href="#home-start"
-        className="absolute text-3xl top-36"
-        target="_self"
-        testid={dataTestIds.links.pageUp}
-      >
-        <FaRegArrowAltCircleUp />
-      </Link.Root>
-    );
+  const renderScrollButton = (direction: string, screenWidth: number): ReactNode => {
+    return <ScrollButton direction={direction} screenWidth={screenWidth} />
   }
   
   return (
@@ -119,10 +90,10 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
         {renderGreetingMessage()}
         {renderProfilePicture()}
         {renderLinksContainer()}
-        {renderScrollButton("down")}
+        {renderScrollButton("down", screenWidth)}
       </main>
       <article className="about-me__container text-xs h-screen flex flex-col items-center justify-center gap-20 leading-10 relative" id="about-me__container">
-        {renderScrollButton("up")}
+        {renderScrollButton("up", screenWidth)}
         {renderAboutMe()}
       </article>
     </div>
