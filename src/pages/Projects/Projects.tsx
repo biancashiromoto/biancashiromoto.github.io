@@ -4,7 +4,6 @@ import { FiArrowLeftCircle } from "react-icons/fi";
 import Information from "../../helpers/classes/Information";
 import { Tooltip } from "../../components/Tooltip/Tooltip";
 import { Carousel } from "@material-tailwind/react";
-import { useEffect, useState } from "react";
 
 interface ProjectsProps {
   isLanguagePortuguese: boolean;
@@ -14,31 +13,6 @@ interface ProjectsProps {
 export const Projects = ({ isLanguagePortuguese }: ProjectsProps) => {
   const ptInformation = new Information("pt");
   const enInformation = new Information("en");
-  const [projects, setProjects] = useState([]);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      const response  = await fetch(ptInformation._githubApiLink);
-      const data = await response.json();
-      console.log(data);
-      
-      const projectsWithScreenshots = [];
-
-      for (const project of data) {
-        try {
-          const screenshotResponse = await fetch(`https://github.com/biancashiromoto/${project.name}/blob/main/screenshots/screenshot-01.${"gif" || "png"}`);
-
-          if (screenshotResponse.status === 200) {
-            projectsWithScreenshots.push(project);
-          }
-        } catch (error) {
-          console.error(`${project.name} does not provide screenshot images`);
-        }
-      }
-      setProjects(data);
-    }
-    fetchProjects();
-  }, []);
 
   return (
     <div className="page__projects  mt-14 relative">
