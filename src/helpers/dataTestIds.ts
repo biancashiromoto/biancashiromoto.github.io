@@ -3,6 +3,10 @@ export const dataTestIds = {
     toggleLanguageButton: "button__toggle-language",
   },
   header: "header",
+  tooltip: "tooltip",
+  pages: {
+    projects: "page__projects"
+  },
   links: {
     linkedin: "link__linkedin",
     github: "link__github",
