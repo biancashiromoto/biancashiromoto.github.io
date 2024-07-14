@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import App from "../App";
 import Information from "../helpers/classes/Information";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -19,9 +19,9 @@ describe("Home page", () => {
     expect(img.getAttribute("alt")).toBe(enInformation._profilePictureAltText);
   });
 
-  test("Should contain a title with the text 'Bianca'", () => {
-    const title = screen.getByRole("heading");
-    expect(title.innerHTML).toContain("Bianca");
+  test("Should contain a title with the text 'Bianca'", async () => {
+    expect(screen.getByTestId("typer")).toBeInTheDocument();
+    await waitFor(() => expect(screen.getByTestId("typer")).toHaveTextContent(enInformation._name));
   });
 
   test("Should contain a button with data-testid 'button__toggle-language'", () => {
