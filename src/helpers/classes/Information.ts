@@ -4,11 +4,15 @@ export default class Information {
   public _githubLink: string = "https://github.com/biancashiromoto";
   public _email: string = "b.shiromoto.bs@gmail.com";
   public _name: string = "Bianca";
+  public _gitHubTooltip: string = "GitHub";
+  public _linkedinTooltip: string = "LinkedIn";
   public _translateButtonLabel: string;
   public _profilePictureAltText: string;
   public _greetingMessage: string[];
   public _aboutMeText: string[];
   public _inProgress: string;
+  public _emailTooltip: string;
+  public _projectsTooltip: string;
 
   constructor(language: string) {
     this._profilePictureAltText = language === "en" ? "I am a woman with dark brown eyes and hair and I am wearing a black and gray T-shirt." : "Sou uma mulher de cabelos e olhos cabelos escuros e estou usando uma camiseta cinza e preta.";
@@ -32,5 +36,7 @@ export default class Information {
     ];
     this._translateButtonLabel = language === "en" ? "Traduzir para o português" : "Translate to English";
     this._inProgress = language === "en" ? "In progress..." : "Em construção";
+    this._emailTooltip = language === "en" ? "Email me!" : "Me envie um email!";
+    this._projectsTooltip = language === "en" ? "Projects" : "Projetos";
   }
 }
