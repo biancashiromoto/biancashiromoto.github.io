@@ -1,27 +1,30 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./index.scss";
-import Utils from "./helpers/classes/Utils";
 import { Home } from "./pages/Home/Home";
 import { Header } from "./components/Header/index";
 import { Route, Routes } from "react-router-dom";
 import { Projects } from "./pages/Projects/Projects";
+import { useCounterStore } from "./state/store";
 
 function App() {
-  const utils = new Utils();
-
-  const [isLanguagePortuguese, setIsLanguagePortuguese] = useState<boolean>(utils.isLanguagePortuguese());
-  const [fadeIn, setFadeIn] = useState<boolean>(false);
-  const [width, setWidth ] = useState(window.innerWidth);
+  const {
+    isLanguagePortuguese,
+    toggleLanguage,
+    fadeIn,
+    toggleFadeIn,
+    width,
+    setWitdth
+  } = useCounterStore();
 
   useEffect(() => {
     window.onload = () => {
-      setFadeIn(true);
+      toggleFadeIn();
     };
   }, []);
 
   useEffect(() => {
     const handleResize = () => {
-      setWidth(window.innerWidth);      
+      setWitdth(window.innerWidth);      
     };
     window.addEventListener("resize", handleResize);
     return () => {
@@ -33,7 +36,7 @@ function App() {
     <div className={`body bg-[#040504] text-white h-screen text-center mx-10 ${fadeIn ? "fade-in" : ""}`}>
       <Header
         isLanguagePortuguese={isLanguagePortuguese}
-        setIsLanguagePortuguese={setIsLanguagePortuguese}
+        setIsLanguagePortuguese={toggleLanguage}
       />
       <Routes>
         <Route path="/" element={
