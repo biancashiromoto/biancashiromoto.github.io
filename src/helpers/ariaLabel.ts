@@ -5,6 +5,7 @@ export const ariaLabel = {
     email: "Email to",
     pageDown: "Page down",
     pageUp: "Page up",
+    resume: "Resume,"
   },
   pages: {
     projects: "Go to page Projects",
