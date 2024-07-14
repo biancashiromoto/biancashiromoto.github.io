@@ -1,4 +1,3 @@
-import React from 'react'
 import { ScrollButtonProps } from './ScrollButton.types'
 import { ariaLabel } from '../../helpers/ariaLabel';
 import { dataTestIds } from '../../helpers/dataTestIds';
