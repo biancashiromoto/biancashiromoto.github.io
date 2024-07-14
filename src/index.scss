@@ -42,6 +42,18 @@ main {
 //   -webkit-text-fill-color: transparent;
 // }
 
+.icon__projects::before {
+  content: url("../public/icons/coding.svg");
+}
+
+.icon__github::before {
+  content: url("../public/icons/github.svg");
+}
+
+.icon__linkedin::before {
+  content: url("../public/icons/linkedin.svg");
+}
+
 @media screen and (min-width: 768px) {
   main {
     background-image: none;
