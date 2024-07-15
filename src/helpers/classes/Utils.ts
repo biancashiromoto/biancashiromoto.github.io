@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export default class Utils {
   /**
    * Checks if browser language is Portuguese.
@@ -6,5 +8,10 @@ export default class Utils {
   public isLanguagePortuguese(): boolean {
     const browserLanguage = navigator.language;
     return browserLanguage.includes("pt-");
+  }
+
+  public async fetchData() {
+    const { data } = await axios.get("https://api.github.com/users/biancashiromoto/repos");
+    return data;    
   }
 }
