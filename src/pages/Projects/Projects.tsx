@@ -22,7 +22,7 @@ interface DataType {
   id: string;
   name: string;
   topics: string[],
-  [key: string]: any; // Adjust based on your actual data structure
+  [key: string]: any;
 }
 
 export const Projects = ({ isLanguagePortuguese }: ProjectsProps) => {
