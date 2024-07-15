@@ -3,16 +3,43 @@ import { ariaLabel } from "../../helpers/ariaLabel";
 import { FiArrowLeftCircle } from "react-icons/fi";
 import Information from "../../helpers/classes/Information";
 import { Tooltip } from "../../components/Tooltip/Tooltip";
-import { Carousel } from "@material-tailwind/react";
+import { useEffect, useState } from "react";
+import Utils from "../../helpers/classes/Utils";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../../../@shadcn-ui/components/ui/carousel"
 
 interface ProjectsProps {
   isLanguagePortuguese: boolean;
   screenWidth: number;
 }
 
+interface DataType {
+  id: string;
+  name: string;
+  topics: string[],
+  [key: string]: any; // Adjust based on your actual data structure
+}
+
 export const Projects = ({ isLanguagePortuguese }: ProjectsProps) => {
   const ptInformation = new Information("pt");
   const enInformation = new Information("en");
+  const { fetchData } = new Utils();
+  const [data, setData] = useState<DataType[]>([]);
+
+  useEffect( () => {
+    const fetchRepos = async () => {
+      const data = await fetchData();
+      setData(data);
+      console.log(data);
+      
+    }
+    fetchRepos();
+  }, [fetchData])
 
   return (
     <div className="page__projects  mt-14 relative">
@@ -29,23 +56,26 @@ export const Projects = ({ isLanguagePortuguese }: ProjectsProps) => {
       </ReactLink>
     </Tooltip>
       <h2 className="mb-5">{isLanguagePortuguese ? ptInformation._inProgress : enInformation._inProgress }</h2>
-      <Carousel transition={{ duration: 2 }} className="rounded-xl" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-      <img
-        src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjRieWtkcXU0dmkzeGJhd2xueW1vOTg2N2Y5M2k0NHVoemRjMmxucSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lJNoBCvQYp7nq/giphy.webp"
-        alt="image 1"
-        className="h-full w-full object-cover"
-      />
-      <img
-        src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzN2NzJ4dXcwZmZxM3QxamJoODBjb3NtdWpib3J2dGQ5cDhwbWJ3dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VbnUQpnihPSIgIXuZv/giphy.webp"
-        alt="image 2"
-        className="h-full w-full object-cover"
-      />
-      <img
-        src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXk1MTRjZDk1bHlseTIyNnhwZzIyMmE0dGllYXUxM3N2b2xydGZwYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/H1dxi6xdh4NGQCZSvz/giphy.webp"
-        alt="image 3"
-        className="h-full w-full object-cover"
-      />
-    </Carousel>
+      <Carousel
+        opts={{
+          align: "start",
+        }}
+        className="w-full max-w-sm"
+      >
+        <CarouselContent>
+          {data.filter((project) => project.topics.includes("display")).map((project) => {
+            const screenshotUrl = `https://raw.githubusercontent.com/biancashiromoto/${project.name}/main/screenshots/screenshot-01.`;
+            return (
+              <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/3">
+                <h4>{project.name}</h4>
+                <img alt={`Project ${project.name}'s screenshot`} src={`${screenshotUrl}${"png" || "gif"}`} />
+              </CarouselItem>
+            )
+          })}
+          <CarouselPrevious />
+        </CarouselContent>
+        <CarouselNext />
+      </Carousel>
     </div>
   )
 }
