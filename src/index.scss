@@ -94,7 +94,8 @@ main {
   .body {
     align-items: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    height: auto;
   }
 
   .about-me__container {
