@@ -3,7 +3,7 @@ import { ariaLabel } from "../../helpers/ariaLabel";
 import { FiArrowLeftCircle } from "react-icons/fi";
 import Information from "../../helpers/classes/Information";
 import { Tooltip } from "../../components/Tooltip/Tooltip";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useMemo, useState } from "react";
 import Utils from "../../helpers/classes/Utils";
 import {
   Carousel,
@@ -12,6 +12,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../../../@shadcn-ui/components/ui/carousel"
+import {
+  Card,
+  CardContent,
+} from "../../../@shadcn-ui/components/ui/card"
 
 interface ProjectsProps {
   isLanguagePortuguese: boolean;
@@ -25,7 +29,7 @@ interface DataType {
   [key: string]: any;
 }
 
-export const Projects = ({ isLanguagePortuguese }: ProjectsProps) => {
+export const Projects = memo(({ isLanguagePortuguese }: ProjectsProps) => {
   const ptInformation = new Information("pt");
   const enInformation = new Information("en");
   const { fetchData } = new Utils();
@@ -39,36 +43,45 @@ export const Projects = ({ isLanguagePortuguese }: ProjectsProps) => {
       
     }
     fetchRepos();
-  }, [fetchData])
+  }, []);
+
+  const filteredData = useMemo(() => data.filter((project) => project.topics.includes("display")), [data]);
 
   return (
     <div className="page__projects  mt-14 relative">
       <h1>{isLanguagePortuguese ? "Projetos" : "Projects"}</h1>
-    <Tooltip
-      className="text-left text-3xl"
-      text={isLanguagePortuguese ? ptInformation._returnToPreviousPageTooltip : enInformation._returnToPreviousPageTooltip}
-    >
-      <ReactLink
-        aria-label={ariaLabel.pages.return}
-        to="/"
-        >
-        <FiArrowLeftCircle />
-      </ReactLink>
-    </Tooltip>
+      <Tooltip
+        className="text-left text-3xl"
+        text={isLanguagePortuguese ? ptInformation._returnToPreviousPageTooltip : enInformation._returnToPreviousPageTooltip}
+      >
+        <ReactLink
+          aria-label={ariaLabel.pages.return}
+          to="/"
+          >
+          <FiArrowLeftCircle />
+        </ReactLink>
+      </Tooltip>
       <h2 className="mb-5">{isLanguagePortuguese ? ptInformation._inProgress : enInformation._inProgress }</h2>
       <Carousel
         opts={{
           align: "start",
+          loop: true,
         }}
         className="w-full max-w-sm"
       >
-        <CarouselContent>
-          {data.filter((project) => project.topics.includes("display")).map((project) => {
+        <CarouselContent className="-ml-1">
+          {filteredData.filter((project) => project.topics.includes("display")).map((project, index) => {
             const screenshotUrl = `https://raw.githubusercontent.com/biancashiromoto/${project.name}/main/screenshots/screenshot-01.`;
             return (
-              <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/3">
-                <h4>{project.name}</h4>
-                <img alt={`Project ${project.name}'s screenshot`} src={`${screenshotUrl}${"png" || "gif"}`} />
+              <CarouselItem key={project.id} className="pl-1 md:basis-1/2 lg:basis-1/3">
+                <div className="p-1">
+                  <Card>
+                    <CardContent className="flex flex-col aspect-square items-center justify-center p-6">
+                      <h4>{project.name}</h4>
+                      <img alt={`Project ${project.name}'s screenshot`} src={`${screenshotUrl}${"png" || "gif"}`} />
+                    </CardContent>
+                  </Card>
+                </div>
               </CarouselItem>
             )
           })}
@@ -78,4 +91,4 @@ export const Projects = ({ isLanguagePortuguese }: ProjectsProps) => {
       </Carousel>
     </div>
   )
-}
+})
