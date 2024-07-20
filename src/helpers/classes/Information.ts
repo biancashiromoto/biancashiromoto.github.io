@@ -18,6 +18,7 @@ export default class Information {
   public _returnToPreviousPageTooltip: string;
   public _resumeTooltip: string;
   public _catGifAltText: string;
+  public _projectsPageTitle: string;
 
   constructor(language: string) {
     this._profilePictureAltText = language === "en" ? "I am a woman with dark brown eyes and hair and I am wearing a black and gray T-shirt." : "Sou uma mulher de cabelos e olhos cabelos escuros e estou usando uma camiseta cinza e preta.";
@@ -46,5 +47,6 @@ export default class Information {
     this._returnToPreviousPageTooltip = language == "en" ? "Back" : "Voltar";
     this._catGifAltText = language === "en" ? "Gif of a cat typing on a laptop" : "Gif de um gato digitando em um laptop";
     this._resumeTooltip = language === "en" ? "Download my resume" : "Baixe meu currículo";
+    this._projectsPageTitle = language === "en" ? "Projects" : "Projetos";
   }
 }
