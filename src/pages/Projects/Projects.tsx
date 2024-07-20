@@ -70,7 +70,7 @@ export const Projects = memo(({ isLanguagePortuguese }: ProjectsProps) => {
         className="w-full max-w-sm"
       >
         <CarouselContent className="-ml-1">
-          {filteredData.filter((project) => project.topics.includes("display")).map((project, index) => {
+          {filteredData.filter((project) => project.topics.includes("display")).map((project) => {
             const screenshotUrl = `https://raw.githubusercontent.com/biancashiromoto/${project.name}/main/screenshots/screenshot-01.`;
             return (
               <CarouselItem key={project.id} className="pl-1 md:basis-1/2 lg:basis-1/3">
