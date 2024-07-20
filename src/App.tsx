@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import "./index.scss";
 import { Home } from "./pages/Home";
-import { Header } from "./components/Header";
 import { Route, Routes } from "react-router-dom";
 import { Projects } from "./pages/Projects";
 import { useCounterStore } from "./state/store";
@@ -9,7 +8,6 @@ import { useCounterStore } from "./state/store";
 function App() {
   const {
     isLanguagePortuguese,
-    toggleLanguage,
     fadeIn,
     toggleFadeIn,
     width,
