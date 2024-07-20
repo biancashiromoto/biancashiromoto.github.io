@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
@@ -36,16 +35,6 @@
   }
 }
 
-.button__scroll-down {
-  animation: oscillate-up 2s infinite;
-  bottom: 20%;
-}
-
-.button__scroll-up {
-  animation: oscillate-down 2s infinite;
-  top: 20%;
-}
-
 * {
   background-color: $bg-color;
   font-family: $font-family;
@@ -57,19 +46,12 @@ html {
   scroll-behavior: smooth;
 }
 
-main {
+.page__home--main {
   background-image: url("../public/image__laptop.jpg");
   background-position: 0 50dvh;
   background-repeat: no-repeat;
   background-size: contain;
 }
-
-// .name {
-//   background: linear-gradient(125deg, rgba(0,162,194,1) 0%, rgba(0,162,194,1) 30%, rgba(192,174,181,1) 50%, rgba(223,80,6,1) 70%, rgba(223,80,6,1) 100%);
-//   -webkit-background-clip: text;
-//   background-clip: text;
-//   -webkit-text-fill-color: transparent;
-// }
 
 .icon__projects::before {
   content: url("../public/icons/coding.svg");
