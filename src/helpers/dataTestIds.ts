@@ -1,6 +1,8 @@
 export const dataTestIds = {
   buttons: {
     toggleLanguageButton: "button__toggle-language",
+    scrollDown: "button__page-down",
+    scrollUp: "button__page-up",
   },
   header: "header",
   tooltip: "tooltip",
@@ -11,7 +13,5 @@ export const dataTestIds = {
     linkedin: "link__linkedin",
     github: "link__github",
     email: "link__email",
-    pageDown: "link__page-down",
-    pageUp: "link__page-up",
   }
 }
