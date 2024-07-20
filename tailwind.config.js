@@ -72,6 +72,8 @@ export const theme = {
     animation: {
       "accordion-down": "accordion-down 0.2s ease-out",
       "accordion-up": "accordion-up 0.2s ease-out",
+      "osccillate-down": "oscillate-down 2s infinite",
+      "osccillate-up": "oscillate-up 2s infinite",
     },
   },
 };
