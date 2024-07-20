@@ -1,4 +1,8 @@
 export const ariaLabel = {
+  button: {
+    scrollDown: "Scroll down button",
+    scrollUp: "Scroll up button"
+  },
   links: {
     linkedin: "LinkedIn link",
     github: "GitHub link",
@@ -10,5 +14,5 @@ export const ariaLabel = {
   pages: {
     projects: "Go to page Projects",
     return: "Return to previous page"
-  }
+  },
 }
