@@ -13,7 +13,7 @@ export const ScrollButton = ({ direction, screenWidth, href }: ScrollButtonProps
     <Link.Root
       ariaLabel={direction === "down" ? ariaLabel.links.pageDown : ariaLabel.links.pageUp}
       href={href}
-      className={`absolute text-3xl ${direction}-[15%] animate-osccillate ${direction === "up" ? "top-[15%]" : "bottom-[15%]"}`}
+      className={`absolute text-3xl animate-osccillate ${direction === "up" ? "top-[15%]" : "bottom-[20%]"}`}
       target="_self"
       testid={direction === "down" ? dataTestIds.links.pageDown : dataTestIds.links.pageUp}
     >
