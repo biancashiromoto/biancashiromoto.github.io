@@ -80,13 +80,14 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
     )
   }
 
-  const renderScrollButton = (direction: string, screenWidth: number, href: string): ReactNode => {
-    return <ScrollButton
-      className={`button__scroll-${direction}`}
-      direction={direction}
-      href={href}
-      screenWidth={screenWidth}
-    />
+  const renderScrollButton = (direction: string, href: string): ReactNode => {
+    return (
+      <ScrollButton
+        direction={direction}
+        href={href}
+        screenWidth={screenWidth}
+      />
+    )
   }
   
   return (
@@ -95,10 +96,10 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
         {renderGreetingMessage()}
         {renderProfilePicture()}
         {renderLinksContainer()}
-        {renderScrollButton("down", screenWidth, "#about-me__container")}
+        {renderScrollButton("down", "#about-me__container")}
       </main>
       <article className="about-me__container text-xs h-screen flex flex-col items-center justify-center gap-20 leading-10 relative" id="about-me__container">
-        {renderScrollButton("up", screenWidth, "#home-start")}
+        {renderScrollButton("up", "#home-start")}
         {renderAboutMe()}
       </article>
     </div>
