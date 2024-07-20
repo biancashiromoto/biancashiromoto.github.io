@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import "./index.scss";
-import { Home } from "./pages/Home/Home";
-import { Header } from "./components/Header/index";
+import { Home } from "./pages/Home";
+import { Header } from "./components/Header";
 import { Route, Routes } from "react-router-dom";
-import { Projects } from "./pages/Projects/Projects";
+import { Projects } from "./pages/Projects";
 import { useCounterStore } from "./state/store";
 
 function App() {
@@ -34,10 +34,6 @@ function App() {
 
   return (
     <div className={`body bg-[#040504] text-white h-screen text-center mx-10 ${fadeIn ? "fade-in" : ""}`}>
-      <Header
-        isLanguagePortuguese={isLanguagePortuguese}
-        setIsLanguagePortuguese={toggleLanguage}
-      />
       <Routes>
         <Route path="/" element={
           <Home
