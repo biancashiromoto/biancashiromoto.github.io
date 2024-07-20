@@ -7,7 +7,6 @@ import Utils from '../../helpers/classes/Utils';
 
 export const ScrollButton = ({ direction, screenWidth, href }: ScrollButtonProps) => {
   const { scrollTo } = new Utils();
-  
   if (screenWidth > 768) {
     return null;
   }
