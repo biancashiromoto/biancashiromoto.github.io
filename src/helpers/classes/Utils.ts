@@ -14,4 +14,11 @@ export default class Utils {
     const { data } = await axios.get("https://api.github.com/users/biancashiromoto/repos");
     return data;    
   }
+
+  public scrollTo(href: string) {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }
