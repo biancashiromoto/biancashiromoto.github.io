@@ -14,7 +14,7 @@ export const Header = ({ setIsLanguagePortuguese, isLanguagePortuguese }: Header
 
   return (
     <header
-        className="pt-2 fixed top-0 right-1/2 translate-x-1/2 z-10 whitespace-nowrap w-full"
+        className="pt-10 pb-10 top-0 z-10 whitespace-nowrap sticky"
         data-testid="header"
       >
         <Button.Root
