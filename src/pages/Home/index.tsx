@@ -1,11 +1,12 @@
 import { ReactNode } from "react";
 import Information from "../../helpers/classes/Information";
 import { LinksContainer } from "../../components/LinksContainer/LinksContainer";
-import { HomeProps } from "./Home.types";
+import { HomeProps } from ".";
 import "../../index.scss";
 import ReactTypingEffect from 'react-typing-effect';
 import { ScrollButton } from "../../components/ScrollButton/ScrollButton";
 import { CustomAccordion } from "../../components/CustomAccordion";
+import React from "react";
 
 export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
   const ptInformation = new Information("pt");
@@ -73,7 +74,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
 
   const renderAboutMe = (): ReactNode => {
     return (
-      <div>
+      <div className="leading-10">
         {ptInformation._aboutMeText.map((paragraph, index) => (
           <p key={index}>{isLanguagePortuguese ? paragraph : enInformation._aboutMeText[index]}</p>
         ))}
@@ -103,7 +104,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
         {renderLinksContainer()}
         {renderScrollButton("down", "#about-me__container")}
       </main>
-      <article className="about-me__container text-xs h-screen flex flex-col items-center justify-center gap-20 leading-10 relative" id="about-me__container">
+      <article className="about-me__container text-xs h-screen flex flex-col items-center justify-center" id="about-me__container">
         {renderAboutMe()}
         {renderAccordion()}
       </article>
