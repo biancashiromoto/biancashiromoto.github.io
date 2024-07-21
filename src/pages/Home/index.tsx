@@ -6,7 +6,6 @@ import "../../index.scss";
 import ReactTypingEffect from 'react-typing-effect';
 import { ScrollButton } from "../../components/ScrollButton/ScrollButton";
 import { CustomAccordion } from "../../components/CustomAccordion";
-import React from "react";
 
 export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
   const ptInformation = new Information("pt");
