@@ -1,5 +1,5 @@
 import { describe } from "vitest";
-import { LinkRootProps } from "../LinkRoot.types";
+import { LinkRootProps } from "../index.types";
 import { render, RenderResult } from "@testing-library/react";
 import { LinkRoot } from "../LinkRoot";
 import { LinkLabel } from "../LinkLabel";
