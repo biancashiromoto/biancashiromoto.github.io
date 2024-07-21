@@ -1,8 +1,7 @@
-import { AccordionDetails, AccordionSummary, Typography } from "@mui/material";
+import { AccordionDetails, AccordionSummary, createTheme, Typography } from "@mui/material";
 import { Link } from "../Link";
 import Accordion, { AccordionSlots } from '@mui/material/Accordion';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import { useState } from "react";
 import Fade from '@mui/material/Fade';
 import Information from "../../helpers/classes/Information";
 import { useCounterStore } from "../../state/store";
@@ -16,38 +15,32 @@ export const CustomAccordion = ({className}: CustomAccordionProps) => {
   const ptInformation = new Information("pt-br");
   const enInformation = new Information("en");
 
-  const [expanded, setExpanded] = useState<boolean>(false);
-
-  const handleExpansion = () => {
-    setExpanded((prevExpanded) => !prevExpanded);
-  };
+  const theme = createTheme();
 
   return (
-    <div className={`accordion bg-inherit ${className}`}>
+    <div className={`accordion bg-inherit mb-10 ${className}`}>
       <Accordion
-        onChange={handleExpansion}
         slots={{ transition: Fade as AccordionSlots['transition'] }}
-        slotProps={{ transition: { timeout: 400 } }}
+        slotProps={{ transition: { timeout: 400 }}}
         sx={{
-          '& .MuiAccordion-region': { height: expanded ? 'auto' : 0 },
-          '& .MuiAccordionDetails-root': { display: expanded ? 'block' : 'none' },
-          backgroundColor: 'inherit',
           color: 'inherit',
+          backgroundColor: "inherit",
+          height: theme.spacing(5)
         }}
       >
         <AccordionSummary
           expandIcon={<ArrowDropDownIcon className="text-white" />}
           aria-controls="panel1-content"
           sx={{
-            margin: "0",
-            padding: "0",
-            height: "10px"
+            margin: theme.spacing(0, "auto")
           }}
         >
           <Typography
             sx={{
               fontFamily: "inherit",
-              fontSize: "1rem",
+              fontSize: ".875rem",  
+              lineHeight: theme.spacing(0),
+              minHeight: theme.spacing(0)
             }}
           >
             {isLanguagePortuguese ? ptInformation._downloadCVButtonLabel : enInformation._downloadCVButtonLabel}
@@ -55,7 +48,9 @@ export const CustomAccordion = ({className}: CustomAccordionProps) => {
         </AccordionSummary>
           <AccordionDetails
             sx={{
-              padding: "0"
+              display: "flex",
+              flexDirection: "column",
+              gap: theme.spacing(1),
             }}
           >
             <Link.Root
@@ -72,7 +67,7 @@ export const CustomAccordion = ({className}: CustomAccordionProps) => {
               ariaLabel="Resume"
               testid="link__resume"
               target="_blank"
-              className="link__resume"
+              className="link__resume pt-3"
             >
               <Link.Label label="English"/>
             </Link.Root>
