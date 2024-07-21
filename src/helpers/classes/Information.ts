@@ -16,7 +16,7 @@ export default class Information {
   public _emailTooltip: string;
   public _projectsTooltip: string;
   public _returnToPreviousPageTooltip: string;
-  public _resumeTooltip: string;
+  public _downloadCVButtonLabel: string;
   public _catGifAltText: string;
 
   constructor(language: string) {
@@ -45,6 +45,6 @@ export default class Information {
     this._projectsTooltip = language === "en" ? "Projects" : "Projetos";
     this._returnToPreviousPageTooltip = language == "en" ? "Back" : "Voltar";
     this._catGifAltText = language === "en" ? "Gif of a cat typing on a laptop" : "Gif de um gato digitando em um laptop";
-    this._resumeTooltip = language === "en" ? "Download my resume" : "Baixe meu currículo";
+    this._downloadCVButtonLabel = language === "en" ? "Download my resume" : "Baixe meu currículo";
   }
 }
