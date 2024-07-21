@@ -1,4 +1,4 @@
-import { LinkRootProps } from "./LinkRoot.types"
+import { LinkRootProps } from "./index.types"
 
 export const LinkRoot = ({ ariaLabel, children, className, href, target, testid }: LinkRootProps) => {
   return (

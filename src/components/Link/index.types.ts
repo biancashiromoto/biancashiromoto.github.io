@@ -8,3 +8,9 @@ export interface LinkRootProps {
   target?: string,
   testid: string,
 }
+
+export interface LinkLabelProps {
+  className?: string;
+  label?: string;
+}
+
