@@ -1,3 +1,5 @@
+import { transform } from 'typescript';
+
 /** @type {import('tailwindcss').Config} */
 export const darkMode = ["class"];
 export const content = [
@@ -61,18 +63,30 @@ export const theme = {
     },
     keyframes: {
       "accordion-down": {
-        from: { height: "0" },
-        to: { height: "var(--radix-accordion-content-height)" },
+        "0%": { height: "0" },
+        "50%": { height: "25" },
+        "100%": { height: "50" }
       },
       "accordion-up": {
-        from: { height: "var(--radix-accordion-content-height)" },
-        to: { height: "0" },
+        "0%": { height: "50", backgroundColor: "red" },
+        "50%": { height: "25" },
+        "100%": { height: "0" }
       },
+      "fade-in": {
+        from: { opacity: "0" },
+        to: { opacity: "1" }
+      },
+      "oscillate": {
+        "0%": { transform: "translateY(0)" },
+        "50%": { transform: "translateY(-10px)" },
+        "100%": { transform: "translateY(0)" }
+      }
     },
     animation: {
       "accordion-down": "accordion-down 0.2s ease-out",
       "accordion-up": "accordion-up 0.2s ease-out",
       "osccillate": "oscillate 2s infinite",
+      "fade-in": "fade-in .75s",
     },
   },
 };
