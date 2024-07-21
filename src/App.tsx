@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import "./index.scss";
-import { Home } from "./pages/Home/Home";
 import { Header } from "./components/Header/index";
 import { Route, Routes } from "react-router-dom";
 import { Projects } from "./pages/Projects/Projects";
 import { useCounterStore } from "./state/store";
+import { Home } from "./pages/Home/index.tsx";
 
 function App() {
   const {
