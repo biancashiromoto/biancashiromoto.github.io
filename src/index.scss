@@ -4,28 +4,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 @import "./styles/variables.scss";
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.fade-in {
-  animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes oscillate {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
 * {
   background-color: $bg-color;
   font-family: $font-family;
@@ -35,7 +13,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-y: hidden;
 }
 
 main {
