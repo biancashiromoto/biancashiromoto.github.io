@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import "./index.scss";
+import "./styles/index.scss";
 import { Home } from "./pages/Home/Home";
 import { Header } from "./components/Header/index";
 import { Route, Routes } from "react-router-dom";
