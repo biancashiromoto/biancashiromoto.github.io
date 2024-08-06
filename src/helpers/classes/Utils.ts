@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 export default class Utils {
   /**
    * Checks if browser language is Portuguese.
@@ -10,15 +8,29 @@ export default class Utils {
     return browserLanguage.includes("pt-");
   }
 
-  public async fetchData() {
-    const { data } = await axios.get("https://api.github.com/users/biancashiromoto/repos");
-    return data;    
-  }
-
   public scrollTo(href: string) {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  }
+
+  /**
+   * Sets the parameter key and value to localStorage.
+   * @param key The key to be set to localStorage.
+   * @param value The value to be set to localStorage.
+   */
+  public setLocalStorage(key: string, value: any) {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  /**
+   * Gets the parameter key and value from localStorage.
+   * @param key The key to be gotten from localStorage.
+   * @returns The value with the key set as parameter or null if the key does not exist.
+   */
+  public getLocalStorage(key: string) {
+    const item = localStorage.getItem(key);
+    return item ? JSON.parse(item) : null;
   }
 }
