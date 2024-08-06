@@ -3,8 +3,9 @@ export default class Information {
   public _linkedinLink: string = "https://www.linkedin.com/in/bshiromoto/";
   public _githubLink: string = "https://github.com/biancashiromoto";
   public _resumeLink: string = "https://bshiromoto.notion.site/Bianca-P-Shiromoto-6b6bc1d50e854d3693cecf184eeba155#b53745dd7d434ea0ba1554e326b107ff";
+  public _githubUsername: string = "biancashiromoto";
   public _email: string = "b.shiromoto.bs@gmail.com";
-  public _githubApiLink: string = "https://api.github.com/users/biancashiromoto/repos";
+  public _githubApiLink: string = `https://api.github.com/users/${this._githubUsername}/repos`;
   public _name: string = "Bianca";
   public _gitHubTooltip: string = "GitHub";
   public _linkedinTooltip: string = "LinkedIn";
