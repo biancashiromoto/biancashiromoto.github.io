@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import Information from "../../helpers/classes/Information";
 import { LinksContainer } from "../../components/LinksContainer/LinksContainer";
 import { HomeProps } from "./Home.types";
-import "../../index.scss";
+import "../../styles/index.scss";
 import ReactTypingEffect from 'react-typing-effect';
 import { ScrollButton } from "../../components/ScrollButton/ScrollButton";
 
@@ -91,7 +91,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
   }
   
   return (
-    <div className={`home flex justify-evenly ${screenWidth < 768 ? "flex-col" : ""}`} id="home-start">
+    <div className={`pages__home flex justify-evenly ${screenWidth < 768 ? "flex-col" : ""}`} id="home-start">
       <main className="h-screen flex flex-col gap-10 items-center mt-14 relative">
         {renderGreetingMessage()}
         {renderProfilePicture()}
