@@ -33,4 +33,16 @@ export default class Utils {
     const item = localStorage.getItem(key);
     return item ? JSON.parse(item) : null;
   }
+
+  /**
+   * Formats the project title.
+   * @param title The title to be formatted.
+   */
+  public formatProjectTitle(title: string): string {
+    return title
+    .replace(/-/g, ' ')
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
+  }
 }
