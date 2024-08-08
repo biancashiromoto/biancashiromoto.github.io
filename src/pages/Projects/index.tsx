@@ -5,18 +5,8 @@ import Information from "../../helpers/classes/Information";
 import { Tooltip } from "../../components/Tooltip/Tooltip";
 import { memo, useEffect, useState } from "react";
 import Utils from "../../helpers/classes/Utils";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "../../../@shadcn-ui/components/ui/carousel"
-import {
-  Card,
-  CardContent,
-} from "../../../@shadcn-ui/components/ui/card"
 import axios from "axios";
+import Carousel from "../../components/Carousel";
 
 interface ProjectsProps {
   isLanguagePortuguese: boolean;
@@ -75,36 +65,7 @@ export const Projects = memo(({ isLanguagePortuguese }: ProjectsProps) => {
         </ReactLink>
       </Tooltip>
       <h2 className="mb-5">{isLanguagePortuguese ? ptInformation._inProgress : enInformation._inProgress }</h2>
-      <Carousel
-        className="w-full max-w-xs"
-        opts={{
-          align: "center",
-          loop: true,
-        }}
-      >
-      <CarouselContent>
-        {data.map((project, index) => {
-          const screenshotUrl = `https://raw.githubusercontent.com/biancashiromoto/${project.name}/main/screenshots/screenshot-01.png`;
-          return (
-            <CarouselItem key={index}>
-              <main className="p-1">
-                <Card>
-                  <CardContent className="flex flex-col aspect-square items-center justify-center p-10">
-                    <span className="text-4xl font-semibold">{project.name}</span>
-                    <img
-                      alt={`Project ${project.name}'s screenshot`}
-                      src={screenshotUrl}
-                    />
-                  </CardContent>
-                </Card>
-              </main>
-            </CarouselItem>
-          )
-        })}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
+      <Carousel />
     </main>
   );
 });
