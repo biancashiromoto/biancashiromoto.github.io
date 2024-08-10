@@ -16,12 +16,12 @@ export const Projects = memo(({ isLanguagePortuguese }: ProjectsProps) => {
   const enInformation = new Information("en");
 
   return (
-    <main className="page__projects">
+    <main className="page__projects--container">
       {/*  TODO criar componente PageTitle */}
       <h1>{isLanguagePortuguese ? "Projetos" : "Projects"}</h1>
       {/*  TODO criar componente LinkButton */}
       <Tooltip
-        className="text-left text-3xl"
+        className=""
         text={isLanguagePortuguese ? ptInformation._returnToPreviousPageTooltip : enInformation._returnToPreviousPageTooltip}
       >
         <ReactLink

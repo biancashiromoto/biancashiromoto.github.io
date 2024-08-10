@@ -3,7 +3,7 @@ import "./styles/index.scss";
 import { Home } from "./pages/Home/Home";
 import { Header } from "./components/Header/index";
 import { Route, Routes } from "react-router-dom";
-import { Projects } from "./pages/Projects/Projects";
+import { Projects } from "./pages/Projects/index";
 import { useCounterStore } from "./state/store";
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
   }, [width]);
 
   return (
-    <div className={`body bg-[#040504] text-white h-screen text-center mx-10 ${fadeIn ? "fade-in" : ""}`}>
+    <div className={fadeIn ? "fade-in" : ""}>
       <Header
         isLanguagePortuguese={isLanguagePortuguese}
         setIsLanguagePortuguese={toggleLanguage}

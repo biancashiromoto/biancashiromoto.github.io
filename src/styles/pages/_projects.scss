@@ -1,0 +1,30 @@
+.projects {
+  &__carousel {
+    &--container {
+      overflow-x: hidden;
+      height: 75dvh;
+    }
+
+    &--card {
+      width: max-content;
+    }
+
+    &--buttons-container {
+      display: flex;
+      position: absolute;
+      top: 50%;
+
+      > * {
+        position: absolute;
+      }
+
+      :first-child {
+        left: 5dvw;
+      }
+
+      :nth-child(2) {
+        left: 85dvw;
+      }
+    }
+  }  
+}
