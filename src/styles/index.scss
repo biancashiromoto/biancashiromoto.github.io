@@ -3,6 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 @import "./variables.scss";
+@import "./pages/projects";
+@import "./components/header";
 
 @keyframes fadeIn {
   from {
@@ -28,21 +30,16 @@
 
 * {
   background-color: $bg-color;
+  color: white;
   font-family: $font-family;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 html {
   scroll-behavior: smooth;
   overflow-y: hidden;
-}
-
-main {
-  background-image: url("../public/image__laptop.jpg");
-  background-position: 0 50dvh;
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 
 .icon__projects::before {

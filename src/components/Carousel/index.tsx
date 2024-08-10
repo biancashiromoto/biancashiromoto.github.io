@@ -6,7 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../../../@shadcn-ui/components/ui/carousel"
-import { Card, CardContent } from '../../../@shadcn-ui/components/ui/card';
+import { Card } from '../../../@shadcn-ui/components/ui/card';
 import Utils from '../../helpers/classes/Utils';
 import axios from 'axios';
 import Information from '../../helpers/classes/Information';
@@ -46,36 +46,40 @@ const Carousel = () => {
   }, [ptInformation._githubApiLink, getLocalStorage, setLocalStorage]);
 
   return (
-    <div className="projects__carousel overflow-hidden">
+    <div className="projects__carousel--container" content=''>
       <ShadCnCarousel
-        className="w-full max-w-xs"
         opts={{
           align: "center",
           loop: true,
         }}
       >
-        <CarouselContent>
-          {data.map((project, index) => {
-            const screenshotUrl = `https://raw.githubusercontent.com/biancashiromoto/${project.name}/main/screenshots/screenshot-01.png`;
-            return (
-              <CarouselItem key={index} className="w-max">
-                <main className="mx-12">
-                  <Card>
-                    <CardContent className="flex flex-col aspect-square items-center justify-center p-10">
-                      <span className="text-lg font-semibold">{formatProjectTitle(project.name)}</span>
-                    </CardContent>
-                      <img
-                        alt={`Project ${project.name}'s screenshot`}
-                        src={screenshotUrl}
-                      />
-                  </Card>
-                </main>
-              </CarouselItem>
-            )
-          })}
-        </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+        <div>
+          <CarouselContent>
+            {data.map((project, index) => {
+              const screenshotUrl = `https://raw.githubusercontent.com/biancashiromoto/${project.name}/main/screenshots/screenshot-01.png`;
+              return (
+                <CarouselItem key={index} className="w-max">
+                  <main className="mx-12">
+                    <Card className='projects__carousel--card'>
+                        <span className="projects__carousel--title">
+                          {formatProjectTitle(project.name)}
+                        </span>
+                        <img
+                          className='w-64'
+                          alt={`Project ${project.name}'s screenshot`}
+                          src={screenshotUrl}
+                        />
+                    </Card>
+                  </main>
+                </CarouselItem>
+              )
+            })}
+          </CarouselContent>
+        </div>
+      <div className="projects__carousel--buttons-container">
+        <CarouselPrevious />
+        <CarouselNext />
+      </div>
     </ShadCnCarousel>
     </div>
   )
