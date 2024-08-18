@@ -1,6 +1,6 @@
 .carousel {
   overflow-x: hidden;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   
   &__main {
     align-items: center;
@@ -17,17 +17,61 @@
     gap: 1.25rem;
     width: max-content;
 
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      height: 55dvh;
+      width: auto;
+    }
+
+    @media screen and (min-width: 1024px) {
+      flex-direction: row;
+      width: 60dvw;
+    }
+
+    &--content {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+    }    
+
     &--image {
-      width: 70dvw;
+      width: 55dvw;
 
       @media screen and (min-width: 768px) and (max-width: 1023px) {
-        height: 65dvh;
+        height: 55dvh;
         width: auto;
       }
 
       @media screen and (min-width: 1024px) {
         height: 70dvh;
         width: auto;
+      }
+    }
+
+    &--links-container {
+      display: flex;
+      gap: 2rem;
+    }
+
+    &--description {
+      font-size: 0.75rem;
+      margin: 0 2rem;
+    }
+
+    &--topics {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin: 0 2rem;
+  
+      li {
+        background-color: dimgray;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
       }
     }
   }
