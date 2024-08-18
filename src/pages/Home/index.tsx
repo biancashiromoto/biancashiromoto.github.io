@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import Information from "../../helpers/classes/Information";
-import { LinksContainer } from "../../components/LinksContainer/LinksContainer";
+import { LinksContainer } from "../../components/LinksContainer/index";
 import { HomeProps } from "./index.types";
 import ReactTypingEffect from 'react-typing-effect';
 import { ScrollButton } from "../../components/ScrollButton";
