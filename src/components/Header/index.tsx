@@ -1,12 +1,7 @@
-import { Dispatch, SetStateAction } from 'react'
 import { Button } from '../Button'
 import { dataTestIds } from '../../helpers/dataTestIds'
 import Information from '../../helpers/classes/Information';
-
-interface HeaderProps {
-  isLanguagePortuguese: boolean;
-  setIsLanguagePortuguese: Dispatch<SetStateAction<boolean>>;
-}
+import { HeaderProps } from './index.types';
 
 export const Header = ({ setIsLanguagePortuguese, isLanguagePortuguese }: HeaderProps) => {
   const ptInformation = new Information("pt");
