@@ -1,10 +1,10 @@
 .pages {
-  &__home {
     align-items: center;
     display: flex;
     justify-content: center;
     flex-direction: column;
 
+  &__home {
     > * {
       height: 100dvh;
       display: flex;
@@ -20,9 +20,9 @@
 
       main {
         background-image: url("../public/image__laptop.jpg");
-        background-position: 0 50dvh;
+        background-position: center 65%;
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size: 70%;
         flex-direction: column;
         gap: 2.5rem;
         margin-top: 3.5rem;
@@ -33,7 +33,7 @@
           background-position: 0 65dvh;
           justify-content: center;
           margin-top: 0;
-          transform: translateY(-7.5rem);;
+          transform: translateY(-7.5rem);
         }
 
         @media screen and (min-width: 1024px) {
@@ -52,5 +52,18 @@
         padding: 0 2.5rem;
         position: relative;
       }
+  }
+
+  &__projects {
+
+    .link {
+      &__return {
+        font-size: 2rem;
+        left: 2rem;
+        position: absolute;
+        top: 2rem;
+        z-index: 10;
+      }
+    }
   }
 }

@@ -1,15 +1,11 @@
 .button {
   &__scroll {
+    animation: oscillate 2s infinite;
     position: absolute;
     font-size: 2rem;
-    animation: oscillate 2s infinite;
 
     @media screen and (min-width: 1024px) {
       display: none;
-    }
-
-    &-down {
-      top: 50%;
     }
   }
 }
