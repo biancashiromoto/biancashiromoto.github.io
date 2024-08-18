@@ -12,6 +12,7 @@ import axios from "axios";
 import Information from "../../helpers/classes/Information";
 import { DataType } from "./index.types";
 import { Link } from "../Link";
+import { LucideTally1 } from "lucide-react";
 
 const Carousel = () => {
   const { formatProjectTitle, getLocalStorage, setLocalStorage } = new Utils();
@@ -67,6 +68,7 @@ const Carousel = () => {
                           >
                             <Link.Label label="GitHub repo" />
                           </Link.Root>
+                          <LucideTally1 />
                           <Link.Root
                             ariaLabel={`Project ${project.name}'s deploy link`}
                             link={project.homepage}
