@@ -1,8 +1,56 @@
-.home {
-  main {
-    background-image: url("../public/image__laptop.jpg");
-    background-position: 0 50dvh;
-    background-repeat: no-repeat;
-    background-size: contain;
+.pages {
+  &__home {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    > * {
+      height: 100dvh;
+      display: flex;
+      align-items: center;
+    }
+    
+    @media screen and (min-width: 1024px) {
+      align-items: center;
+      display: grid;
+      grid-template-columns: 35% 35%;
+      justify-content: center;
+    }
+
+      main {
+        background-image: url("../public/image__laptop.jpg");
+        background-position: 0 50dvh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        flex-direction: column;
+        gap: 2.5rem;
+        margin-top: 3.5rem;
+        position: relative;
+        text-wrap: nowrap;
+
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
+          background-position: 0 65dvh;
+          justify-content: center;
+          margin-top: 0;
+          transform: translateY(-7.5rem);;
+        }
+
+        @media screen and (min-width: 1024px) {
+          align-items: center;
+          background-image: none;
+          justify-content: center;
+          transform: translateY(-10%);
+        }
+      }
+
+      &--about-me {
+        font-size: 0.75rem;
+        gap: 5rem;
+        justify-content: center;
+        line-height: 2.5rem;
+        padding: 0 2.5rem;
+        position: relative;
+      }
   }
 }
