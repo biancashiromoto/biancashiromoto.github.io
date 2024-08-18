@@ -1,32 +1,46 @@
-import { describe } from "vitest";
+import { describe, it, expect } from "vitest";
+import { render, screen } from "@testing-library/react";
 import { LinkRootProps } from "../LinkRoot.types";
-import { render, RenderResult } from "@testing-library/react";
 import { LinkRoot } from "../LinkRoot";
-import { LinkLabel } from "../LinkLabel";
+import { BrowserRouter as Router } from "react-router-dom";
 
-describe("Link component", () => {
-  const mockProps = {
+describe("LinkRoot component", () => {
+  const mockProps: LinkRootProps = {
     ariaLabel: "link",
     className: "link",
-    href: "link",
-    testid: "link"
+    label: "link",
+    link: "/test",
+    testid: "link",
+    text: "Tooltip Text",
+    children: "label"
   };
-  const renderLink = (props: LinkRootProps): RenderResult => {
+
+  const renderLink = (props: LinkRootProps) => {
     return render(
-      <LinkRoot
-        ariaLabel={props.ariaLabel}
-        className={props.className}
-        href={props.href}
-        testid={props.testid}
-      >
-        <LinkLabel label="label" />
-      </LinkRoot>
+      <Router>
+        <LinkRoot
+          ariaLabel={props.ariaLabel}
+          link={props.link}
+          testid={props.testid}
+          label={props.label}
+          className={props.className}
+          text={props.text}
+        >
+          {props.children}
+        </LinkRoot>
+      </Router>
     );
   }
-  it("should be correctly rendered", () => {
-    const { getByRole, getByTestId } = renderLink(mockProps);
-    expect(getByTestId("link")).toBeInTheDocument();
-    expect(getByRole("link").firstChild).toHaveTextContent("label");
-    expect(getByRole("link").classList).toContain("link");
+
+  it("should render correctly", () => {
+    renderLink(mockProps);
+
+    const linkElement = screen.getByRole("link");
+    expect(linkElement).toBeInTheDocument();
+    expect(linkElement).toHaveTextContent("label");
+    expect(linkElement).toHaveAttribute("href", "/test");
+
+    const tooltipTrigger = screen.getByTestId("link");
+    expect(tooltipTrigger).toBeInTheDocument();
   });
 });
