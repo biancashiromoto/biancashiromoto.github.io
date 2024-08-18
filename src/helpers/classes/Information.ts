@@ -15,10 +15,11 @@ export default class Information {
   public _aboutMeText: string[];
   public _inProgress: string;
   public _emailTooltip: string;
-  public _projectsTooltip: string;
+  public _projects: string;
   public _returnToPreviousPageTooltip: string;
   public _resumeTooltip: string;
   public _catGifAltText: string;
+  public _checkMyProjects: string;
 
   constructor(language: string) {
     this._profilePictureAltText = language === "en" ? "I am a woman with dark brown eyes and hair and I am wearing a black and gray T-shirt." : "Sou uma mulher de cabelos e olhos cabelos escuros e estou usando uma camiseta cinza e preta.";
@@ -43,9 +44,10 @@ export default class Information {
     this._translateButtonLabel = language === "en" ? "Traduzir para o português" : "Translate to English";
     this._inProgress = language === "en" ? "In progress..." : "Em construção";
     this._emailTooltip = language === "en" ? "Email me!" : "Me envie um email!";
-    this._projectsTooltip = language === "en" ? "Projects" : "Projetos";
+    this._projects = language === "en" ? "Projects" : "Projetos";
     this._returnToPreviousPageTooltip = language == "en" ? "Back" : "Voltar";
     this._catGifAltText = language === "en" ? "Gif of a cat typing on a laptop" : "Gif de um gato digitando em um laptop";
     this._resumeTooltip = language === "en" ? "Download my resume" : "Baixe meu currículo";
+    this._checkMyProjects = language === "en" ? "Check my projects" : "Veja meus projetos"
   }
 }
