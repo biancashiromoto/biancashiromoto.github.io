@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react"
 import {
   Carousel as ShadCnCarousel,
   CarouselContent,
@@ -6,17 +6,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../../../@shadcn-ui/components/ui/carousel"
-import { Card } from '../../../@shadcn-ui/components/ui/card';
-import Utils from '../../helpers/classes/Utils';
-import axios from 'axios';
-import Information from '../../helpers/classes/Information';
-
-interface DataType {
-  id: string;
-  name: string;
-  topics: string[],
-  [key: string]: any;
-}
+import { Card } from "../../../@shadcn-ui/components/ui/card";
+import Utils from "../../helpers/classes/Utils";
+import axios from "axios";
+import Information from "../../helpers/classes/Information";
+import { DataType } from "./index.types";
 
 const Carousel = () => {
   const { formatProjectTitle, getLocalStorage, setLocalStorage } = new Utils();
@@ -36,7 +30,7 @@ const Carousel = () => {
           setLocalStorage("repos", filteredData);
           setData(filteredData);
         } catch (error) {
-          console.error('Error fetching repos:', error);
+          console.error("Error fetching repos:", error);
         }
       };
       fetchRepos();
@@ -46,7 +40,7 @@ const Carousel = () => {
   }, [ptInformation._githubApiLink, getLocalStorage, setLocalStorage]);
 
   return (
-    <div className="projects__carousel--container" content=''>
+    <div className="carousel" content="">
       <ShadCnCarousel
         opts={{
           align: "center",
@@ -58,14 +52,14 @@ const Carousel = () => {
             {data.map((project, index) => {
               const screenshotUrl = `https://raw.githubusercontent.com/biancashiromoto/${project.name}/main/screenshots/screenshot-01.png`;
               return (
-                <CarouselItem key={index} className="w-max">
-                  <main className="mx-12">
-                    <Card className='projects__carousel--card'>
-                        <span className="projects__carousel--title">
+                <CarouselItem key={index} className="carousel__item">
+                  <main className="carousel__main">
+                    <Card className="carousel__card">
+                        <span className="carousel__card--title">
                           {formatProjectTitle(project.name)}
                         </span>
                         <img
-                          className='w-64'
+                          className="carousel__card--image"
                           alt={`Project ${project.name}'s screenshot`}
                           src={screenshotUrl}
                         />
@@ -76,7 +70,7 @@ const Carousel = () => {
             })}
           </CarouselContent>
         </div>
-      <div className="projects__carousel--buttons-container">
+      <div className="carousel__buttons-container">
         <CarouselPrevious />
         <CarouselNext />
       </div>
