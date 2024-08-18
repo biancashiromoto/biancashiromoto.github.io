@@ -1,16 +1,36 @@
+import { Link as ReactLink } from "react-router-dom";
 import { LinkRootProps } from "./LinkRoot.types"
+import { TooltipProvider, Tooltip as ReactTooltip, TooltipTrigger, TooltipContent,  } from '@radix-ui/react-tooltip';
+import { dataTestIds } from "../../helpers/dataTestIds";
 
-export const LinkRoot = ({ ariaLabel, children, className, href, target, testid }: LinkRootProps) => {
+export const LinkRoot = ({
+  ariaLabel,
+  children,
+  className,
+  target,
+  testid,
+  link,
+  text, 
+}: LinkRootProps) => {
   return (
-    <a
-      aria-label={ariaLabel}
-      className={`${className} transition-all`}
-      data-testid={testid}
-      href={href}
-      rel="noopener"
-      target={target || "_blank"}
-    >
-      { children }
-    </a>
+    <div data-testid={dataTestIds.tooltip} className={`link__${className}`}>
+      <TooltipProvider delayDuration={100}>
+          <ReactTooltip>
+            <TooltipTrigger>
+              <ReactLink
+                aria-label={ariaLabel}
+                data-testid={testid}
+                target={target || "_blank"}
+                to={link}
+              >
+                { children }
+              </ReactLink>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p className="text-xs">{ text }</p>
+            </TooltipContent>
+          </ReactTooltip>
+        </TooltipProvider>
+    </div>
   )
 }
