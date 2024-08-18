@@ -4,7 +4,7 @@ export const ButtonRoot = ({ ariaLabel, children, onClick, testId, className }: 
   return (
     <button
       aria-label={ariaLabel}
-      className={className}
+      className={`button__${className}`}
       data-testid={testId}
       onClick={onClick}
       type="button"
