@@ -20,7 +20,7 @@
 
       main {
         background-image: url("../public/image__laptop.jpg");
-        background-position: center 65%;
+        background-position: center 50dvh;
         background-repeat: no-repeat;
         background-size: 70%;
         flex-direction: column;
@@ -30,7 +30,8 @@
         text-wrap: nowrap;
 
         @media screen and (min-width: 768px) and (max-width: 1023px) {
-          background-position: 0 65dvh;
+          background-position: center 75dvh;
+          background-size: 50%;
           justify-content: center;
           margin-top: 0;
           transform: translateY(-7.5rem);
