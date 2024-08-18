@@ -11,6 +11,7 @@ import Utils from "../../helpers/classes/Utils";
 import axios from "axios";
 import Information from "../../helpers/classes/Information";
 import { DataType } from "./index.types";
+import { Link } from "../Link";
 
 const Carousel = () => {
   const { formatProjectTitle, getLocalStorage, setLocalStorage } = new Utils();
@@ -55,14 +56,38 @@ const Carousel = () => {
                 <CarouselItem key={index} className="carousel__item">
                   <main className="carousel__main">
                     <Card className="carousel__card">
-                        <span className="carousel__card--title">
-                          {formatProjectTitle(project.name)}
-                        </span>
-                        <img
-                          className="carousel__card--image"
-                          alt={`Project ${project.name}'s screenshot`}
-                          src={screenshotUrl}
-                        />
+                      <div className="carousel__card--content">
+                        <h2 className="carousel__card--title">{formatProjectTitle(project.name)}</h2>
+                        <span className="carousel__card--description">{project.description}</span>
+                        <div className="carousel__card--links-container">
+                          <Link.Root
+                            ariaLabel={`Project ${project.name}'s GitHub repository link`}
+                            link={`https://github.com/biancashiromoto/${project.name}`}
+                            testid={`${project.name}-repo`}
+                          >
+                            <Link.Label label="GitHub repo" />
+                          </Link.Root>
+                          <Link.Root
+                            ariaLabel={`Project ${project.name}'s deploy link`}
+                            link={project.homepage}
+                            testid={`${project.name}-deploy`}
+                          >
+                            <Link.Label label="Deploy" />
+                          </Link.Root>
+                        </div>
+                        <ul className="carousel__card--topics">
+                          {project.topics.map((topic, index) => {
+                            return (topic !== "display") && (
+                              <li key={index}>{topic}</li>
+                            )
+                          })}
+                        </ul>
+                      </div>
+                      <img
+                        className="carousel__card--image"
+                        alt={`Project ${project.name}'s screenshot`}
+                        src={screenshotUrl}
+                      />
                     </Card>
                   </main>
                 </CarouselItem>
