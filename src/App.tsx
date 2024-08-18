@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import "./styles/index.scss";
-import { Home } from "./pages/Home/Home";
+import { Home } from "./pages/Home/index";
 import { Header } from "./components/Header/index";
 import { Route, Routes } from "react-router-dom";
 import { Projects } from "./pages/Projects/index";

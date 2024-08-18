@@ -1,10 +1,9 @@
 import { ReactNode } from "react";
 import Information from "../../helpers/classes/Information";
 import { LinksContainer } from "../../components/LinksContainer/LinksContainer";
-import { HomeProps } from "./Home.types";
-import "../../styles/index.scss";
+import { HomeProps } from "./index.types";
 import ReactTypingEffect from 'react-typing-effect';
-import { ScrollButton } from "../../components/ScrollButton/ScrollButton";
+import { ScrollButton } from "../../components/ScrollButton";
 
 export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
   const ptInformation = new Information("pt");
@@ -91,14 +90,14 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
   }
   
   return (
-    <div className={`pages__home flex justify-evenly ${screenWidth < 768 ? "flex-col" : ""}`} id="home-start">
-      <main className="h-screen flex flex-col gap-10 items-center mt-14 relative">
+    <div className="pages__home" id="home-start">
+      <main>
         {renderGreetingMessage()}
         {renderProfilePicture()}
         {renderLinksContainer()}
         {renderScrollButton("down", "#about-me__container")}
       </main>
-      <article className="about-me__container text-xs h-screen flex flex-col items-center justify-center gap-20 leading-10 relative" id="about-me__container">
+      <article className="pages__home--about-me" id="about-me__container">
         {renderScrollButton("up", "#home-start")}
         {renderAboutMe()}
       </article>
