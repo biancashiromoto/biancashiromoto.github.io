@@ -1,6 +1,8 @@
 header {
   padding-top: 0.5rem;
+  position: sticky;
   top: 0;
+  z-index: 10;
 
   button {
     font-size: 0.75rem;
