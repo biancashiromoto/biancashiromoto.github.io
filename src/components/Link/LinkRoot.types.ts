@@ -1,10 +1,11 @@
 import { ReactNode } from "react"
 
 export interface LinkRootProps {
-  ariaLabel: string,
+  ariaLabel: string;
   children?: ReactNode
-  className?: string,
-  href: string,
-  target?: string,
-  testid: string,
+  className?: string;
+  link: string;
+  target?: string;
+  testid: string;
+  text?: string;
 }
