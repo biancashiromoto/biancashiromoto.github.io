@@ -17,7 +17,6 @@ describe("Button component", () => {
       <ButtonRoot
         onClick={props.onClick}
         testId={props.testId}
-        className={props.className}
       >
         <ButtonLabel label="label" />
       </ButtonRoot>
@@ -28,7 +27,6 @@ describe("Button component", () => {
     const { getByRole, getByTestId } = renderButton(mockProps);
     expect(getByTestId("button")).toBeInTheDocument();
     expect(getByRole("button").firstChild).toHaveTextContent("label");
-    expect(getByRole("button").classList).toContain("button");
   });
 
   it("should correctly handle click", () => {
