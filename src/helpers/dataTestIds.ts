@@ -13,5 +13,6 @@ export const dataTestIds = {
     linkedin: "link__linkedin",
     github: "link__github",
     email: "link__email",
+    projects: "link__projects"
   }
 }
