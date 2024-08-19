@@ -6,7 +6,7 @@ import { Button } from '../Button';
 import Utils from '../../helpers/classes/Utils';
 
 export const ScrollButton = ({ direction, href }: ScrollButtonProps) => {
-  const { scrollTo } = new Utils();
+  const { scrollTo, scrollToTop } = new Utils();
 
   return(
     <Button.Root
@@ -14,7 +14,7 @@ export const ScrollButton = ({ direction, href }: ScrollButtonProps) => {
       // TODO remover estilização com tailwind
       className={`scroll ${direction === "up" ? "top-[15%]" : "bottom-[20%]"}`}
       testId={direction === "up" ? dataTestIds.buttons.scrollUp : dataTestIds.buttons.scrollDown}
-      onClick={() => scrollTo(href)}
+      onClick={() => direction === "up" ? scrollToTop() : scrollTo(href)}
     >
       {direction === "down" ? <FaRegArrowAltCircleDown /> : <FaRegArrowAltCircleUp />}
     </Button.Root>

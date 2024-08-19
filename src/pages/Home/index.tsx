@@ -28,12 +28,11 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
                 displayTextRenderer={(paragraph) => {
                   return (
                     <h1>
-                      {paragraph.split('').map((char, i) => {
-                        const key = `${i}`;
+                      {paragraph.split('').map((char, index) => {
                         return (
                           <span
                             className="bg-transparent text-lg ml-1 font-bold"
-                            key={key}
+                            key={index}
                           >{char}</span>
                         );
                       })}
