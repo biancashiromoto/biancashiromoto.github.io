@@ -1,3 +1,5 @@
+@import "../variables.scss";
+
 .pages {
     align-items: center;
     display: flex;
@@ -19,7 +21,7 @@
     }
 
       main {
-        background-image: url("../../assets/image__laptop.jpg");
+        background-image: url($hero-bg-img);
         background-position: center 50dvh;
         background-repeat: no-repeat;
         background-size: 70%;
