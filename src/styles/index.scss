@@ -46,7 +46,12 @@ html {
   scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   color: $white;
+  overflow: auto;
 }
 
