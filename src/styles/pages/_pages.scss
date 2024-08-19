@@ -13,7 +13,7 @@
       align-items: center;
     }
     
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: $large) {
       align-items: center;
       display: grid;
       grid-template-columns: 35% 35%;
@@ -31,7 +31,7 @@
         position: relative;
         text-wrap: nowrap;
 
-        @media screen and (min-width: 768px) and (max-width: 1023px) {
+        @media screen and (min-width: $medium) and (max-width: 1023px) {
           background-position: center 75dvh;
           background-size: 50%;
           justify-content: center;
@@ -39,7 +39,7 @@
           transform: translateY(-7.5rem);
         }
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: $large) {
           align-items: center;
           background-image: none;
           justify-content: center;
@@ -58,7 +58,6 @@
   }
 
   &__projects {
-
     .link {
       &__return {
         font-size: 2rem;

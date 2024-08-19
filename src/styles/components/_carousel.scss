@@ -17,12 +17,12 @@
     gap: 1.25rem;
     width: max-content;
 
-    @media screen and (min-width: 768px) and (max-width: 1023px) {
+    @media screen and (min-width: $medium) and (max-width: 1023px) {
       height: 55dvh;
       width: auto;
     }
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: $large) {
       flex-direction: row;
       width: 60dvw;
     }
@@ -36,14 +36,14 @@
     }    
 
     &--image {
-      width: 55dvw;
+      width: 50dvw;
 
-      @media screen and (min-width: 768px) and (max-width: 1023px) {
+      @media screen and (min-width: $medium) and (max-width: 1023px) {
         height: 55dvh;
         width: auto;
       }
 
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: $large) {
         height: 70dvh;
         width: auto;
       }
@@ -51,6 +51,7 @@
 
     &--links-container {
       display: flex;
+      font-size: 0.75rem;
       gap: 1rem;
     }
 
@@ -70,9 +71,13 @@
       li {
         background-color: dimgray;
         border-radius: 50px;
-        font-size: 0.75rem;
+        font-size: 0.5rem;
         padding: 0.25rem 0.5rem;
       }
+    }
+
+    &--description {
+      font-size: 0.675rem;
     }
   }
 
