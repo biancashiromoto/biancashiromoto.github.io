@@ -12,13 +12,11 @@
   &__translate {
     border-radius: 15px;
     font-size: 0.75rem;
-    font-family: Oswald, sans-serif;
+    font-family: $font-family--button;
     padding: $x-small;
 
     &:hover {
-      animation: blink 500ms;
-      background-color: $gray;
-      color: $black;
+      animation: blink 250ms;
     }
   }
 }
