@@ -2,10 +2,10 @@ export default class Information {
   public _profilePictureURL: string = "https://avatars.githubusercontent.com/u/108292121?v=4";
   public _linkedinLink: string = "https://www.linkedin.com/in/bshiromoto/";
   public _githubLink: string = "https://github.com/biancashiromoto";
-  public _resumeLink: string = "https://bshiromoto.notion.site/Bianca-P-Shiromoto-6b6bc1d50e854d3693cecf184eeba155#b53745dd7d434ea0ba1554e326b107ff";
   public _githubUsername: string = "biancashiromoto";
   public _email: string = "b.shiromoto.bs@gmail.com";
   public _githubApiLink: string = `https://api.github.com/users/${this._githubUsername}/repos`;
+  public _resumeLink: string = "https://drive.google.com/drive/folders/19pl7eV91_RF0g679ZTmB1W28aEshIJCO?usp=sharing";
   public _name: string = "Bianca";
   public _gitHubTooltip: string = "GitHub";
   public _linkedinTooltip: string = "LinkedIn";
@@ -20,6 +20,7 @@ export default class Information {
   public _resumeTooltip: string;
   public _catGifAltText: string;
   public _checkMyProjects: string;
+  public _downloadMyCV: string;
 
   constructor(language: string) {
     this._profilePictureAltText = language === "en" ? "I am a woman with dark brown eyes and hair and I am wearing a black and gray T-shirt." : "Sou uma mulher de cabelos e olhos cabelos escuros e estou usando uma camiseta cinza e preta.";
@@ -48,6 +49,7 @@ export default class Information {
     this._returnToPreviousPageTooltip = language == "en" ? "Back" : "Voltar";
     this._catGifAltText = language === "en" ? "Gif of a cat typing on a laptop" : "Gif de um gato digitando em um laptop";
     this._resumeTooltip = language === "en" ? "Download my resume" : "Baixe meu currículo";
-    this._checkMyProjects = language === "en" ? "Check my projects" : "Veja meus projetos"
+    this._checkMyProjects = language === "en" ? "Check my projects" : "Veja meus projetos";
+    this._downloadMyCV = language === "en" ? "Download my CV" : "Baixe meu currículo";
   }
 }
