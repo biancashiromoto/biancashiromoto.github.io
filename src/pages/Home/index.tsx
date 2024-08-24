@@ -58,7 +58,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
     return (
       <img
         alt={isLanguagePortuguese ? ptInformation._profilePictureAltText : enInformation._profilePictureAltText}
-        className="rounded-full w-36 mt-5"
+        className="pages__home--profile-picture"
         src={ptInformation._profilePictureURL}
       />
     );
