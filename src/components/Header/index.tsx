@@ -13,7 +13,7 @@ export const Header = () => {
   return (
     <header data-testid="header">
         <Button.Root
-          className="hover:bg-slate-800 rounded-full"
+          className="translate"
           onClick={() => toggleLanguage()}
           testId={dataTestIds.buttons.toggleLanguageButton}
         >
