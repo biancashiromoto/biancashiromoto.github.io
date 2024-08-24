@@ -3,12 +3,14 @@ import { FiArrowLeftCircle } from "react-icons/fi";
 import Information from "../../helpers/classes/Information";
 import { memo } from "react";
 import Carousel from "../../components/Carousel";
-import { ProjectsProps } from "./index.types";
 import { Link } from "../../components/Link";
+import { useCounterStore } from "../../state/store";
 
-export const Projects = memo(({ isLanguagePortuguese }: ProjectsProps) => {
+export const Projects = memo(() => {
   const ptInformation = new Information("pt");
   const enInformation = new Information("en");
+
+  const { isLanguagePortuguese } = useCounterStore();
 
   return (
     <div className="pages__projects">
