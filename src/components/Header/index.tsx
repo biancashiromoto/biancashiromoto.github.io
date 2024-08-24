@@ -1,19 +1,24 @@
 import { Button } from '../Button'
 import { dataTestIds } from '../../helpers/dataTestIds'
 import Information from '../../helpers/classes/Information';
-import { HeaderProps } from './index.types';
+import { useCounterStore } from '../../state/store';
 
-export const Header = ({ setIsLanguagePortuguese, isLanguagePortuguese }: HeaderProps) => {
+export const Header = () => {
   const ptInformation = new Information("pt");
   const enInformation = new Information("en");
+
+  const {
+    isLanguagePortuguese,
+    toggleLanguage,
+  } = useCounterStore();
 
   return (
     <header
         data-testid="header"
       >
         <Button.Root
-          className="translate"
-          onClick={() => setIsLanguagePortuguese(prevState => !prevState)}
+          className="hover:bg-slate-800 rounded-full"
+          onClick={() => toggleLanguage()}
           testId={dataTestIds.buttons.toggleLanguageButton}
         >
           {(isLanguagePortuguese ? ptInformation._translateButtonLabel : enInformation._translateButtonLabel).toUpperCase()}

@@ -8,8 +8,8 @@ interface StoreState {
   toggleLanguage: () => void;
   fadeIn: boolean;
   toggleFadeIn: () => void;
-  width: number;
-  setWitdth: (width: number) => void;
+  screenWidth: number;
+  setScreenWidth: (width: number) => void;
 }
 
 export const useCounterStore = create<StoreState>((set) => ({
@@ -17,6 +17,6 @@ export const useCounterStore = create<StoreState>((set) => ({
   toggleLanguage: () => set((prevState) => ({ isLanguagePortuguese: !prevState.isLanguagePortuguese })),
   fadeIn: false,
   toggleFadeIn: () => set((prevState) => ({ fadeIn: !prevState.fadeIn })),
-  width: window.innerWidth,
-  setWitdth: (width) => set(() => ({ width })),
+  screenWidth: window.innerWidth,
+  setScreenWidth: (width) => set(() => ({ screenWidth: width })),
 }));
