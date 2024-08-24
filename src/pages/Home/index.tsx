@@ -14,11 +14,11 @@ export const Home = () => {
   
   const renderGreetingMessage = (): ReactNode => {
     return (
-      <div className="text-sm grid gap-1 mt-2 grid-cols-2 grid-rows-3 items-center">
+      <div className="pages__home--greeting-message">
         {ptInformation._greetingMessage.map((paragraph, index) => {
           if (index === 0) {
             return (
-                <div className="flex justify-center items-center col-span-2">
+                <div className="paragraph">
                   <p key={index} className="">{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
                 </div>
             );
@@ -26,7 +26,7 @@ export const Home = () => {
           if (paragraph === ptInformation._name) {
             return (
               <ReactTypingEffect
-                className="typer flex items-center text-xl h-8 text-nowrap w-8 leading-6 ml-1"
+                className="typer"
                 data-testid="typer"
                 displayTextRenderer={(paragraph) => {
                   return (
@@ -50,7 +50,7 @@ export const Home = () => {
             );
           }
           return (
-            <p className={`${index === 3 ? "col-span-2" : ""} flex justify-end`} key={index}>{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
+            <p className={`pages__home--paragraph ${index === 3 ? "col-span-2" : ""} flex justify-end`} key={index}>{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
           );
         })}
       </div>
