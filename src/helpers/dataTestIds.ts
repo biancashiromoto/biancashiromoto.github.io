@@ -10,6 +10,7 @@ export const dataTestIds = {
     projects: "page__projects"
   },
   links: {
+    downloadMyCV: "button__download-CV",
     linkedin: "link__linkedin",
     github: "link__github",
     email: "link__email",
