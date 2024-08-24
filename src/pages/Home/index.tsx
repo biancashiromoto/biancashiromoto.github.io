@@ -28,12 +28,11 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
                 displayTextRenderer={(paragraph) => {
                   return (
                     <h1>
-                      {paragraph.split('').map((char, i) => {
-                        const key = `${i}`;
+                      {paragraph.split('').map((char, index) => {
                         return (
                           <span
                             className="bg-transparent text-lg ml-1 font-bold"
-                            key={key}
+                            key={index}
                           >{char}</span>
                         );
                       })}
@@ -59,7 +58,7 @@ export const Home = ({ isLanguagePortuguese, screenWidth }: HomeProps) => {
     return (
       <img
         alt={isLanguagePortuguese ? ptInformation._profilePictureAltText : enInformation._profilePictureAltText}
-        className="rounded-full w-36 mt-5"
+        className="pages__home--profile-picture"
         src={ptInformation._profilePictureURL}
       />
     );

@@ -8,11 +8,22 @@ export default class Utils {
     return browserLanguage.includes("pt-");
   }
 
-  public scrollTo(href: string) {
+  /**
+   * Scrolls to the provided element in the page.
+   * @param href String containing the id of the target element.
+   */
+  public scrollTo(href: string): void {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  }
+
+  /**
+   * Scrolls to the top of the page.
+   */
+  public scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   /**

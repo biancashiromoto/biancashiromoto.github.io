@@ -1,61 +1,89 @@
+@import "../variables.scss";
+
 .pages {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
 
   &__home {
     > * {
-      height: 100dvh;
       display: flex;
       align-items: center;
     }
-    
-    @media screen and (min-width: 1024px) {
+
+    @media screen and (min-width: $screen-min-medium) {
       align-items: center;
       display: grid;
+      grid-template-columns: 50% 50%;
+      height: calc(100vh - $header-height);
+    }
+    
+    @media screen and (min-width: $screen-large) {
       grid-template-columns: 35% 35%;
       justify-content: center;
     }
 
-      main {
-        background-image: url("../public/image__laptop.jpg");
-        background-position: center 50dvh;
-        background-repeat: no-repeat;
-        background-size: 70%;
-        flex-direction: column;
-        gap: 2.5rem;
-        margin-top: 3.5rem;
-        position: relative;
-        text-wrap: nowrap;
+    main {
+      background-image: url($hero-bg-img);
+      background-position: center 50dvh;
+      background-repeat: no-repeat;
+      background-size: 70%;
+      flex-direction: column;
+      gap: 2.5rem;
+      height: calc(100vh - $header-height);
+      margin-top: 3.5rem;
+      position: relative;
+      text-wrap: nowrap;
 
-        @media screen and (min-width: 768px) and (max-width: 1023px) {
-          background-position: center 75dvh;
-          background-size: 50%;
-          justify-content: center;
-          margin-top: 0;
-          transform: translateY(-7.5rem);
-        }
-
-        @media screen and (min-width: 1024px) {
-          align-items: center;
-          background-image: none;
-          justify-content: center;
-          transform: translateY(-10%);
-        }
-      }
-
-      &--about-me {
-        font-size: 0.75rem;
-        gap: 5rem;
+      @media screen and (min-width: $screen-min-medium) and (max-width: $screen-max-medium) {
+        background-image: none;
         justify-content: center;
-        line-height: 2.5rem;
-        padding: 0 2.5rem;
-        position: relative;
+        transform: translateY(-10%);
       }
+
+      @media screen and (min-width: $screen-large) {
+        align-items: center;
+        background-image: none;
+        height: min-content;
+        justify-content: center;
+        margin-top: 0;
+      }
+    }
+
+    &--profile-picture {
+      border-radius: 50%;
+      width: $xx-large;
+      
+      @media screen and (min-width: $screen-large) {
+        width: $xx-large;
+      }
+    }
+    
+    &--about-me {
+      align-items: center;
+      font-size: 0.75rem;
+      gap: 5rem;
+      height: calc(100vh - $header-height);
+      justify-content: center;
+      line-height: 2.5rem;
+      padding: 0 2.5rem;
+      position: relative;
+      
+      @media screen and (min-width: $screen-min-medium) and (max-width: $screen-max-medium) {
+        transform: translateY(-7.5%);
+        z-index: 1;
+      }
+    }
+
+    @media screen and (min-width: $screen-large) {
+    }
   }
 
   &__projects {
+    main {
+      margin-top: 3.5rem;
+
+      @media screen and (min-width: $screen-large) {
+        margin-top: 2.5rem;
+      }
+    }
 
     .link {
       &__return {

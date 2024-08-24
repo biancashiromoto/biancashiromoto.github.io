@@ -1,3 +1,43 @@
-$bg-color: #040504;
+// COLORS
+$black: #040504;
+$blue: #00A4C3;
+$gray: rgb(177, 177, 177);
+$orange: #E15A24;
+$rose: #C6A2A9;
 $white: #FFFFFF;
 $font-family:  "Courier Prime", monospace;
+
+// IMAGES
+$hero-bg-img: "../assets/image__laptop.jpg";
+
+// MEDIA QUERIES
+$screen-small: 375px;
+$screen-min-medium: 768px;
+$screen-max-medium: 1023px;
+$screen-large: 1024px;
+
+// SIZES
+
+  // HEADER
+  $header-height: 2rem;
+  $header-min-height: 1rem;
+  $header-max-height: 3rem;
+
+  // MEASURES
+  $xx-small: 0.25rem;
+  $x-small: 0.5rem;
+  $small: 1rem;
+  $medium: 1.5rem;
+  $large: 2rem;
+  $x-large: 2.5rem;
+  $xx-large: 7.5rem;
+
+  $width-quarter: 25dvw;
+  $width-half: 50dvw;
+  $width-3quarters: 75dvw;
+  $width-full: 100dvw;
+
+  $height-quarter: 25dvh;
+  $height-half: 50dvh;
+  $height-3quarters: 75dvh;
+  $height-full: 100dvh

@@ -34,8 +34,23 @@
   }
 }
 
+@keyframes blink {
+  0% {
+    background-color: unset;
+    color: inherit;
+  }
+  50% {
+    background-color: $white;
+    color: $black;
+  }
+  100% {
+    background-color: $gray;
+    color: $black;
+  }
+}
+
 * {
-  background-color: $bg-color;
+  background-color: $black;
   font-family: $font-family;
   margin: 0;
   padding: 0;
@@ -46,7 +61,12 @@ html {
   scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   color: $white;
+  overflow: auto;
 }
 
