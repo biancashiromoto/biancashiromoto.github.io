@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import {
   Carousel as ShadCnCarousel,
   CarouselContent,
@@ -8,38 +7,17 @@ import {
 } from "../../../@shadcn-ui/components/ui/carousel"
 import { Card } from "../../../@shadcn-ui/components/ui/card";
 import Utils from "../../helpers/classes/Utils";
-import axios from "axios";
-import { DataType } from "./index.types";
 import { Link } from "../Link";
 import { FaGithub, FaGlobe } from "react-icons/fa";
-import { useCounterStore } from "../../state/store";
+import useFetchRepos from "../../hooks/useFetchRepos";
 
 const Carousel = () => {
-  const { formatProjectTitle, getLocalStorage, setLocalStorage } = new Utils();
-  const { ptInformation } = useCounterStore();
-  const [data, setData] = useState<DataType[]>([]);
+  const { formatProjectTitle } = new Utils();
+  const { data, error } = useFetchRepos();
 
-  useEffect(() => {
-    if (!getLocalStorage("repos")) {
-      const fetchRepos = async () => {
-        try {
-          const response = await axios.get(ptInformation._githubApiLink, {
-            headers: {
-              Authorization: ""
-            },
-          });
-          const filteredData = response.data.filter((project: DataType) => project.topics.includes("display"));
-          setLocalStorage("repos", filteredData);
-          setData(filteredData);
-        } catch (error) {
-          console.error("Error fetching repos:", error);
-        }
-      };
-      fetchRepos();
-    } else {
-      setData(getLocalStorage("repos"));
-    }
-  }, [ptInformation._githubApiLink, getLocalStorage, setLocalStorage]);
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <div className="carousel" content="">

@@ -3,7 +3,6 @@ import { dataTestIds } from '../../helpers/dataTestIds'
 import { useCounterStore } from '../../state/store';
 
 export const Header = () => {
-
   const {
     isLanguagePortuguese,
     toggleLanguage,
@@ -12,9 +11,7 @@ export const Header = () => {
   } = useCounterStore();
 
   return (
-    <header
-        data-testid="header"
-      >
+    <header data-testid="header">
         <Button.Root
           className="hover:bg-slate-800 rounded-full"
           onClick={() => toggleLanguage()}
