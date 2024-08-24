@@ -70,7 +70,7 @@ export const Home = () => {
   }
 
   const renderLinksContainer = (): ReactNode => {
-    return <LinksContainer isLanguagePortuguese={isLanguagePortuguese} />
+    return <LinksContainer />
   }
 
   const renderAboutMe = (): ReactNode => {
