@@ -12,7 +12,7 @@ import axios from "axios";
 import Information from "../../helpers/classes/Information";
 import { DataType } from "./index.types";
 import { Link } from "../Link";
-import { LucideTally1 } from "lucide-react";
+import { FaGithub, FaGlobe } from "react-icons/fa";
 
 const Carousel = () => {
   const { formatProjectTitle, getLocalStorage, setLocalStorage } = new Utils();
@@ -49,58 +49,61 @@ const Carousel = () => {
           loop: true,
         }}
       >
-        <div>
-          <CarouselContent>
-            {data.map((project, index) => {
-              const screenshotUrl = `https://raw.githubusercontent.com/biancashiromoto/${project.name}/main/screenshots/screenshot-01.png`;
-              return (
-                <CarouselItem key={index} className="carousel__item">
-                  <main className="carousel__main">
-                    <Card className="carousel__card">
-                      <div className="carousel__card--content">
+        <CarouselContent>
+          {data.map((project, index) => {
+            const screenshotUrl = `https://raw.githubusercontent.com/biancashiromoto/${project.name}/main/screenshots/screenshot-01.png`;
+            return (
+              <CarouselItem key={index} className="carousel__item">
+                <main className="carousel__main">
+                  <Card className="carousel__card">
+                    <div className="carousel__card--content">
+                      <div className="carousel__card--top">
                         <h2 className="carousel__card--title">{formatProjectTitle(project.name)}</h2>
-                        <span className="carousel__card--description">{project.description}</span>
                         <div className="carousel__card--links-container">
                           <Link.Root
                             ariaLabel={`Project ${project.name}'s GitHub repository link`}
+                            className="github-repo"
                             link={`https://github.com/biancashiromoto/${project.name}`}
                             testid={`${project.name}-repo`}
-                          >
-                            <Link.Label label="GitHub repo" />
+                            text="GitHub repository"
+                            >
+                            <FaGithub />
                           </Link.Root>
-                          <LucideTally1 />
                           <Link.Root
                             ariaLabel={`Project ${project.name}'s deploy link`}
+                            className="deploy"
                             link={project.homepage}
                             testid={`${project.name}-deploy`}
+                            text="Deploy"
                           >
-                            <Link.Label label="Deploy" />
+                            <FaGlobe />
                           </Link.Root>
-                        </div>
-                        <ul className="carousel__card--topics">
-                          {project.topics.map((topic, index) => {
-                            return (topic !== "display") && (
-                              <li key={index}>{topic}</li>
-                            )
-                          })}
-                        </ul>
                       </div>
+                      </div>
+                      <span className="carousel__card--description">{project.description}</span>
+                      <ul className="carousel__card--topics">
+                        {project.topics.map((topic, index) => {
+                          return (topic !== "display") && (
+                            <li key={index}>{topic}</li>
+                          )
+                        })}
+                      </ul>
                       <img
                         className="carousel__card--image"
                         alt={`Project ${project.name}'s screenshot`}
                         src={screenshotUrl}
                       />
-                    </Card>
-                  </main>
-                </CarouselItem>
-              )
-            })}
-          </CarouselContent>
+                    </div>
+                  </Card>
+                </main>
+              </CarouselItem>
+            )
+          })}
+        </CarouselContent>
+        <div className="carousel__buttons-container">
+          <CarouselPrevious />
+          <CarouselNext />
         </div>
-      <div className="carousel__buttons-container">
-        <CarouselPrevious />
-        <CarouselNext />
-      </div>
     </ShadCnCarousel>
     </div>
   )
