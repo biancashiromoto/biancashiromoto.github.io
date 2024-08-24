@@ -9,14 +9,14 @@ import {
 import { Card } from "../../../@shadcn-ui/components/ui/card";
 import Utils from "../../helpers/classes/Utils";
 import axios from "axios";
-import Information from "../../helpers/classes/Information";
 import { DataType } from "./index.types";
 import { Link } from "../Link";
 import { FaGithub, FaGlobe } from "react-icons/fa";
+import { useCounterStore } from "../../state/store";
 
 const Carousel = () => {
   const { formatProjectTitle, getLocalStorage, setLocalStorage } = new Utils();
-  const ptInformation = new Information("pt");
+  const { ptInformation } = useCounterStore();
   const [data, setData] = useState<DataType[]>([]);
 
   useEffect(() => {

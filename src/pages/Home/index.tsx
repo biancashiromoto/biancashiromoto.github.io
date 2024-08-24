@@ -1,17 +1,15 @@
 import { ReactNode } from "react";
-import Information from "../../helpers/classes/Information";
 import { LinksContainer } from "../../components/LinksContainer/index";
 import ReactTypingEffect from 'react-typing-effect';
 import { ScrollButton } from "../../components/ScrollButton";
 import { useCounterStore } from "../../state/store";
 
 export const Home = () => {
-  const ptInformation = new Information("pt");
-  const enInformation = new Information("en");
-
   const { 
     isLanguagePortuguese,
     screenWidth,
+    enInformation,
+    ptInformation
   } = useCounterStore();
   
   const renderGreetingMessage = (): ReactNode => {
