@@ -1,13 +1,9 @@
 header {
-  padding-top: 0.5rem;
+  height: $header-height;
+  min-height: $header-min-height;
+  max-height: $header-max-height;
+  padding-top: $small;
   position: sticky;
   top: 0;
-  z-index: 10;
-
-  button {
-    font-size: 0.75rem;
-    line-height: 1rem;
-    font-family: Oswald, sans-serif;
-    padding: 0.75rem;
-  }
+  z-index: 100;
 }
