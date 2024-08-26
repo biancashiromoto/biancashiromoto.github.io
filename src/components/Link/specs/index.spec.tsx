@@ -32,7 +32,7 @@ describe("LinkRoot component", () => {
     );
   }
 
-  it("should render correctly", () => {
+  it("should be correctly rendered", () => {
     renderLink(mockProps);
 
     const linkElement = screen.getByRole("link");
