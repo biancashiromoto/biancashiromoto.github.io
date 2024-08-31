@@ -3,7 +3,12 @@ import { LinksContainer } from "../../components/LinksContainer/index";
 import ReactTypingEffect from 'react-typing-effect';
 import { ScrollButton } from "../../components/ScrollButton";
 import { useCounterStore } from "../../state/store";
-import { altText } from "../../helpers/acessibility";
+import { altText, ariaLabel } from "../../helpers/acessibility";
+import Timeline from "../../components/Timeline";
+import { Button } from "../../components/Button";
+import { dataTestIds } from "../../helpers/dataTestIds";
+import Utils from "../../helpers/classes/Utils";
+import { FaRegArrowAltCircleUp } from "react-icons/fa";
 
 export const Home = () => {
   const { 
@@ -12,6 +17,7 @@ export const Home = () => {
     enInformation,
     ptInformation
   } = useCounterStore();
+  const { scrollToTop } = new Utils();
   
   const renderGreetingMessage = (): ReactNode => {
     return (
@@ -103,7 +109,18 @@ export const Home = () => {
       <article className="pages__home--about-me" id="about-me__container">
         {renderScrollButton("up", "#home-start")}
         {renderAboutMe()}
+        {renderScrollButton("down", "#timeline")}
       </article>
+      <Timeline />
+      <Button.Root
+      ariaLabel={ariaLabel(isLanguagePortuguese).button.scrollUp}
+      // TODO remover estilização com tailwind
+      className={`scroll timeline__scroll--button`}
+      testId={dataTestIds.buttons.scrollUp}
+      onClick={() => scrollToTop()}
+    >
+      <FaRegArrowAltCircleUp />
+    </Button.Root>
     </div>
   )
 }
