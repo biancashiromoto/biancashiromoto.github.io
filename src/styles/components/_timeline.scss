@@ -1,0 +1,32 @@
+.timeline {
+  margin: 0 $x-small;
+  
+  &__item {
+    :first-child {
+      z-index: 20;
+    }
+
+    &--date {
+      text-align: center;
+    }
+  }
+
+  &__container {
+
+    :last-child {
+      z-index: 30;
+    }
+  }
+
+  &__scroll--button {
+    left: 50%;
+    transform: translateX(-50%);
+    padding-bottom: $large;
+  }
+}
+
+.vertical-timeline {
+  padding: 0 !important;
+  position: relative !important;
+  margin: $x-large auto !important;
+}
