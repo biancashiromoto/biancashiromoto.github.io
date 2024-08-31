@@ -13,6 +13,11 @@ export const Header = () => {
   return (
     <header data-testid="header">
         <Button.Root
+          aria-label={
+            isLanguagePortuguese 
+              ? ptInformation._translateButtonLabel
+              : enInformation._translateButtonLabel
+          }
           className="translate"
           onClick={() => toggleLanguage()}
           testId={dataTestIds.buttons.toggleLanguageButton}
