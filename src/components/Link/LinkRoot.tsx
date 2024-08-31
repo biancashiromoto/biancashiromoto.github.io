@@ -13,11 +13,12 @@ export const LinkRoot = ({
   text, 
 }: LinkRootProps) => {
   return (
-    <div data-testid={dataTestIds.tooltip} className={`link__${className}`}>
+    <div data-testid={dataTestIds.tooltip} className={`link__${className}`} >
       <TooltipProvider delayDuration={100}>
           <ReactTooltip>
-            <TooltipTrigger>
+            <TooltipTrigger asChild>
               <ReactLink
+                aria-describedby={`${testid}-tooltip`}
                 aria-label={ariaLabel}
                 data-testid={testid}
                 target={target || "_blank"}
@@ -26,7 +27,7 @@ export const LinkRoot = ({
                 { children }
               </ReactLink>
             </TooltipTrigger>
-            <TooltipContent>
+            <TooltipContent role="tooltip">
               <p className="text-xs">{ text }</p>
             </TooltipContent>
           </ReactTooltip>

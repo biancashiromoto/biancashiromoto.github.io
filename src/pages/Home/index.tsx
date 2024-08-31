@@ -3,6 +3,7 @@ import { LinksContainer } from "../../components/LinksContainer/index";
 import ReactTypingEffect from 'react-typing-effect';
 import { ScrollButton } from "../../components/ScrollButton";
 import { useCounterStore } from "../../state/store";
+import { altText } from "../../helpers/acessibility";
 
 export const Home = () => {
   const { 
@@ -60,7 +61,7 @@ export const Home = () => {
   const renderProfilePicture = (): ReactNode => {
     return (
       <img
-        alt={isLanguagePortuguese ? ptInformation._profilePictureAltText : enInformation._profilePictureAltText}
+        alt={altText(isLanguagePortuguese).home.profilePicture}
         className="pages__home--profile-picture"
         src={ptInformation._profilePictureURL}
       />

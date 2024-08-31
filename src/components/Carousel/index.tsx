@@ -10,17 +10,22 @@ import Utils from "../../helpers/classes/Utils";
 import { Link } from "../Link";
 import { FaGithub, FaGlobe } from "react-icons/fa";
 import useFetchRepos from "../../hooks/useFetchRepos";
+import { altText, ariaLabel } from "../../helpers/acessibility";
+import { useCounterStore } from "../../state/store";
 
 const Carousel = () => {
   const { formatProjectTitle } = new Utils();
   const { data, error } = useFetchRepos();
+  const { isLanguagePortuguese } = useCounterStore();
 
   if (error) {
     return <div>Error: {error}</div>;
   }
 
   return (
-    <div className="carousel" content="">
+    <div
+      className="carousel"
+    >
       <ShadCnCarousel
         opts={{
           align: "center",
@@ -31,7 +36,11 @@ const Carousel = () => {
           {data.map((project, index) => {
             const screenshotUrl = `https://raw.githubusercontent.com/biancashiromoto/${project.name}/main/screenshots/screenshot-01.png`;
             return (
-              <CarouselItem key={index} className="carousel__item">
+              <CarouselItem
+                aria-roledescription="slide"
+                className="carousel__item"
+                key={index}
+              >
                 <main className="carousel__main">
                   <Card className="carousel__card">
                     <div className="carousel__card--content">
@@ -39,7 +48,7 @@ const Carousel = () => {
                         <h2 className="carousel__card--title">{formatProjectTitle(project.name)}</h2>
                         <div className="carousel__card--links-container">
                           <Link.Root
-                            ariaLabel={`Project ${project.name}'s GitHub repository link`}
+                            ariaLabel={ariaLabel(isLanguagePortuguese).links.project.repositoryLink(project.name)}
                             className="github-repo"
                             link={`https://github.com/biancashiromoto/${project.name}`}
                             testid={`${project.name}-repo`}
@@ -68,7 +77,7 @@ const Carousel = () => {
                       </ul>
                       <img
                         className="carousel__card--image"
-                        alt={`Project ${project.name}'s screenshot`}
+                        alt={altText(isLanguagePortuguese).projects.projectImage(project.name)}
                         src={screenshotUrl}
                       />
                     </div>
@@ -79,8 +88,16 @@ const Carousel = () => {
           })}
         </CarouselContent>
         <div className="carousel__buttons-container">
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious
+            aria-label={ariaLabel(isLanguagePortuguese).button.previousSlide}
+            role="button"
+            tabIndex={0}
+          />
+          <CarouselNext
+            aria-label={ariaLabel(isLanguagePortuguese).button.nextSlide}
+            role="button"
+            tabIndex={0}
+          />
         </div>
     </ShadCnCarousel>
     </div>
