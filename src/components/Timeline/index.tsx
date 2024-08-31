@@ -32,10 +32,10 @@ const Timeline = () => {
               )
             }
           >
-            <h3 className="vertical-timeline-element-title font-bold">
+            <h3 className="vertical-timeline-element-title text-sm">
               {item.position}
             </h3>
-            <h4 className="vertical-timeline-element-subtitle">
+            <h4 className="vertical-timeline-element-subtitle text-xs">
               {item.location}
             </h4>
           </VerticalTimelineElement>
