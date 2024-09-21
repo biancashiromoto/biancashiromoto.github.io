@@ -12,6 +12,7 @@
     width: 75dvw;
   }
 
+
   &__item {
     :first-child {
       z-index: 20;
@@ -20,7 +21,6 @@
     &--date {
       @media screen and (min-width: $screen-timeline) {
         padding: $small !important;
-      }
     }
   }
 
