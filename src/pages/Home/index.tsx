@@ -12,6 +12,7 @@ export const Home = () => {
     enInformation,
     ptInformation
   } = useCounterStore();
+  const { scrollToTop } = new Utils();
   
   const renderGreetingMessage = (): ReactNode => {
     return (
@@ -98,6 +99,16 @@ export const Home = () => {
       <article className="pages__home--timeline" id="timeline__container">
         <Timeline />
       </article>
+      <Timeline />
+      <Button.Root
+      ariaLabel={ariaLabel(isLanguagePortuguese).button.scrollUp}
+      // TODO remover estilização com tailwind
+      className={`scroll timeline__scroll--button`}
+      testId={dataTestIds.buttons.scrollUp}
+      onClick={() => scrollToTop()}
+    >
+      <FaRegArrowAltCircleUp />
+    </Button.Root>
     </div>
   )
 }
