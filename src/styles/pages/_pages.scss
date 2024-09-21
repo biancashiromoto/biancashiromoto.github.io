@@ -3,6 +3,8 @@
 .pages {
 
   &__home {
+    margin-bottom: $x-large;
+
     > * {
       display: flex;
       align-items: center;
@@ -45,6 +47,12 @@
         justify-content: center;
         margin-top: 0;
       }
+
+      .scroll-button--down {
+        @media screen and (min-width: $screen-min-medium) {
+          display: none;
+        }
+      }
     }
 
     &--profile-picture {
@@ -69,6 +77,28 @@
       @media screen and (min-width: $screen-min-medium) and (max-width: $screen-max-medium) {
         transform: translateY(-7.5%);
         z-index: 1;
+      }
+
+    }
+
+    &--scroll-button {
+      z-index: 1000;
+      &--down {
+        @media screen and (min-width: $screen-max-medium) {
+          display: none;
+        }
+      }
+
+      &--up {
+        @media screen and (min-width: $screen-min-medium) {
+          display: none;
+        }
+      }
+
+      &--timeline {
+        @media screen and (min-width: $screen-min-medium) {
+          left: 0;
+        }
       }
     }
 
@@ -96,6 +126,12 @@
         grid-column: span 2 / span 2;
         justify-content: center;
       }
+    }
+
+    &--timeline {
+      grid-column: span 2 / span 2;
+      justify-content: center;
+      place-self: center;
     }
   }
 

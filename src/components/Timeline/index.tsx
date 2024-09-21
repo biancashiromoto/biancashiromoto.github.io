@@ -46,7 +46,7 @@ const Timeline = () => {
           </VerticalTimelineElement>
         ))}
       </VerticalTimeline>
-      <ScrollButtonWrapper direction="down" href="#timeline" className="pages__home--about-me__scroll-button--down" />
+      <ScrollButtonWrapper direction="up" href="#timeline" className="timeline__scroll-button" />
     </div>
   )
 }

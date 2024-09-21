@@ -88,12 +88,12 @@ export const Home = () => {
         {renderGreetingMessage()}
         {renderProfilePicture()}
         {renderLinksContainer()}
-        <ScrollButtonWrapper direction="down" href="#about-me__container" className="scroll-button--down" />
+        <ScrollButtonWrapper direction="down" href="#about-me__container" className="pages__home--scroll-button--down" />
       </main>
       <article className="pages__home--about-me" id="about-me__container">
-        <ScrollButtonWrapper direction="up" href="#home-start" className="pages__home--about-me__scroll-button--up" />
+        <ScrollButtonWrapper direction="up" href="#home-start" className="pages__home--scroll-button--up" />
         {renderAboutMe()}
-        <ScrollButtonWrapper direction="down" href="#timeline" className="pages__home--about-me__scroll-button--down" />
+        <ScrollButtonWrapper direction="down" href="#timeline" className="pages__home--scroll-button--timeline" />
       </article>
       <article className="pages__home--timeline" id="timeline__container">
         <Timeline />

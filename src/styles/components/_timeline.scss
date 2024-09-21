@@ -1,32 +1,66 @@
 .timeline {
   margin: 0 $x-small;
+  margin-bottom: $x-large;
+  width: 80dvw;
+  position: relative;
   
+  @media screen and (min-width: $screen-min-medium) and (max-width: $screen-timeline) {
+    width: 50dvw;
+  }
+  
+  @media screen and (min-width: $screen-timeline) {
+    width: 75dvw;
+  }
+
   &__item {
     :first-child {
       z-index: 20;
     }
 
     &--date {
-      text-align: center;
+      @media screen and (min-width: $screen-timeline) {
+        padding: $small !important;
+      }
     }
   }
 
   &__container {
-
     :last-child {
       z-index: 30;
     }
   }
 
-  &__scroll--button {
-    left: 50%;
-    transform: translateX(-50%);
-    padding-bottom: $large;
+  &__scroll-button {
+    left: 45%;
+    top: 100%;
+
+    @media screen and (min-width: $screen-timeline) {
+      left: 48.5%;
+    }
+  }
+
+  &__text { 
+    > * {
+      text-align: start !important;
+    }
+
+    &--left {
+      @media screen and (min-width: $screen-timeline) {
+        padding-right: $small;
+        text-align: right !important;
+      }
+    }
+    
+    &--right {
+      @media screen and (min-width: $screen-timeline) {
+        padding-left: $small;
+        text-align: left !important;
+      }
+    }
   }
 }
 
 .vertical-timeline {
   padding: 0 !important;
-  position: relative !important;
   margin: $x-large auto !important;
 }
