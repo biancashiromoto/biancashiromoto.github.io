@@ -10,6 +10,7 @@ const Timeline = () => {
   const { 
     isLanguagePortuguese,
   } = useCounterStore();
+
   const { home: { timeline } } = getInformation(isLanguagePortuguese);
   const ariaLabel = getAriaLabel(isLanguagePortuguese);
 
