@@ -4,16 +4,19 @@ import { useCounterStore } from '../../state/store';
 import { information as getInformation } from '../../helpers/information';
 import { FaBriefcase, FaGraduationCap } from 'react-icons/fa';
 import { ariaLabel as getAriaLabel } from '../../helpers/acessibility';
+import { ScrollButtonWrapper } from '../ScrollButton/ScrollButtonWrapper';
 
 const Timeline = () => {
-  const { isLanguagePortuguese } = useCounterStore();
+  const { 
+    isLanguagePortuguese,
+  } = useCounterStore();
   const { home: { timeline } } = getInformation(isLanguagePortuguese);
   const ariaLabel = getAriaLabel(isLanguagePortuguese);
 
   return (
     <div className="timeline" role="region" id="timeline">
       <VerticalTimeline
-        layout='2-columns'
+        layout="2-columns"
         className="timeline__container before:z-10"
         aria-label={ariaLabel.timeline.description}
       >
@@ -22,7 +25,7 @@ const Timeline = () => {
             className={`vertical-timeline-element--${item.type} timeline__item`}
             contentStyle={{ background: 'unset' }}
             date={item.date}
-            dateClassName="timeline__item--date"
+            dateClassName={`timeline__item--date timeline__text--${!(index % 2 === 0) ? "left" : "right"}`}
             key={index}
             icon={
               item.type === "work" ? (
@@ -32,15 +35,18 @@ const Timeline = () => {
               )
             }
           >
-            <h3 className="vertical-timeline-element-title text-sm">
-              {item.position}
-            </h3>
-            <h4 className="vertical-timeline-element-subtitle text-xs">
-              {item.location}
-            </h4>
+            <div className="timeline__text">
+              <h3 className={`text-sm  timeline__text--${index % 2 === 0 ? "left" : "right"}`}>
+                {item.position}
+              </h3>
+              <h4 className={`text-xs timeline__text--${index % 2 === 0 ? "left" : "right"}`}>
+                {item.location}
+              </h4>
+            </div>
           </VerticalTimelineElement>
         ))}
       </VerticalTimeline>
+      <ScrollButtonWrapper direction="down" href="#timeline" className="pages__home--about-me__scroll-button--down" />
     </div>
   )
 }
