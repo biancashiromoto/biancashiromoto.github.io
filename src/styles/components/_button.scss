@@ -3,21 +3,5 @@
     animation: oscillate 2s infinite;
     position: absolute;
     font-size: 2rem;
-
-    @media screen and (min-width: $screen-min-medium) {
-      display: none;
-    }
-  }
-
-  &__translate {
-    background-color: $black;
-    border-radius: 15px;
-    font-size: 0.75rem;
-    font-family: $font-family--button;
-    padding: $x-small;
-
-    &:hover {
-      animation: blink 250ms;
-    }
   }
 }

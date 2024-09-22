@@ -1,23 +1,17 @@
 import { ReactNode } from "react";
 import { LinksContainer } from "../../components/LinksContainer/index";
 import ReactTypingEffect from 'react-typing-effect';
-import { ScrollButton } from "../../components/ScrollButton";
 import { useCounterStore } from "../../state/store";
-import { altText, ariaLabel } from "../../helpers/acessibility";
+import { altText } from "../../helpers/acessibility";
 import Timeline from "../../components/Timeline";
-import { Button } from "../../components/Button";
-import { dataTestIds } from "../../helpers/dataTestIds";
-import Utils from "../../helpers/classes/Utils";
-import { FaRegArrowAltCircleUp } from "react-icons/fa";
+import { ScrollButtonWrapper } from "../../components/ScrollButton/ScrollButtonWrapper";
 
 export const Home = () => {
   const { 
     isLanguagePortuguese,
-    screenWidth,
     enInformation,
     ptInformation
   } = useCounterStore();
-  const { scrollToTop } = new Utils();
   
   const renderGreetingMessage = (): ReactNode => {
     return (
@@ -87,16 +81,6 @@ export const Home = () => {
       </div>
     )
   }
-
-  const renderScrollButton = (direction: string, href: string): ReactNode => {
-    return (
-      <ScrollButton
-        direction={direction}
-        href={href}
-        screenWidth={screenWidth}
-      />
-    )
-  }
   
   return (
     <div className="pages__home" id="home-start">
@@ -104,23 +88,16 @@ export const Home = () => {
         {renderGreetingMessage()}
         {renderProfilePicture()}
         {renderLinksContainer()}
-        {renderScrollButton("down", "#about-me__container")}
+        <ScrollButtonWrapper direction="down" href="#about-me__container" className="pages__home--scroll-button--down" />
       </main>
       <article className="pages__home--about-me" id="about-me__container">
-        {renderScrollButton("up", "#home-start")}
+        <ScrollButtonWrapper direction="up" href="#home-start" className="pages__home--scroll-button--up" />
         {renderAboutMe()}
-        {renderScrollButton("down", "#timeline")}
+        <ScrollButtonWrapper direction="down" href="#timeline" className="pages__home--scroll-button--timeline" />
       </article>
-      <Timeline />
-      <Button.Root
-      ariaLabel={ariaLabel(isLanguagePortuguese).button.scrollUp}
-      // TODO remover estilização com tailwind
-      className={`scroll timeline__scroll--button`}
-      testId={dataTestIds.buttons.scrollUp}
-      onClick={() => scrollToTop()}
-    >
-      <FaRegArrowAltCircleUp />
-    </Button.Root>
+      <article className="pages__home--timeline" id="timeline__container">
+        <Timeline />
+      </article>
     </div>
   )
 }
