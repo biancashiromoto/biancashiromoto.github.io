@@ -10,19 +10,17 @@ export const Header = () => {
     ptInformation
   } = useCounterStore();
 
+  const label = isLanguagePortuguese  ? ptInformation._translateButtonLabel : enInformation._translateButtonLabel;
+
   return (
     <header data-testid="header">
         <Button.Root
-          aria-label={
-            isLanguagePortuguese 
-              ? ptInformation._translateButtonLabel
-              : enInformation._translateButtonLabel
-          }
-          className="translate"
+          aria-label={label}
+          className="header__button--translate"
           onClick={() => toggleLanguage()}
           testId={dataTestIds.buttons.toggleLanguageButton}
         >
-          {(isLanguagePortuguese ? ptInformation._translateButtonLabel : enInformation._translateButtonLabel).toUpperCase()}
+          {label.toUpperCase()}
         </Button.Root>
       </header>
   )
