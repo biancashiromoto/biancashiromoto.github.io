@@ -24,7 +24,7 @@ export const LinkRoot = ({
             <TooltipTrigger asChild>
               <ReactLink
                 aria-describedby={`${testid}-tooltip`}
-                aria-label={`${ariaLabel} ${isExternalLink && `- ${getAriaLabel(isLanguagePortuguese).links.opensInANewTab}` }`}
+                aria-label={`${ariaLabel}${isExternalLink ? `- ${getAriaLabel(isLanguagePortuguese).links.opensInANewTab}` : '' }`}
                 data-testid={testid}
                 target={target || "_blank"}
                 to={link}
