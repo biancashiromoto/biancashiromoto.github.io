@@ -1,4 +1,4 @@
-import { ariaLabel } from "../../helpers/acessibility";
+import { getAriaLabel } from "../../helpers/acessibility";
 import { Link } from "../Link";
 import { dataTestIds } from "../../helpers/dataTestIds";
 import { FaGithub, FaLinkedin, FaProjectDiagram } from "react-icons/fa";
@@ -15,7 +15,7 @@ export const LinksContainer = () => {
   return (
     <div className="links-container">
       <Link.Root
-        ariaLabel={ariaLabel(isLanguagePortuguese).pages.projects}
+        ariaLabel={getAriaLabel(isLanguagePortuguese).pages.projects}
         className="hover:scale-125"
         link="/projects"
         target="_self"
@@ -25,7 +25,7 @@ export const LinksContainer = () => {
         <FaProjectDiagram />
       </Link.Root>
       <Link.Root
-        ariaLabel={ariaLabel(isLanguagePortuguese).links.github}
+        ariaLabel={getAriaLabel(isLanguagePortuguese).links.github}
         className="hover:scale-125"
         link={ptInformation._githubLink}
         testid={dataTestIds.links.github}
@@ -34,7 +34,7 @@ export const LinksContainer = () => {
         <FaGithub />
       </Link.Root>
       <Link.Root
-        ariaLabel={ariaLabel(isLanguagePortuguese).links.linkedin}
+        ariaLabel={getAriaLabel(isLanguagePortuguese).links.linkedin}
         className="hover:scale-125"
         link={ptInformation._linkedinLink}
         testid={dataTestIds.links.linkedin}
@@ -43,7 +43,7 @@ export const LinksContainer = () => {
         <FaLinkedin />
       </Link.Root>
       <Link.Root
-        ariaLabel={ariaLabel(isLanguagePortuguese).links.resume}
+        ariaLabel={getAriaLabel(isLanguagePortuguese).links.resume}
         className="hover:scale-125"
         link={ptInformation._resumeLink}
         testid={dataTestIds.links.downloadMyCV}

@@ -1,4 +1,4 @@
-import { ariaLabel } from "../../helpers/acessibility";
+import { getAriaLabel } from "../../helpers/acessibility";
 import { FiArrowLeftCircle } from "react-icons/fi";
 import { memo } from "react";
 import Carousel from "../../components/Carousel";
@@ -18,7 +18,7 @@ export const Projects = memo(() => {
         {/*  TODO criar componente PageTitle */}
         <h1>{isLanguagePortuguese ? ptInformation._projects : enInformation._projects}</h1>
         <Link.Root
-          ariaLabel={ariaLabel(isLanguagePortuguese).pages.return}
+          ariaLabel={getAriaLabel(isLanguagePortuguese).pages.return}
           className="return"
           link="/"
           target="_self"

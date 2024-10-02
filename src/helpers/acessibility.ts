@@ -1,4 +1,4 @@
-export const ariaLabel = (isLanguagePortuguese: boolean) => ({
+export const getAriaLabel = (isLanguagePortuguese: boolean) => ({
   button: {
     scrollDown: isLanguagePortuguese ? "Botão para rolar para baixo" : "Scroll down button",
     scrollUp: isLanguagePortuguese ? "Botão para rolar para cima" : "Scroll up button",
@@ -6,6 +6,7 @@ export const ariaLabel = (isLanguagePortuguese: boolean) => ({
     previousSlide: isLanguagePortuguese ? "Slide anterior" : "Previous slide",
   },
   links: {
+    opensInANewTab: isLanguagePortuguese ? "Abre em uma nova guia" : "Opens in a new tab",
     linkedin: isLanguagePortuguese ? "Visite meu perfil no LinkedIn" : "Visit my LinkedIn profile",
     github: isLanguagePortuguese ? "Visite meu perfil no GitHub" : "Visit my GitHub profile",
     email: isLanguagePortuguese ? "Enviar email para" : "Send email to",
