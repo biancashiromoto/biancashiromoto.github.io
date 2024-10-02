@@ -83,9 +83,8 @@
     }
 
     &--scroll-button {
-      z-index: 1000;
       &--down {
-        @media screen and (min-width: $screen-max-medium) {
+        @media screen and (min-width: $screen-min-medium) {
           display: none;
         }
       }
@@ -118,7 +117,7 @@
         height: $medium;
         line-height: $medium;
         margin-left: $xx-small;
-        text-wrap: nowrap;
+        word-wrap: nowrap;
       }
 
       .paragraph {
