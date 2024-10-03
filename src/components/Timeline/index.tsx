@@ -3,7 +3,7 @@ import 'react-vertical-timeline-component/style.min.css';
 import { useCounterStore } from '../../state/store';
 import { information as getInformation } from '../../helpers/information';
 import { FaBriefcase, FaGraduationCap } from 'react-icons/fa';
-import { ariaLabel as getAriaLabel } from '../../helpers/acessibility';
+import { getAriaLabel as getAriaLabel } from '../../helpers/acessibility';
 import { ScrollButtonWrapper } from '../ScrollButton/ScrollButtonWrapper';
 
 const Timeline = () => {
@@ -36,7 +36,7 @@ const Timeline = () => {
               )
             }
           >
-            <div className="timeline__text">
+            <div className="timeline__text" tabIndex={0}>
               <h3 className={`text-sm  timeline__text--${index % 2 === 0 ? "left" : "right"}`}>
                 {item.position}
               </h3>

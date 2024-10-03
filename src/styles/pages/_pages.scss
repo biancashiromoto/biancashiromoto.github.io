@@ -1,7 +1,6 @@
 @import "../variables.scss";
 
 .pages {
-
   &__home {
     margin-bottom: $x-large;
 
@@ -32,7 +31,7 @@
       height: calc(100vh);
       margin-top: 3.5rem;
       position: relative;
-      text-wrap: nowrap;
+      word-wrap: nowrap;
 
       @media screen and (min-width: $screen-min-medium) and (max-width: $screen-max-medium) {
         background-image: none;
@@ -57,6 +56,7 @@
 
     &--profile-picture {
       border-radius: 50%;
+      border: solid calc($small / 7.5) $white;
       width: $xx-large;
       
       @media screen and (min-width: $screen-large) {
@@ -82,9 +82,8 @@
     }
 
     &--scroll-button {
-      z-index: 1000;
       &--down {
-        @media screen and (min-width: $screen-max-medium) {
+        @media screen and (min-width: $screen-min-medium) {
           display: none;
         }
       }
@@ -117,7 +116,7 @@
         height: $medium;
         line-height: $medium;
         margin-left: $xx-small;
-        text-wrap: nowrap;
+        word-wrap: nowrap;
       }
 
       .paragraph {
@@ -136,11 +135,12 @@
   }
 
   &__projects {
-    main {
-      margin-top: 3.5rem;
+    @media screen and (min-width: $screen-min-medium) {
+      margin-top: 15dvh;
+    }
 
+    main {
       @media screen and (min-width: $screen-large) {
-        margin-top: 2.5rem;
       }
     }
 
@@ -150,7 +150,7 @@
         left: 2rem;
         position: absolute;
         top: 2rem;
-        z-index: 10;
+        z-index: 1000;
       }
     }
   }

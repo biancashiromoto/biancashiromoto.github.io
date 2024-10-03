@@ -3,8 +3,6 @@
 
   @media screen and (min-width: $screen-min-medium) and (max-width: $screen-max-medium) {
     margin: 0 auto;
-    // overflow-x: hidden;
-    width: $width-3quarters
   }
 
   &:first-child {
@@ -26,10 +24,6 @@
     gap: $medium;
     position: relative;
     width: max-content;
-
-    @media screen and (min-width: $screen-min-medium) and (max-width: $screen-max-medium) {
-      
-    }
     
     @media screen and (min-width: $screen-large) {
       width: $width-half;
@@ -42,6 +36,10 @@
       justify-content: center;
       gap: $small;
       padding: 0 $large;
+
+      @media screen and (min-width: $screen-min-medium) and (max-width: $screen-max-medium) {
+        padding: 0 $xx-large;
+      }
     }    
 
     &--top {

@@ -10,7 +10,7 @@ import Utils from "../../helpers/classes/Utils";
 import { Link } from "../Link";
 import { FaGithub, FaGlobe } from "react-icons/fa";
 import useFetchRepos from "../../hooks/useFetchRepos";
-import { altText, ariaLabel } from "../../helpers/acessibility";
+import { altText, getAriaLabel } from "../../helpers/acessibility";
 import { useCounterStore } from "../../state/store";
 
 const Carousel = () => {
@@ -48,7 +48,7 @@ const Carousel = () => {
                         <h2 className="carousel__card--title">{formatProjectTitle(project.name)}</h2>
                         <div className="carousel__card--links-container">
                           <Link.Root
-                            ariaLabel={ariaLabel(isLanguagePortuguese).links.project.repositoryLink(project.name)}
+                            ariaLabel={getAriaLabel(isLanguagePortuguese).links.project.repositoryLink(project.name)}
                             className="github-repo"
                             link={`https://github.com/biancashiromoto/${project.name}`}
                             testid={`${project.name}-repo`}
@@ -89,12 +89,12 @@ const Carousel = () => {
         </CarouselContent>
         <div className="carousel__buttons-container">
           <CarouselPrevious
-            aria-label={ariaLabel(isLanguagePortuguese).button.previousSlide}
+            aria-label={getAriaLabel(isLanguagePortuguese).button.previousSlide}
             role="button"
             tabIndex={0}
           />
           <CarouselNext
-            aria-label={ariaLabel(isLanguagePortuguese).button.nextSlide}
+            aria-label={getAriaLabel(isLanguagePortuguese).button.nextSlide}
             role="button"
             tabIndex={0}
           />
