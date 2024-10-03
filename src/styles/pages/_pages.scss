@@ -1,7 +1,6 @@
 @import "../variables.scss";
 
 .pages {
-
   &__home {
     margin-bottom: $x-large;
 
@@ -136,11 +135,12 @@
   }
 
   &__projects {
-    main {
-      margin-top: 3.5rem;
+    @media screen and (min-width: $screen-min-medium) {
+      margin-top: 15dvh;
+    }
 
+    main {
       @media screen and (min-width: $screen-large) {
-        margin-top: 2.5rem;
       }
     }
 
