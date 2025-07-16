@@ -1,6 +1,4 @@
-import { ReactNode } from "react";
 import { LinksContainer } from "../../components/LinksContainer/index";
-import ReactTypingEffect from 'react-typing-effect';
 import { useCounterStore } from "../../state/store";
 import { altText } from "../../helpers/acessibility";
 import Timeline from "../../components/Timeline";
@@ -13,7 +11,7 @@ export const Home = () => {
     ptInformation
   } = useCounterStore();
   
-  const renderGreetingMessage = (): ReactNode => {
+  const renderGreetingMessage = () => {
     return (
       <div className="pages__home--greeting-message">
         {ptInformation._greetingMessage.map((paragraph, index) => {
@@ -26,28 +24,7 @@ export const Home = () => {
           }
           if (paragraph === ptInformation._name) {
             return (
-              <ReactTypingEffect
-                className="typer"
-                data-testid="typer"
-                displayTextRenderer={(paragraph) => {
-                  return (
-                    <h1>
-                      {paragraph.split('').map((char, index) => {
-                        return (
-                          <span
-                            className="bg-transparent text-lg ml-1 font-bold"
-                            key={index}
-                          >{char}</span>
-                        );
-                      })}
-                    </h1>
-                  )
-                }}
-                eraseSpeed={50}
-                speed={100}
-                text={[ptInformation._name]}
-                typingDelay={100}
-              />
+              <h1>Bianca</h1>
             );
           }
           return (
@@ -58,7 +35,7 @@ export const Home = () => {
     )
   }
 
-  const renderProfilePicture = (): ReactNode => {
+  const renderProfilePicture = () => {
     return (
       <img
         alt={altText(isLanguagePortuguese).home.profilePicture}
@@ -68,11 +45,11 @@ export const Home = () => {
     );
   }
 
-  const renderLinksContainer = (): ReactNode => {
+  const renderLinksContainer = () => {
     return <LinksContainer />
   }
 
-  const renderAboutMe = (): ReactNode => {
+  const renderAboutMe = () => {
     return (
       <div>
         {ptInformation._aboutMeText.map((paragraph, index) => (
