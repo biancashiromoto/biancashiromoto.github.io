@@ -4,6 +4,9 @@ export default class Utils {
    * @returns true if it is and false if it is not.
    */
   public isLanguagePortuguese(): boolean {
+    if (typeof navigator === 'undefined') {
+      return false; // Default to English during SSR
+    }
     const browserLanguage = navigator.language;
     return browserLanguage.includes("pt-");
   }
@@ -31,8 +34,10 @@ export default class Utils {
    * @param key The key to be set to localStorage.
    * @param value The value to be set to localStorage.
    */
-  public setLocalStorage(key: string, value: any) {
-    localStorage.setItem(key, JSON.stringify(value));
+  public setLocalStorage(key: string, value: unknown) {
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
   }
 
   /**
@@ -41,6 +46,9 @@ export default class Utils {
    * @returns The value with the key set as parameter or null if the key does not exist.
    */
   public getLocalStorage(key: string) {
+    if (typeof localStorage === 'undefined') {
+      return null;
+    }
     const item = localStorage.getItem(key);
     return item ? JSON.parse(item) : null;
   }
