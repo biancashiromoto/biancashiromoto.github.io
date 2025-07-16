@@ -15,15 +15,17 @@ interface StoreState {
   toggleLanguage: () => void;
   screenWidth: number;
   setScreenWidth: (width: number) => void;
+  initializeLanguage: () => void;
 }
 
 export const useCounterStore = create<StoreState>((set) => ({
   enInformation,
   ptInformation,
-  isLanguagePortuguese: utils.isLanguagePortuguese(),
+  isLanguagePortuguese: false,
   toggleLanguage: () => set((prevState) => ({ isLanguagePortuguese: !prevState.isLanguagePortuguese })),
   fadeIn: false,
   toggleFadeIn: () => set((prevState) => ({ fadeIn: !prevState.fadeIn })),
-  screenWidth: window.innerWidth,
+  screenWidth: typeof window !== 'undefined' ? window.innerWidth : 1024,
   setScreenWidth: (width) => set(() => ({ screenWidth: width })),
+  initializeLanguage: () => set(() => ({ isLanguagePortuguese: utils.isLanguagePortuguese() })),
 }));
