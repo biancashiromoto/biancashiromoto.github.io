@@ -1,3 +1,5 @@
+'use client'
+
 import { ScrollButtonProps } from './index.types'
 import { getAriaLabel } from '../../helpers/acessibility';
 import { dataTestIds } from '../../helpers/dataTestIds';

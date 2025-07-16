@@ -1,4 +1,6 @@
-import { Link as ReactLink } from "react-router-dom";
+'use client'
+
+import Link from "next/link";
 import { LinkRootProps } from "./LinkRoot.types"
 import { TooltipProvider, Tooltip as ReactTooltip, TooltipTrigger, TooltipContent,  } from '@radix-ui/react-tooltip';
 import { dataTestIds } from "../../helpers/dataTestIds";
@@ -22,15 +24,15 @@ export const LinkRoot = ({
       <TooltipProvider delayDuration={100}>
           <ReactTooltip>
             <TooltipTrigger asChild>
-              <ReactLink
+              <Link
                 aria-describedby={`${testid}-tooltip`}
                 aria-label={`${ariaLabel}${isExternalLink ? `- ${getAriaLabel(isLanguagePortuguese).links.opensInANewTab}` : '' }`}
                 data-testid={testid}
                 target={target || "_blank"}
-                to={link}
+                href={link}
               >
                 { children }
-              </ReactLink>
+              </Link>
             </TooltipTrigger>
             <TooltipContent role="tooltip">
               <p className="text-xs">{ text }</p>

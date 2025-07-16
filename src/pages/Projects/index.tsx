@@ -1,3 +1,5 @@
+'use client'
+
 import { getAriaLabel } from "../../helpers/acessibility";
 import { FiArrowLeftCircle } from "react-icons/fi";
 import { memo } from "react";
@@ -32,3 +34,5 @@ export const Projects = memo(() => {
     </div>
   );
 });
+
+Projects.displayName = 'Projects';

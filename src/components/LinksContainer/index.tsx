@@ -1,7 +1,9 @@
+'use client'
+
 import { getAriaLabel } from "../../helpers/acessibility";
 import { Link } from "../Link";
 import { dataTestIds } from "../../helpers/dataTestIds";
-import { FaGithub, FaLinkedin, FaProjectDiagram } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaProjectDiagram } from "react-icons/fa";
 import { GrDocumentPdf } from "react-icons/gr"
 import { useCounterStore } from "../../state/store";
 

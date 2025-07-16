@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Carousel as ShadCnCarousel,
   CarouselContent,

@@ -1,3 +1,5 @@
+'use client'
+
 import { LinksContainer } from "../../components/LinksContainer/index";
 import { useCounterStore } from "../../state/store";
 import { altText } from "../../helpers/acessibility";
@@ -17,14 +19,14 @@ export const Home = () => {
         {ptInformation._greetingMessage.map((paragraph, index) => {
           if (index === 0) {
             return (
-                <div className="paragraph">
-                  <p key={index} className="">{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
+                <div key={index} className="paragraph">
+                  <p className="">{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
                 </div>
             );
           }
           if (paragraph === ptInformation._name) {
             return (
-              <h1>Bianca</h1>
+              <h1 key={index}>Bianca</h1>
             );
           }
           return (

@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from '../Button'
 import { dataTestIds } from '../../helpers/dataTestIds'
 import { useCounterStore } from '../../state/store';
