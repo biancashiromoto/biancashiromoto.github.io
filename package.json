@@ -35,7 +35,7 @@
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.12",
-    "@types/react": "^19.0.0",
+    "@types/react": "^19.1.8",
     "@types/react-dom": "^19.0.0",
     "@types/react-vertical-timeline-component": "^3.3.6",
     "@types/testing-library__react": "^10.2.0",
