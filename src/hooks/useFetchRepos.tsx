@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Utils from "../helpers/classes/Utils";
-import { useCounterStore } from "../state/store";
 import { DataType } from "../components/Carousel/index.types";
+import { useLanguage } from "../context/LanguageContext";
 
 /**
  * Custom hook to fetch repositories from GitHub and store them in local storage.
@@ -12,7 +12,7 @@ import { DataType } from "../components/Carousel/index.types";
  */
 const useFetchRepos = () => {
   const { getLocalStorage, setLocalStorage } = new Utils();
-  const { ptInformation } = useCounterStore();
+  const { information } = useLanguage();
   const [data, setData] = useState<DataType[]>([]);
   const [error, setError] = useState<string | null>(null);
 
@@ -20,12 +20,14 @@ const useFetchRepos = () => {
     const fetchRepos = async () => {
       try {
         if (!getLocalStorage("repos")) {
-          const response = await axios.get(ptInformation._githubApiLink, {
+          const response = await axios.get(information._githubApiLink, {
             headers: {
               Authorization: "",
             },
           });
-          const filteredData = response.data.filter((project: DataType) => project.topics.includes("display"));
+          const filteredData = response.data.filter((project: DataType) =>
+            project.topics.includes("display")
+          );
           setLocalStorage("repos", filteredData);
           setData(filteredData);
         } else {
@@ -37,7 +39,7 @@ const useFetchRepos = () => {
       }
     };
     fetchRepos();
-  }, [ptInformation._githubApiLink, getLocalStorage, setLocalStorage]);
+  }, [information._githubApiLink, getLocalStorage, setLocalStorage]);
 
   return { data, error };
 };
