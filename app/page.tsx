@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useEffect, useState } from "react";
 import { Header } from "../src/components/Header/index";
@@ -8,30 +8,25 @@ import "../src/styles/index.scss";
 
 export default function HomePage() {
   const [mounted, setMounted] = useState(false);
-  const {
-    fadeIn,
-    toggleFadeIn,
-    initializeLanguage,
-  } = useCounterStore();
+  const { fadeIn, toggleFadeIn } = useCounterStore();
 
   useEffect(() => {
     setMounted(true);
-    initializeLanguage();
-    
+
     const handleLoad = () => {
       toggleFadeIn();
     };
-    
-    if (document.readyState === 'complete') {
+
+    if (document.readyState === "complete") {
       handleLoad();
     } else {
-      window.addEventListener('load', handleLoad);
+      window.addEventListener("load", handleLoad);
     }
-    
+
     return () => {
-      window.removeEventListener('load', handleLoad);
+      window.removeEventListener("load", handleLoad);
     };
-  }, [toggleFadeIn, initializeLanguage]);
+  }, [toggleFadeIn]);
 
   if (!mounted) {
     return (
