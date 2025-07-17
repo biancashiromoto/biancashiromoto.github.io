@@ -1,18 +1,14 @@
-'use client'
+"use client";
 
+import { useLanguage } from "@/src/context/LanguageContext";
+import { FaGithub, FaLinkedin, FaProjectDiagram } from "react-icons/fa";
+import { GrDocumentPdf } from "react-icons/gr";
 import { getAriaLabel } from "../../helpers/acessibility";
-import { Link } from "../Link";
 import { dataTestIds } from "../../helpers/dataTestIds";
-import { FaLinkedin, FaGithub, FaProjectDiagram } from "react-icons/fa";
-import { GrDocumentPdf } from "react-icons/gr"
-import { useCounterStore } from "../../state/store";
+import { Link } from "../Link";
 
 export const LinksContainer = () => {
-  const {
-    isLanguagePortuguese,
-    enInformation,
-    ptInformation
-  } = useCounterStore();
+  const { isLanguagePortuguese, information } = useLanguage();
 
   return (
     <div className="links-container">
@@ -22,37 +18,37 @@ export const LinksContainer = () => {
         link="/projects"
         target="_self"
         testid={dataTestIds.links.projects}
-        text={isLanguagePortuguese ? ptInformation._checkMyProjects : enInformation._checkMyProjects}
+        text={information._checkMyProjects}
       >
         <FaProjectDiagram />
       </Link.Root>
       <Link.Root
         ariaLabel={getAriaLabel(isLanguagePortuguese).links.github}
         className="hover:scale-125"
-        link={ptInformation._githubLink}
+        link={information._githubLink}
         testid={dataTestIds.links.github}
-        text={ptInformation._gitHubTooltip}
+        text={information._gitHubTooltip}
       >
         <FaGithub />
       </Link.Root>
       <Link.Root
         ariaLabel={getAriaLabel(isLanguagePortuguese).links.linkedin}
         className="hover:scale-125"
-        link={ptInformation._linkedinLink}
+        link={information._linkedinLink}
         testid={dataTestIds.links.linkedin}
-        text={ptInformation._linkedinTooltip}
+        text={information._linkedinTooltip}
       >
         <FaLinkedin />
       </Link.Root>
       <Link.Root
         ariaLabel={getAriaLabel(isLanguagePortuguese).links.resume}
         className="hover:scale-125"
-        link={ptInformation._resumeLink}
+        link={information._resumeLink}
         testid={dataTestIds.links.downloadMyCV}
-        text={ptInformation._downloadMyCV}
+        text={information._downloadMyCV}
       >
         <GrDocumentPdf />
       </Link.Root>
     </div>
   );
-}
+};
