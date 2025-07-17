@@ -1,29 +1,22 @@
-'use client'
+"use client";
 
-import { Button } from '../Button'
-import { dataTestIds } from '../../helpers/dataTestIds'
-import { useCounterStore } from '../../state/store';
+import { useLanguage } from "@/src/context/LanguageContext";
+import { dataTestIds } from "../../helpers/dataTestIds";
+import { Button } from "../Button";
 
 export const Header = () => {
-  const {
-    isLanguagePortuguese,
-    toggleLanguage,
-    enInformation,
-    ptInformation
-  } = useCounterStore();
-
-  const label = isLanguagePortuguese  ? ptInformation._translateButtonLabel : enInformation._translateButtonLabel;
+  const { toggleLanguage, information } = useLanguage();
 
   return (
     <header data-testid="header">
-        <Button.Root
-          aria-label={label}
-          className="header__button--translate"
-          onClick={() => toggleLanguage()}
-          testId={dataTestIds.buttons.toggleLanguageButton}
-        >
-          {label.toUpperCase()}
-        </Button.Root>
-      </header>
-  )
-}
+      <Button.Root
+        aria-label={information._translateButtonLabel}
+        className="header__button--translate"
+        onClick={() => toggleLanguage()}
+        testId={dataTestIds.buttons.toggleLanguageButton}
+      >
+        {information._translateButtonLabel.toUpperCase()}
+      </Button.Root>
+    </header>
+  );
+};
