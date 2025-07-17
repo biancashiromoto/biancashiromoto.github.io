@@ -10,18 +10,17 @@ import React, {
 } from "react";
 
 const WindowResizeContext = createContext<{ width: number }>({
-  width: window.innerWidth,
+  width: 0,
 });
 
 export const WindowResizeProvider: FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(0);
 
   useEffect(() => {
-    const handleResize = () => {
-      setWidth(window.innerWidth);
-    };
+    const handleResize = () => setWidth(window.innerWidth);
+    setWidth(window.innerWidth);
 
     window.addEventListener("resize", handleResize);
     return () => {
