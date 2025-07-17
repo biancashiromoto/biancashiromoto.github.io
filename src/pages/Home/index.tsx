@@ -1,82 +1,78 @@
-'use client'
+"use client";
 
+import { useLanguage } from "@/src/context/LanguageContext";
 import { LinksContainer } from "../../components/LinksContainer/index";
-import { useCounterStore } from "../../state/store";
-import { altText } from "../../helpers/acessibility";
-import Timeline from "../../components/Timeline";
 import { ScrollButtonWrapper } from "../../components/ScrollButton/ScrollButtonWrapper";
+import Timeline from "../../components/Timeline";
+import { altText } from "../../helpers/acessibility";
 
 export const Home = () => {
-  const { 
-    isLanguagePortuguese,
-    enInformation,
-    ptInformation
-  } = useCounterStore();
-  
+  const { information, isLanguagePortuguese } = useLanguage();
+
   const renderGreetingMessage = () => {
     return (
       <div className="pages__home--greeting-message">
-        {ptInformation._greetingMessage.map((paragraph, index) => {
-          if (index === 0) {
-            return (
-                <div key={index} className="paragraph">
-                  <p className="">{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
-                </div>
-            );
-          }
-          if (paragraph === ptInformation._name) {
-            return (
-              <h1 key={index}>Bianca</h1>
-            );
-          }
-          return (
-            <p className={`pages__home--paragraph ${index === 3 ? "col-span-2" : ""} flex justify-end`} key={index}>{isLanguagePortuguese ? paragraph : enInformation._greetingMessage[index]}</p>
-          );
-        })}
+        {information._greetingMessage.map((_paragraph, index) => (
+          <p className={`pages__home--paragraph`} key={index}>
+            {information._greetingMessage[index]}
+          </p>
+        ))}
       </div>
-    )
-  }
+    );
+  };
 
   const renderProfilePicture = () => {
     return (
       <img
         alt={altText(isLanguagePortuguese).home.profilePicture}
         className="pages__home--profile-picture"
-        src={ptInformation._profilePictureURL}
+        src={information._profilePictureURL}
       />
     );
-  }
+  };
 
   const renderLinksContainer = () => {
-    return <LinksContainer />
-  }
+    return <LinksContainer />;
+  };
 
   const renderAboutMe = () => {
     return (
       <div>
-        {ptInformation._aboutMeText.map((paragraph, index) => (
-          <p key={index}>{isLanguagePortuguese ? paragraph : enInformation._aboutMeText[index]}</p>
+        {information._aboutMeText.map((paragraph, index) => (
+          <p key={index}>{information._aboutMeText[index]}</p>
         ))}
       </div>
-    )
-  }
-  
+    );
+  };
+
   return (
     <div className="pages__home" id="home-start">
       <main>
         {renderGreetingMessage()}
         {renderProfilePicture()}
         {renderLinksContainer()}
-        <ScrollButtonWrapper direction="down" href="#about-me__container" className="pages__home--scroll-button--down" />
+        <ScrollButtonWrapper
+          direction="down"
+          href="#about-me__container"
+          className="pages__home--scroll-button--down"
+        />
       </main>
       <article className="pages__home--about-me" id="about-me__container">
-        <ScrollButtonWrapper direction="up" href="#home-start" className="pages__home--scroll-button--up" />
+        <ScrollButtonWrapper
+          direction="up"
+          href="#home-start"
+          className="pages__home--scroll-button--up"
+        />
         {renderAboutMe()}
-        <ScrollButtonWrapper direction="down" href="#timeline" className="pages__home--scroll-button--timeline" />
+        <ScrollButtonWrapper
+          direction="down"
+          href="#timeline"
+          className="pages__home--scroll-button--timeline"
+        />
       </article>
       <article className="pages__home--timeline" id="timeline__container">
         <Timeline />
       </article>
     </div>
-  )
-}
+  );
+};
