@@ -1,11 +1,16 @@
-'use client'
+"use client";
 
+import { useLanguage } from "@/src/context/LanguageContext";
+import {
+  Tooltip as ReactTooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@radix-ui/react-tooltip";
 import Link from "next/link";
-import { LinkRootProps } from "./LinkRoot.types"
-import { TooltipProvider, Tooltip as ReactTooltip, TooltipTrigger, TooltipContent,  } from '@radix-ui/react-tooltip';
-import { dataTestIds } from "../../helpers/dataTestIds";
 import { getAriaLabel } from "../../helpers/acessibility";
-import { useCounterStore } from "../../state/store";
+import { dataTestIds } from "../../helpers/dataTestIds";
+import { LinkRootProps } from "./LinkRoot.types";
 
 export const LinkRoot = ({
   ariaLabel,
@@ -14,31 +19,37 @@ export const LinkRoot = ({
   target,
   testid,
   link,
-  text, 
+  text,
 }: LinkRootProps) => {
   const isExternalLink = target === undefined;
-  const { isLanguagePortuguese } = useCounterStore();
+  const { isLanguagePortuguese } = useLanguage();
 
   return (
-    <div data-testid={dataTestIds.tooltip} className={`link__${className}`} >
+    <div data-testid={dataTestIds.tooltip} className={`link__${className}`}>
       <TooltipProvider delayDuration={100}>
-          <ReactTooltip>
-            <TooltipTrigger asChild>
-              <Link
-                aria-describedby={`${testid}-tooltip`}
-                aria-label={`${ariaLabel}${isExternalLink ? `- ${getAriaLabel(isLanguagePortuguese).links.opensInANewTab}` : '' }`}
-                data-testid={testid}
-                target={target || "_blank"}
-                href={link}
-              >
-                { children }
-              </Link>
-            </TooltipTrigger>
-            <TooltipContent role="tooltip">
-              <p className="text-xs">{ text }</p>
-            </TooltipContent>
-          </ReactTooltip>
-        </TooltipProvider>
+        <ReactTooltip>
+          <TooltipTrigger asChild>
+            <Link
+              aria-describedby={`${testid}-tooltip`}
+              aria-label={`${ariaLabel}${
+                isExternalLink
+                  ? `- ${
+                      getAriaLabel(isLanguagePortuguese).links.opensInANewTab
+                    }`
+                  : ""
+              }`}
+              data-testid={testid}
+              target={target || "_blank"}
+              href={link}
+            >
+              {children}
+            </Link>
+          </TooltipTrigger>
+          <TooltipContent role="tooltip">
+            <p className="text-xs">{text}</p>
+          </TooltipContent>
+        </ReactTooltip>
+      </TooltipProvider>
     </div>
-  )
-}
+  );
+};
