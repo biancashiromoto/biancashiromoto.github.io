@@ -1,31 +1,27 @@
-'use client'
+"use client";
 
-import { getAriaLabel } from "../../helpers/acessibility";
-import { FiArrowLeftCircle } from "react-icons/fi";
+import { useLanguage } from "@/src/context/LanguageContext";
 import { memo } from "react";
+import { FiArrowLeftCircle } from "react-icons/fi";
 import Carousel from "../../components/Carousel";
 import { Link } from "../../components/Link";
-import { useCounterStore } from "../../state/store";
+import { getAriaLabel } from "../../helpers/acessibility";
 
 export const Projects = memo(() => {
-  const {
-    isLanguagePortuguese,
-    enInformation,
-    ptInformation
-  } = useCounterStore();
+  const { information, isLanguagePortuguese } = useLanguage();
 
   return (
     <div className="pages__projects">
       <main>
         {/*  TODO criar componente PageTitle */}
-        <h1>{isLanguagePortuguese ? ptInformation._projects : enInformation._projects}</h1>
+        <h1>{information._projects}</h1>
         <Link.Root
           ariaLabel={getAriaLabel(isLanguagePortuguese).pages.return}
           className="return"
           link="/"
           target="_self"
           testid="return"
-          text={isLanguagePortuguese ? ptInformation._returnToPreviousPageTooltip : enInformation._returnToPreviousPageTooltip}
+          text={information._returnToPreviousPageTooltip}
         >
           <FiArrowLeftCircle />
         </Link.Root>
@@ -35,4 +31,4 @@ export const Projects = memo(() => {
   );
 });
 
-Projects.displayName = 'Projects';
+Projects.displayName = "Projects";
