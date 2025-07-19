@@ -1,46 +1,30 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Home } from "../src/pages/Home/index";
-import { useCounterStore } from "../src/state/store";
-import "../src/styles/index.scss";
-import Header from "./components/header/header";
+import styles from "@/app/styles/pages/home.module.scss";
+import { useLanguage } from "@/src/context/LanguageContext";
+import Intro from "./components/intro/intro";
 
-export default function HomePage() {
-  const [mounted, setMounted] = useState(false);
-  const { fadeIn, toggleFadeIn } = useCounterStore();
+function HomePage() {
+  const { information } = useLanguage();
 
-  useEffect(() => {
-    setMounted(true);
-
-    const handleLoad = () => {
-      toggleFadeIn();
-    };
-
-    if (document.readyState === "complete") {
-      handleLoad();
-    } else {
-      window.addEventListener("load", handleLoad);
-    }
-
-    return () => {
-      window.removeEventListener("load", handleLoad);
-    };
-  }, [toggleFadeIn]);
-
-  if (!mounted) {
+  const renderAboutMe = () => {
     return (
       <div>
-        <Header />
-        <Home />
+        {information._aboutMeText.map((_paragraph, index) => (
+          <p key={index}>{information._aboutMeText[index]}</p>
+        ))}
       </div>
     );
-  }
+  };
 
   return (
-    <div className={fadeIn ? "fade-in" : ""}>
-      <Header />
-      <Home />
+    <div className={styles.home} id="home-start">
+      <Intro />
+      <article className="pages__home--about-me" id="about-me__container">
+        {renderAboutMe()}
+      </article>
     </div>
   );
 }
+
+export default HomePage;
