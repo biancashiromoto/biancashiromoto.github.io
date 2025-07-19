@@ -3,6 +3,10 @@
     animation: oscillate 2s infinite;
     position: absolute;
     font-size: 2rem;
-    z-index: 10000;
+    z-index: 10;
+
+    svg {
+      border-radius: 50%;
+    }
   }
 }
