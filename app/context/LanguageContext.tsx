@@ -1,14 +1,14 @@
 "use client";
 
 import {
-  createContext,
-  FC,
-  ReactNode,
-  useCallback,
-  useContext,
-  useLayoutEffect,
-  useMemo,
-  useState,
+	createContext,
+	FC,
+	ReactNode,
+	useCallback,
+	useContext,
+	useLayoutEffect,
+	useMemo,
+	useState,
 } from "react";
 import Information from "../helpers/classes/Information";
 import Utils from "../helpers/classes/Utils";
@@ -27,36 +27,36 @@ const LanguageContext = createContext<LanguageContextProps>(
 );
 
 export const LanguageProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  const utils = new Utils();
-  const [language, setLanguage] = useState<Language>("en");
+	const utils = new Utils();
+	const [language, setLanguage] = useState<Language>("en");
 
-  useLayoutEffect(() => {
-    setLanguage(utils.isLanguagePortuguese() ? "pt" : "en");
-  }, []);
+	useLayoutEffect(() => {
+		setLanguage(utils.isLanguagePortuguese() ? "pt" : "en");
+	}, []);
 
-  const toggleLanguage = useCallback(() => {
-    setLanguage((prev) => (prev === "pt" ? "en" : "pt"));
-  }, [setLanguage]);
+	const toggleLanguage = useCallback(() => {
+		setLanguage((prev) => (prev === "pt" ? "en" : "pt"));
+	}, [setLanguage]);
 
-  const information = useMemo(() => {
-    return language === "pt" ? new Information("pt") : new Information("en");
-  }, [language]);
+	const information = useMemo(() => {
+		return language === "pt" ? new Information("pt") : new Information("en");
+	}, [language]);
 
-  return (
-    <LanguageContext.Provider
-      value={{
-        isLanguagePortuguese: language === "pt",
-        setLanguage,
-        toggleLanguage,
-        information,
-      }}
-    >
-      {children}
-    </LanguageContext.Provider>
-  );
+	return (
+		<LanguageContext.Provider
+			value={{
+				isLanguagePortuguese: language === "pt",
+				setLanguage,
+				toggleLanguage,
+				information,
+			}}
+		>
+			{children}
+		</LanguageContext.Provider>
+	);
 };
 
 export const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  return context;
+	const context = useContext(LanguageContext);
+	return context;
 };

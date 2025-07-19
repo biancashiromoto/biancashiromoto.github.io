@@ -5,24 +5,24 @@ import { LanguageProvider } from "@/app/context/LanguageContext";
 import { WindowResizeProvider } from "@/app/context/WindowResizeProvider";
 
 export const metadata: Metadata = {
-  title: "Bianca Shiromoto",
-  description: "Portfolio website for Bianca Shiromoto",
+	title: "Bianca Shiromoto",
+	description: "Portfolio website for Bianca Shiromoto",
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html lang="pt-br">
-      <body>
-        <WindowResizeProvider>
-          <LanguageProvider>
-            <CommonLayout>{children}</CommonLayout>
-          </LanguageProvider>
-        </WindowResizeProvider>
-      </body>
-    </html>
-  );
+	return (
+		<html lang="pt-br">
+			<body>
+				<WindowResizeProvider>
+					<LanguageProvider>
+						<CommonLayout>{children}</CommonLayout>
+					</LanguageProvider>
+				</WindowResizeProvider>
+			</body>
+		</html>
+	);
 }

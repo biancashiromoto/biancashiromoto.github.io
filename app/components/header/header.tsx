@@ -3,19 +3,19 @@ import ProgressBar from "../progress-bar/progress-bar";
 import styles from "./header.module.scss";
 
 const Header = () => {
-  const { information, toggleLanguage } = useLanguage();
-  return (
-    <header className={styles.header}>
-      <button
-        aria-label={information._translateButtonLabel}
-        onClick={toggleLanguage}
-        type="button"
-      >
-        {information._translateButtonLabel.toUpperCase()}
-      </button>
-      <ProgressBar />
-    </header>
-  );
+	const { information, toggleLanguage } = useLanguage();
+	return (
+		<header className={styles.header}>
+			<button
+				aria-label={information._translateButtonLabel}
+				onClick={toggleLanguage}
+				type="button"
+			>
+				{information._translateButtonLabel.toUpperCase()}
+			</button>
+			<ProgressBar />
+		</header>
+	);
 };
 
 export default Header;

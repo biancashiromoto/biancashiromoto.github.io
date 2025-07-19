@@ -7,12 +7,12 @@ type CommonLayoutProps = {
 };
 
 const CommonLayout = ({ children }: CommonLayoutProps) => {
-  return (
-    <>
-      <Header />
-      <main>{children}</main>
-    </>
-  );
+	return (
+		<>
+			<Header />
+			<main>{children}</main>
+		</>
+	);
 };
 
 export default CommonLayout;
