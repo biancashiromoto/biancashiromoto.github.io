@@ -1,0 +1,15 @@
+@use "@/app/styles/variables.scss" as *;
+
+.about-me {
+  font-size: 1rem;
+  height: calc(90vh - $header-height);
+  line-height: 2.5rem;
+
+  & > * {
+    margin-bottom: 1.25rem;
+  }
+
+  @media screen and (min-width: $screen-min-medium) {
+    transform: translateY(10%);
+  }
+}
