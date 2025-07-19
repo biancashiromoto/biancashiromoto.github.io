@@ -1,10 +1,10 @@
 "use client";
 
 import styles from "./progress-bar.module.scss";
-import useProgressBar, { UseProgressBar } from "./hooks/useProgressBar";
+import { useScroll } from "@/app/context/ScrollProvider";
 
 const ProgressBar: React.FC = () => {
-	const { scrollProgress }: UseProgressBar = useProgressBar();
+	const { scrollProgress } = useScroll();
 
 	const barStyle = {
 		top: `${0 + 0}px`,
