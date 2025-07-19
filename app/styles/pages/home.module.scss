@@ -3,14 +3,12 @@
 .home {
   margin: 0 2rem;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1024px) {
     align-items: center;
     display: grid;
-    grid-template-columns: 50% 50%;
-  }
-
-  @media screen and (min-width: 1024px) {
-    grid-template-columns: 35% 35%;
-    justify-content: center;
+    justify-content: space-between;
+    margin: $header-height 4rem 0;
+    height: calc(100vh - $header-height);
+    grid-template-columns: repeat(2, 1fr);
   }
 }

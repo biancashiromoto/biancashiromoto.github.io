@@ -9,7 +9,8 @@
     margin-bottom: 1.25rem;
   }
 
-  @media screen and (min-width: $screen-min-medium) {
-    transform: translateY(10%);
+  @media screen and (min-width: $screen-large) {
+    max-width: 500px;
+    height: fit-content;
   }
 }
