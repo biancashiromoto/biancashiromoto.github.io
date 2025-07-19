@@ -19,7 +19,11 @@
   .profile-picture {
     border-radius: 50%;
     border: solid calc($small / 7.5) $white;
-    width: clamp(120px, 20vw, 150px);
+    width: clamp(120px, 20vw, 175px);
+  }
+
+  &__greeting-message {
+    transform: translateY(-25%);
   }
 
   @media screen and (min-width: $screen-large) {

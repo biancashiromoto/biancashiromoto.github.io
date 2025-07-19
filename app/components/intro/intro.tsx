@@ -7,7 +7,7 @@ import Information from "@/app/helpers/classes/Information";
 
 const GreetingMessage = (information: Information) => {
   return (
-    <div>
+    <div className={styles["intro__greeting-message"]}>
       {information._greetingMessage.map((line, index) => (
         <p key={index}>{line}</p>
       ))}
