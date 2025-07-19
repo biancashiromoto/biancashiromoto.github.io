@@ -1,0 +1,17 @@
+.typewriter {
+	display: inline-block;
+	min-width: 65px;
+	text-align: left;
+	position: relative;
+	white-space: nowrap;
+	padding-left: 10px;
+}
+
+.cursor {
+	opacity: 1;
+	transition: opacity 0.1s ease-in-out;
+
+	&.hidden {
+		opacity: 0;
+	}
+}
