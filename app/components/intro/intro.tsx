@@ -4,6 +4,8 @@ import { altText } from "@/app/helpers/acessibility";
 import Image from "next/image";
 import { LinksContainer } from "../links-container";
 import Information from "@/app/helpers/classes/Information";
+import Hero from "../hero/hero";
+import { useWindowResize } from "@/app/context/WindowResizeProvider";
 
 const GreetingMessage = (information: Information) => {
 	return (
@@ -17,6 +19,8 @@ const GreetingMessage = (information: Information) => {
 
 const Intro = () => {
 	const { information, isLanguagePortuguese } = useLanguage();
+	const { width } = useWindowResize();
+	const isMobileOrTablet = width <= 1024;
 
 	return (
 		<div className={styles.intro}>
@@ -25,9 +29,11 @@ const Intro = () => {
 				src={information._profilePictureURL}
 				width={200}
 				height={200}
+				className={styles["profile-picture"]}
 			/>
 			<GreetingMessage {...information} />
 			<LinksContainer />
+			{isMobileOrTablet && <Hero />}
 		</div>
 	);
 };

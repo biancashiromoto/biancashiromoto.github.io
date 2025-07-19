@@ -7,7 +7,8 @@
   gap: 3rem;
   align-items: center;
   height: calc(100dvh - $header-height);
-  margin-top: calc(25dvh - $header-height);
+  margin-top: calc(25dvh - (2 * $header-height));
+		position: relative;
 
   .paragraph {
     align-items: center;
@@ -16,7 +17,7 @@
     justify-content: center;
   }
 
-  img {
+  .profile-picture {
     border-radius: 50%;
     border: solid calc($small / 7.5) $white;
     width: clamp(120px, 20vw, 175px);
