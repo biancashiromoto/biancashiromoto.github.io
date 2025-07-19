@@ -1,6 +1,6 @@
 import CommonLayout from "./CommonLayout";
 import type { Metadata } from "next";
-import "./globals.css";
+import "./globals.scss";
 import { LanguageProvider } from "@/src/context/LanguageContext";
 import { WindowResizeProvider } from "@/src/context/WindowResizeProvider";
 
