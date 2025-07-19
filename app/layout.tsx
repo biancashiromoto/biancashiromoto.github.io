@@ -1,7 +1,7 @@
 import CommonLayout from "./CommonLayout";
 import type { Metadata } from "next";
 import "./globals.scss";
-import { LanguageProvider } from "@/app/context/LanguageContext";
+import { LanguageProvider } from "@/app/context/LanguageProvider";
 import { WindowResizeProvider } from "@/app/context/WindowResizeProvider";
 
 export const metadata: Metadata = {
