@@ -8,7 +8,6 @@ const Header = () => {
     <header className={styles.header}>
       <button
         aria-label={information._translateButtonLabel}
-        className={styles["header__button--translate"]}
         onClick={toggleLanguage}
         type="button"
       >

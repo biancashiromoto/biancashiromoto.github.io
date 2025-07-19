@@ -7,7 +7,6 @@
   display: flex;
   justify-content: center;
   height: $header-height;
-  padding: $medium;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -17,24 +16,24 @@
     position: fixed;
   }
 
-  &__button {
-    &--translate {
-      font-size: 0.75rem;
-      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-        sans-serif;
-      padding: $x-small;
-      z-index: 10000;
-      position: relative;
-      letter-spacing: 0.125rem;
-      color: $gray;
+  button {
+    font-size: 0.75rem;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    padding: $x-small;
+    z-index: 10000;
+    position: relative;
+    letter-spacing: 0.125rem;
+    color: $gray;
+    border: none;
+    transition: color 0.3s, transform 0.3s;
+    cursor: pointer;
 
-      transition: color 0.3s, transform 0.3s;
-      &:hover,
-      &:focus-visible {
-        font-weight: 600;
-        color: $white;
-        transform: scale(1.05);
-      }
+    &:hover,
+    &:focus-visible {
+      font-weight: 600;
+      color: $white;
+      transform: scale(1.05);
     }
   }
 }
