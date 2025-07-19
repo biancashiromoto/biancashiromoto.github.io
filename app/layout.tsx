@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.scss";
 import { LanguageProvider } from "@/app/context/LanguageProvider";
 import { WindowResizeProvider } from "@/app/context/WindowResizeProvider";
+import { ScrollProvider } from "./context/ScrollProvider";
 
 export const metadata: Metadata = {
 	title: "Bianca Shiromoto",
@@ -19,7 +20,11 @@ export default function RootLayout({
 			<body>
 				<WindowResizeProvider>
 					<LanguageProvider>
-						<CommonLayout>{children}</CommonLayout>
+						<ScrollProvider>
+							<CommonLayout>
+								{children}
+							</CommonLayout>
+						</ScrollProvider>
 					</LanguageProvider>
 				</WindowResizeProvider>
 			</body>
