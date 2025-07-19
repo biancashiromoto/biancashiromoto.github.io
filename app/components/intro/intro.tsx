@@ -22,7 +22,6 @@ const Intro = () => {
     <div className={styles.intro}>
       <Image
         alt={altText(isLanguagePortuguese).home.profilePicture}
-        className={styles["profile-picture"]}
         src={information._profilePictureURL}
         width={200}
         height={200}
