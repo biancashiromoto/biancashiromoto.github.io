@@ -1,8 +1,8 @@
 import CommonLayout from "./CommonLayout";
 import type { Metadata } from "next";
 import "./globals.scss";
-import { LanguageProvider } from "@/src/context/LanguageContext";
-import { WindowResizeProvider } from "@/src/context/WindowResizeProvider";
+import { LanguageProvider } from "@/app/context/LanguageContext";
+import { WindowResizeProvider } from "@/app/context/WindowResizeProvider";
 
 export const metadata: Metadata = {
   title: "Bianca Shiromoto",
@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="pt-br">
       <body>
         <WindowResizeProvider>
           <LanguageProvider>
