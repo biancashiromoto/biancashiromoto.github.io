@@ -4,6 +4,7 @@
   font-size: 1rem;
   height: calc(75vh - $header-height);
   line-height: 2.5rem;
+		transform: translateY(7.5%);
 
   & > * {
     margin-bottom: 1.25rem;
@@ -12,5 +13,6 @@
   @media screen and (min-width: $screen-large) {
     max-width: 500px;
     height: fit-content;
+					transform: unset;
   }
 }
