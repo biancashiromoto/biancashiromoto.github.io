@@ -7,8 +7,9 @@
     align-items: center;
     display: grid;
     justify-content: space-between;
-    margin: $header-height 4rem 0;
+    margin: $header-height auto 0;
     height: calc(100vh - $header-height);
     grid-template-columns: repeat(2, 1fr);
+    max-width: 70dvw;
   }
 }
