@@ -1,19 +1,11 @@
 import { useLanguage } from "@/app/context/LanguageProvider";
-import styles from "./button-scroll-to-top.module.scss";
 import { BsArrowUp } from "react-icons/bs";
-import { useEffect, useState } from "react";
-import { useScroll } from "@/app/context/ScrollProvider";
+import styles from "./button-scroll-to-top.module.scss";
+import useButtonScrollToTop from "./hooks/useButtonScrollToTop";
 
 const ButtonScrollToTop = () => {
 	const { information } = useLanguage();
-	const [shouldShowButtonScrollToTop, setShouldShowButtonScrollToTop] = useState(true);
-	const { scrollProgress } = useScroll();
-
-	useEffect(() => {
-		setShouldShowButtonScrollToTop(scrollProgress > 80);
-	}, [scrollProgress]);
-
-	const handleScrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+	const { shouldShowButtonScrollToTop, handleScrollToTop } = useButtonScrollToTop();
 
 	return shouldShowButtonScrollToTop && (
 		<button
