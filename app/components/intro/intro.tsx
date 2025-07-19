@@ -5,7 +5,7 @@ import Image from "next/image";
 import { LinksContainer } from "../links-container";
 import Information from "@/app/helpers/classes/Information";
 
-const renderGreetingMessage = (information: Information) => {
+const GreetingMessage = (information: Information) => {
   return (
     <div>
       {information._greetingMessage.map((line, index) => (
@@ -27,7 +27,7 @@ const Intro = () => {
         width={200}
         height={200}
       />
-      {renderGreetingMessage(information)}
+      <GreetingMessage {...information} />
       <LinksContainer />
     </div>
   );
