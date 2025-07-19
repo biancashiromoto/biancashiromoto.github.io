@@ -1,4 +1,4 @@
-import { useLanguage } from "@/src/context/LanguageContext";
+import { useLanguage } from "@/app/context/LanguageContext";
 import ProgressBar from "../progress-bar/progress-bar";
 import styles from "./header.module.scss";
 
