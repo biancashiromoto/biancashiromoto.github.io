@@ -1,3 +1,4 @@
+import CommonLayout from "./CommonLayout";
 import type { Metadata } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/src/context/LanguageContext";
@@ -17,7 +18,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <WindowResizeProvider>
-          <LanguageProvider>{children}</LanguageProvider>
+          <LanguageProvider>
+            <CommonLayout>{children}</CommonLayout>
+          </LanguageProvider>
         </WindowResizeProvider>
       </body>
     </html>
