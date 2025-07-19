@@ -24,11 +24,6 @@
     height: auto;
   }
 
-  &__greeting-message {
-    transform: translateY(-25%);
-    line-height: 1.75;
-  }
-
   @media screen and (min-width: $screen-large) {
     height: fit-content;
     margin-top: 0;
