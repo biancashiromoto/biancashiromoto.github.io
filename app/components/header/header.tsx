@@ -1,13 +1,14 @@
 import { useLanguage } from "@/src/context/LanguageContext";
 import ProgressBar from "../progress-bar/progress-bar";
+import styles from "./header.module.scss";
 
 const Header = () => {
   const { information, toggleLanguage } = useLanguage();
   return (
-    <header>
+    <header className={styles.header}>
       <button
         aria-label={information._translateButtonLabel}
-        className="header__button--translate"
+        className={styles["header__button--translate"]}
         onClick={toggleLanguage}
         type="button"
       >
