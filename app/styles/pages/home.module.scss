@@ -1,0 +1,16 @@
+@use "@/app/styles/variables.scss" as *;
+
+.home {
+  margin: 0 2rem;
+
+  @media screen and (min-width: 768px) {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: 35% 35%;
+    justify-content: center;
+  }
+}
