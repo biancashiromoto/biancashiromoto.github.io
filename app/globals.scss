@@ -54,7 +54,7 @@ html {
 body {
   color: $white;
   overflow: auto;
+    -webkit-user-select: none;
+    user-select: none;
 }
-
-
 }
