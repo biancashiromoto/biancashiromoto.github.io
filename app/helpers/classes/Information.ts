@@ -23,6 +23,7 @@ export default class Information {
 	public _catGifAltText: string;
 	public _checkMyProjects: string;
 	public _downloadMyCV: string;
+	public _scrollToTopButtonLabel: string;
 
 	constructor(language: string) {
 		this._profilePictureAltText =
@@ -59,5 +60,6 @@ export default class Information {
 			language === "en" ? "Check my projects" : "Veja meus projetos";
 		this._downloadMyCV =
 			language === "en" ? "Download my CV" : "Baixe meu currículo";
+		this._scrollToTopButtonLabel = language === "en" ? "Scroll to top" : "Voltar ao topo";
 	}
 }
