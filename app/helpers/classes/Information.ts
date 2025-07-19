@@ -31,8 +31,8 @@ export default class Information {
 				: "Sou uma mulher de cabelos e olhos escuros e estou usando uma camiseta cinza e preta.";
 		this._greetingMessage =
 			language === "en"
-				? ["Hello!", "My name is Bianca", "and this is my portfolio!"]
-				: ["Olá!", "Meu nome é Bianca", "e esse é meu portfolio!"];
+				? ["Hello!", "My name is", ` ${this._name}`, "and this is my portfolio!"]
+				: ["Olá!", "Meu nome é", ` ${this._name}`, "e esse é meu portfolio!"];
 		this._aboutMeText =
 			language === "en"
 				? [
