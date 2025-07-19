@@ -6,11 +6,10 @@
   flex-wrap: wrap;
   font-size: $large;
   justify-content: space-between;
-  width: 60%;
-		min-width: 220px;
+  width: clamp(220px, 60%, 300px);
 
   @media screen and (min-width: $screen-large) {
-    width: 50%;
+    width: clamp(220px, 50%, 300px);
   }
 
   svg {
