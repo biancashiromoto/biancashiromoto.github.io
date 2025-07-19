@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Header } from "../src/components/Header/index";
 import { Home } from "../src/pages/Home/index";
 import { useCounterStore } from "../src/state/store";
 import "../src/styles/index.scss";
+import Header from "./components/header/header";
 
 export default function HomePage() {
   const [mounted, setMounted] = useState(false);
