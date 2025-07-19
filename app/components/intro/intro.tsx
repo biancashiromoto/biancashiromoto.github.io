@@ -1,4 +1,4 @@
-import { useLanguage } from "@/app/context/LanguageContext";
+import { useLanguage } from "@/app/context/LanguageProvider";
 import styles from "./intro.module.scss";
 import { altText } from "@/app/helpers/acessibility";
 import Image from "next/image";

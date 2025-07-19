@@ -1,7 +1,7 @@
 "use client";
 
 import { CustomLink as Link } from "@/app/components/link/link";
-import { useLanguage } from "@/app/context/LanguageContext";
+import { useLanguage } from "@/app/context/LanguageProvider";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { GrDocumentPdf } from "react-icons/gr";
 import styles from "./links-container.module.scss";
