@@ -27,21 +27,6 @@
   }
 }
 
-@keyframes blink {
-  0% {
-    background-color: unset;
-    color: inherit;
-  }
-  50% {
-    background-color: $white;
-    color: $black;
-  }
-  100% {
-    background-color: $gray;
-    color: $white;
-  }
-}
-
 * {
   background-color: $black;
   font-family: $font-family;
@@ -53,7 +38,14 @@
 html {
   font-size: max(1rem, calc(100vw / 320 * 10));
   scroll-behavior: smooth;
-}
+
+		@media (min-width: 501px) and (max-width: 1024px) {
+			font-size: max(1.25rem, calc(100vw / 800 * 10));
+		}
+
+	@media (min-width: 1025px) {
+		font-size: max(1.25rem, calc(100vw / 1920 * 10));
+	}
 
 ::-webkit-scrollbar {
   display: none;
@@ -64,14 +56,5 @@ body {
   overflow: auto;
 }
 
-@media (min-width: 501px) and (max-width: 1024px) {
-  html {
-    font-size: max(1.25rem, calc(100vw / 800 * 10));
-  }
-}
 
-@media (min-width: 1025px) {
-  html {
-    font-size: max(1.25rem, calc(100vw / 1920 * 10));
-  }
 }
