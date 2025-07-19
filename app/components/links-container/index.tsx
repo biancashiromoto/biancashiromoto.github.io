@@ -1,55 +1,34 @@
 "use client";
 
+import { CustomLink as Link } from "@/app/components/link/link";
 import { useLanguage } from "@/app/context/LanguageContext";
-import { FaGithub, FaLinkedin, FaProjectDiagram } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { GrDocumentPdf } from "react-icons/gr";
-import { getAriaLabel } from "../../helpers/acessibility";
-import { dataTestIds } from "../../helpers/dataTestIds";
-import { Link } from "../Link";
 import styles from "./links-container.module.scss";
 
 export const LinksContainer = () => {
-  const { isLanguagePortuguese, information } = useLanguage();
+  const { information } = useLanguage();
 
   return (
     <div className={styles["links-container"]}>
-      <Link.Root
-        ariaLabel={getAriaLabel(isLanguagePortuguese).pages.projects}
-        className="hover:scale-125"
-        link="/projects"
-        target="_self"
-        testid={dataTestIds.links.projects}
-        text={information._checkMyProjects}
-      >
-        <FaProjectDiagram />
-      </Link.Root>
-      <Link.Root
-        ariaLabel={getAriaLabel(isLanguagePortuguese).links.github}
-        className="hover:scale-125"
-        link={information._githubLink}
-        testid={dataTestIds.links.github}
-        text={information._gitHubTooltip}
+      <Link
+        path={information._githubLink}
+        aria-label={information._gitHubTooltip}
       >
         <FaGithub />
-      </Link.Root>
-      <Link.Root
-        ariaLabel={getAriaLabel(isLanguagePortuguese).links.linkedin}
-        className="hover:scale-125"
-        link={information._linkedinLink}
-        testid={dataTestIds.links.linkedin}
-        text={information._linkedinTooltip}
+      </Link>
+      <Link
+        path={information._linkedinLink}
+        aria-label={information._linkedinTooltip}
       >
         <FaLinkedin />
-      </Link.Root>
-      <Link.Root
-        ariaLabel={getAriaLabel(isLanguagePortuguese).links.resume}
-        className="hover:scale-125"
-        link={information._resumeLink}
-        testid={dataTestIds.links.downloadMyCV}
-        text={information._downloadMyCV}
+      </Link>
+      <Link
+        path={information._resumeLink}
+        aria-label={information._downloadMyCV}
       >
         <GrDocumentPdf />
-      </Link.Root>
+      </Link>
     </div>
   );
 };

@@ -7,4 +7,20 @@
   font-size: $large;
   justify-content: space-between;
   width: 75%;
+
+  @media screen and (min-width: $screen-large) {
+    width: 50%;
+  }
+
+  svg {
+    fill: $gray;
+    stroke: $gray;
+    transition: fill 0.3s ease, stroke 0.3s ease, scale 0.3s ease;
+
+    &:hover {
+      fill: $white;
+      stroke: $white;
+      scale: 1.125;
+    }
+  }
 }
