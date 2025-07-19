@@ -1,17 +1,18 @@
 "use client";
 
-import { useLanguage } from "@/src/context/LanguageContext";
+import { useLanguage } from "@/app/context/LanguageContext";
 import { FaGithub, FaLinkedin, FaProjectDiagram } from "react-icons/fa";
 import { GrDocumentPdf } from "react-icons/gr";
 import { getAriaLabel } from "../../helpers/acessibility";
 import { dataTestIds } from "../../helpers/dataTestIds";
 import { Link } from "../Link";
+import styles from "./links-container.module.scss";
 
 export const LinksContainer = () => {
   const { isLanguagePortuguese, information } = useLanguage();
 
   return (
-    <div className="links-container">
+    <div className={styles["links-container"]}>
       <Link.Root
         ariaLabel={getAriaLabel(isLanguagePortuguese).pages.projects}
         className="hover:scale-125"
