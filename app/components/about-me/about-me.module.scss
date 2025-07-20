@@ -4,7 +4,6 @@
   font-size: 1rem;
   height: calc(75dvh - $header-height);
   line-height: 2.5rem;
-		transform: translateY(-12.5%);
 
   & > * {
 			margin-bottom: 1.25rem;
@@ -14,13 +13,9 @@
 			transition: color 0.3s ease-in-out;
 		}
 
-  @media screen and (min-width: $screen-min-medium) {
-			height: calc(50dvh - $header-height);
-  }
-
   @media screen and (min-width: $screen-large) {
 			max-width: 500px;
 			height: fit-content;
-			transform: translateY(0px);
+			transform: translateY(-12.5%);
   }
 }
