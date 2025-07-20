@@ -12,6 +12,7 @@
 
   @media screen and (min-width: $screen-large) {
     width: clamp(220px, 50%, 300px);
+				transform: translateY(0px);
   }
 
   svg {
