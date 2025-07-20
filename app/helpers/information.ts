@@ -62,6 +62,5 @@ export const information = (isLanguagePortuguese: boolean) => ({
 				type: "work"
 			},
 		]
-
 	}
 });
