@@ -12,24 +12,6 @@ export default class Utils {
 	}
 
 	/**
-   * Scrolls to the provided element in the page.
-   * @param href String containing the id of the target element.
-   */
-	public scrollTo(href: string): void {
-		const element = document.querySelector(href);
-		if (element) {
-			element.scrollIntoView({ behavior: "smooth" });
-		}
-	}
-
-	/**
-   * Scrolls to the top of the page.
-   */
-	public scrollToTop(): void {
-		window.scrollTo({ top: 0, behavior: "smooth" });
-	}
-
-	/**
    * Sets the parameter key and value to localStorage.
    * @param key The key to be set to localStorage.
    * @param value The value to be set to localStorage.
