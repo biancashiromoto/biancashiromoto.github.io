@@ -4,7 +4,7 @@ import { useProximityTextColor } from "./hooks/useProximityTextColor";
 
 const AboutMe = () => {
 	const { information } = useLanguage();
-	const proximityRef = useProximityTextColor("gray", 25);
+	const proximityRef = useProximityTextColor("white", 35);
 
 	const wrapText = (text: string) =>
 		text.split("").map((char, i) => (
