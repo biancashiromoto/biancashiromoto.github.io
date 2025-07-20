@@ -7,6 +7,8 @@
   font-size: $large;
   justify-content: space-between;
   width: clamp(220px, 60%, 300px);
+		z-index: 1;
+		transform: translateY(-100%);
 
   @media screen and (min-width: $screen-large) {
     width: clamp(220px, 50%, 300px);
