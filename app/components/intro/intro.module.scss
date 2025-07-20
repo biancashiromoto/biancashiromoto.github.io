@@ -18,7 +18,8 @@
   }
 
   @media screen and (min-width: $screen-large) {
-    height: fit-content;
-    margin-top: 0;
+			height: fit-content;
+			margin-top: 0;
+			transform: translateY(-25%);
   }
 }
