@@ -1,9 +1,15 @@
+@use "@/app/styles/variables.scss" as *;
+
 .hero {
 	position: absolute;
 	overflow: hidden;
 	box-shadow: 0 0 30px rgba(0,0,0,0.7);
 	top: 50dvh;
 	max-width: 400px;
+
+	@media screen and (min-width: $screen-large) {
+		transform: translateY(-25%);
+	}
 }
 
 .imageContainer {
