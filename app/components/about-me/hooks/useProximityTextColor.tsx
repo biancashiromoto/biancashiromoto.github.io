@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
  * @param radius Raio de proximidade em pixels.
  * @returns ref para ser usada no container do texto.
  */
-export function useProximityTextColor(color: string = "blue", radius: number = 5) {
+export function useProximityTextColor(color: string = "white", radius: number = 5) {
 	const containerRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
@@ -24,8 +24,10 @@ export function useProximityTextColor(color: string = "blue", radius: number = 5
 				const distance = Math.sqrt(dx * dx + dy * dy);
 				if (distance <= radius) {
 					htmlSpan.style.color = color;
+					htmlSpan.style.fontWeight = "600";
 				} else {
 					htmlSpan.style.color = "";
+					htmlSpan.style.fontWeight = "normal";
 				}
 			});
 		}
