@@ -14,7 +14,7 @@ const ButtonScrollToTop = () => {
 			onClick={handleScrollToTop}
 			aria-label={information._scrollToTopButtonLabel}
 		>
-			<BsArrowUp />
+			<BsArrowUp title={information._scrollToTopButtonLabel} />
 		</button>
 	);
 };
