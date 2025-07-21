@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import styles from "./typewriter.module.scss";
 
-const Typewriter = ({ text, delay, infinite }: { text: string; delay: number; infinite: boolean }) => {
+const Typewriter = ({
+	text, delay, infinite
+}: { text: string; delay: number; infinite: boolean }) => {
 	const [currentText, setCurrentText] = useState("");
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [showCursor, setShowCursor] = useState(true);

@@ -9,13 +9,9 @@ import React, {
 	useState,
 } from "react";
 
-const WindowResizeContext = createContext<{ width: number }>({
-	width: 0,
-});
+const WindowResizeContext = createContext<{ width: number }>({ width: 0, });
 
-export const WindowResizeProvider: FC<{ children: ReactNode }> = ({
-	children,
-}) => {
+export const WindowResizeProvider: FC<{ children: ReactNode }> = ({ children, }) => {
 	const [width, setWidth] = useState(0);
 
 	useEffect(() => {

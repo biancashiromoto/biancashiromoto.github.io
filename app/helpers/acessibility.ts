@@ -22,16 +22,10 @@ export const getAriaLabel = (isLanguagePortuguese: boolean) => ({
 		projects: isLanguagePortuguese ? "Ir para a página de Projetos" : "Go to Projects page",
 		return: isLanguagePortuguese ? "Voltar à página anterior" : "Return to the previous page",
 	},
-	timeline: {
-		description: isLanguagePortuguese ? "Linha do tempo de experiência profissional e educação" : "Timeline of experience and education",
-	}
+	timeline: { description: isLanguagePortuguese ? "Linha do tempo de experiência profissional e educação" : "Timeline of experience and education", }
 });
 
 export const altText = (isLanguagePortuguese: boolean) => ({
-	home: {
-		profilePicture: isLanguagePortuguese ? "Sou uma mulher de cabelos e olhos cabelos escuros e estou usando uma camiseta cinza e preta." : "I am a woman with dark brown eyes and hair and I am wearing a black and gray T-shirt.",
-	},
-	projects: {
-		projectImage: (projectTitle: string) => isLanguagePortuguese ? `Screenshot do projeto ${projectTitle}` : `Project ${projectTitle}'s screenshot`,
-	}
+	home: { profilePicture: isLanguagePortuguese ? "Sou uma mulher de cabelos e olhos cabelos escuros e estou usando uma camiseta cinza e preta." : "I am a woman with dark brown eyes and hair and I am wearing a black and gray T-shirt.", },
+	projects: { projectImage: (projectTitle: string) => isLanguagePortuguese ? `Screenshot do projeto ${projectTitle}` : `Project ${projectTitle}'s screenshot`, }
 });

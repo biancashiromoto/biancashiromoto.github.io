@@ -23,8 +23,7 @@ export const ScrollProvider: FC<{ children: ReactNode }> = ({ children }) => {
 	useEffect(() => {
 		const updateScrollProgress = () => {
 			const scrollTop = window.scrollY;
-			const docHeight =
-									document.documentElement.scrollHeight - window.innerHeight;
+			const docHeight = document.documentElement.scrollHeight - window.innerHeight;
 			const progress = (scrollTop / docHeight) * 100;
 			setScrollProgress(progress);
 		};
@@ -34,11 +33,7 @@ export const ScrollProvider: FC<{ children: ReactNode }> = ({ children }) => {
 	}, []);
 
 	return (
-		<ScrollContext.Provider
-			value={{
-				scrollProgress,
-			}}
-		>
+		<ScrollContext.Provider value={{ scrollProgress }}>
 			{children}
 		</ScrollContext.Provider>
 	);

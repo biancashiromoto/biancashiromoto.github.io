@@ -8,6 +8,7 @@ const AboutMe = () => {
 
 	const wrapText = (text: string) =>
 		text.split("").map((char, i) => (
+
 			<span data-char key={i}>{char}</span>
 		));
 

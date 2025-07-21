@@ -35,7 +35,5 @@ export const useHeroScrollEffect = () => {
 		};
 	}, []);
 
-	return {
-		imageRef,
-	};
+	return { imageRef };
 };
