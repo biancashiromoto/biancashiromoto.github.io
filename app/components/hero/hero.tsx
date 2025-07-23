@@ -21,6 +21,8 @@ const Hero: FC = () => {
 					layout="responsive"
 					width={700}
 					height={475}
+					priority
+					placeholder="blur"
 				/>
 			</div>
 		</section>
