@@ -1,0 +1,58 @@
+@use "@/app/styles/variables" as *;
+
+.switch {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	font-size: 1rem;
+	margin-left: 8px;
+	transition: transform 0.3s;
+	&:hover { color: $white; font-weight: 800; }
+
+	&:focus-visible { outline: 2px solid $white; }
+
+	input {
+		opacity: 0;
+		width: 40px;
+		height: 20px;
+		position: absolute;
+		z-index: 2;
+		cursor: pointer;
+
+		&:focus-visible + .slider {
+			outline: 2px solid $white;
+		}
+
+		&:checked + .slider {
+			background: $cyan;
+			&:hover { background: lighten($cyan, 10%); }
+		}
+
+		&:checked + .slider:before {
+			transform: translateX(20px);
+		}
+	}
+
+	.slider {
+		width: 40px;
+		height: 20px;
+		background: $orange;
+		&:hover { background: lighten($orange, 10%); }
+		border-radius: 20px;
+		position: relative;
+		transition: background 0.4s ease;
+		margin-right: 8px;
+
+		&:before {
+			content: "";
+			position: absolute;
+			left: 2px;
+			top: 2px;
+			width: 16px;
+			height: 16px;
+			background: #fff;
+			border-radius: 50%;
+			transition: transform 0.4s ease;
+		}
+	}
+}
