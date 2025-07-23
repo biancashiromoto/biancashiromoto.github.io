@@ -1,0 +1,54 @@
+@import "@/app/styles/variables.scss";
+
+.loaderContainer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: $black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 9999;
+}
+
+.loader {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.dot {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	animation: pulse 1.4s infinite ease-in-out both;
+}
+
+.dot:nth-child(1) {
+	animation-delay: -0.32s;
+	background-color: $cyan;
+}
+
+.dot:nth-child(2) {
+	animation-delay: -0.16s;
+	background-color: $white;
+}
+
+.dot:nth-child(3) {
+	animation-delay: 0s;
+	background-color: $orange;
+}
+
+@keyframes pulse {
+	0%,
+	80%,
+	100% {
+		transform: scale(0);
+		opacity: 0.5;
+	}
+	40% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
