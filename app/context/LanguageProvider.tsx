@@ -12,14 +12,15 @@ import {
 } from "react";
 import Information from "../helpers/classes/Information";
 import Utils from "../helpers/classes/Utils";
+import Loader from "../components/loader/loader";
 
 type Language = "pt" | "en";
 
 interface LanguageContextProps {
   isLanguagePortuguese: boolean;
-  setLanguage: (lang: Language) => void;
   toggleLanguage: () => void;
   information: Information;
+  isLoading: boolean;
 }
 
 const LanguageContext = createContext<LanguageContextProps>(
@@ -29,6 +30,7 @@ const LanguageContext = createContext<LanguageContextProps>(
 export const LanguageProvider: FC<{ children: ReactNode }> = ({ children }) => {
 	const utils = new Utils();
 	const [language, setLanguage] = useState<Language>("en");
+	const [isLoading, setIsLoading] = useState(true);
 
 	useLayoutEffect(() => {
 		const savedLanguage = typeof localStorage !== "undefined"
@@ -40,6 +42,9 @@ export const LanguageProvider: FC<{ children: ReactNode }> = ({ children }) => {
 		} else {
 			setLanguage(utils.isLanguagePortuguese() ? "pt" : "en");
 		}
+		setTimeout(() => {
+			setIsLoading(false);
+		}, 150);
 	}, [utils]);
 
 	const toggleLanguage = useCallback(() => {
@@ -60,12 +65,12 @@ export const LanguageProvider: FC<{ children: ReactNode }> = ({ children }) => {
 		<LanguageContext.Provider
 			value={{
 				isLanguagePortuguese: language === "pt",
-				setLanguage,
 				toggleLanguage,
 				information,
+				isLoading,
 			}}
 		>
-			{children}
+			{isLoading ? <Loader /> : children}
 		</LanguageContext.Provider>
 	);
 };
