@@ -31,12 +31,26 @@ export const LanguageProvider: FC<{ children: ReactNode }> = ({ children }) => {
 	const [language, setLanguage] = useState<Language>("en");
 
 	useLayoutEffect(() => {
-		setLanguage(utils.isLanguagePortuguese() ? "pt" : "en");
-	}, []);
+		const savedLanguage = typeof localStorage !== "undefined"
+			? localStorage.getItem("preferredLanguage")
+			: null;
+
+		if (savedLanguage && (savedLanguage === "pt" || savedLanguage === "en")) {
+			setLanguage(savedLanguage as Language);
+		} else {
+			setLanguage(utils.isLanguagePortuguese() ? "pt" : "en");
+		}
+	}, [utils]);
 
 	const toggleLanguage = useCallback(() => {
-		setLanguage((prev) => (prev === "pt" ? "en" : "pt"));
-	}, [setLanguage]);
+		setLanguage((prev) => {
+			const newLanguage = prev === "pt" ? "en" : "pt";
+			if (typeof localStorage !== "undefined") {
+				localStorage.setItem("preferredLanguage", newLanguage);
+			}
+			return newLanguage;
+		});
+	}, []);
 
 	const information = useMemo(() => {
 		return language === "pt" ? new Information("pt") : new Information("en");
