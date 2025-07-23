@@ -10,9 +10,12 @@ const Intro = () => {
 	const { information, isLanguagePortuguese } = useLanguage();
 
 	const imageProps = {
-		alt: altText(isLanguagePortuguese).home.profilePicture, src: information._profilePictureURL,width: 200,
+		alt: altText(isLanguagePortuguese).home.profilePicture,
+		src: information._profilePictureURL,
+		width: 200,
 		height: 200,
 		className: styles["profile-picture"],
+		priority: true,
 	};
 
 	return (
