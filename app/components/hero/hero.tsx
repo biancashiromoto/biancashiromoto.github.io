@@ -18,9 +18,8 @@ const Hero: FC = () => {
 				<Image
 					src={imageUrl}
 					alt="Laptop"
-					layout="responsive"
-					width={700}
-					height={475}
+					width={300}
+					height={undefined}
 					priority
 					placeholder="blur"
 				/>
