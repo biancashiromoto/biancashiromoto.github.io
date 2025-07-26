@@ -1,0 +1,24 @@
+.timeline {
+	margin: 0 auto 7.5rem;
+	width: clamp(90dvw, 50dvw, 75dvw);
+
+  .item {
+		h3, h4, span {
+			text-align: left;
+		}
+  }
+
+  @media screen and (min-width: $screen-timeline) {
+		.left-content {
+			h3, h4, span {
+				text-align: left;
+			}
+		}
+
+		.right-content {
+			h3, h4, span {
+				text-align: right;
+			}
+		}
+	}
+}
