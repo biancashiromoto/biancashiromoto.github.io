@@ -5,11 +5,13 @@ import Image from "next/image";
 import { LinksContainer } from "../links-container";
 import Hero from "../hero/hero";
 import GreetingMessage from "./greeting-message/greeting-message";
+import { useWindowResize } from "@/app/context/WindowResizeProvider";
 
 const Intro = () => {
 	const {
 		information, isLanguagePortuguese, isLoading
 	} = useLanguage();
+	const { width } = useWindowResize();
 
 	const imageProps = {
 		alt: altText(isLanguagePortuguese).home.profilePicture,
@@ -27,7 +29,7 @@ const Intro = () => {
 			<Image {...imageProps} />
 			<GreetingMessage {...information} />
 			<LinksContainer />
-			<Hero />
+			{width <= 1023 && <Hero />}
 		</div>
 	);
 };
