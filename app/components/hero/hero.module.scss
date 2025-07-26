@@ -4,17 +4,44 @@
 	position: absolute;
 	overflow: hidden;
 	box-shadow: 0 0 30px rgba(0,0,0,0.7);
-	top: 50dvh;
-	max-width: 400px;
+	border-radius: 8px;
 
-	@media screen and (min-width: $screen-large) {
-		transform: translateY(-25%);
-	}
+	top: 45dvh;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 280px;
+	height: 200px;
 }
 
 .imageContainer {
-	transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.1s ease-out, opacity 0.3s ease-in-out;
 	transform-origin: center;
 	transform: scale(var(--image-scale, 1));
-	opacity: var(--image-opacity, 1);
+	opacity: var(--image-opacity, 0.3);
+
+	&.loaded {
+		opacity: var(--image-opacity, 1);
+		animation: fadeInImage 0.8s ease-in-out;
+	}
+
+	// Hover effect para desktop
+	@media screen and (min-width: $screen-large) {
+		&:hover {
+			transform: scale(var(--image-scale, 1.02));
+		}
+	}
+}
+
+@keyframes fadeInImage {
+	from {
+		opacity: 0.3;
+		transform: scale(var(--image-scale, 0.95));
+	}
+	to {
+		opacity: var(--image-opacity, 1);
+		transform: scale(var(--image-scale, 1));
+	}
 }
