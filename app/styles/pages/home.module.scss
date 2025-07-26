@@ -10,4 +10,8 @@
     grid-template-columns: repeat(2, 1fr);
     max-width: 70dvw;
   }
+
+	@media screen and (min-width: $screen-x-large) {
+		max-width: 50dvw;
+	}
 }
