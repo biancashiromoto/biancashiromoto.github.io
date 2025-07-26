@@ -30,7 +30,7 @@
 @keyframes fadeInImage {
 	from {
 		opacity: 0.3;
-		transform: scale(var(--image-scale, 0.95));
+		transform: scale(var(--image-scale, 0.5));
 	}
 	to {
 		opacity: var(--image-opacity, 1);
