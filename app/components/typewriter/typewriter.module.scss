@@ -1,3 +1,5 @@
+@use "sass:color";
+
 .typewriter {
 	display: inline-block;
 	min-width: 65px;
@@ -9,7 +11,16 @@
 
 .cursor {
 	opacity: 1;
-	transition: opacity 0.1s ease-in-out;
+	transition: opacity 0.1s ease-in-out, color 0.3s ease;
+	font-size: 1.25rem;
+
+	&.orange {
+		color: color.adjust($orange, $lightness: 15%);
+	}
+
+	&.blue {
+		color: color.adjust($cyan, $lightness: 15%);
+	}
 
 	&.hidden {
 		opacity: 0;
