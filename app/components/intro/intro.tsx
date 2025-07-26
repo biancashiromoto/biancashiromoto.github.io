@@ -7,14 +7,18 @@ import Hero from "../hero/hero";
 import GreetingMessage from "./greeting-message/greeting-message";
 
 const Intro = () => {
-	const { information, isLanguagePortuguese } = useLanguage();
+	const {
+		information, isLanguagePortuguese, isLoading
+	} = useLanguage();
 
 	const imageProps = {
 		alt: altText(isLanguagePortuguese).home.profilePicture,
 		src: information._profilePictureURL,
 		width: 200,
 		height: 200,
-		className: styles["profile-picture"],
+		className: !isLoading
+			? `${styles["profile-picture"]} ${styles["profile-picture--loaded"]}`
+			: styles["profile-picture"],
 		priority: true,
 	};
 

@@ -11,8 +11,25 @@
   .profile-picture {
     border-radius: 50%;
     border: solid calc($small / 7.5) $white;
-    width: clamp(120px, 20vw, 175px);
+    width: clamp(150px, 20vw, 200px);
     height: auto;
+    opacity: 0;
+    transform: translateY(20px);
+
+		&--loaded {
+			animation: profileFadeInUp 0.6s ease-out forwards;
+		}
+  }
+
+  @keyframes profileFadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @media screen and (min-width: $screen-large) {
