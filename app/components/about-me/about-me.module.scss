@@ -3,6 +3,7 @@
   height: calc(75dvh - $header-height);
   line-height: 2.5rem;
 	justify-self: center;
+	padding: 0 1.5rem;
 
   & > * {
 			margin-bottom: 1.25rem;
@@ -19,6 +20,11 @@
   }
 
   @media screen and (min-width: $screen-large) {
-			max-width: 500px;
+			max-width: 600px;
+			transform: translateY(35%);
   }
+
+	@media screen and (min-width: $screen-x-large) {
+		transform: translateY(50%);
+	}
 }
