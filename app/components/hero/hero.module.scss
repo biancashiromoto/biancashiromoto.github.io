@@ -5,10 +5,6 @@
 	border-radius: 8px;
 
 	top: 45dvh;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 280px;
-	height: 200px;
 }
 
 .imageContainer {
@@ -25,11 +21,9 @@
 		animation: fadeInImage 0.8s ease-in-out;
 	}
 
-	// Hover effect para desktop
-	@media screen and (min-width: $screen-large) {
-		&:hover {
-			transform: scale(var(--image-scale, 1.02));
-		}
+	img {
+		width: clamp(350px, 300vw, 50%);
+		height: auto;
 	}
 }
 
