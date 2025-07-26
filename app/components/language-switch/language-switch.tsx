@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./switch.module.scss";
+import styles from "./language-switch.module.scss";
 
 interface SwitchProps {
   checked: boolean;
@@ -7,7 +7,7 @@ interface SwitchProps {
   label: string;
 }
 
-const Switch: React.FC<SwitchProps> = ({
+const LanguageSwitch: React.FC<SwitchProps> = ({
 	checked, onChange, label
 }) => {
 
@@ -30,4 +30,4 @@ const Switch: React.FC<SwitchProps> = ({
 	);
 };
 
-export default Switch;
+export default LanguageSwitch;
