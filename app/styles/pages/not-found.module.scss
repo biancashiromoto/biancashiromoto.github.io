@@ -1,0 +1,219 @@
+@import "../variables.scss";
+
+.notFound {
+	min-height: 100dvh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(135deg, $black 0%, darken($black, 5%) 100%);
+	color: $white;
+	font-family: $font-family;
+	overflow: hidden;
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: repeating-linear-gradient(
+			90deg,
+			transparent,
+			transparent 2px,
+			rgba($cyan, 0.03) 2px,
+			rgba($cyan, 0.03) 4px
+		);
+		pointer-events: none;
+	}
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: $large;
+	max-width: 90%;
+	z-index: 1;
+
+	@media (min-width: $screen-min-medium) {
+		flex-direction: row;
+		text-align: left;
+		max-width: 800px;
+		gap: $xx-large;
+	}
+}
+
+.content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: $medium;
+
+	p {
+		font-size: 1rem;
+		color: $gray;
+		margin: 0;
+		line-height: 1.6;
+		max-width: 400px;
+
+		@media (min-width: $screen-min-medium) {
+			font-size: 1.1rem;
+		}
+	}
+
+	h2 {
+		font-size: 1.5rem;
+		color: $white;
+		margin: 0;
+		font-weight: 400;
+
+		@media (min-width: $screen-min-medium) {
+			font-size: 2rem;
+		}
+	}
+
+	h1 {
+		font-size: 6rem;
+		font-weight: bold;
+		color: $cyan;
+		margin: 0;
+		text-shadow: 0 0 20px rgba($cyan, 0.5);
+
+		@media (min-width: $screen-min-medium) {
+			font-size: 8rem;
+		}
+	}
+}
+
+.homeLink {
+	display: inline-block;
+	padding: $small $medium;
+	background: transparent;
+	color: $cyan;
+	text-decoration: none;
+	border: 2px solid $cyan;
+	border-radius: 4px;
+	font-family: $font-family--button;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	transition: all 0.3s ease;
+	align-self: flex-start;
+
+	@media (max-width: $screen-min-medium) {
+		align-self: center;
+	}
+
+	&:hover {
+		background: $cyan;
+		color: $black;
+		transform: translateY(-2px);
+		box-shadow: 0 4px 15px rgba($cyan, 0.3);
+	}
+
+	&:active {
+		transform: translateY(0);
+	}
+}
+
+.animation {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 200px;
+
+	@media (min-width: $screen-min-medium) {
+		min-height: 300px;
+	}
+}
+
+.glitch {
+	font-size: 8rem;
+	font-weight: bold;
+	color: $white;
+	position: relative;
+	text-shadow:
+		0.05em 0 0 $cyan,
+		-0.05em -0.025em 0 $orange,
+		0.025em 0.05em 0 $rose;
+	animation: glitch 2s infinite;
+
+	@media (min-width: $screen-min-medium) {
+		font-size: 12rem;
+	}
+
+	&::before,
+	&::after {
+		content: "404";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	&::before {
+		animation: glitch-1 0.8s infinite;
+		color: $cyan;
+		z-index: -1;
+	}
+
+	&::after {
+		animation: glitch-2 0.8s infinite;
+		color: $orange;
+		z-index: -2;
+	}
+}
+
+@keyframes glitch {
+	0%, 74%, 76%, 100% {
+		transform: translate(0);
+	}
+	75% {
+		transform: translate(-2px, 2px);
+	}
+}
+
+@keyframes glitch-1 {
+	0%, 7%, 10%, 40%, 42%, 100% {
+		transform: translate(0);
+	}
+	8%, 9% {
+		transform: translate(-2px, 2px);
+	}
+	41% {
+		transform: translate(-2px, 0);
+	}
+}
+
+@keyframes glitch-2 {
+	0%, 20%, 22%, 62%, 64%, 100% {
+		transform: translate(0);
+	}
+	21% {
+		transform: translate(2px, 0);
+	}
+	63% {
+		transform: translate(2px, -2px);
+	}
+}
+
+// Efeito de fade in
+.notFound {
+	animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
