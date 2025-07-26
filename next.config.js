@@ -11,6 +11,9 @@ const nextConfig = {
 	experimental: {
 		optimizePackageImports: ["next/image"],
 	},
+	sassOptions: {
+		additionalData: `@use "@/app/styles/variables" as *;`,
+	},
 };
 
 module.exports = nextConfig;
