@@ -1,7 +1,5 @@
-@import "../variables.scss";
-
 .notFound {
-	min-height: 100dvh;
+	min-height: calc(100vh - $header-height);
 	display: flex;
 	align-items: center;
 	justify-content: center;
