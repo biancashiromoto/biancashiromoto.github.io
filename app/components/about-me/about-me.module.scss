@@ -2,14 +2,15 @@
   font-size: 1rem;
   height: calc(75dvh - $header-height);
   line-height: 2.5rem;
+	justify-self: center;
 
   & > * {
 			margin-bottom: 1.25rem;
   }
 
-		span {
-			transition: color 0.3s ease-in-out;
-		}
+	span {
+		transition: color 0.3s ease-in-out;
+	}
 
   @media screen and (min-width: $medium) {
 			height: fit-content;
