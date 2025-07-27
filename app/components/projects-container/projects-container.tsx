@@ -9,6 +9,7 @@ import {
 } from "react";
 import styles from "./projects-container.module.scss";
 import Utils from "@/app/helpers/classes/Utils";
+import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
 const utils = new Utils();
 const storagedRepos = utils.getLocalStorage("repos");
@@ -98,9 +99,33 @@ const ProjectsContainer = () => {
 			onWheel={handleWheel}
 			ref={containerRef}
 		>
+			{currentCardIndex < repos.length - 1 && (
+				<button
+					type="button"
+					className={styles["scroll-next"]}
+					onClick={() => {
+						scrollToCard(currentCardIndex + 1);
+					}}
+					aria-label="Scroll to next project"
+				>
+					<BsArrowRight />
+				</button>
+			)}
 			{repos.map(repo => (
 				<ProjectCard key={repo.id} repo={repo} />
 			))}
+			{currentCardIndex > 0 && (
+				<button
+					type="button"
+					className={styles["scroll-previous"]}
+					onClick={() => {
+						scrollToCard(currentCardIndex - 1);
+					}}
+					aria-label="Scroll to previous project"
+				>
+					<BsArrowLeft />
+				</button>
+			)}
 		</div>
 	);
 };
