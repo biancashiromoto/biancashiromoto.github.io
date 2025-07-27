@@ -1,7 +1,9 @@
 .projects {
 	width: 100%;
-	height: calc(100dvh - (2 * $header-height));
+	height: calc(100dvh - $header-height);
+	position: relative;
 	overflow: hidden;
+	text-align: center;
 
 	::-webkit-scrollbar {
 		display: inline;
@@ -12,17 +14,6 @@
 			background: $gray;
 			border-radius: 4px;
 		}
-	}
-
-	h1 {
-		position: absolute;
-		top: $header-height;
-		left: 50%;
-		transform: translateX(-50%);
-		z-index: 10;
-		padding: 1rem 0;
-		background-color: $black;
-		width: 100%;
 	}
 
 	@media screen and (min-width: $screen-large) {
