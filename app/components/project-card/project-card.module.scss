@@ -20,12 +20,6 @@
 		}
 	}
 
-	@media screen and (min-width: $screen-large) {
-		width: 50dvw;
-		height: auto;
-		transform: translate(100%, 7.5%);
-	}
-
 	img {
 		width: clamp(160px, 40dvw, 350px);
 		height: auto;
