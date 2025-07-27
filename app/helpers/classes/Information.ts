@@ -25,7 +25,7 @@ export default class Information {
 	public _downloadMyCV: string;
 	public _scrollToTopButtonLabel: string;
 
-	constructor(language: string) {
+	constructor(language: string = "en") {
 		this._profilePictureAltText =
 			language === "en"
 				? "I am a woman with dark brown eyes and hair and I am wearing a black and gray T-shirt."
