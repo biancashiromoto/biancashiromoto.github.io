@@ -18,7 +18,7 @@ const GreetingMessage = (information: Information) => {
 				} else {
 					return (
 						<>
-							<br />
+							{index > 0 && <br />}
 							<span key={index}>{line}</span>
 						</>
 					);
