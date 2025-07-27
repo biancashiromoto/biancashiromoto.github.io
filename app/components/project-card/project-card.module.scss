@@ -1,18 +1,18 @@
 .project-card {
-	width: 100dvw;
+	width: 90dvw;
 	height: max-content;
 	flex-shrink: 0;
 	box-sizing: border-box;
 	transform: translate(200%, 7.5%);
 	position: relative;
-	padding: 0 2rem;
+	padding: 0 2.5rem;
 	display: flex;
 	flex-direction: column;
 	gap: 0.75rem;
 	align-items: center;
 	justify-content: center;
-
-	scroll-snap-align: start;
+	scroll-snap-align: center;
+	overflow: hidden;
 
 	.content {
 		@media screen and (min-width: $screen-min-medium) {
