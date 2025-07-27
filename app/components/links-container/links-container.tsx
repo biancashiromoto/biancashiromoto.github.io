@@ -2,7 +2,9 @@
 
 import { CustomLink as Link } from "@/app/components/link/link";
 import { useLanguage } from "@/app/context/LanguageProvider";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import {
+	FaGithub, FaLinkedin, FaProjectDiagram
+} from "react-icons/fa";
 import { GrDocumentPdf } from "react-icons/gr";
 import styles from "./links-container.module.scss";
 
@@ -11,6 +13,9 @@ export const LinksContainer = () => {
 
 	return (
 		<div className={styles["links-container"]}>
+			<Link path="/projects" aria-label={information._projects}>
+				<FaProjectDiagram title={information._projects} />
+			</Link>
 			<Link path={information._githubLink} aria-label={information._gitHubTooltip}>
 				<FaGithub title={information._gitHubTooltip} />
 			</Link>
