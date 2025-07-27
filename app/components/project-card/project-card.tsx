@@ -6,6 +6,9 @@ import Link from "next/link";
 import { useMemo } from "react";
 import { useReadMore } from "./hooks/useReadMore";
 import styles from "./project-card.module.scss";
+import Utils from "@/app/helpers/classes/Utils";
+
+const utils = new Utils();
 
 const ProjectCard = ({ repo }: { repo: Repository }) => {
 	const screenshotUrl = useMemo(() =>
@@ -20,7 +23,7 @@ const ProjectCard = ({ repo }: { repo: Repository }) => {
 
 	return (
 		<div key={repo.id} className={styles["project-card"]}>
-			<h2>{repo.name}</h2>
+			<h2>{utils.formatProjectTitle(repo.name)}</h2>
 			<div className={styles.content}>
 				<div className={styles.description}>
 					<p>{displayText}{shouldTruncate && !isExpanded && "..."}</p>
