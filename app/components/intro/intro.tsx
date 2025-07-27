@@ -2,7 +2,7 @@ import { useLanguage } from "@/app/context/LanguageProvider";
 import styles from "./intro.module.scss";
 import { altText } from "@/app/helpers/acessibility";
 import Image from "next/image";
-import { LinksContainer } from "../links-container";
+import { LinksContainer } from "../links-container/links-container";
 import Hero from "../hero/hero";
 import GreetingMessage from "./greeting-message/greeting-message";
 import { useWindowResize } from "@/app/context/WindowResizeProvider";
