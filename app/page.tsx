@@ -12,7 +12,7 @@ function HomePage() {
 	const { width } = useWindowResize();
 	return (
 		<div className={styles.home} id="home-start">
-			<div className={styles.home__container}>
+			<div className={styles.container}>
 				<Intro />
 				<AboutMe />
 			</div>
