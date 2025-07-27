@@ -4,7 +4,7 @@
   align-items: center;
 	height: calc(100dvh - (2 * $header-height));
 	justify-content: space-between;
-	margin-top: $header-height / 2;
+	margin-top: $header-height;
 
   img.profile-picture {
     border-radius: 50%;
@@ -30,9 +30,10 @@
     }
   }
 
-//   @media screen and (min-width: $screen-large) {
-// 			height: fit-content;
-// 			margin-top: 0;
-// 			transform: translateY(-25%);
-//   }
+  @media screen and (min-width: $screen-large) {
+			height: 50dvh;
+			max-height: 450px;
+			margin-top: 0;
+			transform: translateY(-25%);
+  }
 }

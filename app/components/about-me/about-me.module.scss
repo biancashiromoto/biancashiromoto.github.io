@@ -1,9 +1,10 @@
 .about-me {
   font-size: 1rem;
-  height: calc(75dvh - $header-height);
-  line-height: 2.5rem;
+  height: calc(100dvh - $header-height);
+  line-height: 2.25rem;
 	justify-self: center;
-	padding: 0 1.5rem;
+	margin-top: calc(50dvh - $header-height);
+	max-width: 480px;
 
   & > * {
 			margin-bottom: 1.25rem;
@@ -13,18 +14,9 @@
 		transition: color 0.3s ease-in-out;
 	}
 
-  @media screen and (min-width: $medium) {
-			height: fit-content;
-			margin-bottom: 50dvh;
-			transform: translateY(50%);
-  }
-
   @media screen and (min-width: $screen-large) {
-			max-width: 600px;
-			transform: translateY(35%);
+			height: fit-content;
+			margin-top:0;
+			transform: translateY(-15%);
   }
-
-	@media screen and (min-width: $screen-x-large) {
-		transform: translateY(50%);
-	}
 }

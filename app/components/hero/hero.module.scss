@@ -1,47 +1,18 @@
 .hero {
-	position: absolute;
-	overflow: hidden;
-	box-shadow: 0 0 30px rgba(0,0,0,0.7);
-	border-radius: 8px;
-
-	top: 45dvh;
-
-	@media screen and (min-width: $screen-large) {
-		top: 70dvh;
-	}
-
-	@media screen and (min-width: $screen-x-large) {
-		transform: translateY(-20%);
-	}
-}
-
-.imageContainer {
-	position: relative;
-	width: 100%;
-	height: 100%;
-	transition: transform 0.1s ease-out, opacity 0.3s ease-in-out;
-	transform-origin: center;
-	transform: scale(var(--image-scale, 1));
-	opacity: var(--image-opacity, 0.3);
-
-
-	&.loaded {
+	img.loaded {
 		opacity: var(--image-opacity, 1);
 		animation: fadeInImage 0.8s ease-in-out;
 	}
 
 	img {
-		width: clamp(350px, 300vw, 50%);
+		width: clamp(30dvw, 200px, 600px);
 		height: auto;
-
-		@media screen and (min-width: $screen-large) {
-			width: clamp(400px, 20vw, 50%);
-		}
-
-
-	@media screen and (min-width: $screen-x-large) {
-		width: clamp(300px, 10vw, 25%);
 	}
+	@media screen and (min-width: $screen-large) {
+		height: 50dvh;
+		max-height: 450px;
+		margin-top: 0;
+		transform: translateY(-50%);
 	}
 }
 

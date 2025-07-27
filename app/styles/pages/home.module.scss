@@ -2,20 +2,15 @@
   margin: 0 2rem;
 
   .container {
-    align-items: center;
-
 		@media screen and (min-width: $screen-large) {
 			display: grid;
 			justify-content: space-between;
-			margin: $header-height auto 0;
+			align-items: center;
+			margin: 0 auto;
 			height: calc(100vh - $header-height);
 			grid-template-columns: repeat(2, 1fr);
-			max-width: 70dvw;
 			align-items: center;
+			max-width: 1000px;
 		}
-
-	@media screen and (min-width: $screen-x-large) {
-		max-width: 50dvw;
-	}
 	}
 }

@@ -1,6 +1,7 @@
 .timeline {
 	margin: 0 auto 7.5rem;
 	width: clamp(90dvw, 50dvw, 75dvw);
+	font-size: clamp(0.875rem, 1.5vw, 1rem);
 
   .item {
 		h3, h4, span {
