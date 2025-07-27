@@ -34,5 +34,11 @@ html {
 		.loaded {
 			animation: fadeIn 0.5s ease-in-out;
 		}
+
+		.page {
+			@media screen and (min-width: $screen-large) {
+				padding: 0 25dvw;
+			}
+		}
 	}
 }
