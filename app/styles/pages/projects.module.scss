@@ -20,6 +20,6 @@
 	}
 
 	@media screen and (min-width: $screen-large) {
-		padding: 0;
+		padding: $header-height 0 0;
 	}
 }
