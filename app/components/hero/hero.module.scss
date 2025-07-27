@@ -5,9 +5,10 @@
 	}
 
 	img {
-		width: clamp(30dvw, 200px, 600px);
-		height: auto;
+		height: clamp(150px, 20vw, 225px);
+		width: auto;
 	}
+
 	@media screen and (min-width: $screen-large) {
 		height: 50dvh;
 		max-height: 450px;

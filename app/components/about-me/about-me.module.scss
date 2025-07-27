@@ -5,6 +5,8 @@
 	justify-self: center;
 	margin-top: calc(50dvh - $header-height);
 	max-width: 480px;
+	z-index: 10;
+
 
   & > * {
 			margin-bottom: 1.25rem;
@@ -16,7 +18,8 @@
 
   @media screen and (min-width: $screen-large) {
 			height: fit-content;
-			margin-top:0;
-			transform: translateY(-15%);
+			margin-top: 0;
+			align-self: center;
+			justify-self: start;
   }
 }

@@ -3,16 +3,21 @@
   flex-direction: column;
   align-items: center;
 	height: calc(100dvh - (2 * $header-height));
-	justify-content: space-between;
+	justify-content: space-evenly;
 	margin-top: $header-height;
+	z-index: 10;
 
   img.profile-picture {
     border-radius: 50%;
     border: solid calc($small / 7.5) $white;
-    width: clamp(125px, 2rem, 150px);
-    height: auto;
+    height: clamp(125px, 2rem, 150px);
+    width: auto;
     opacity: 0;
     transform: translateY(20px);
+
+		@media screen and (min-width: $screen-large) {
+			margin-bottom: 2rem;
+		}
 
 		&--loaded {
 			animation: profileFadeInUp 0.6s ease-out forwards;
@@ -31,9 +36,16 @@
   }
 
   @media screen and (min-width: $screen-large) {
-			height: 50dvh;
-			max-height: 450px;
+			height: fit-content;
 			margin-top: 0;
-			transform: translateY(-25%);
+			transform: translateY(0);
+			align-self: center;
   }
+
+	@media screen and (min-height: 320px) and (max-height: 480px) {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		justify-items: center;
+		margin-top: $header-height;
+	}
 }
