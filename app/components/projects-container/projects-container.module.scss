@@ -1,12 +1,15 @@
 .projects-container {
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
+	align-items: center;
 	overflow-x: scroll;
 	scroll-snap-type: x mandatory;
 	scroll-behavior: smooth;
 	scrollbar-width: none; /* Firefox */
 	-ms-overflow-style: none; /* Internet Explorer 10+ */
 	height: calc(100dvh - (2 * $header-height));
+	width: 100%;
+	position: relative;
 
 	/* Hide scrollbar for WebKit browsers */
 	&::-webkit-scrollbar {
@@ -15,7 +18,7 @@
 
 	.scroll-next, .scroll-previous {
 		transform: translateY(-50%);
-		position: absolute;
+		position: fixed;
 		width: 30px;
 		height: 30px;
 		border: solid 1px $white;

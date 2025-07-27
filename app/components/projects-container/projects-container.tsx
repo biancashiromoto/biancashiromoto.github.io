@@ -99,33 +99,29 @@ const ProjectsContainer = () => {
 			onWheel={handleWheel}
 			ref={containerRef}
 		>
-			{currentCardIndex < repos.length - 1 && (
-				<button
-					type="button"
-					className={styles["scroll-next"]}
-					onClick={() => {
-						scrollToCard(currentCardIndex + 1);
-					}}
-					aria-label="Scroll to next project"
-				>
-					<BsArrowRight />
-				</button>
-			)}
+			<button
+				type="button"
+				className={styles["scroll-next"]}
+				onClick={() => {
+					scrollToCard(currentCardIndex ===  repos.length - 1 ? 0 : currentCardIndex + 1);
+				}}
+				aria-label="Scroll to next project"
+			>
+				<BsArrowRight />
+			</button>
 			{repos.map(repo => (
 				<ProjectCard key={repo.id} repo={repo} />
 			))}
-			{currentCardIndex > 0 && (
-				<button
-					type="button"
-					className={styles["scroll-previous"]}
-					onClick={() => {
-						scrollToCard(currentCardIndex - 1);
-					}}
-					aria-label="Scroll to previous project"
-				>
-					<BsArrowLeft />
-				</button>
-			)}
+			<button
+				type="button"
+				className={styles["scroll-previous"]}
+				onClick={() => {
+					scrollToCard(currentCardIndex === 0 ? repos.length - 1 : currentCardIndex - 1);
+				}}
+				aria-label="Scroll to previous project"
+			>
+				<BsArrowLeft />
+			</button>
 		</div>
 	);
 };
