@@ -3,9 +3,9 @@ import styles from "./intro.module.scss";
 import { altText } from "@/app/helpers/acessibility";
 import Image from "next/image";
 import { LinksContainer } from "../links-container/links-container";
-import Hero from "../hero/hero";
 import GreetingMessage from "./greeting-message/greeting-message";
 import { useWindowResize } from "@/app/context/WindowResizeProvider";
+import Hero from "../hero/hero";
 
 const Intro = () => {
 	const {
