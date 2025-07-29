@@ -1,0 +1,25 @@
+.about-me {
+  font-size: 1rem;
+  height: calc(100dvh - $header-height);
+  line-height: 2.25rem;
+	justify-self: center;
+	margin-top: calc(50dvh - $header-height);
+	max-width: 480px;
+	z-index: 10;
+
+
+  & > * {
+			margin-bottom: 1.25rem;
+  }
+
+	span {
+		transition: color 0.3s ease-in-out;
+	}
+
+  @media screen and (min-width: $screen-large) {
+			height: fit-content;
+			margin-top: 0;
+			align-self: center;
+			justify-self: start;
+  }
+}

@@ -1,0 +1,53 @@
+.project-card {
+	width: 100%;
+	max-width: 500px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	align-items: center;
+	justify-content: center;
+	background: rgba($white, 0.95);
+	border-radius: 1.5rem;
+	box-shadow: 0 2px 24px rgba($black, 0.08);
+	padding: 2rem 3rem;
+	overflow: visible;
+	background: $black;
+
+	.content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+	}
+
+	img {
+		width: clamp(160px, 40vw, 350px);
+		height: auto;
+		border-radius: 1rem;
+		box-shadow: 0 2px 12px rgba($black, 0.07);
+
+		@media screen and (min-width: $screen-large) {
+			height: 50dvh;
+			width: auto;
+
+			&.placeholder {
+				height: auto;
+				width: clamp(160px, 40vw, 350px);
+			}
+		}
+	}
+
+	.links {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+
+		.dot {
+			margin: 0 0.5rem;
+		}
+	}
+}

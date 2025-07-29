@@ -1,0 +1,25 @@
+.description {
+	p {
+		font-size: small;
+		max-width: 450px;
+	}
+
+	.read-more {
+		background: none;
+		border: none;
+		color: $cyan;
+		cursor: pointer;
+		font-size: small;
+		text-decoration: underline;
+		padding: 0;
+
+		&:hover {
+			opacity: 0.8;
+		}
+
+		&:focus {
+			outline: 2px solid $cyan;
+			outline-offset: 2px;
+		}
+	}
+}

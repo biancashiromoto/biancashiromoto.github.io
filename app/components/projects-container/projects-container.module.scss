@@ -1,0 +1,33 @@
+.projects-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	height: calc(100dvh - (2 * $header-height));
+	width: 100%;
+	position: relative;
+	background: $black;
+
+	.scroll-next, .scroll-previous {
+	transform: translateY(-50%);
+	position: absolute;
+		width: 30px;
+		height: 30px;
+		border: solid 1px $white;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		top: 50%;
+		border-radius: 50%;
+		z-index: 10;
+		cursor: pointer;
+	}
+
+	.scroll-next {
+	right: 40px;
+	}
+
+	.scroll-previous {
+	left: 40px;
+	}
+}
