@@ -28,12 +28,14 @@ const ProjectCard = ({ repo }: { repo: Repository }) => {
 					{repo.homepage && <Link href={repo.homepage} target="_blank" rel="noopener noreferrer">View deploy</Link>}
 				</div>
 			</div>
-			<Image
-				src={screenshotUrl ?? Placeholder}
-				alt={`Screenshot of ${repo.name}`}
-				width={200}
-				height={300}
-			/>
+			{screenshotUrl && (
+				<Image
+					src={screenshotUrl ?? Placeholder}
+					alt={`Screenshot of ${repo.name}`}
+					width={200}
+					height={300}
+				/>
+			)}
 		</div>
 	);
 };

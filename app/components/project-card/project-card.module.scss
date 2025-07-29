@@ -33,6 +33,11 @@
 		@media screen and (min-width: $screen-large) {
 			height: 50dvh;
 			width: auto;
+
+			&.placeholder {
+				height: auto;
+				width: clamp(160px, 40vw, 350px);
+			}
 		}
 	}
 
