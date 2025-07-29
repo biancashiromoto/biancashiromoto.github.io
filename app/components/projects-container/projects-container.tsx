@@ -2,16 +2,38 @@
 
 import ProjectCard from "@/app/components/project-card/project-card";
 import { fetchRepos, Repository } from "@/app/helpers/classes/fetchRepos";
-import { useEffect, useState } from "react";
-import styles from "./projects-container.module.scss";
 import Utils from "@/app/helpers/classes/Utils";
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import styles from "./projects-container.module.scss";
 
 const utils = new Utils();
+const storagedRepos = utils.getLocalStorage("repos");
+
+console.log("storagedRepos", !storagedRepos);
 
 const ProjectsContainer = () => {
-	const [repos, setRepos] = useState<Repository[]>([]);
 	const [currentCardIndex, setCurrentCardIndex] = useState(0);
+
+	const {
+		data: repos,
+		isLoading,
+		isError,
+		error
+	} = useQuery<Repository[] | null, Error>({
+		queryKey: ["repos"],
+		queryFn: fetchRepos,
+		enabled: !storagedRepos,
+		// staleTime: 1000 * 60 * 60 * 24, // 24 hours
+		initialData: storagedRepos ?? null,
+	});
+
+	if (isLoading) return <div>Loading...</div>;
+
+	if (isError || !repos) {
+		return <div>Error loading projects {error?.message ? `: ${error.message}` : ""}</div>;
+	}
 
 	const goToNext = () => {
 		setCurrentCardIndex((prev) => (repos.length === 0 ? 0 : (prev + 1) % repos.length));
@@ -26,24 +48,9 @@ const ProjectsContainer = () => {
 		if (event.key === "ArrowLeft") goToPrevious();
 	};
 
-	useEffect(() => {
-		const storagedRepos = utils.getLocalStorage("repos");
-		if (!storagedRepos) {
-			const fetchData = async () => {
-				const data = await fetchRepos();
-				setRepos(data);
-			};
-			fetchData();
-		} else {
-			setRepos(storagedRepos);
-		}
-	}, []);
-
-	useEffect(() => {
-		if (repos.length > 0) {
-			utils.setLocalStorage("repos", repos);
-		}
-	}, [repos]);
+	if (!repos || repos.length === 0) {
+		return <div className={styles["no-projects"]}>No projects available</div>;
+	}
 
 	return (
 		<div
