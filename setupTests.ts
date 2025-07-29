@@ -1,10 +1,16 @@
 import "@testing-library/jest-dom";
 
-class IntersectionObserver {
+// setupTests.ts
+class IntersectionObserverMock {
 	constructor() {}
 	observe() {}
-	unobserve() {}
 	disconnect() {}
+	unobserve() {}
+	takeRecords() { return []; }
 }
 
-global.IntersectionObserver = IntersectionObserver;
+Object.defineProperty(global, "IntersectionObserver", {
+	writable: true,
+	configurable: true,
+	value: IntersectionObserverMock,
+});
