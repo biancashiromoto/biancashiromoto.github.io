@@ -16,14 +16,6 @@
 	overflow: visible;
 	background: $black;
 
-	&:first-of-type {
-		padding-left: 12%;
-	}
-
-	&:last-of-type {
-		padding-right: 12%;
-	}
-
 	.content {
 		display: flex;
 		flex-direction: column;
