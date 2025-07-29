@@ -13,9 +13,5 @@
 			grid-template-columns: repeat(2, 1fr);
 			gap: 2rem;
 		}
-
-		@media screen and (min-height: 600px) {
-			margin-top: $header-height / 2;
-		}
 	}
 }

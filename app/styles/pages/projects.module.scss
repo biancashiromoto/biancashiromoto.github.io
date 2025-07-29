@@ -23,4 +23,8 @@
 	@media screen and (min-width: $screen-large) {
 		padding: $header-height 0 0;
 	}
+
+	h1 {
+		padding-top: $header-height;
+	}
 }
