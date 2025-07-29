@@ -16,7 +16,7 @@ const filterRepos = (repos: Repository[]): Repository[] => {
 	return repos.filter(repo => !!repo.homepage && repo.homepage !== "http://biancashiromoto.github.io/" && repo.topics.includes("display"));
 };
 
-export const fetchRepos = async (): Promise<Repository[]> => {
+export const fetchRepos = async (): Promise<Repository[] | null> => {
 	const response = await fetch(information._githubApiLink);
 	if (!response.ok) {
 		throw new Error("Failed to fetch repositories");
@@ -24,5 +24,5 @@ export const fetchRepos = async (): Promise<Repository[]> => {
 
 	const data = await response.json();
 
-	return filterRepos(data);
+	return filterRepos(data) ?? null;
 };
