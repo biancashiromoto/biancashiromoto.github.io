@@ -1,23 +1,16 @@
 .projects-container {
 	display: flex;
-	justify-content: flex-start;
-	overflow-x: scroll;
-	scroll-snap-type: x mandatory;
-	scroll-behavior: smooth;
-	scrollbar-width: none; /* Firefox */
-	-ms-overflow-style: none; /* Internet Explorer 10+ */
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
 	height: calc(100dvh - (2 * $header-height));
 	width: 100%;
 	position: relative;
-
-	/* Hide scrollbar for WebKit browsers */
-	&::-webkit-scrollbar {
-		display: none;
-	}
+	background: $black;
 
 	.scroll-next, .scroll-previous {
-		transform: translateY(-50%);
-		position: fixed;
+	transform: translateY(-50%);
+	position: absolute;
 		width: 30px;
 		height: 30px;
 		border: solid 1px $white;
@@ -31,10 +24,10 @@
 	}
 
 	.scroll-next {
-		right: 40px;
+	right: 40px;
 	}
 
 	.scroll-previous {
-		left: 40px;
+	left: 40px;
 	}
 }

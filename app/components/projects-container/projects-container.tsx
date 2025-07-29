@@ -2,125 +2,73 @@
 
 import ProjectCard from "@/app/components/project-card/project-card";
 import { fetchRepos, Repository } from "@/app/helpers/classes/fetchRepos";
-import {
-	useEffect,
-	useState,
-	useRef
-} from "react";
+import { useEffect, useState } from "react";
 import styles from "./projects-container.module.scss";
 import Utils from "@/app/helpers/classes/Utils";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
 const utils = new Utils();
-const storagedRepos = utils.getLocalStorage("repos");
 
 const ProjectsContainer = () => {
 	const [repos, setRepos] = useState<Repository[]>([]);
 	const [currentCardIndex, setCurrentCardIndex] = useState(0);
-	const containerRef = useRef<HTMLDivElement>(null);
-	const isScrollingRef = useRef(false);
 
-	const scrollToCard = (index: number) => {
-		if (!containerRef.current) return;
-
-		const cardWidth = containerRef.current.clientWidth;
-		containerRef.current.scrollTo({
-			left: index * cardWidth,
-			behavior: "smooth"
-		});
+	const goToNext = () => {
+		setCurrentCardIndex((prev) => (repos.length === 0 ? 0 : (prev + 1) % repos.length));
 	};
 
-	const handleWheel = (event: React.WheelEvent<HTMLDivElement>) => {
-		event.preventDefault();
-
-		if (isScrollingRef.current) return;
-
-		isScrollingRef.current = true;
-
-		const delta = event.deltaY;
-		let newIndex = currentCardIndex;
-
-		if (delta > 0 && currentCardIndex < repos.length - 1) {
-			// Scroll para baixo - próximo card
-			newIndex = currentCardIndex + 1;
-		} else if (delta < 0 && currentCardIndex > 0) {
-			// Scroll para cima - card anterior
-			newIndex = currentCardIndex - 1;
-		} else if (delta > 0 && currentCardIndex === repos.length - 1) {
-			// Se estiver no último card e scrollar para baixo, volta para o primeiro
-			newIndex = 0;
-		}
-
-		if (newIndex !== currentCardIndex) {
-			setCurrentCardIndex(newIndex);
-			scrollToCard(newIndex);
-		}
-
-		// Debounce para evitar múltiplos scrolls
-		setTimeout(() => {
-			isScrollingRef.current = false;
-		}, 500);
+	const goToPrevious = () => {
+		setCurrentCardIndex((prev) => (repos.length === 0 ? 0 : (prev - 1 + repos.length) % repos.length));
 	};
 
-	const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
-		// Detecta mudança de card baseada na posição do scroll
-		if (!isScrollingRef.current && containerRef.current) {
-			const scrollLeft = event.currentTarget.scrollLeft;
-			const cardWidth = containerRef.current.clientWidth;
-			const newIndex = Math.round(scrollLeft / cardWidth);
-
-			if (newIndex !== currentCardIndex && newIndex >= 0 && newIndex < repos.length) {
-				setCurrentCardIndex(newIndex);
-			}
-		}
+	const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+		if (event.key === "ArrowRight") goToNext();
+		if (event.key === "ArrowLeft") goToPrevious();
 	};
 
 	useEffect(() => {
+		const storagedRepos = utils.getLocalStorage("repos");
 		if (!storagedRepos) {
 			const fetchData = async () => {
 				const data = await fetchRepos();
 				setRepos(data);
 			};
 			fetchData();
-		}
-		else {
+		} else {
 			setRepos(storagedRepos);
 		}
 	}, []);
 
 	useEffect(() => {
-		utils.setLocalStorage("repos", repos);
+		if (repos.length > 0) {
+			utils.setLocalStorage("repos", repos);
+		}
 	}, [repos]);
 
 	return (
 		<div
 			className={styles["projects-container"]}
-			onScroll={handleScroll}
-			onWheel={handleWheel}
-			ref={containerRef}
+			tabIndex={0}
+			onKeyDown={handleKeyDown}
 		>
 			<button
 				type="button"
-				className={styles["scroll-next"]}
-				onClick={() => {
-					scrollToCard(currentCardIndex ===  repos.length - 1 ? 0 : currentCardIndex + 1);
-				}}
-				aria-label="Scroll to next project"
-			>
-				<BsArrowRight />
-			</button>
-			{repos.map(repo => (
-				<ProjectCard key={repo.id} repo={repo} />
-			))}
-			<button
-				type="button"
 				className={styles["scroll-previous"]}
-				onClick={() => {
-					scrollToCard(currentCardIndex === 0 ? repos.length - 1 : currentCardIndex - 1);
-				}}
-				aria-label="Scroll to previous project"
+				onClick={goToPrevious}
+				aria-label="Projeto anterior"
 			>
 				<BsArrowLeft />
+			</button>
+			{repos.length > 0 && (
+				<ProjectCard repo={repos[currentCardIndex]} />
+			)}
+			<button
+				type="button"
+				className={styles["scroll-next"]}
+				onClick={goToNext}
+				aria-label="Próximo projeto"
+			>
+				<BsArrowRight />
 			</button>
 		</div>
 	);
