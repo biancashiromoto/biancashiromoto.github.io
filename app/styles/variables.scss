@@ -1,0 +1,47 @@
+// COLORS
+// $black: #040504;
+$black: #040603;
+$cyan: #00a4c3;
+$gray: rgb(177, 177, 177);
+$orange: #e15a24;
+$rose: #c6a2a9;
+$white: #ffffff;
+$font-family: "Courier Prime", monospace;
+$font-family--button: Oswald, sans-serif;
+
+// IMAGES
+$hero-bg-img: "/assets/image__laptop.jpg";
+
+// MEDIA QUERIES
+$screen-small: 375px;
+$screen-min-medium: 768px;
+$screen-max-medium: 1024px;
+$screen-large: 1024px;
+$screen-timeline: 1170px;
+$screen-x-large: 1440px;
+
+// SIZES
+
+// HEADER
+$header-height: 3rem;
+$header-min-height: 1rem;
+$header-max-height: 3rem;
+
+// MEASURES
+$xx-small: 0.25rem;
+$x-small: 0.5rem;
+$small: 1rem;
+$medium: 1.5rem;
+$large: 2rem;
+$x-large: 2.5rem;
+$xx-large: 7.5rem;
+
+$width-quarter: 25dvw;
+$width-half: 50dvw;
+$width-3quarters: 75dvw;
+$width-full: 100dvw;
+
+$height-quarter: 25dvh;
+$height-half: 50dvh;
+$height-3quarters: 75dvh;
+$height-full: 100dvh;

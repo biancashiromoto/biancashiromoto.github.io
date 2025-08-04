@@ -1,0 +1,36 @@
+.hero {
+	.imageContainer {
+		transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+		transform-origin: center;
+		transform: scale(var(--image-scale, 1));
+		opacity: var(--image-opacity, 1);
+	}
+
+	img.loaded {
+		opacity: var(--image-opacity, 1);
+		animation: fadeInImage 0.8s ease-in-out;
+	}
+
+	img {
+		height: clamp(150px, 20vw, 225px);
+		width: auto;
+	}
+
+	@media screen and (min-width: $screen-large) {
+		height: 50dvh;
+		max-height: 450px;
+		margin-top: 0;
+		transform: translateY(-50%);
+	}
+}
+
+@keyframes fadeInImage {
+	from {
+		opacity: 0.3;
+		transform: scale(var(--image-scale, 0.5));
+	}
+	to {
+		opacity: var(--image-opacity, 1);
+		transform: scale(var(--image-scale, 1));
+	}
+}

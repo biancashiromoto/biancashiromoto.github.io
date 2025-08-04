@@ -1,0 +1,17 @@
+.home {
+  margin: 0 2rem;
+
+  .container {
+		max-width: 1000px;
+
+		@media screen and (min-width: $screen-large) {
+			display: grid;
+			justify-content: space-between;
+			align-items: center;
+			margin: 0 auto;
+			height: calc(100vh - $header-height);
+			grid-template-columns: repeat(2, 1fr);
+			gap: 2rem;
+		}
+	}
+}

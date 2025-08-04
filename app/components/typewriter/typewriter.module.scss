@@ -1,0 +1,28 @@
+@use "sass:color";
+
+.typewriter {
+	display: inline-block;
+	min-width: 65px;
+	text-align: left;
+	position: relative;
+	white-space: nowrap;
+	padding-left: 10px;
+}
+
+.cursor {
+	opacity: 1;
+	transition: opacity 0.1s ease-in-out, color 0.3s ease;
+	font-size: 1.25rem;
+
+	&.orange {
+		color: color.adjust($orange, $lightness: 15%);
+	}
+
+	&.blue {
+		color: color.adjust($cyan, $lightness: 15%);
+	}
+
+	&.hidden {
+		opacity: 0;
+	}
+}
