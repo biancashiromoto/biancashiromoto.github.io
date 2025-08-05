@@ -21,36 +21,35 @@ const ProjectsContainer = () => {
 		isLoading,
 		isError,
 		error
-	} = useQuery<Repository[] | null, Error>({
+	} = useQuery<Repository[] | [], Error>({
 		queryKey: ["repos"],
 		queryFn: fetchRepos,
 		enabled: !storagedRepos,
-		staleTime: 1000 * 60 * 60 * 24, // 24 hours
-		initialData: storagedRepos ?? null,
+		initialData: storagedRepos ?? [],
 	});
 
-	if (isLoading) return <div>{isLanguagePortuguese ? "Carregando..." : "Loading..."}</div>;
+	if (isLoading && !repos) return <div>{isLanguagePortuguese ? "Carregando..." : "Loading..."}</div>;
 
 	if (isError || !repos) {
 		return <div>{isLanguagePortuguese ? "Erro ao carregar projetos" : "Error loading projects"} {error?.message ? `: ${error.message}` : ""}</div>;
 	}
 
+	if ((!repos || repos.length === 0) && !storagedRepos && !isLoading) {
+		return <div className={styles["no-projects"]}>No projects available</div>;
+	}
+
 	const goToNext = () => {
-		setCurrentCardIndex((prev) => (repos.length === 0 ? 0 : (prev + 1) % repos.length));
+		setCurrentCardIndex((prev) => (repos?.length === 0 ? 0 : (prev + 1) % repos.length));
 	};
 
 	const goToPrevious = () => {
-		setCurrentCardIndex((prev) => (repos.length === 0 ? 0 : (prev - 1 + repos.length) % repos.length));
+		setCurrentCardIndex((prev) => (repos?.length === 0 ? 0 : (prev - 1 + repos.length) % repos.length));
 	};
 
 	const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
 		if (event.key === "ArrowRight") goToNext();
 		if (event.key === "ArrowLeft") goToPrevious();
 	};
-
-	if (!repos || repos.length === 0) {
-		return <div className={styles["no-projects"]}>No projects available</div>;
-	}
 
 	return (
 		<>
