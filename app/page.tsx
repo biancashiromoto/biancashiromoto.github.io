@@ -10,13 +10,15 @@ import Hero from "./components/hero/hero";
 
 function HomePage() {
 	const { width } = useWindowResize();
+	const isDesktop = width > 1023;
+
 	return (
 		<div className={styles.home} id="home-start">
 			<div className={styles.container}>
 				<Intro />
 				<AboutMe />
 			</div>
-			{width > 1023 && <Hero />}
+			{isDesktop && <Hero />}
 			<Timeline />
 			<ButtonScrollToTop />
 		</div>
