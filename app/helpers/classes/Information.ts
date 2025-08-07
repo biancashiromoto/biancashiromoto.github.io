@@ -24,6 +24,7 @@ export default class Information {
 	public _checkMyProjects: string;
 	public _downloadMyCV: string;
 	public _scrollToTopButtonLabel: string;
+	public _portfolioLink: string = "http://biancashiromoto.github.io/";
 
 	constructor(language: string = "en") {
 		this._profilePictureAltText =
