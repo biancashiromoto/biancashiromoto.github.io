@@ -12,8 +12,7 @@ type CommonLayoutProps = {
 
 const CommonLayout = ({ children }: CommonLayoutProps) => {
 	const { isLoading } = useLanguage();
-	const { width } = useWindowResize();
-	const isDesktop = width > 1023;
+	const { isDesktop } = useWindowResize();
 
 	return (
 		<div className={!isLoading ? "loaded" : ""}>
@@ -23,8 +22,8 @@ const CommonLayout = ({ children }: CommonLayoutProps) => {
 				<Image
 					src={QrCode}
 					alt="QR code"
-					width={50}
-					height={50}
+					width={100}
+					height={100}
 					className="qr-code"
 					style={{
 						position: "fixed", bottom: "1rem", right: "1rem", zIndex: 10,
