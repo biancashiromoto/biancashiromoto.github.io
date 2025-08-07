@@ -7,11 +7,9 @@ import ButtonScrollToTop from "./components/button-scroll-to-top/button-scroll-t
 import Timeline from "./components/timeline/timeline";
 import { useWindowResize } from "./context/WindowResizeProvider";
 import Hero from "./components/hero/hero";
-import { usePathname } from "next/navigation";
 
 function HomePage() {
 	const { isDesktop } = useWindowResize();
-	const pathname = usePathname();
 
 	return (
 		<div className={styles.home} id="home-start">
@@ -20,7 +18,7 @@ function HomePage() {
 				<AboutMe />
 			</div>
 			{isDesktop && <Hero />}
-			{pathname === "/home" && <Timeline />}
+			<Timeline />
 			<ButtonScrollToTop />
 		</div>
 	);
