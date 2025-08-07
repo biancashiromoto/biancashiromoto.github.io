@@ -1,3 +1,4 @@
+import { useWindowResize } from "@/app/context/WindowResizeProvider";
 import { useEffect, useRef } from "react";
 
 /**
@@ -6,8 +7,9 @@ import { useEffect, useRef } from "react";
  * @param radius Raio de proximidade em pixels.
  * @returns ref para ser usada no container do texto.
  */
-export function useProximityTextColor(color: string = "white", radius: number = 5) {
+export function useProximityTextColor(color: string = "white", radius: number = 35) {
 	const containerRef = useRef<HTMLDivElement>(null);
+	const { isDesktop } = useWindowResize();
 
 	useEffect(() => {
 		const container = containerRef.current;
@@ -41,6 +43,8 @@ export function useProximityTextColor(color: string = "white", radius: number = 
 			container.removeEventListener("mousemove", handleMouseMove);
 		};
 	}, [color, radius]);
+
+	if (!isDesktop) return;
 
 	return containerRef;
 }
