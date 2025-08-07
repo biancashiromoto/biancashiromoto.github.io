@@ -6,13 +6,16 @@ import React, {
 	ReactNode,
 	useContext,
 	useEffect,
+	useMemo,
 	useState,
 } from "react";
 
-const WindowResizeContext = createContext<{ width: number }>({ width: 0, });
+const WindowResizeContext = createContext<{ width: number, isDesktop: boolean }>({ width: 0, isDesktop: false });
 
 export const WindowResizeProvider: FC<{ children: ReactNode }> = ({ children, }) => {
 	const [width, setWidth] = useState(0);
+
+	const isDesktop = useMemo(() => width >= 1024, [width]);
 
 	useEffect(() => {
 		const handleResize = () => setWidth(window.innerWidth);
@@ -25,7 +28,7 @@ export const WindowResizeProvider: FC<{ children: ReactNode }> = ({ children, })
 	}, []);
 
 	return (
-		<WindowResizeContext.Provider value={{ width }}>
+		<WindowResizeContext.Provider value={{ width, isDesktop }}>
 			{children}
 		</WindowResizeContext.Provider>
 	);

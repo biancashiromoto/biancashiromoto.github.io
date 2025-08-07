@@ -4,11 +4,10 @@ import { useProximityTextColor } from "./hooks/useProximityTextColor";
 
 const AboutMe = () => {
 	const { information } = useLanguage();
-	const proximityRef = useProximityTextColor("white", 35);
+	const proximityRef = useProximityTextColor();
 
 	const wrapText = (text: string) =>
 		text.split("").map((char, i) => (
-
 			<span data-char key={i}>{char}</span>
 		));
 

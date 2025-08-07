@@ -1,6 +1,7 @@
 import Information from "@/app/helpers/classes/Information";
 import styles	from "./greeting-message.module.scss";
 import Typewriter from "../../typewriter/typewriter";
+import { Fragment } from "react";
 
 const GreetingMessage = (information: Information) => {
 	return (
@@ -17,10 +18,10 @@ const GreetingMessage = (information: Information) => {
 					);
 				} else {
 					return (
-						<>
+						<Fragment key={index}>
 							{index > 0 && <br />}
-							<span key={index}>{line}</span>
-						</>
+							<span >{line}</span>
+						</Fragment>
 					);
 				}
 			})}

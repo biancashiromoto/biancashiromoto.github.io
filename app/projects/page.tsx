@@ -4,11 +4,10 @@ import styles from "../styles/pages/projects.module.scss";
 
 export default function Projects() {
 	return (
-
-		<ReactQueryProvider><div className={styles.projects}>
-			<h1>Projects</h1>
-			<ProjectsContainer />
-		</div>
+		<ReactQueryProvider>
+			<div className={styles.projects}>
+				<ProjectsContainer />
+			</div>
 		</ReactQueryProvider>
 	);
 }
