@@ -17,7 +17,7 @@ const Header = () => {
 				onChange={toggleLanguage}
 				label={information._translateButtonLabel}
 			/>
-			{pathname === "/home" && <ProgressBar />}
+			{pathname !== "/home" && <ProgressBar />}
 		</header>
 	);
 };
