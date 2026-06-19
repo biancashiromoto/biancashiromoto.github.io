@@ -57,10 +57,15 @@ const defaultRepo = {
 
 // variation via spread
 const repoWithoutHomepage = { ...defaultRepo, homepage: "" };
-const repoWithLongDescription = { ...defaultRepo, description: "A".repeat(100) };
+const repoWithLongDescription = {
+  ...defaultRepo,
+  description: "A".repeat(100),
+};
 
 // ✗ avoid
-function createRepo(overrides = {}) { return { ...defaults, ...overrides }; }
+function createRepo(overrides = {}) {
+  return { ...defaults, ...overrides };
+}
 ```
 
 The same pattern applies to default props for components:
@@ -80,14 +85,14 @@ render(<ProjectDescription {...defaultProps} description={"A".repeat(100)} />);
 
 ```tsx
 // ✓ correct
-screen.getByRole("button", { name: /read more/i })
-screen.getByRole("switch")
-screen.getByLabelText(/translate/i)
-screen.getByText("Bianca")
+screen.getByRole("button", { name: /read more/i });
+screen.getByRole("switch");
+screen.getByLabelText(/translate/i);
+screen.getByText("Bianca");
 
 // ✗ avoid
-container.querySelector(".read-more")
-screen.getByTestId("language-switch")
+container.querySelector(".read-more");
+screen.getByTestId("language-switch");
 ```
 
 Querying by role mirrors how assistive technologies perceive the UI and makes tests resilient to CSS changes.
@@ -125,7 +130,7 @@ afterEach(() => vi.useRealTimers());
 
 it("types the first character after the delay", () => {
   const { result } = renderHook(() =>
-    useTypeWriter({ text: "Hello", delay: 100, infinite: false })
+    useTypeWriter({ text: "Hello", delay: 100, infinite: false }),
   );
 
   act(() => {
@@ -187,10 +192,13 @@ mockUseLanguage.mockReturnValue({
 ### 6. Mock `fetch` with `vi.stubGlobal`
 
 ```tsx
-vi.stubGlobal("fetch", vi.fn().mockResolvedValue({
-  ok: true,
-  json: async () => mockRepos,
-}));
+vi.stubGlobal(
+  "fetch",
+  vi.fn().mockResolvedValue({
+    ok: true,
+    json: async () => mockRepos,
+  }),
+);
 ```
 
 Always call `vi.restoreAllMocks()` in `beforeEach` to prevent leaking mocks between tests.
@@ -211,22 +219,26 @@ describe("Utils", () => {
 ## What to test per file type
 
 ### Pure utility functions (`Utils.ts`, pure helpers)
+
 - Each method gets its own `describe` block
 - Cover: happy path, edge cases (empty string, empty array), boundary values, both branches of conditionals
 - Mock `navigator.language` and `localStorage` when the method reads them
 
 ### Hooks
+
 - Use `renderHook` for all hooks
 - Cover: initial state, state after each interaction, behavior when props change (`rerender`)
 - Wrap all state-triggering calls in `act`
 - For timer-based hooks: use `vi.useFakeTimers` and `advanceByNSteps`
 
 ### Components
+
 - Cover: default render, conditional rendering (each branch), all user interactions
 - Test what the user sees and can do — not internal state or CSS class names
 - When the component uses context: mock with `vi.mock`
 
 ### Async functions (`fetchRepos` and similar)
+
 - Mock `fetch` with `vi.stubGlobal`
 - Cover: successful response, `ok: false` error response, filtering logic, empty result set
 
@@ -254,3 +266,4 @@ import Utils from "@/app/helpers/classes/Utils";
 3. Write tests that cover at least 80% of them
 4. Place the test file next to the source file
 5. Run `npm run coverage` to verify the threshold is met for that file
+6. Run `npm run build` to verify no type errors were introduced in the test file
