@@ -43,7 +43,7 @@ const ProjectCard = ({ repo }: { repo: Repository }) => {
           alt={`Screenshot of ${repo.name}`}
           width={200}
           height={300}
-          priority={true}
+          loading="lazy"
         />
       )}
     </div>
