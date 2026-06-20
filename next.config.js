@@ -14,6 +14,7 @@ const nextConfig = {
   sassOptions: {
     additionalData: `@use "@/app/styles/variables" as *;`,
   },
+  allowedDevOrigins: ["http://localhost", "http://localhost:3000", "192.168.15.8"],
 };
 
 module.exports = nextConfig;
