@@ -32,6 +32,24 @@ describe("Information", () => {
     it("has the correct email", () => {
       expect(info._email).toBe("b.shiromoto.bs@gmail.com");
     });
+
+    it("has the correct profile picture URL", () => {
+      expect(info._profilePictureURL).toBe("https://avatars.githubusercontent.com/u/108292121?v=4");
+    });
+
+    it("has the correct resume link", () => {
+      expect(info._resumeLink).toBe(
+        "https://drive.google.com/drive/folders/19pl7eV91_RF0g679ZTmB1W28aEshIJCO?usp=sharing",
+      );
+    });
+
+    it("has the correct GitHub tooltip", () => {
+      expect(info._gitHubTooltip).toBe("GitHub");
+    });
+
+    it("has the correct LinkedIn tooltip", () => {
+      expect(info._linkedinTooltip).toBe("LinkedIn");
+    });
   });
 
   describe("constructor defaults to English when no language is passed", () => {
@@ -71,7 +89,7 @@ describe("Information", () => {
 
     it("sets English about me text with 2 paragraphs", () => {
       expect(info._aboutMeText).toHaveLength(2);
-      expect(info._aboutMeText[0]).toContain("veterinary medicine");
+      expect(info._aboutMeText[0]).toContain("Veterinary Medicine");
     });
 
     it("sets English translate button label", () => {
@@ -135,7 +153,7 @@ describe("Information", () => {
 
     it("sets Portuguese about me text with 2 paragraphs", () => {
       expect(info._aboutMeText).toHaveLength(2);
-      expect(info._aboutMeText[0]).toContain("medicina veterinária");
+      expect(info._aboutMeText[0]).toContain("Medicina Veterinária");
     });
 
     it("sets Portuguese translate button label", () => {
@@ -156,6 +174,26 @@ describe("Information", () => {
 
     it("sets Portuguese scroll to top label", () => {
       expect(info._scrollToTopButtonLabel).toBe("Voltar ao topo");
+    });
+
+    it("sets Portuguese return tooltip", () => {
+      expect(info._returnToPreviousPageTooltip).toBe("Voltar");
+    });
+
+    it("sets Portuguese cat gif alt text", () => {
+      expect(info._catGifAltText).toBe("Gif de um gato digitando em um laptop");
+    });
+
+    it("sets Portuguese resume tooltip", () => {
+      expect(info._resumeTooltip).toBe("Baixe meu currículo");
+    });
+
+    it("sets Portuguese check my projects label", () => {
+      expect(info._checkMyProjects).toBe("Veja meus projetos");
+    });
+
+    it("sets Portuguese download CV label", () => {
+      expect(info._downloadMyCV).toBe("Baixe meu currículo");
     });
   });
 });

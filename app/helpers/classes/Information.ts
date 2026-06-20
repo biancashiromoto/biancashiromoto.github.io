@@ -37,12 +37,12 @@ export default class Information {
     this._aboutMeText =
       language === "en"
         ? [
-            "Developer coming from a career transition in veterinary medicine, I worked for seven years as an anesthetist and intensivist before venturing into the world of technology.",
-            "My goal is to combine  my passion for problem-solving with creating solutions that have a positive and universal impact on people's lives.",
+            "Front-end developer with a background in Veterinary Medicine, where I worked for seven years as an anesthesiologist and intensivist before transitioning to technology.",
+            "Today, I bring that background of attention to detail and resilience in the face of complex scenarios to the development of well-structured applications, always seeking to deliver accessible interfaces that make people's lives easier.",
           ]
         : [
-            "Desenvolvedora vinda de uma transição de carreira da medicina veterinária, atuei durante sete anos como anestesista e intensivista antes de me aventurar pelo mundo da tecnologia.",
-            "Procuro combinar minha paixão por soluções de problemas com a criação de algo que impacte positivamente na vida das pessoas de uma forma universal e acessível.",
+            "Desenvolvedora Front-end com background em Medicina Veterinária, onde atuei por sete anos como anestesista e intensivista antes de migrar para a tecnologia.",
+            "Hoje, trago essa bagagem de atenção aos detalhes e resiliência diante de cenários complexos para o desenvolvimento de aplicações bem estruturadas, buscando sempre entregar interfaces acessíveis e que facilitem a vida das pessoas.",
           ];
     this._translateButtonLabel =
       language === "en" ? "Traduzir para o português" : "Translate to English";
