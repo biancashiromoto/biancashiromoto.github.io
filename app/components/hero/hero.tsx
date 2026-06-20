@@ -16,6 +16,7 @@ const Hero: FC = () => {
           width={300}
           height={undefined}
           priority
+          fetchPriority="high"
           placeholder="blur"
         />
       </div>

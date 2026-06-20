@@ -21,9 +21,18 @@ describe("CustomLink", () => {
     expect(screen.getByRole("link")).toHaveAttribute("href", "/projects");
   });
 
-  it("sets aria-label based on the path", () => {
+  it("falls back to path-based aria-label when none is provided", () => {
     render(<CustomLink path="/projects">Projects</CustomLink>);
     expect(screen.getByRole("link")).toHaveAttribute("aria-label", "Link to /projects");
+  });
+
+  it("uses custom aria-label when provided", () => {
+    render(
+      <CustomLink path="/projects" aria-label="Go to projects">
+        Projects
+      </CustomLink>,
+    );
+    expect(screen.getByRole("link")).toHaveAttribute("aria-label", "Go to projects");
   });
 
   it("defaults target to _self", () => {
