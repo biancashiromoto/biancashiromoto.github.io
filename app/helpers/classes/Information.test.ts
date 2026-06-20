@@ -72,12 +72,6 @@ describe("Information", () => {
   describe("in English (language = 'en')", () => {
     const info = new Information("en");
 
-    it("sets English profile picture alt text", () => {
-      expect(info._profilePictureAltText).toBe(
-        "I am a woman with dark brown eyes and hair and I am wearing a black and gray T-shirt.",
-      );
-    });
-
     it("sets English greeting message array", () => {
       expect(info._greetingMessage).toEqual([
         "Hello!",
@@ -135,12 +129,6 @@ describe("Information", () => {
 
   describe("in Portuguese (language = 'pt')", () => {
     const info = new Information("pt");
-
-    it("sets Portuguese profile picture alt text", () => {
-      expect(info._profilePictureAltText).toBe(
-        "Sou uma mulher de cabelos e olhos escuros e estou usando uma camiseta cinza e preta.",
-      );
-    });
 
     it("sets Portuguese greeting message array", () => {
       expect(info._greetingMessage).toEqual([

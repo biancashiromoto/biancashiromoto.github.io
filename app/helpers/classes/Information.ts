@@ -11,7 +11,6 @@ export default class Information {
   public _gitHubTooltip: string = "GitHub";
   public _linkedinTooltip: string = "LinkedIn";
   public _translateButtonLabel: string;
-  public _profilePictureAltText: string;
   public _greetingMessage: string[];
   public _aboutMeText: string[];
   public _inProgress: string;
@@ -26,10 +25,6 @@ export default class Information {
   public _portfolioLink: string = "http://biancashiromoto.github.io/";
 
   constructor(language: string = "en") {
-    this._profilePictureAltText =
-      language === "en"
-        ? "I am a woman with dark brown eyes and hair and I am wearing a black and gray T-shirt."
-        : "Sou uma mulher de cabelos e olhos escuros e estou usando uma camiseta cinza e preta.";
     this._greetingMessage =
       language === "en"
         ? ["Hello!", "My name is", ` ${this._name}`, "and this is my portfolio!"]
