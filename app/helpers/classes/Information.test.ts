@@ -52,10 +52,106 @@ describe("Information", () => {
     });
   });
 
-  it("defaults to English when no language is passed", () => {
+  describe("defaults to English when no language is passed", () => {
     const info = new Information();
-    expect(info._greetingMessage).toEqual(new Information("en")._greetingMessage);
-    expect(info._translateButtonLabel).toBe("Traduzir para o português");
+    const en = new Information("en");
+
+    it("greeting message matches English", () => {
+      expect(info._greetingMessage).toEqual(en._greetingMessage);
+    });
+
+    it("about me text matches English", () => {
+      expect(info._aboutMeText).toEqual(en._aboutMeText);
+    });
+
+    it("translate button label matches English", () => {
+      expect(info._translateButtonLabel).toBe(en._translateButtonLabel);
+    });
+
+    it("in-progress label matches English", () => {
+      expect(info._inProgress).toBe(en._inProgress);
+    });
+
+    it("email tooltip matches English", () => {
+      expect(info._emailTooltip).toBe(en._emailTooltip);
+    });
+
+    it("projects label matches English", () => {
+      expect(info._projects).toBe(en._projects);
+    });
+
+    it("return tooltip matches English", () => {
+      expect(info._returnToPreviousPageTooltip).toBe(en._returnToPreviousPageTooltip);
+    });
+
+    it("resume tooltip matches English", () => {
+      expect(info._resumeTooltip).toBe(en._resumeTooltip);
+    });
+
+    it("cat gif alt text matches English", () => {
+      expect(info._catGifAltText).toBe(en._catGifAltText);
+    });
+
+    it("check my projects label matches English", () => {
+      expect(info._checkMyProjects).toBe(en._checkMyProjects);
+    });
+
+    it("download CV label matches English", () => {
+      expect(info._downloadMyCV).toBe(en._downloadMyCV);
+    });
+
+    it("scroll to top label matches English", () => {
+      expect(info._scrollToTopButtonLabel).toBe(en._scrollToTopButtonLabel);
+    });
+  });
+
+  describe("unknown language falls back to Portuguese", () => {
+    const info = new Information("fr");
+    const pt = new Information("pt");
+
+    it("greeting message matches Portuguese", () => {
+      expect(info._greetingMessage).toEqual(pt._greetingMessage);
+    });
+
+    it("translate button label matches Portuguese", () => {
+      expect(info._translateButtonLabel).toBe(pt._translateButtonLabel);
+    });
+
+    it("in-progress label matches Portuguese", () => {
+      expect(info._inProgress).toBe(pt._inProgress);
+    });
+
+    it("email tooltip matches Portuguese", () => {
+      expect(info._emailTooltip).toBe(pt._emailTooltip);
+    });
+
+    it("projects label matches Portuguese", () => {
+      expect(info._projects).toBe(pt._projects);
+    });
+
+    it("return tooltip matches Portuguese", () => {
+      expect(info._returnToPreviousPageTooltip).toBe(pt._returnToPreviousPageTooltip);
+    });
+
+    it("resume tooltip matches Portuguese", () => {
+      expect(info._resumeTooltip).toBe(pt._resumeTooltip);
+    });
+
+    it("cat gif alt text matches Portuguese", () => {
+      expect(info._catGifAltText).toBe(pt._catGifAltText);
+    });
+
+    it("check my projects label matches Portuguese", () => {
+      expect(info._checkMyProjects).toBe(pt._checkMyProjects);
+    });
+
+    it("download CV label matches Portuguese", () => {
+      expect(info._downloadMyCV).toBe(pt._downloadMyCV);
+    });
+
+    it("scroll to top label matches Portuguese", () => {
+      expect(info._scrollToTopButtonLabel).toBe(pt._scrollToTopButtonLabel);
+    });
   });
 
   describe("in English (language = 'en')", () => {

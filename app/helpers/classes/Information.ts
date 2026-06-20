@@ -32,8 +32,8 @@ export default class Information {
     this._aboutMeText =
       language === "en"
         ? [
-            "Front-end developer with a background in Veterinary Medicine, where I worked for seven years as an anesthesiologist and intensivist before transitioning to technology.",
-            "Today, I bring that background of attention to detail and resilience in the face of complex scenarios to the development of well-structured applications, always seeking to deliver accessible interfaces that make people's lives easier.",
+            "Front-end developer with a background in Veterinary Medicine, where I worked for seven years as an anesthesiologist and intensivist before moving to tech.",
+            "Today, I bring that background in attention to detail and resilience in the face of complex scenarios to the development of well-structured applications, always seeking to deliver accessible interfaces that make people's lives easier.",
           ]
         : [
             "Desenvolvedora Front-end com background em Medicina Veterinária, onde atuei por sete anos como anestesista e intensivista antes de migrar para a tecnologia.",
