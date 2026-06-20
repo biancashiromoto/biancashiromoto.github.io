@@ -11,7 +11,18 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "next lint --fix",
+      "vitest related --run"
+    ],
+    "*.{json,scss,css,md}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@tanstack/react-query": "^5.83.0",
@@ -44,7 +55,9 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.2",
+    "husky": "^9.1.7",
     "jsdom": "^24.1.3",
+    "lint-staged": "^16.4.0",
     "postcss": "^8.4.39",
     "prettier": "^3.8.4",
     "react-vertical-timeline-component": "^3.5.3",
