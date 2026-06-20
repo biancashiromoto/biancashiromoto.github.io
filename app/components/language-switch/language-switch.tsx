@@ -12,12 +12,14 @@ const LanguageSwitch = () => {
         checked={isLanguagePortuguese}
         onChange={toggleLanguage}
         role="switch"
-        aria-checked={isLanguagePortuguese}
         aria-label={information._translateButtonLabel}
         tabIndex={0}
       />
       <span className={styles.slider}></span>
       <span className={styles.text}>{information._translateButtonLabel.toUpperCase()}</span>
+      <span aria-live="polite" className="sr-only">
+        {isLanguagePortuguese ? "Idioma alterado para português" : "Language changed to English"}
+      </span>
     </label>
   );
 };

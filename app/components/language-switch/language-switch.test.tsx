@@ -72,22 +72,4 @@ describe("LanguageSwitch", () => {
     await user.click(screen.getByRole("switch"));
     expect(toggleLanguage).toHaveBeenCalledTimes(1);
   });
-
-  it("sets aria-checked to false when language is not Portuguese", () => {
-    render(<LanguageSwitch />);
-    const switchInput = screen.getByRole("switch");
-    expect(switchInput).toHaveAttribute("aria-checked", "false");
-  });
-
-  it("sets aria-checked to true when language is Portuguese", () => {
-    mockUseLanguage.mockReturnValue({
-      ...defaultLanguageContext,
-      isLanguagePortuguese: true,
-      information: { _translateButtonLabel: "Translate to English" } as any,
-    });
-
-    render(<LanguageSwitch />);
-    const switchInput = screen.getByRole("switch");
-    expect(switchInput).toHaveAttribute("aria-checked", "true");
-  });
 });
