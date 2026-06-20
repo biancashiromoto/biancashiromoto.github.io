@@ -12,7 +12,7 @@ const defaultRepo: Repository = {
 };
 
 const repoWithoutHomepage: Repository = { ...defaultRepo, id: 2, name: "no-homepage", homepage: "" };
-const repoWithoutDisplayTopic: Repository = { ...defaultRepo, id: 3, name: "no-topic", topics: ["react"] };
+const repoWithoutDisplayTopic: Repository = { ...defaultRepo, id: 3, name: "no-topic", topics: ["react"]};
 const portfolioRepo: Repository = { ...defaultRepo, id: 4, name: "portfolio", homepage: "http://biancashiromoto.github.io/" };
 
 describe("fetchRepos", () => {

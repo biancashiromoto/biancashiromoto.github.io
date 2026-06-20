@@ -55,6 +55,15 @@
       }
     ]
   },
+  "overrides": [
+    {
+      "files": ["**/*.test.ts", "**/*.test.tsx"],
+      "rules": {
+        "object-curly-newline": "off",
+        "@typescript-eslint/no-explicit-any": "off"
+      }
+    }
+  ],
   "settings": {
     "react": {
       "version": "detect"
