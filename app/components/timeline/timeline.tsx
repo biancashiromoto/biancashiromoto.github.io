@@ -1,8 +1,6 @@
-import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
 import { information as getInformation } from "../../helpers/information";
 import { FaBriefcase, FaGraduationCap } from "react-icons/fa";
-import { getAriaLabel as getAriaLabel } from "../../helpers/accessibility";
+import { getAriaLabel } from "../../helpers/accessibility";
 import { useLanguage } from "@/app/context/LanguageProvider";
 import styles from "./timeline.module.scss";
 
@@ -15,32 +13,37 @@ const Timeline = () => {
   const ariaLabel = getAriaLabel(isLanguagePortuguese);
 
   return (
-    <div className={styles.timeline} role="region" id="timeline">
-      <VerticalTimeline
-        layout="2-columns"
-        className={styles.container}
-        aria-label={ariaLabel.timeline.description}
-      >
+    <section
+      className={styles.timeline}
+      role="region"
+      id="timeline"
+      aria-label={ariaLabel.timeline.description}
+    >
+      <ol className={`${styles.list}`}>
         {timeline.reverse().map((item, index) => (
-          <VerticalTimelineElement
-            className={styles.item}
-            contentStyle={{ background: "unset" }}
-            date={item.date}
-            dateClassName={index + (1 % 2) === 0 ? styles["left-content"] : styles["right-content"]}
+          <li
             key={index}
-            icon={item.type === "work" ? <FaBriefcase /> : <FaGraduationCap />}
+            className={`${styles.item} ${index % 2 === 0 ? styles["item--right"] : styles["item--left"]}`}
           >
             <div
-              tabIndex={0}
-              className={index % 2 !== 0 ? styles["left-content"] : styles["right-content"]}
+              className={`${styles.icon} ${isLanguagePortuguese ? styles.portuguese : styles.english}`}
+              aria-hidden="true"
             >
+              {item.type === "work" ? <FaBriefcase /> : <FaGraduationCap />}
+            </div>
+            <div tabIndex={0} className={styles.content}>
               <h3>{item.position}</h3>
               <h4>{item.location}</h4>
+              <span
+                className={`${styles.date} ${isLanguagePortuguese ? styles.portuguese : styles.english}`}
+              >
+                {item.date}
+              </span>
             </div>
-          </VerticalTimelineElement>
+          </li>
         ))}
-      </VerticalTimeline>
-    </div>
+      </ol>
+    </section>
   );
 };
 

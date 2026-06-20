@@ -9,8 +9,8 @@ describe("information", () => {
       expect(Array.isArray(data.home.timeline)).toBe(true);
     });
 
-    it("returns 10 timeline entries", () => {
-      expect(data.home.timeline).toHaveLength(10);
+    it("returns 12 timeline entries", () => {
+      expect(data.home.timeline).toHaveLength(12);
     });
 
     it("each entry has position, location, date and type fields", () => {
@@ -33,15 +33,15 @@ describe("information", () => {
     });
 
     it("returns English position for the last entry", () => {
-      expect(data.home.timeline[9].position).toBe("Front-end Developer");
+      expect(data.home.timeline[11].position).toBe("Masters in Software Engineering");
     });
   });
 
   describe("in Portuguese (isLanguagePortuguese = true)", () => {
     const data = information(true);
 
-    it("returns 10 timeline entries", () => {
-      expect(data.home.timeline).toHaveLength(10);
+    it("returns 12 timeline entries", () => {
+      expect(data.home.timeline).toHaveLength(12);
     });
 
     it("returns Portuguese position for the first entry", () => {
@@ -49,7 +49,7 @@ describe("information", () => {
     });
 
     it("returns Portuguese position for the last entry", () => {
-      expect(data.home.timeline[9].position).toBe("Desenvolvedora Front-end");
+      expect(data.home.timeline[11].position).toBe("MBA em Engenharia de Software");
     });
   });
 });

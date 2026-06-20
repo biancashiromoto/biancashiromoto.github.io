@@ -52,27 +52,16 @@ describe("Information", () => {
     });
   });
 
-  describe("constructor defaults to English when no language is passed", () => {
+  it("defaults to English when no language is passed", () => {
     const info = new Information();
-
-    it("sets English translate button label", () => {
-      expect(info._translateButtonLabel).toBe("Traduzir para o português");
-    });
-
-    it("sets English greeting message", () => {
-      expect(info._greetingMessage).toEqual([
-        "Hello!",
-        "My name is",
-        " Bianca",
-        "and this is my portfolio!",
-      ]);
-    });
+    expect(info._greetingMessage).toEqual(new Information("en")._greetingMessage);
+    expect(info._translateButtonLabel).toBe("Traduzir para o português");
   });
 
   describe("in English (language = 'en')", () => {
     const info = new Information("en");
 
-    it("sets English greeting message array", () => {
+    it("sets greeting message array", () => {
       expect(info._greetingMessage).toEqual([
         "Hello!",
         "My name is",
@@ -81,48 +70,49 @@ describe("Information", () => {
       ]);
     });
 
-    it("sets English about me text with 2 paragraphs", () => {
+    it("sets about me text with 2 paragraphs", () => {
       expect(info._aboutMeText).toHaveLength(2);
       expect(info._aboutMeText[0]).toContain("Veterinary Medicine");
+      expect(info._aboutMeText[1]).toContain("accessible interfaces");
     });
 
-    it("sets English translate button label", () => {
+    it("sets translate button label", () => {
       expect(info._translateButtonLabel).toBe("Traduzir para o português");
     });
 
-    it("sets English in-progress label", () => {
+    it("sets in-progress label", () => {
       expect(info._inProgress).toBe("In progress...");
     });
 
-    it("sets English email tooltip", () => {
+    it("sets email tooltip", () => {
       expect(info._emailTooltip).toBe("Email me!");
     });
 
-    it("sets English projects label", () => {
+    it("sets projects label", () => {
       expect(info._projects).toBe("Projects");
     });
 
-    it("sets English return tooltip", () => {
+    it("sets return tooltip", () => {
       expect(info._returnToPreviousPageTooltip).toBe("Back");
     });
 
-    it("sets English resume tooltip", () => {
+    it("sets resume tooltip", () => {
       expect(info._resumeTooltip).toBe("Download my resume");
     });
 
-    it("sets English cat gif alt text", () => {
+    it("sets cat gif alt text", () => {
       expect(info._catGifAltText).toBe("Gif of a cat typing on a laptop");
     });
 
-    it("sets English check my projects label", () => {
+    it("sets check my projects label", () => {
       expect(info._checkMyProjects).toBe("Check my projects");
     });
 
-    it("sets English download CV label", () => {
+    it("sets download CV label", () => {
       expect(info._downloadMyCV).toBe("Download my CV");
     });
 
-    it("sets English scroll to top label", () => {
+    it("sets scroll to top label", () => {
       expect(info._scrollToTopButtonLabel).toBe("Scroll to top");
     });
   });
@@ -130,7 +120,7 @@ describe("Information", () => {
   describe("in Portuguese (language = 'pt')", () => {
     const info = new Information("pt");
 
-    it("sets Portuguese greeting message array", () => {
+    it("sets greeting message array", () => {
       expect(info._greetingMessage).toEqual([
         "Olá!",
         "Meu nome é",
@@ -139,49 +129,50 @@ describe("Information", () => {
       ]);
     });
 
-    it("sets Portuguese about me text with 2 paragraphs", () => {
+    it("sets about me text with 2 paragraphs", () => {
       expect(info._aboutMeText).toHaveLength(2);
       expect(info._aboutMeText[0]).toContain("Medicina Veterinária");
+      expect(info._aboutMeText[1]).toContain("interfaces acessíveis");
     });
 
-    it("sets Portuguese translate button label", () => {
+    it("sets translate button label", () => {
       expect(info._translateButtonLabel).toBe("Translate to English");
     });
 
-    it("sets Portuguese in-progress label", () => {
+    it("sets in-progress label", () => {
       expect(info._inProgress).toBe("Em construção");
     });
 
-    it("sets Portuguese email tooltip", () => {
+    it("sets email tooltip", () => {
       expect(info._emailTooltip).toBe("Me envie um email!");
     });
 
-    it("sets Portuguese projects label", () => {
+    it("sets projects label", () => {
       expect(info._projects).toBe("Projetos");
     });
 
-    it("sets Portuguese scroll to top label", () => {
-      expect(info._scrollToTopButtonLabel).toBe("Voltar ao topo");
-    });
-
-    it("sets Portuguese return tooltip", () => {
+    it("sets return tooltip", () => {
       expect(info._returnToPreviousPageTooltip).toBe("Voltar");
     });
 
-    it("sets Portuguese cat gif alt text", () => {
-      expect(info._catGifAltText).toBe("Gif de um gato digitando em um laptop");
-    });
-
-    it("sets Portuguese resume tooltip", () => {
+    it("sets resume tooltip", () => {
       expect(info._resumeTooltip).toBe("Baixe meu currículo");
     });
 
-    it("sets Portuguese check my projects label", () => {
+    it("sets cat gif alt text", () => {
+      expect(info._catGifAltText).toBe("Gif de um gato digitando em um laptop");
+    });
+
+    it("sets check my projects label", () => {
       expect(info._checkMyProjects).toBe("Veja meus projetos");
     });
 
-    it("sets Portuguese download CV label", () => {
+    it("sets download CV label", () => {
       expect(info._downloadMyCV).toBe("Baixe meu currículo");
+    });
+
+    it("sets scroll to top label", () => {
+      expect(info._scrollToTopButtonLabel).toBe("Voltar ao topo");
     });
   });
 });

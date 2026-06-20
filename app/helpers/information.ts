@@ -72,10 +72,28 @@ export const information = (isLanguagePortuguese: boolean) => ({
         type: "work",
       },
       {
-        position: isLanguagePortuguese ? "Desenvolvedora Front-end" : "Front-end Developer",
+        position: isLanguagePortuguese
+          ? "Desenvolvedora Front-end Junior"
+          : "Junior Front-end Developer",
         location: "Webmotors | São Paulo/SP",
-        date: isLanguagePortuguese ? "mai/24 - atualmente" : "may/24 - present",
+        date: isLanguagePortuguese ? "mai/24 - nov/25" : "may/24 - nov/25",
         type: "work",
+      },
+      {
+        position: isLanguagePortuguese
+          ? "Desenvolvedora Front-end Pleno"
+          : "Mid-level Front-end Developer",
+        location: "Webmotors | São Paulo/SP",
+        date: isLanguagePortuguese ? "nov/25 - atualmente" : "nov/25 - present",
+        type: "work",
+      },
+      {
+        position: isLanguagePortuguese
+          ? "MBA em Engenharia de Software"
+          : "Masters in Software Engineering",
+        location: "FIAP | São Paulo/SP",
+        date: isLanguagePortuguese ? "mai/26 - atualmente" : "may/26 - present",
+        type: "education",
       },
     ],
   },

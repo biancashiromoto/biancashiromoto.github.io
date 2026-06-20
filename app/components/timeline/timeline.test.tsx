@@ -8,19 +8,6 @@ vi.mock("@/app/context/LanguageProvider", () => ({
   useLanguage: vi.fn(),
 }));
 
-vi.mock("react-vertical-timeline-component", () => ({
-  VerticalTimeline: ({ children }: any) => <div data-testid="vertical-timeline">{children}</div>,
-  VerticalTimelineElement: ({ children, icon, date }: any) => (
-    <div data-testid="timeline-element">
-      <span data-testid="timeline-date">{date}</span>
-      <span data-testid="timeline-icon">{icon}</span>
-      {children}
-    </div>
-  ),
-}));
-
-vi.mock("react-vertical-timeline-component/style.min.css", () => ({}));
-
 vi.mock("react-icons/fa", () => ({
   FaBriefcase: () => <span data-testid="icon-work" />,
   FaGraduationCap: () => <span data-testid="icon-education" />,
@@ -41,32 +28,32 @@ describe("Timeline", () => {
     mockUseLanguage.mockReturnValue(defaultLanguageContext);
   });
 
-  it("renders the VerticalTimeline container", () => {
+  it("renders inside a region landmark with correct aria-label", () => {
     render(<Timeline />);
-    expect(screen.getByTestId("vertical-timeline")).toBeInTheDocument();
+    expect(
+      screen.getByRole("region", { name: /timeline of experience and education/i }),
+    ).toBeInTheDocument();
   });
 
-  it("renders a timeline element for each entry", () => {
+  it("renders a list item for each timeline entry", () => {
     const {
       home: { timeline },
     } = getInformation(false);
     render(<Timeline />);
-    expect(screen.getAllByTestId("timeline-element")).toHaveLength(timeline.length);
+    expect(screen.getAllByRole("listitem")).toHaveLength(timeline.length);
   });
 
   it("renders work icon for work-type entries", () => {
     render(<Timeline />);
-    const workIcons = screen.getAllByTestId("icon-work");
-    expect(workIcons.length).toBeGreaterThan(0);
+    expect(screen.getAllByTestId("icon-work").length).toBeGreaterThan(0);
   });
 
   it("renders education icon for education-type entries", () => {
     render(<Timeline />);
-    const educationIcons = screen.getAllByTestId("icon-education");
-    expect(educationIcons.length).toBeGreaterThan(0);
+    expect(screen.getAllByTestId("icon-education").length).toBeGreaterThan(0);
   });
 
-  it("renders position text for each unique item position", () => {
+  it("renders position text for each unique item", () => {
     const {
       home: { timeline },
     } = getInformation(false);
@@ -77,8 +64,31 @@ describe("Timeline", () => {
     });
   });
 
-  it("renders inside a region landmark", () => {
+  it("renders location text for each item", () => {
+    const {
+      home: { timeline },
+    } = getInformation(false);
     render(<Timeline />);
-    expect(document.querySelector("[role='region']")).toBeInTheDocument();
+    const uniqueLocations = [...new Set(timeline.map((item) => item.location))];
+    uniqueLocations.forEach((location) => {
+      expect(screen.getAllByText(location).length).toBeGreaterThan(0);
+    });
+  });
+
+  it("renders date for each item", () => {
+    const {
+      home: { timeline },
+    } = getInformation(false);
+    render(<Timeline />);
+    const uniqueDates = [...new Set(timeline.map((item) => item.date))];
+    uniqueDates.forEach((date) => {
+      expect(screen.getAllByText(date).length).toBeGreaterThan(0);
+    });
+  });
+
+  it("renders position as h3 and location as h4", () => {
+    render(<Timeline />);
+    expect(screen.getAllByRole("heading", { level: 3 }).length).toBeGreaterThan(0);
+    expect(screen.getAllByRole("heading", { level: 4 }).length).toBeGreaterThan(0);
   });
 });
