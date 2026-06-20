@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { axe } from "vitest-axe";
 import ProjectCard from "./project-card";
 import { Repository } from "@/app/helpers/classes/fetchRepos";
 
@@ -70,5 +71,13 @@ describe("ProjectCard", () => {
     const img = screen.getByAltText("Screenshot of my-project") as HTMLImageElement;
     expect(img.src).toContain("my-project");
     expect(img.src).toContain("screenshot-01.png");
+  });
+
+  describe("accessibility", () => {
+    it("has no violations", async () => {
+      const { container } = render(<ProjectCard repo={defaultRepo} />);
+      const results = await axe(container);
+      expect(results.violations).toHaveLength(0);
+    });
   });
 });

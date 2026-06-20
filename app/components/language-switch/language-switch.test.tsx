@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { axe } from "vitest-axe";
 import userEvent from "@testing-library/user-event";
 import { useLanguage } from "@/app/context/LanguageProvider";
 import LanguageSwitch from "./language-switch";
@@ -71,5 +72,24 @@ describe("LanguageSwitch", () => {
 
     await user.click(screen.getByRole("switch"));
     expect(toggleLanguage).toHaveBeenCalledTimes(1);
+  });
+
+  describe("accessibility", () => {
+    it("has no violations in English", async () => {
+      const { container } = render(<LanguageSwitch />);
+      const results = await axe(container);
+      expect(results.violations).toHaveLength(0);
+    });
+
+    it("has no violations in Portuguese", async () => {
+      mockUseLanguage.mockReturnValue({
+        ...defaultLanguageContext,
+        isLanguagePortuguese: true,
+        information: { _translateButtonLabel: "Translate to English" } as any,
+      });
+      const { container } = render(<LanguageSwitch />);
+      const results = await axe(container);
+      expect(results.violations).toHaveLength(0);
+    });
   });
 });

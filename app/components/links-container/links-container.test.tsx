@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { axe } from "vitest-axe";
 import { useLanguage } from "@/app/context/LanguageProvider";
 import { LinksContainer } from "./links-container";
 
@@ -71,5 +72,13 @@ describe("LinksContainer", () => {
       "href",
       "https://drive.google.com/drive/folders/resume",
     );
+  });
+
+  describe("accessibility", () => {
+    it("has no violations", async () => {
+      const { container } = render(<LinksContainer />);
+      const results = await axe(container);
+      expect(results.violations).toHaveLength(0);
+    });
   });
 });

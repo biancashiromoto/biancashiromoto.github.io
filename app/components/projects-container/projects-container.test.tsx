@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { axe } from "vitest-axe";
 import userEvent from "@testing-library/user-event";
 import { useQuery } from "@tanstack/react-query";
 import { useLanguage } from "@/app/context/LanguageProvider";
@@ -205,5 +206,13 @@ describe("ProjectsContainer", () => {
     await user.keyboard("{ArrowRight}");
     await user.keyboard("{ArrowLeft}");
     expect(screen.getByTestId("project-card")).toHaveTextContent("project-alpha");
+  });
+
+  describe("accessibility", () => {
+    it("has no violations when data is loaded", async () => {
+      const { container } = render(<ProjectsContainer />);
+      const results = await axe(container);
+      expect(results.violations).toHaveLength(0);
+    });
   });
 });

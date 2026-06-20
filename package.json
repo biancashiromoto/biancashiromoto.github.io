@@ -53,6 +53,7 @@
     "react-vertical-timeline-component": "^3.5.3",
     "typescript": "^5.2.2",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "vitest-axe": "^0.1.0"
   }
 }

@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { axe } from "vitest-axe";
 import userEvent from "@testing-library/user-event";
 import { useLanguage } from "@/app/context/LanguageProvider";
 import useButtonScrollToTop from "./hooks/useButtonScrollToTop";
@@ -70,5 +71,13 @@ describe("ButtonScrollToTop", () => {
     render(<ButtonScrollToTop />);
     await user.click(screen.getByRole("button"));
     expect(handleScrollToTop).toHaveBeenCalledOnce();
+  });
+
+  describe("accessibility", () => {
+    it("has no violations when button is visible", async () => {
+      const { container } = render(<ButtonScrollToTop />);
+      const results = await axe(container);
+      expect(results.violations).toHaveLength(0);
+    });
   });
 });

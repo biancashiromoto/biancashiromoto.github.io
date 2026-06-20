@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { axe } from "vitest-axe";
 import { usePathname } from "next/navigation";
 import Header from "./header";
 
@@ -50,5 +51,21 @@ describe("Header", () => {
     mockUsePathname.mockReturnValue("/");
     render(<Header />);
     expect(screen.getByRole("banner")).toBeInTheDocument();
+  });
+
+  describe("accessibility", () => {
+    it("has no violations on home route", async () => {
+      mockUsePathname.mockReturnValue("/");
+      const { container } = render(<Header />);
+      const results = await axe(container);
+      expect(results.violations).toHaveLength(0);
+    });
+
+    it("has no violations on projects route", async () => {
+      mockUsePathname.mockReturnValue("/projects");
+      const { container } = render(<Header />);
+      const results = await axe(container);
+      expect(results.violations).toHaveLength(0);
+    });
   });
 });
