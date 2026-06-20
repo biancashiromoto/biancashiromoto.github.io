@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { getAriaLabel, altText } from "./acessibility";
+import { getAriaLabel, altText } from "./accessibility";
 
 describe("getAriaLabel", () => {
   describe("in English (isLanguagePortuguese = false)", () => {
@@ -45,11 +45,15 @@ describe("getAriaLabel", () => {
       });
 
       it("returns English project repository link with title", () => {
-        expect(labels.links.project.repositoryLink("My App")).toBe("Project My App's repository link");
+        expect(labels.links.project.repositoryLink("My App")).toBe(
+          "Project My App's repository link",
+        );
       });
 
       it("returns English project deploy link with title", () => {
-        expect(labels.links.project.deployLink("My App")).toBe("Project My App's deploy link");
+        expect(labels.links.project.deployLink("My App")).toBe(
+          "Project My App's deploy link",
+        );
       });
     });
 
@@ -65,7 +69,9 @@ describe("getAriaLabel", () => {
 
     describe("timeline", () => {
       it("returns English timeline description", () => {
-        expect(labels.timeline.description).toBe("Timeline of experience and education");
+        expect(labels.timeline.description).toBe(
+          "Timeline of experience and education",
+        );
       });
     });
   });
@@ -82,15 +88,21 @@ describe("getAriaLabel", () => {
     });
 
     it("returns Portuguese project repository link with title", () => {
-      expect(labels.links.project.repositoryLink("Meu App")).toBe("Link do repositório do projeto Meu App");
+      expect(labels.links.project.repositoryLink("Meu App")).toBe(
+        "Link do repositório do projeto Meu App",
+      );
     });
 
     it("returns Portuguese project deploy link with title", () => {
-      expect(labels.links.project.deployLink("Meu App")).toBe("Link do deploy do projeto Meu App");
+      expect(labels.links.project.deployLink("Meu App")).toBe(
+        "Link do deploy do projeto Meu App",
+      );
     });
 
     it("returns Portuguese timeline description", () => {
-      expect(labels.timeline.description).toBe("Linha do tempo de experiência profissional e educação");
+      expect(labels.timeline.description).toBe(
+        "Linha do tempo de experiência profissional e educação",
+      );
     });
   });
 });
@@ -100,11 +112,15 @@ describe("altText", () => {
     const alt = altText(false);
 
     it("returns English profile picture alt text", () => {
-      expect(alt.home.profilePicture).toBe("I am a woman with dark brown eyes and hair and I am wearing a black and gray T-shirt.");
+      expect(alt.home.profilePicture).toBe(
+        "Bianca Shiromoto's profile picture",
+      );
     });
 
     it("returns English project image alt text with title", () => {
-      expect(alt.projects.projectImage("My App")).toBe("Project My App's screenshot");
+      expect(alt.projects.projectImage("My App")).toBe(
+        "Project My App's screenshot",
+      );
     });
   });
 
@@ -112,11 +128,15 @@ describe("altText", () => {
     const alt = altText(true);
 
     it("returns Portuguese profile picture alt text", () => {
-      expect(alt.home.profilePicture).toBe("Sou uma mulher de cabelos e olhos cabelos escuros e estou usando uma camiseta cinza e preta.");
+      expect(alt.home.profilePicture).toBe(
+        "Foto de perfil de Bianca Shiromoto",
+      );
     });
 
     it("returns Portuguese project image alt text with title", () => {
-      expect(alt.projects.projectImage("Meu App")).toBe("Screenshot do projeto Meu App");
+      expect(alt.projects.projectImage("Meu App")).toBe(
+        "Screenshot do projeto Meu App",
+      );
     });
   });
 });
