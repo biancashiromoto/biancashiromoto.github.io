@@ -13,6 +13,7 @@ Este documento organiza as melhorias planejadas para o portfólio, agrupadas por
 3. [Acessibilidade](#3-acessibilidade)
 4. [Performance](#4-performance)
 5. [UX/UI](#5-uxui)
+6. [i18n](#6-i18n)
 
 ---
 
@@ -159,6 +160,13 @@ O portfólio tem uma identidade visual definida e funciona bem em mobile e deskt
 
 ### O que implementar
 
+**Modal de download do currículo**
+
+- Ao clicar no ícone de PDF no `LinksContainer`, abrir um modal em vez de redirecionar diretamente
+- O modal deve oferecer duas opções: currículo em português e currículo em inglês, cada um com seu link de download
+- Fechar o modal ao clicar fora dele ou pressionar `Escape`
+- Garantir acessibilidade: foco deve ir para o modal ao abrir (`focus trap`), retornar ao botão de origem ao fechar, e o modal deve ter `role="dialog"` com `aria-modal="true"` e `aria-labelledby`
+
 **Dark mode**
 
 - Adicionar alternância de tema claro/escuro
@@ -189,10 +197,42 @@ O portfólio tem uma identidade visual definida e funciona bem em mobile e deskt
 
 ---
 
+---
+
+## 6. i18n
+
+### Estado atual
+
+A troca de idioma é implementada de forma manual: a classe `Information.ts` recebe um parâmetro `language` e retorna strings diferentes, e o `LanguageProvider` expõe um boolean `isLanguagePortuguese`. Funciona para dois idiomas, mas escala mal — adicionar um terceiro idioma exigiria alterar cada condicional em toda a base de código.
+
+### O que implementar
+
+**Migrar para uma biblioteca de i18n padrão**
+
+- Adotar `next-intl` (integração nativa com Next.js App Router) ou `react-i18next`
+- Mover todo o conteúdo bilíngue de `Information.ts` e `accessibility.ts` para arquivos de mensagens (`messages/pt.json`, `messages/en.json`)
+- Substituir o boolean `isLanguagePortuguese` por um hook padrão (`useTranslations`, `useLocale`)
+
+**Roteamento por locale**
+
+- Configurar rotas como `/en` e `/pt` em vez de controlar o idioma via estado
+- Permitir que o Next.js gere páginas estáticas para cada locale no build
+
+**Qualidade e tipagem**
+
+- Garantir que todas as chaves de tradução sejam type-safe (o `next-intl` suporta isso nativamente)
+- Adicionar testes para verificar que nenhuma chave de tradução está faltando em algum idioma
+
+### Por que fazer isso
+
+A implementação atual já resolve o problema imediato, mas a migração para `next-intl` é o padrão da indústria para projetos Next.js e seria um conhecimento relevante para demonstrar no portfólio — especialmente porque internacionalização é uma necessidade frequente em empresas com produtos globais.
+
+---
+
 ## Ordem de execução
 
 ```
-Testes → CI/CD → Acessibilidade → Performance → UX/UI
+Testes → CI/CD → Acessibilidade → Performance → UX/UI → i18n
 ```
 
 A lógica desta ordem:
@@ -201,4 +241,5 @@ A lógica desta ordem:
 - **CI/CD** automatiza os testes e cria uma rede de proteção permanente
 - **Acessibilidade** pode ser validada automaticamente no CI com os testes já no lugar
 - **Performance** se beneficia da base estável criada nas etapas anteriores
-- **UX/UI** é a etapa mais criativa e pode ser feita de forma incremental por último
+- **UX/UI** é a etapa mais criativa e pode ser feita de forma incremental
+- **i18n** vem por último porque refatora a arquitetura de conteúdo — convém ter tudo mais estável antes de fazer essa mudança
