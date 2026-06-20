@@ -91,4 +91,21 @@ describe("Timeline", () => {
     expect(screen.getAllByRole("heading", { level: 3 }).length).toBeGreaterThan(0);
     expect(screen.getAllByRole("heading", { level: 4 }).length).toBeGreaterThan(0);
   });
+
+  describe("when language is Portuguese", () => {
+    beforeEach(() => {
+      mockUseLanguage.mockReturnValue({
+        ...defaultLanguageContext,
+        isLanguagePortuguese: true,
+      });
+    });
+
+    it("renders all timeline entries in Portuguese", () => {
+      const {
+        home: { timeline },
+      } = getInformation(true);
+      render(<Timeline />);
+      expect(screen.getAllByRole("listitem")).toHaveLength(timeline.length);
+    });
+  });
 });

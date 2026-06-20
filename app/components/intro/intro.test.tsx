@@ -13,7 +13,7 @@ vi.mock("@/app/context/WindowResizeProvider", () => ({
 }));
 
 vi.mock("next/image", () => ({
-  default: ({ src, alt }: any) => <img src={src} alt={alt} />,
+  default: ({ src, alt, className }: any) => <img src={src} alt={alt} className={className} />,
 }));
 
 vi.mock("../links-container/links-container", () => ({
@@ -81,5 +81,18 @@ describe("Intro", () => {
     mockUseWindowResize.mockReturnValue({ width: 1023, isDesktop: false });
     render(<Intro />);
     expect(screen.getByTestId("hero")).toBeInTheDocument();
+  });
+
+  it("renders profile picture without loaded class when isLoading", () => {
+    mockUseLanguage.mockReturnValue({ ...defaultLanguageContext, isLoading: true });
+    mockUseWindowResize.mockReturnValue({ width: 1024, isDesktop: true });
+    render(<Intro />);
+    expect(screen.getByRole("img").className).not.toContain("loaded");
+  });
+
+  it("renders profile picture with loaded class when not loading", () => {
+    mockUseWindowResize.mockReturnValue({ width: 1024, isDesktop: true });
+    render(<Intro />);
+    expect(screen.getByRole("img").className).toContain("loaded");
   });
 });

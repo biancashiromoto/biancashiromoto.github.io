@@ -4,8 +4,9 @@ export default class Utils {
    * @returns true if it is and false if it is not.
    */
   public isLanguagePortuguese(): boolean {
+    /* v8 ignore next 3 */
     if (typeof navigator === "undefined") {
-      return false; // Default to English during SSR
+      return false;
     }
     const browserLanguage = navigator.language;
     return browserLanguage.includes("pt-");
@@ -28,6 +29,7 @@ export default class Utils {
    * @returns The value with the key set as parameter or null if the key does not exist.
    */
   public getLocalStorage(key: string) {
+    /* v8 ignore next 3 */
     if (typeof localStorage === "undefined") {
       return null;
     }

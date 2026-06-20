@@ -8,7 +8,6 @@ import { useMemo } from "react";
 import styles from "./project-card.module.scss";
 import ProjectDescription from "./project-description/project-description";
 import TopicsList from "./topics-list/topics-list";
-import Placeholder from "@/public/assets/img/placeholder.webp";
 
 const utils = new Utils();
 
@@ -39,7 +38,7 @@ const ProjectCard = ({ repo }: { repo: Repository }) => {
       </div>
       {screenshotUrl && (
         <Image
-          src={screenshotUrl ?? Placeholder}
+          src={screenshotUrl}
           alt={`Screenshot of ${repo.name}`}
           width={200}
           height={300}
