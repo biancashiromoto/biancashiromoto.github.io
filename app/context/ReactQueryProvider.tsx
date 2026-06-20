@@ -6,11 +6,7 @@ import { ReactNode } from "react";
 const queryClient = new QueryClient();
 
 const ReactQueryProvider = ({ children }: { children: ReactNode }) => {
-	return (
-		<QueryClientProvider client={queryClient}>
-			{children}
-		</QueryClientProvider>
-	);
+  return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 };
 
 export default ReactQueryProvider;

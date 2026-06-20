@@ -16,7 +16,7 @@ describe("ScrollProvider", () => {
     render(
       <ScrollProvider>
         <span>child</span>
-      </ScrollProvider>
+      </ScrollProvider>,
     );
     expect(screen.getByText("child")).toBeInTheDocument();
   });
@@ -27,7 +27,10 @@ describe("ScrollProvider", () => {
   });
 
   it("updates scrollProgress when scroll event fires", () => {
-    Object.defineProperty(document.documentElement, "scrollHeight", { value: 1100, configurable: true });
+    Object.defineProperty(document.documentElement, "scrollHeight", {
+      value: 1100,
+      configurable: true,
+    });
     Object.defineProperty(window, "innerHeight", { value: 100, configurable: true });
     Object.defineProperty(window, "scrollY", { value: 500, configurable: true });
 
@@ -42,7 +45,11 @@ describe("ScrollProvider", () => {
 
   it("removes scroll listener on unmount", () => {
     const removeSpy = vi.spyOn(window, "removeEventListener");
-    const { unmount } = render(<ScrollProvider><span /></ScrollProvider>);
+    const { unmount } = render(
+      <ScrollProvider>
+        <span />
+      </ScrollProvider>,
+    );
     unmount();
     expect(removeSpy).toHaveBeenCalledWith("scroll", expect.any(Function));
   });

@@ -4,7 +4,9 @@ import { CustomLink } from "./link";
 
 vi.mock("next/link", () => ({
   default: ({ href, children, ...props }: any) => (
-    <a href={href} {...props}>{children}</a>
+    <a href={href} {...props}>
+      {children}
+    </a>
   ),
 }));
 
@@ -30,7 +32,11 @@ describe("CustomLink", () => {
   });
 
   it("accepts a custom target", () => {
-    render(<CustomLink path="https://github.com" target="_blank">GitHub</CustomLink>);
+    render(
+      <CustomLink path="https://github.com" target="_blank">
+        GitHub
+      </CustomLink>,
+    );
     expect(screen.getByRole("link")).toHaveAttribute("target", "_blank");
   });
 });

@@ -1,6 +1,6 @@
 import { useLanguage } from "@/app/context/LanguageProvider";
 import styles from "./intro.module.scss";
-import { altText } from "@/app/helpers/acessibility";
+import { altText } from "@/app/helpers/accessibility";
 import Image from "next/image";
 import { LinksContainer } from "../links-container/links-container";
 import GreetingMessage from "./greeting-message/greeting-message";
@@ -8,30 +8,28 @@ import { useWindowResize } from "@/app/context/WindowResizeProvider";
 import Hero from "../hero/hero";
 
 const Intro = () => {
-	const {
-		information, isLanguagePortuguese, isLoading
-	} = useLanguage();
-	const { width } = useWindowResize();
+  const { information, isLanguagePortuguese, isLoading } = useLanguage();
+  const { width } = useWindowResize();
 
-	const imageProps = {
-		alt: altText(isLanguagePortuguese).home.profilePicture,
-		src: information._profilePictureURL,
-		width: 200,
-		height: 200,
-		className: !isLoading
-			? `${styles["profile-picture"]} ${styles["profile-picture--loaded"]}`
-			: styles["profile-picture"],
-		priority: true,
-	};
+  const imageProps = {
+    alt: altText(isLanguagePortuguese).home.profilePicture,
+    src: information._profilePictureURL,
+    width: 200,
+    height: 200,
+    className: !isLoading
+      ? `${styles["profile-picture"]} ${styles["profile-picture--loaded"]}`
+      : styles["profile-picture"],
+    priority: true,
+  };
 
-	return (
-		<div className={styles.intro}>
-			<Image {...imageProps} />
-			<GreetingMessage {...information} />
-			<LinksContainer />
-			{width <= 1023 && <Hero />}
-		</div>
-	);
+  return (
+    <div className={styles.intro}>
+      <Image {...imageProps} />
+      <GreetingMessage {...information} />
+      <LinksContainer />
+      {width <= 1023 && <Hero />}
+    </div>
+  );
 };
 
 export default Intro;

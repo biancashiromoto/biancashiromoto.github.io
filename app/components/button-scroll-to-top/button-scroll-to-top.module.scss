@@ -1,6 +1,6 @@
 .scroll-to-top {
   position: fixed;
-		top: calc(100dvh - (3 * $header-height));
+  top: calc(100dvh - (3 * $header-height));
   right: 50%;
   transform: translateX(50%);
   color: $gray;
@@ -11,7 +11,7 @@
   cursor: pointer;
   z-index: 1000;
   transition: border 1s;
-		margin-top: $header-height;
+  margin-top: $header-height;
 
   &:hover {
     border: solid 1px $gray;

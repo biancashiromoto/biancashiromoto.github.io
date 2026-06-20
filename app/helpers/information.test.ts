@@ -14,7 +14,7 @@ describe("information", () => {
     });
 
     it("each entry has position, location, date and type fields", () => {
-      data.home.timeline.forEach(entry => {
+      data.home.timeline.forEach((entry) => {
         expect(entry).toHaveProperty("position");
         expect(entry).toHaveProperty("location");
         expect(entry).toHaveProperty("date");
@@ -23,7 +23,7 @@ describe("information", () => {
     });
 
     it("type is either 'education' or 'work' for every entry", () => {
-      data.home.timeline.forEach(entry => {
+      data.home.timeline.forEach((entry) => {
         expect(["education", "work"]).toContain(entry.type);
       });
     });

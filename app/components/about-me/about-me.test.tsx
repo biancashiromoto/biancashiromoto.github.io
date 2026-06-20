@@ -19,10 +19,7 @@ const defaultLanguageContext = {
   isLanguagePortuguese: false,
   toggleLanguage: vi.fn(),
   information: {
-    _aboutMeText: [
-      "First paragraph about me.",
-      "Second paragraph about me.",
-    ],
+    _aboutMeText: ["First paragraph about me.", "Second paragraph about me."],
   } as any,
   isLoading: false,
 };

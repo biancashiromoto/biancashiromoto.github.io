@@ -47,7 +47,9 @@ describe("Timeline", () => {
   });
 
   it("renders a timeline element for each entry", () => {
-    const { home: { timeline } } = getInformation(false);
+    const {
+      home: { timeline },
+    } = getInformation(false);
     render(<Timeline />);
     expect(screen.getAllByTestId("timeline-element")).toHaveLength(timeline.length);
   });
@@ -65,7 +67,9 @@ describe("Timeline", () => {
   });
 
   it("renders position text for each unique item position", () => {
-    const { home: { timeline } } = getInformation(false);
+    const {
+      home: { timeline },
+    } = getInformation(false);
     render(<Timeline />);
     const uniquePositions = [...new Set(timeline.map((item) => item.position))];
     uniquePositions.forEach((position) => {

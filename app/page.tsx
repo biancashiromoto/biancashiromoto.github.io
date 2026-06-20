@@ -9,19 +9,19 @@ import { useWindowResize } from "./context/WindowResizeProvider";
 import Hero from "./components/hero/hero";
 
 function HomePage() {
-	const { isDesktop } = useWindowResize();
+  const { isDesktop } = useWindowResize();
 
-	return (
-		<div className={styles.home} id="home-start">
-			<div className={styles.container}>
-				<Intro />
-				<AboutMe />
-			</div>
-			{isDesktop && <Hero />}
-			<Timeline />
-			<ButtonScrollToTop />
-		</div>
-	);
+  return (
+    <div className={styles.home} id="home-start">
+      <div className={styles.container}>
+        <Intro />
+        <AboutMe />
+      </div>
+      {isDesktop && <Hero />}
+      <Timeline />
+      <ButtonScrollToTop />
+    </div>
+  );
 }
 
 export default HomePage;

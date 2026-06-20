@@ -23,9 +23,7 @@ describe("LanguageSwitch", () => {
 
   it("renders the switch input with the correct aria-label", () => {
     render(<LanguageSwitch />);
-    expect(
-      screen.getByRole("switch", { name: /traduzir para o português/i }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("switch", { name: /traduzir para o português/i })).toBeInTheDocument();
   });
 
   it("renders the label text in uppercase", () => {
@@ -58,9 +56,7 @@ describe("LanguageSwitch", () => {
 
     render(<LanguageSwitch />);
     expect(screen.getByText("TRANSLATE TO ENGLISH")).toBeInTheDocument();
-    expect(
-      screen.getByRole("switch", { name: /translate to english/i }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("switch", { name: /translate to english/i })).toBeInTheDocument();
   });
 
   it("calls toggleLanguage when the switch is clicked", async () => {

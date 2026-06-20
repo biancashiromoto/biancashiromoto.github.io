@@ -41,7 +41,10 @@ describe("ButtonScrollToTop", () => {
   });
 
   it("does not render the button when shouldShowButtonScrollToTop is false", () => {
-    mockUseButtonScrollToTop.mockReturnValue({ ...defaultScrollTopResult, shouldShowButtonScrollToTop: false });
+    mockUseButtonScrollToTop.mockReturnValue({
+      ...defaultScrollTopResult,
+      shouldShowButtonScrollToTop: false,
+    });
     render(<ButtonScrollToTop />);
     expect(screen.queryByRole("button")).not.toBeInTheDocument();
   });

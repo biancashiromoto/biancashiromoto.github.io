@@ -13,74 +13,76 @@ const utils = new Utils();
 const storagedRepos = utils.getLocalStorage("repos");
 
 const ProjectsContainer = () => {
-	const [currentCardIndex, setCurrentCardIndex] = useState(0);
-	const { isLanguagePortuguese } = useLanguage();
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const { isLanguagePortuguese } = useLanguage();
 
-	const {
-		data: repos,
-		isLoading,
-		isError,
-		error
-	} = useQuery<Repository[] | [], Error>({
-		queryKey: ["repos"],
-		queryFn: fetchRepos,
-		enabled: !storagedRepos,
-		initialData: storagedRepos ?? [],
-	});
+  const {
+    data: repos,
+    isLoading,
+    isError,
+    error,
+  } = useQuery<Repository[] | [], Error>({
+    queryKey: ["repos"],
+    queryFn: fetchRepos,
+    enabled: !storagedRepos,
+    initialData: storagedRepos ?? [],
+  });
 
-	if (isLoading && !repos) return <div>{isLanguagePortuguese ? "Carregando..." : "Loading..."}</div>;
+  if (isLoading && !repos)
+    return <div>{isLanguagePortuguese ? "Carregando..." : "Loading..."}</div>;
 
-	if (isError || !repos) {
-		return <div>{isLanguagePortuguese ? "Erro ao carregar projetos" : "Error loading projects"} {error?.message ? `: ${error.message}` : ""}</div>;
-	}
+  if (isError || !repos) {
+    return (
+      <div>
+        {isLanguagePortuguese ? "Erro ao carregar projetos" : "Error loading projects"}{" "}
+        {error?.message ? `: ${error.message}` : ""}
+      </div>
+    );
+  }
 
-	if ((!repos || repos.length === 0) && !storagedRepos && !isLoading) {
-		return <div className={styles["no-projects"]}>No projects available</div>;
-	}
+  if ((!repos || repos.length === 0) && !storagedRepos && !isLoading) {
+    return <div className={styles["no-projects"]}>No projects available</div>;
+  }
 
-	const goToNext = () => {
-		setCurrentCardIndex((prev) => (repos?.length === 0 ? 0 : (prev + 1) % repos.length));
-	};
+  const goToNext = () => {
+    setCurrentCardIndex((prev) => (repos?.length === 0 ? 0 : (prev + 1) % repos.length));
+  };
 
-	const goToPrevious = () => {
-		setCurrentCardIndex((prev) => (repos?.length === 0 ? 0 : (prev - 1 + repos.length) % repos.length));
-	};
+  const goToPrevious = () => {
+    setCurrentCardIndex((prev) =>
+      repos?.length === 0 ? 0 : (prev - 1 + repos.length) % repos.length,
+    );
+  };
 
-	const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-		if (event.key === "ArrowRight") goToNext();
-		if (event.key === "ArrowLeft") goToPrevious();
-	};
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "ArrowRight") goToNext();
+    if (event.key === "ArrowLeft") goToPrevious();
+  };
 
-	return (
-		<>
-			<h1>{isLanguagePortuguese ? "Projetos" : "Projects"}</h1>
-			<div
-				className={styles["projects-container"]}
-				tabIndex={0}
-				onKeyDown={handleKeyDown}
-			>
-				<button
-					type="button"
-					className={styles["scroll-previous"]}
-					onClick={goToPrevious}
-					aria-label="Projeto anterior"
-				>
-					<BsArrowLeft />
-				</button>
-				{repos.length > 0 && (
-					<ProjectCard repo={repos[currentCardIndex]} />
-				)}
-				<button
-					type="button"
-					className={styles["scroll-next"]}
-					onClick={goToNext}
-					aria-label="Próximo projeto"
-				>
-					<BsArrowRight />
-				</button>
-			</div>
-		</>
-	);
+  return (
+    <>
+      <h1>{isLanguagePortuguese ? "Projetos" : "Projects"}</h1>
+      <div className={styles["projects-container"]} tabIndex={0} onKeyDown={handleKeyDown}>
+        <button
+          type="button"
+          className={styles["scroll-previous"]}
+          onClick={goToPrevious}
+          aria-label="Projeto anterior"
+        >
+          <BsArrowLeft />
+        </button>
+        {repos.length > 0 && <ProjectCard repo={repos[currentCardIndex]} />}
+        <button
+          type="button"
+          className={styles["scroll-next"]}
+          onClick={goToNext}
+          aria-label="Próximo projeto"
+        >
+          <BsArrowRight />
+        </button>
+      </div>
+    </>
+  );
 };
 
 export default ProjectsContainer;

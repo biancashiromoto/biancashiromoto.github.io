@@ -9,7 +9,9 @@ vi.mock("@/app/context/LanguageProvider", () => ({
 
 vi.mock("next/link", () => ({
   default: ({ href, children, ...props }: any) => (
-    <a href={href} {...props}>{children}</a>
+    <a href={href} {...props}>
+      {children}
+    </a>
   ),
 }));
 
@@ -49,16 +51,25 @@ describe("LinksContainer", () => {
 
   it("renders the GitHub link with the correct href", () => {
     render(<LinksContainer />);
-    expect(screen.getByTitle("GitHub").closest("a")).toHaveAttribute("href", "https://github.com/biancashiromoto");
+    expect(screen.getByTitle("GitHub").closest("a")).toHaveAttribute(
+      "href",
+      "https://github.com/biancashiromoto",
+    );
   });
 
   it("renders the LinkedIn link with the correct href", () => {
     render(<LinksContainer />);
-    expect(screen.getByTitle("LinkedIn").closest("a")).toHaveAttribute("href", "https://www.linkedin.com/in/bshiromoto/");
+    expect(screen.getByTitle("LinkedIn").closest("a")).toHaveAttribute(
+      "href",
+      "https://www.linkedin.com/in/bshiromoto/",
+    );
   });
 
   it("renders the resume link with the correct href", () => {
     render(<LinksContainer />);
-    expect(screen.getByTitle("Download my CV").closest("a")).toHaveAttribute("href", "https://drive.google.com/drive/folders/resume");
+    expect(screen.getByTitle("Download my CV").closest("a")).toHaveAttribute(
+      "href",
+      "https://drive.google.com/drive/folders/resume",
+    );
   });
 });

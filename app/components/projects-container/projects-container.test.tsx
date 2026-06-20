@@ -18,9 +18,7 @@ vi.mock("@/app/helpers/classes/Utils", () => ({
 }));
 
 vi.mock("../project-card/project-card", () => ({
-  default: ({ repo }: { repo: Repository }) => (
-    <div data-testid="project-card">{repo.name}</div>
-  ),
+  default: ({ repo }: { repo: Repository }) => <div data-testid="project-card">{repo.name}</div>,
 }));
 
 vi.mock("react-icons/bs", () => ({
@@ -73,9 +71,7 @@ describe("ProjectsContainer", () => {
 
   it("renders the heading in English", () => {
     render(<ProjectsContainer />);
-    expect(
-      screen.getByRole("heading", { name: "Projects" }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Projects" })).toBeInTheDocument();
   });
 
   it("renders the heading in Portuguese", () => {
@@ -84,9 +80,7 @@ describe("ProjectsContainer", () => {
       isLanguagePortuguese: true,
     });
     render(<ProjectsContainer />);
-    expect(
-      screen.getByRole("heading", { name: "Projetos" }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Projetos" })).toBeInTheDocument();
   });
 
   it("shows loading message in English when isLoading is true and no data", () => {
@@ -155,28 +149,20 @@ describe("ProjectsContainer", () => {
 
   it("renders the first ProjectCard by default", () => {
     render(<ProjectsContainer />);
-    expect(screen.getByTestId("project-card")).toHaveTextContent(
-      "project-alpha",
-    );
+    expect(screen.getByTestId("project-card")).toHaveTextContent("project-alpha");
   });
 
   it("renders navigation buttons", () => {
     render(<ProjectsContainer />);
-    expect(
-      screen.getByRole("button", { name: "Projeto anterior" }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("button", { name: "Próximo projeto" }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Projeto anterior" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Próximo projeto" })).toBeInTheDocument();
   });
 
   it("advances to the next card when next button is clicked", async () => {
     const user = userEvent.setup();
     render(<ProjectsContainer />);
     await user.click(screen.getByRole("button", { name: "Próximo projeto" }));
-    expect(screen.getByTestId("project-card")).toHaveTextContent(
-      "project-beta",
-    );
+    expect(screen.getByTestId("project-card")).toHaveTextContent("project-beta");
   });
 
   it("goes to the previous card when previous button is clicked", async () => {
@@ -184,18 +170,14 @@ describe("ProjectsContainer", () => {
     render(<ProjectsContainer />);
     await user.click(screen.getByRole("button", { name: "Próximo projeto" }));
     await user.click(screen.getByRole("button", { name: "Projeto anterior" }));
-    expect(screen.getByTestId("project-card")).toHaveTextContent(
-      "project-alpha",
-    );
+    expect(screen.getByTestId("project-card")).toHaveTextContent("project-alpha");
   });
 
   it("wraps around to the last card when going previous from the first", async () => {
     const user = userEvent.setup();
     render(<ProjectsContainer />);
     await user.click(screen.getByRole("button", { name: "Projeto anterior" }));
-    expect(screen.getByTestId("project-card")).toHaveTextContent(
-      "project-beta",
-    );
+    expect(screen.getByTestId("project-card")).toHaveTextContent("project-beta");
   });
 
   it("wraps around to the first card when going next from the last", async () => {
@@ -203,9 +185,7 @@ describe("ProjectsContainer", () => {
     render(<ProjectsContainer />);
     await user.click(screen.getByRole("button", { name: "Próximo projeto" }));
     await user.click(screen.getByRole("button", { name: "Próximo projeto" }));
-    expect(screen.getByTestId("project-card")).toHaveTextContent(
-      "project-alpha",
-    );
+    expect(screen.getByTestId("project-card")).toHaveTextContent("project-alpha");
   });
 
   it("advances card with ArrowRight key", async () => {
@@ -214,9 +194,7 @@ describe("ProjectsContainer", () => {
     const container = document.querySelector("[tabindex='0']") as HTMLElement;
     container.focus();
     await user.keyboard("{ArrowRight}");
-    expect(screen.getByTestId("project-card")).toHaveTextContent(
-      "project-beta",
-    );
+    expect(screen.getByTestId("project-card")).toHaveTextContent("project-beta");
   });
 
   it("goes to previous card with ArrowLeft key", async () => {
@@ -226,8 +204,6 @@ describe("ProjectsContainer", () => {
     container.focus();
     await user.keyboard("{ArrowRight}");
     await user.keyboard("{ArrowLeft}");
-    expect(screen.getByTestId("project-card")).toHaveTextContent(
-      "project-alpha",
-    );
+    expect(screen.getByTestId("project-card")).toHaveTextContent("project-alpha");
   });
 });

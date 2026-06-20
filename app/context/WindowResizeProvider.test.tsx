@@ -16,7 +16,7 @@ describe("WindowResizeProvider", () => {
     render(
       <WindowResizeProvider>
         <span>child</span>
-      </WindowResizeProvider>
+      </WindowResizeProvider>,
     );
     expect(screen.getByText("child")).toBeInTheDocument();
   });
@@ -53,7 +53,11 @@ describe("WindowResizeProvider", () => {
 
   it("removes resize listener on unmount", () => {
     const removeSpy = vi.spyOn(window, "removeEventListener");
-    const { unmount } = render(<WindowResizeProvider><span /></WindowResizeProvider>);
+    const { unmount } = render(
+      <WindowResizeProvider>
+        <span />
+      </WindowResizeProvider>,
+    );
     unmount();
     expect(removeSpy).toHaveBeenCalledWith("resize", expect.any(Function));
   });

@@ -28,18 +28,8 @@ const CommonLayout = ({ children }: CommonLayoutProps) => {
             fontSize: 12,
           }}
         >
-          <p>
-            {isLanguagePortuguese
-              ? "Veja a versão mobile"
-              : "Check mobile version"}
-          </p>
-          <Image
-            src={QrCode}
-            alt="QR code"
-            width={100}
-            height={100}
-            className="qr-code"
-          />
+          <p>{isLanguagePortuguese ? "Veja a versão mobile" : "Check mobile version"}</p>
+          <Image src={QrCode} alt="QR code" width={100} height={100} className="qr-code" />
         </div>
       )}
     </div>

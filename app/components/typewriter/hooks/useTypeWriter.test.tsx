@@ -183,10 +183,9 @@ describe("useTypeWriter", () => {
 
   describe("text prop changes", () => {
     it("resets currentText when text prop changes", () => {
-      const { result, rerender } = renderHook(
-        (props: TypeWriterProps) => useTypeWriter(props),
-        { initialProps: defaultProps }
-      );
+      const { result, rerender } = renderHook((props: TypeWriterProps) => useTypeWriter(props), {
+        initialProps: defaultProps,
+      });
 
       advanceByNChars(3, defaultProps.delay);
 
@@ -199,10 +198,9 @@ describe("useTypeWriter", () => {
     });
 
     it("resets isDeleting when text prop changes", () => {
-      const { result, rerender } = renderHook(
-        (props: TypeWriterProps) => useTypeWriter(props),
-        { initialProps: infiniteProps }
-      );
+      const { result, rerender } = renderHook((props: TypeWriterProps) => useTypeWriter(props), {
+        initialProps: infiniteProps,
+      });
 
       advanceByNChars(infiniteProps.text.length, infiniteProps.delay);
       act(() => vi.advanceTimersByTime(2000));
@@ -216,10 +214,9 @@ describe("useTypeWriter", () => {
     });
 
     it("starts typing new text after prop change", () => {
-      const { result, rerender } = renderHook(
-        (props: TypeWriterProps) => useTypeWriter(props),
-        { initialProps: defaultProps }
-      );
+      const { result, rerender } = renderHook((props: TypeWriterProps) => useTypeWriter(props), {
+        initialProps: defaultProps,
+      });
 
       rerender({ ...defaultProps, text: "Hi" });
 

@@ -42,7 +42,12 @@ describe("Information", () => {
     });
 
     it("sets English greeting message", () => {
-      expect(info._greetingMessage).toEqual(["Hello!", "My name is", " Bianca", "and this is my portfolio!"]);
+      expect(info._greetingMessage).toEqual([
+        "Hello!",
+        "My name is",
+        " Bianca",
+        "and this is my portfolio!",
+      ]);
     });
   });
 
@@ -50,11 +55,18 @@ describe("Information", () => {
     const info = new Information("en");
 
     it("sets English profile picture alt text", () => {
-      expect(info._profilePictureAltText).toBe("I am a woman with dark brown eyes and hair and I am wearing a black and gray T-shirt.");
+      expect(info._profilePictureAltText).toBe(
+        "I am a woman with dark brown eyes and hair and I am wearing a black and gray T-shirt.",
+      );
     });
 
     it("sets English greeting message array", () => {
-      expect(info._greetingMessage).toEqual(["Hello!", "My name is", " Bianca", "and this is my portfolio!"]);
+      expect(info._greetingMessage).toEqual([
+        "Hello!",
+        "My name is",
+        " Bianca",
+        "and this is my portfolio!",
+      ]);
     });
 
     it("sets English about me text with 2 paragraphs", () => {
@@ -107,11 +119,18 @@ describe("Information", () => {
     const info = new Information("pt");
 
     it("sets Portuguese profile picture alt text", () => {
-      expect(info._profilePictureAltText).toBe("Sou uma mulher de cabelos e olhos escuros e estou usando uma camiseta cinza e preta.");
+      expect(info._profilePictureAltText).toBe(
+        "Sou uma mulher de cabelos e olhos escuros e estou usando uma camiseta cinza e preta.",
+      );
     });
 
     it("sets Portuguese greeting message array", () => {
-      expect(info._greetingMessage).toEqual(["Olá!", "Meu nome é", " Bianca", "e esse é meu portfolio!"]);
+      expect(info._greetingMessage).toEqual([
+        "Olá!",
+        "Meu nome é",
+        " Bianca",
+        "e esse é meu portfolio!",
+      ]);
     });
 
     it("sets Portuguese about me text with 2 paragraphs", () => {

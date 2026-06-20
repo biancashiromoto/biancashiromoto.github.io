@@ -55,12 +55,21 @@ describe("useProximityTextColor", () => {
 
       // Place the span at a known position
       vi.spyOn(span, "getBoundingClientRect").mockReturnValue({
-        left: 45, top: 45, width: 10, height: 10,
-        right: 55, bottom: 55, x: 45, y: 45, toJSON: () => {},
+        left: 45,
+        top: 45,
+        width: 10,
+        height: 10,
+        right: 55,
+        bottom: 55,
+        x: 45,
+        y: 45,
+        toJSON: () => {},
       });
 
       // Mouse exactly over the span center (50, 50) — distance = 0
-      container.dispatchEvent(new MouseEvent("mousemove", { clientX: 50, clientY: 50, bubbles: true }));
+      container.dispatchEvent(
+        new MouseEvent("mousemove", { clientX: 50, clientY: 50, bubbles: true }),
+      );
 
       expect(span.style.color).toBe("cyan");
       expect(span.style.fontWeight).toBe("600");
@@ -73,12 +82,21 @@ describe("useProximityTextColor", () => {
       span.style.color = "cyan";
 
       vi.spyOn(span, "getBoundingClientRect").mockReturnValue({
-        left: 0, top: 0, width: 10, height: 10,
-        right: 10, bottom: 10, x: 0, y: 0, toJSON: () => {},
+        left: 0,
+        top: 0,
+        width: 10,
+        height: 10,
+        right: 10,
+        bottom: 10,
+        x: 0,
+        y: 0,
+        toJSON: () => {},
       });
 
       // Mouse far away — distance >> 10
-      container.dispatchEvent(new MouseEvent("mousemove", { clientX: 500, clientY: 500, bubbles: true }));
+      container.dispatchEvent(
+        new MouseEvent("mousemove", { clientX: 500, clientY: 500, bubbles: true }),
+      );
 
       expect(span.style.color).toBe("");
       expect(span.style.fontWeight).toBe("normal");

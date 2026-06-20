@@ -9,7 +9,9 @@ vi.mock("next/image", () => ({
 
 vi.mock("next/link", () => ({
   default: ({ href, children, ...props }: any) => (
-    <a href={href} {...props}>{children}</a>
+    <a href={href} {...props}>
+      {children}
+    </a>
   ),
 }));
 
@@ -41,7 +43,7 @@ describe("ProjectCard", () => {
     render(<ProjectCard repo={defaultRepo} />);
     expect(screen.getByRole("link", { name: "View on GitHub" })).toHaveAttribute(
       "href",
-      "https://github.com/biancashiromoto/my-project"
+      "https://github.com/biancashiromoto/my-project",
     );
   });
 
@@ -49,7 +51,7 @@ describe("ProjectCard", () => {
     render(<ProjectCard repo={defaultRepo} />);
     expect(screen.getByRole("link", { name: "View deploy" })).toHaveAttribute(
       "href",
-      "https://my-project.vercel.app"
+      "https://my-project.vercel.app",
     );
   });
 

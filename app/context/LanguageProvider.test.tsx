@@ -33,7 +33,7 @@ describe("LanguageProvider", () => {
     render(
       <LanguageProvider>
         <span>content</span>
-      </LanguageProvider>
+      </LanguageProvider>,
     );
     expect(screen.getByTestId("loader")).toBeInTheDocument();
     expect(screen.queryByText("content")).not.toBeInTheDocument();
@@ -43,7 +43,7 @@ describe("LanguageProvider", () => {
     render(
       <LanguageProvider>
         <span>content</span>
-      </LanguageProvider>
+      </LanguageProvider>,
     );
     act(() => vi.advanceTimersByTime(LOADING_DELAY));
     expect(screen.getByText("content")).toBeInTheDocument();

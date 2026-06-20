@@ -4,14 +4,14 @@ import LanguageSwitch from "../language-switch/language-switch";
 import { usePathname } from "next/navigation";
 
 const Header = () => {
-	const pathname = usePathname();
+  const pathname = usePathname();
 
-	return (
-		<header className={styles.header}>
-			<LanguageSwitch />
-			{pathname !== "/home" && <ProgressBar />}
-		</header>
-	);
+  return (
+    <header className={styles.header}>
+      <LanguageSwitch />
+      {pathname !== "/home" && <ProgressBar />}
+    </header>
+  );
 };
 
 export default Header;
