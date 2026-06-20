@@ -267,3 +267,4 @@ import Utils from "@/app/helpers/classes/Utils";
 4. Place the test file next to the source file
 5. Run `npm run coverage` to verify the threshold is met for that file
 6. Run `npm run build` to verify no type errors were introduced in the test file
+7. Run `npx tsc --noEmit` to verify no type errors were introduced in the test file

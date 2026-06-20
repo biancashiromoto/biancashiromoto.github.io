@@ -10,8 +10,8 @@ vi.mock("@/app/context/WindowResizeProvider", () => ({
 
 const mockUseWindowResize = vi.mocked(useWindowResize);
 
-const desktopContext = { isDesktop: true, windowWidth: 1200 };
-const mobileContext = { isDesktop: false, windowWidth: 375 };
+const desktopContext = { isDesktop: true, width: 1200 };
+const mobileContext = { isDesktop: false, width: 375 };
 
 // Wrapper component that attaches the ref to a real DOM element,
 // letting the effect run with a non-null container.
