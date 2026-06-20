@@ -14,16 +14,6 @@
     "coverage": "vitest run --coverage",
     "prepare": "husky"
   },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "prettier --write",
-      "next lint --fix",
-      "vitest related --run"
-    ],
-    "*.{json,scss,css,md}": [
-      "prettier --write"
-    ]
-  },
   "dependencies": {
     "@tanstack/react-query": "^5.83.0",
     "class-variance-authority": "^0.7.0",
